@@ -7,9 +7,9 @@ We are a team based in the [School of Computing, National University of Singapor
 
 ## Project team
 
-### John Doe
+### Ravern Koh
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/prof.png" width="200px">
 
 [[homepage](http://www.comp.nus.edu.sg/~damithch)]
 [[github](https://github.com/johndoe)]
@@ -17,9 +17,9 @@ We are a team based in the [School of Computing, National University of Singapor
 
 * Role: Project Advisor
 
-### Jane Doe
+### Amos Ting
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/prof.png" width="200px">
 
 [[github](http://github.com/johndoe)]
 [[portfolio](team/johndoe.md)]
@@ -27,18 +27,18 @@ We are a team based in the [School of Computing, National University of Singapor
 * Role: Team Lead
 * Responsibilities: UI
 
-### Johnny Doe
+### Heng Yi
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/prof.png" width="200px">
 
 [[github](http://github.com/johndoe)] [[portfolio](team/johndoe.md)]
 
 * Role: Developer
 * Responsibilities: Data
 
-### Jean Doe
+### Nabonita Sen
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/prof.png" width="200px">
 
 [[github](http://github.com/johndoe)]
 [[portfolio](team/johndoe.md)]
@@ -46,9 +46,9 @@ We are a team based in the [School of Computing, National University of Singapor
 * Role: Developer
 * Responsibilities: Dev Ops + Threading
 
-### James Doe
+### Amy Ling
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/prof.png" width="200px">
 
 [[github](http://github.com/johndoe)]
 [[portfolio](team/johndoe.md)]
