@@ -22,7 +22,7 @@ We are a team based in the [School of Computing, National University of Singapor
 <img src="images/prof.png" width="200px">
 
 [[github](http://github.com/johndoe)]
-[[portfolio](team/Amos.md)]
+[[portfolio](team/johndoe.md)]
 
 * Role: Team Lead
 * Responsibilities: UI
@@ -31,7 +31,7 @@ We are a team based in the [School of Computing, National University of Singapor
 
 <img src="images/prof.png" width="200px">
 
-[[github](http://github.com/johndoe)] [[portfolio](team/Amos.md)]
+[[github](http://github.com/johndoe)] [[portfolio](team/johndoe.md)]
 
 * Role: Developer
 * Responsibilities: Data
@@ -41,7 +41,7 @@ We are a team based in the [School of Computing, National University of Singapor
 <img src="images/prof.png" width="200px">
 
 [[github](http://github.com/johndoe)]
-[[portfolio](team/Amos.md)]
+[[portfolio](team/johndoe.md)]
 
 * Role: Developer
 * Responsibilities: Dev Ops + Threading
@@ -51,7 +51,7 @@ We are a team based in the [School of Computing, National University of Singapor
 <img src="images/prof.png" width="200px">
 
 [[github](http://github.com/johndoe)]
-[[portfolio](team/Amos.md)]
+[[portfolio](team/johndoe.md)]
 
 * Role: Developer
 * Responsibilities: UI
