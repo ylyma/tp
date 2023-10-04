@@ -35,6 +35,6 @@ TAFinder is a desktop resource management application used by NUS SOC professors
 
 * **Contributions to the Developer Guide (Extracts)**:
   * Reproduce the parts in the Developer Guide that you wrote. Alternatively, you can show the various diagrams you contributed.
-  
+
 * **Contributions to the User Guide (Extracts)**:
   * Reproduce the parts in the User Guide that you wrote.
