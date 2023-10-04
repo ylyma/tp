@@ -3,7 +3,7 @@ layout: page
 title: User Guide
 ---
 
-AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB3 can get your contact management tasks done faster than traditional GUI apps.
+**TAFinder** is a powerful and user-friendly **desktop application designed to simplify the complex task of managing Teaching Assistant (TA) applicants**. Tailored for the needs of NUS SOC professors, TAFinder provides a comprehensive solution to streamline the TA selection process, ensuring that educators can efficiently evaluate, compare, and interact with potential TAs. With a range of essential features and the ability to customize the TA applicant list, TAFinder empowers NUS SOC professors to make well-informed decisions, save valuable time, and enhance the overall efficiency of their academic endeavors.
 
 * Table of Contents
 {:toc}
@@ -14,11 +14,11 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-1. Download the latest `addressbook.jar` from [here](https://github.com/se-edu/addressbook-level3/releases).
+1. Download the latest `tafinder.jar` from [here]().
 
-1. Copy the file to the folder you want to use as the _home folder_ for your AddressBook.
+1. Copy the file to the folder you want to use as the _home folder_ for your TAFinder.
 
-1. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar addressbook.jar` command to run the application.<br>
+1. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar tafinder.jar` command to run the application.<br>
    A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    ![Ui](images/Ui.png)
 
@@ -63,95 +63,123 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
 </div>
 
-### Viewing help : `help`
+---
 
-Shows a message explaning how to access the help page.
+# Features
 
-![help message](images/helpMessage.png)
+## **1. Basic applicant management**
 
-Format: `help`
+### a.
 
+---
 
-### Adding a person: `add`
+### b.
 
-Adds a person to the address book.
+---
 
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
+### c. Editing an applicant: `edit`
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A person can have any number of tags (including 0)
-</div>
+![edit function UI](images/editUI.png)
 
-Examples:
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
-* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
+<aside>
+⭐ Edits an existing applicant in the list of applicants.
 
-### Listing all persons : `list`
+</aside>
 
-Shows a list of all persons in the address book.
+**Format:** `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…`
 
-Format: `list`
+- `INDEX`: The index of the applicant to edit. The index must be a positive integer (e.g., 1, 2, 3…).
+- `[optional fields]`: **At least one** of the following optional fields must be provided for editing:
+    - **`n/NAME`**: Name of the applicant.
+    - **`p/PHONE`**: Phone number of the applicant.
+    - **`e/EMAIL`**: Email address of the applicant.
+    - **`g/GPA`**: GPA of the applicant.
+    - **`t/TAG`**: Tags of the applicant. Note that editing tags will replace existing tags; it is not cumulative.
+    - To remove all existing tags, use **`t/`** without specifying any tags after it.
 
-### Editing a person : `edit`
+**Examples:**
 
-Edits an existing person in the address book.
+- **`edit 1 p/91234567 e/johndoe@example.com`**
+    - Edits the phone number and email address of the 1st person to be **`91234567`** and **`johndoe@example.com`**, respectively.
+- **`edit 2 n/Betsy Crower t/`**
+    - Edits the name of the 2nd person to be **`Betsy Crower`** and clears all existing tags.
 
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
+**Expected Outputs:**
 
-* Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
-* At least one of the optional fields must be provided.
-* Existing values will be updated to the input values.
-* When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
-* You can remove all the person’s tags by typing `t/` without
-    specifying any tags after it.
+- The applicant's information is updated with the provided values.
+- Confirmation message: **`"Applicant at INDEX edited successfully."`**
 
-Examples:
-*  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
-*  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
+**Errors:**
 
-### Locating persons by name: `find`
+- Missing index: **`"Error: Missing index. Please follow the format: edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…"`**
+- Invalid index: **`"Error: Invalid index. Please enter an index within the valid range."`**
+- Missing fields: **`"Error: No fields provided for editing. Please provide at least one of the following fields: [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…"`**
+- Invalid fields: **`"Error: Invalid field format. Please follow the format: [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…"`**
 
-Finds persons whose names contain any of the given keywords.
+---
 
-Format: `find KEYWORD [MORE_KEYWORDS]`
+### d.
 
-* The search is case-insensitive. e.g `hans` will match `Hans`
-* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
-* Only the name is searched.
-* Only full words will be matched e.g. `Han` will not match `Hans`
-* Persons matching at least one keyword will be returned (i.e. `OR` search).
-  e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
+---
 
-Examples:
-* `find John` returns `john` and `John Doe`
-* `find alex david` returns `Alex Yeoh`, `David Li`<br>
-  ![result for 'find alex david'](images/findAlexDavidResult.png)
+### e.
 
-### Deleting a person : `delete`
+---
 
-Deletes the specified person from the address book.
+## **2. Applicant evaluation & comparison**
 
-Format: `delete INDEX`
+### a.
 
-* Deletes the person at the specified `INDEX`.
-* The index refers to the index number shown in the displayed person list.
-* The index **must be a positive integer** 1, 2, 3, …​
+---
 
-Examples:
-* `list` followed by `delete 2` deletes the 2nd person in the address book.
-* `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
+### **b. Compare 2 applicants: `compare`**
 
-### Clearing all entries : `clear`
+![compare function UI](images/compareUI.png)
 
-Clears all entries from the address book.
+<aside>
+⭐  Compares two applicants side by side to make informed decisions.
 
-Format: `clear`
+</aside>
 
-### Exiting the program : `exit`
+**Format:** **`compare INDEX1 INDEX2`**
 
-Exits the program.
+- **`INDEX1`**: The index of the first applicant to compare.
+- **`INDEX2`**: The index of the second applicant to compare.
+- Both indices must be a positive integer (e.g., 1, 2, 3…), and should not be the same.
 
-Format: `exit`
+**Examples:**
+
+- **`compare 1 2`**
+    - Compares the first and second applicants.
+
+**Expected Output:**
+
+- A side-by-side comparison of the two applicants is displayed in a user-friendly format. This comparison will include various TA selection criteria such as name, GPA, CCA count, Interview Performance Rating (IPR), tags, etc.
+- The system highlights the differences between the two applicants, making it easy to see variations in their profiles.
+
+**Errors:**
+
+- Missing or invalid indices: **`"Error: Please provide valid indices for both applicants. Follow the format: compare INDEX1 INDEX2."`**
+- Applicant not found: **`"Error: One or both of the specified applicants were not found in the list."`**
+- Comparing the same applicant: **`"Error: Please provide distinct indices. You cannot compare the same applicant."`**
+
+### c.
+
+---
+
+### d.
+
+---
+
+## **3. Data management & export**
+
+### a.
+
+---
+
+### b.
+
+---
 
 ### Saving the data
 
