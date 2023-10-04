@@ -39,7 +39,7 @@ title: User Guide
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Features
+# Features
 
 <div markdown="block" class="alert alert-info">
 
@@ -64,8 +64,6 @@ title: User Guide
 </div>
 
 ---
-
-# Features
 
 ## **1. Basic applicant management**
 
