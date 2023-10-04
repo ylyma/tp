@@ -9,49 +9,50 @@ We are a team based in the [School of Computing, National University of Singapor
 
 ### Ravern Koh
 
-<img src="images/prof.png" width="200px">
+<img src="images/ravern.png" width="200px">
 
-[[homepage](http://www.comp.nus.edu.sg/~damithch)]
-[[github](https://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
-
-* Role: Project Advisor
-
-### Amos Ting
-
-<img src="images/prof.png" width="200px">
-
-[[github](http://github.com/amosting)]
-[[portfolio](team/amosting.md)]
+[[github](https://github.com/ravern)]
+[[portfolio](team/ravern.md)]
 
 * Role: Team Lead
 * Responsibilities: UI
 
+### Amos Ting
+
+<img src="images/amosting.png" width="200px">
+
+[[github](http://github.com/amosting)]
+[[portfolio](team/amosting.md)]
+
+* Role: Testing
+* Responsibilities: UI
+
 ### Heng Yi
 
-<img src="images/prof.png" width="200px">
+<img src="images/lheng1.png" width="200px">
 
-[[github](http://github.com/johndoe)] [[portfolio](team/johndoe.md)]
+[[github](http://github.com/lheng1)] 
+[[portfolio](team/lheng1.md)]
 
-* Role: Developer
-* Responsibilities: Data
+* Role: Code Quality
+* Responsibilities: Model
 
 ### Nabonita Sen
 
-<img src="images/prof.png" width="200px">
+<img src="images/nabonitasen.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](http://github.com/nabonitasen)]
+[[portfolio](team/nabonitasen.md)]
 
-* Role: Developer
-* Responsibilities: Dev Ops + Threading
+* Role: Deliverables and Deadlines
+* Responsibilities: Model
 
 ### Amy Ling
 
-<img src="images/prof.png" width="200px">
+<img src="images/ylyma.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](http://github.com/ylyma)]
+[[portfolio](team/ylyma.md)]
 
-* Role: Developer
-* Responsibilities: UI
+* Role: Documentation
+* Responsibilities: Storage
