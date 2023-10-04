@@ -67,7 +67,17 @@ title: User Guide
 
 ## **1. Basic applicant management**
 
-### a.
+### **a. Listing all applicants: `list`**
+
+<aside>
+⭐  Shows a list of all applicants.
+
+</aside>
+
+**Format:** **`list`**
+
+- **`list-hidden`** Shows a list of all hidden applicants.
+- **`list-bookmarked`** Shows a list of all bookmarked applicants.
 
 ---
 
@@ -120,7 +130,42 @@ title: User Guide
 
 ---
 
-### e.
+### e. Viewing the details of an applicant: `view`
+
+![edit function UI](images/viewUI.png)
+
+<aside>
+⭐ Displays all details of a specific applicant.
+
+</aside>
+
+**Format:** `view INDEX`
+
+- `INDEX`: The index corresponding to the applicant whose details are to be displayed. The index must be a positive integer (e.g., 1, 2, 3…).
+
+**Examples:**
+
+- **`view 3`**
+    - Displays the following details about the third applicant.
+      - Name
+      - Phone number
+      - Email Address
+      - GPA
+      - Tags
+
+**Expected Outputs:**
+
+- All details of an applicant in the following format:\
+    `Name: John Doe`\
+    `Phone Number: 91234567`\
+    `Email Address: johndoe@example.come`\
+    `GPA: 5.0`\
+    `Tags: past TA, dean's list`
+
+**Errors:**
+
+- Missing index: **`"Error: Missing index. Please follow the format: 'view INDEX'."`**
+- Index out of range: **`"Error: Invalid index. Please enter an index within range."`**
 
 ---
 
@@ -161,7 +206,37 @@ title: User Guide
 - Applicant not found: **`"Error: One or both of the specified applicants were not found in the list."`**
 - Comparing the same applicant: **`"Error: Please provide distinct indices. You cannot compare the same applicant."`**
 
-### c.
+---
+
+### **c. Bookmarking/Unbookmarking applicants: `bookmark/unbookmark`**
+
+![bookmark function UI](images/bookmarkUI.png)
+
+<aside>
+⭐  Bookmarks/Unbookmarks a specific applicant.
+
+</aside>
+
+**Format:** **`bookmark INDEX` / `unbookmark INDEX`**
+
+- **`INDEX`**: The index corresponding to the applicant to be bookmarked/unbookmarked. The index must be a positive integer (e.g., 1, 2, 3…).
+
+**Examples:**
+
+- **`bookmark 3`**
+    - Bookmarks the third applicant.
+- **`unbookmark 3`**
+    - Unbookmarks the third applicant.
+
+**Expected Output:**
+
+- Applicant corresponding to the given index is bookmarked/unbookmarked.
+- Confirmation message: `"Applicant at index INDEX has been successfully bookmarked/unbookmarked."`
+
+**Errors:**
+
+- Missing index: **`"Error: Missing index. Please follow the format: 'view INDEX'."`**
+- Index out of range: **`"Error: Invalid index. Please enter an index within range."`**
 
 ---
 
