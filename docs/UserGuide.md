@@ -71,6 +71,48 @@ Shows a message explaning how to access the help page.
 
 Format: `help`
 
+### d. Adding an applicant: `add`
+
+![add.jpg](images/add.jpg)
+
+<aside>
+⭐ Adds a new applicant to the list of applicants.
+
+</aside>
+
+**Format:** `add [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…`
+
+- **`n/NAME`**: Name of the applicant.
+- **`p/PHONE`**: Phone number of the applicant.
+- **`e/EMAIL`**: Email address of the applicant.
+- **`g/GPA`**: GPA of the applicant.
+- **`t/TAG`**: Tags of the applicant. Note that editing tags will replace existing tags; it is not cumulative.
+
+**Examples:**
+
+- **`add n/john doe p/91234567 e/johndoe@example.com g/5.0 t/past TA, dean's list`**
+    - Adds a person with the following information
+        - Name: John Doe
+        - Phone number: 91234567
+        - Email address: johndoe@example.com
+        - GPA: 5.0
+        - Tags: past TA, dean’s list
+- **`add n/amanda p/89064678 e/amanda@example.com g/4.3`**
+    - Adds a person with the following information
+        - Name: Amanda
+        - Phone number: 89064678
+        - Email address: amanda@example.com
+        - GPA: 4.3
+
+**Expected Outputs:**
+
+- The applicant and applicant’s information has been successfully added
+- Confirmation message: **`"Applicant added successfully with the following details: Name: <name>, Phone Number: <phone number>, Email: <email>, GPA: <gpa>, tags: <tags>"`**
+
+**Errors:**
+
+- Missing fields: **`"Error: Missing fields. Please follow the format: add [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…"`**
+- Repeated applicant: **`"Error: Repeated applicant. Applicant has already been added to the list`**
 
 ### Adding a person: `add`
 
