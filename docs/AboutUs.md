@@ -12,7 +12,7 @@ We are a team based in the [School of Computing, National University of Singapor
 <img src="images/ravern.png" width="200px">
 
 [[github](https://github.com/ravern)]
-[[portfolio](team/johndoe.md)]
+[[portfolio](team/ravern.md)]
 
 * Role: Team Lead
 * Responsibilities: UI
@@ -22,7 +22,7 @@ We are a team based in the [School of Computing, National University of Singapor
 <img src="images/amosting.png" width="200px">
 
 [[github](http://github.com/amosting)]
-[[portfolio](team/johndoe.md)]
+[[portfolio](team/amosting.md)]
 
 * Role: Testing
 * Responsibilities: UI
@@ -31,7 +31,7 @@ We are a team based in the [School of Computing, National University of Singapor
 
 <img src="images/lheng1.png" width="200px">
 
-[[github](http://github.com/lheng1)] [[portfolio](team/johndoe.md)]
+[[github](http://github.com/lheng1)] [[portfolio](team/lheng1.md)]
 
 * Role: Code Quality
 * Responsibilities: Model
@@ -41,7 +41,7 @@ We are a team based in the [School of Computing, National University of Singapor
 <img src="images/nabonitasen.png" width="200px">
 
 [[github](http://github.com/nabonitasen)]
-[[portfolio](team/johndoe.md)]
+[[portfolio](team/nabonitasen.md)]
 
 * Role: Deliverables and Deadlines
 * Responsibilities: Model
@@ -51,7 +51,7 @@ We are a team based in the [School of Computing, National University of Singapor
 <img src="images/ylyma.png" width="200px">
 
 [[github](http://github.com/ylyma)]
-[[portfolio](team/johndoe.md)]
+[[portfolio](team/ylyma.md)]
 
 * Role: Documentation
 * Responsibilities: Storage
