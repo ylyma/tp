@@ -283,30 +283,58 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is `TAFinder` and the **Actor** is `NUS SOC professor`, unless specified otherwise)
 
-**Use case: Delete a person**
+**UC01 - Edit an applicant**
+
+**Preconditions:**
+
+* User is logged into the system.
+* There is at least one applicant in the list.
 
 **MSS**
 
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+1. User requests to edit an applicant's information.
+2. System requests the index of the applicant to edit.
+3. User specifies the index and information.
+4. System validates the input.
+5. System updates the applicant's information.
+6. System shows the updated list of applicants.
 
     Use case ends.
 
 **Extensions**
 
-* 2a. The list is empty.
+* 4a. The given index or information is invalid.
 
-  Use case ends.
-
-* 3a. The given index is invalid.
-
-    * 3a1. AddressBook shows an error message.
+    * 4a1. System shows an error message.
 
       Use case resumes at step 2.
+
+
+**UC02 - Compare Two Applicants**
+
+**Preconditions:**
+
+* User is logged into the system.
+* There are at least two applicants in the list.
+
+**MSS**
+
+1. User requests to compare two applicants.
+2. System requests the indices of the first and second applicants to compare.
+3. User specifies the indices.
+4. System validates the input.
+5. System retrieves the information of both applicants.
+   
+   Use case ends.
+
+**Extensions:**
+
+* 4a. The given indices are missing or invalid.
+   * 4a1. System shows an error message
+   
+   Use case resumes at step 2.
 
 *{More to be added}*
 
