@@ -22,7 +22,7 @@ We are a team based in the [School of Computing, National University of Singapor
 <img src="images/prof.png" width="200px">
 
 [[github](http://github.com/johndoe)]
-[[portfolio](team/amos.md)]
+[[portfolio](team/amosting.md)]
 
 * Role: Team Lead
 * Responsibilities: UI
