@@ -114,10 +114,6 @@ Format: `help`
 - Missing fields: **`"Error: Missing fields. Please follow the format: add [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…"`**
 - Repeated applicant: **`"Error: Repeated applicant. Applicant has already been added to the list`**
 
-
-
-
-
 ### Adding a person: `add`
 
 Adds a person to the address book.
