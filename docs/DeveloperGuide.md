@@ -257,27 +257,75 @@ _{Explain here how the data archiving feature will be implemented}_
 
 **Target user profile**:
 
-* has a need to manage a significant number of contacts
-* prefer desktop apps over other types
-* can type fast
-* prefers typing to mouse interactions
-* is reasonably comfortable using CLI apps
+* **University Professors**, specifically:
+   * Tech-savvy
+   * Within NUS SoC
+   * Responsible for selecting student TAs 
+   * Managing a significant number of TA applicants
+   * Can type fast
+   * Prefers typing over all other means of input
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
+**Value proposition**:
+
+* **Efficient TA Selection:**
+  * Simplify the process of identifying and selecting qualified TAs within NUS SoC. Find the most suitable TAs from a diverse pool of applicants efficiently.
+
+* **Enhanced Convenience:**
+  * Conveniently connect with students and potential TAs, streamlining communication and making the TA selection process smoother.
+
+* **Effective Evaluation:**
+  * Assess TA applicants based on a range of holistic rubrics, including grades, student life involvement, past TA experiences, etc.
 
 
-### User stories
+### User Stories
 
-Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
+#### High Priority (Must-Have)
 
-| Priority | As a …​                                    | I want to …​                     | So that I can…​                                                        |
-| -------- | ------------------------------------------ | ------------------------------ | ---------------------------------------------------------------------- |
-| `* * *`  | new user                                   | see usage instructions         | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person               |                                                                        |
-| `* * *`  | user                                       | delete a person                | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |
+| As a...                        | I want to...                                        | So that I can...                                      |
+| ------------------------------ | -------------------------------------------------- | ---------------------------------------------------- |
+| NUS SOC professor              | add a TA applicant and details to the list         | see the TA applicant in the list                      |
+| NUS SOC professor              | hide a TA applicant from the list                  | narrow down the list of applicants for review         |
+| NUS SOC professor              | edit the details of a TA applicant                 | keep their information up-to-date or correct errors    |
+| NUS SOC professor              | click to view the full details of a TA applicant    | determine if they’re a fit for the position accordingly |
+| NUS SOC professor              | search for a specific TA applicant by name or details | easily find their information without scrolling        |
+| NUS SOC professor              | delete a TA applicant                               | remove entries that are no longer needed               |
+
+#### Medium Priority (Nice-to-Have)
+
+| As a...                        | I want to...                                              | So that I can...                                            |
+| ------------------------------ | -------------------------------------------------------- | --------------------------------------------------------- |
+| NUS SOC professor who wants the best for my students              | sort TA applicants by grades or other factors             | find the best TA applicant for my module                   |
+| NUS SOC professor              | add comments/notes for myself on a TA applicant          | refer to them when comparing applicants                     |
+| NUS SOC professor              | export the list of TA applicants to a spreadsheet        | easily share the list with colleagues or refer to it offline |
+| NUS SOC professor              | compare between two TA applicants on the same screen     | make a final decision on selecting the TA for my module     |
+| NUS SOC professor              | rate and provide feedback on TA applicants after interviews or assessments | collaborate with colleagues on the hiring decision.   |
+| NUS SOC professor              | attach files (e.g., resumes) to TA applicant profiles       | keep all pertinent information in one place.                  |
+
+#### Low Priority (Unlikely to Have)
+
+| As a...                        | I want to...                                                | So that I can...                                              |
+| ------------------------------ | ---------------------------------------------------------- | ----------------------------------------------------------- |
+| NUS SOC professor              | set up automated notifications for when new TA applicants apply | stay informed without constantly checking the list.        |
+| NUS SOC professor              | send TA applicants invitations and reminders                | schedule interviews with TA applicants directly through the system. |
+| NUS SOC professor              | track the progress and performance of hired TAs throughout the semester | provide feedback and assess their contributions.      |
+| NUS SOC professor              | filter applicants by availability and schedule             | match them with suitable time slots for my module            |
+| NUS SOC professor              | set up automatic reminders for TA performance evaluations | stay organized and proactive in managing my teaching assistants. |
+| NUS SOC professor              | track the number of applicants for each TA position       | gauge the level of interest and competition for specific roles. |
+| NUS SOC professor              | archive or store past TA applicant data                   | reference them in future semesters or academic years.       |
+| NUS SOC professor              | sort the list of TA applicants by their application status | streamline the selection process.                            |
+| NUS SOC professor              | archive previous TA applicant profiles                     | maintain a historical record of applicants.                   |
+| NUS SOC professor              | create and manage multiple TA applicant lists               | keep information organized for different modules or terms.   |
+| NUS SOC professor              | batch process approvals or rejections of TA applications     | save time during the selection process.                        |
+| NUS SOC professor              | access a help feature within the platform                   | understand how to use different functionalities efficiently.  |
+| NUS SOC professor              | customize the appearance and layout of the TA applicant list | enhance the user experience.                                  |
+| NUS SOC professor              | flag TA applicants for further review                       | remember to revisit certain profiles as the process continues. |
+| NUS SOC professor              | generate reports summarizing TA applicant data              | easier overview and presentation to department heads or committees. |
+| NUS SOC professor              | retrieve deleted or archived TA applicant data              | recover information if needed.                                |
+| NUS SOC professor              | access a log of all actions performed on the system          | enhance security and accountability.                          |
+| NUS SOC professor              | receive recommendations on TA applicants based on AI analysis | facilitate a smarter selection process.                       |
+| NUS SOC professor              | import a spreadsheet of TA applicants to my module       | save time by not adding them individually                    |
+| NUS SOC professor              | search for a TA applicant using an identifier             | contact the TA directly if needed                            |
+
 
 *{More to be added}*
 
