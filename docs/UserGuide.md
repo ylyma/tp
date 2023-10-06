@@ -81,7 +81,37 @@ title: User Guide
 
 ---
 
-### b.
+### b. Hiding an applicant from list: `hide`/`unhide`
+
+![hide function UI](images/hideUI.png)
+<aside>
+⭐ Hides/unhides an applicant from the list of applicants.
+
+</aside>
+
+**Format:** `hide INDEX` / `unhide INDEX`
+
+- Hides/unhides the applicant at the specified INDEX from all future lists. The index refers to the number shown in the displayed person list.
+  - The index must be a positive integer 1, 2, 3...
+- `unhide-all` unhides all applicants that were previously hidden.
+
+**Examples:**
+
+- **`hide 2`**
+  - Hides the applicant at index 2
+- **`unhide 2`**
+  - Unhides the applicant at index 2
+- **`unhide-all`**
+  - Unhides all applicants
+
+**Expected Outputs:**
+
+- Confirmation message: `APPLICANT_NAME hidden successfully.`
+
+**Errors:**
+
+- Missing index: **`"Error: Missing index. Please follow the format: hide INDEX"`**
+- Index out of range: **`“Error: Invalid index. Please enter an index within range”`**
 
 ---
 
@@ -171,8 +201,25 @@ title: User Guide
 
 ## **2. Applicant evaluation & comparison**
 
-### a.
+### a. Sorting applicants by grades: `sort-gpa`
 
+![sort function UI](images/sortUI.png)
+
+<aside>
+⭐  Sorts applicants by grades in descending order
+
+</aside>
+
+**Format:** **`sort-gpa`**
+
+**Expected Output:**
+
+- A list of applicants sorted by grades in descending order.
+
+**Errors:**
+
+- Empty list: `"Error: Empty list. No applicants to sort."`
+- 
 ---
 
 ### **b. Compare 2 applicants: `compare`**
@@ -287,12 +334,12 @@ _Details coming soon ..._
 
 ## Command summary
 
-Action | Format, Examples
---------|------------------
-**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
-**Clear** | `clear`
-**Delete** | `delete INDEX`<br> e.g., `delete 3`
-**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
-**Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
-**List** | `list`
-**Help** | `help`
+| Action     | Format, Examples                                                                                                                                                      |
+|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague` |
+| **Clear**  | `clear`                                                                                                                                                               |
+| **Delete** | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                   |
+| **Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                           |
+| **Find**   | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                            |
+| **List**   | `list`                                                                                                                                                                |
+| **Help**   | `help`                                                                                                                                                                |
