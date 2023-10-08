@@ -72,7 +72,52 @@ title: User Guide
 <aside>
 ⭐  Shows a list of all applicants.
 
+<<<<<<< HEAD
 </aside>
+=======
+### d. Adding an applicant: `add`
+
+![add.jpg](images/add.jpg)
+
+<aside>
+⭐ Adds a new applicant to the list of applicants.
+
+</aside>
+
+**Format:** `add [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…`
+
+- **`n/NAME`**: Name of the applicant.
+- **`p/PHONE`**: Phone number of the applicant.
+- **`e/EMAIL`**: Email address of the applicant.
+- **`g/GPA`**: GPA of the applicant.
+- **`t/TAG`**: Tags of the applicant. Note that editing tags will replace existing tags; it is not cumulative.
+
+**Examples:**
+
+- **`add n/john doe p/91234567 e/johndoe@example.com g/5.0 t/past TA, dean's list`**
+    - Adds a person with the following information
+        - Name: John Doe
+        - Phone number: 91234567
+        - Email address: johndoe@example.com
+        - GPA: 5.0
+        - Tags: past TA, dean’s list
+- **`add n/amanda p/89064678 e/amanda@example.com g/4.3`**
+    - Adds a person with the following information
+        - Name: Amanda
+        - Phone number: 89064678
+        - Email address: amanda@example.com
+        - GPA: 4.3
+
+**Expected Outputs:**
+
+- The applicant and applicant’s information has been successfully added
+- Confirmation message: **`"Applicant added successfully with the following details: Name: <name>, Phone Number: <phone number>, Email: <email>, GPA: <gpa>, tags: <tags>"`**
+
+**Errors:**
+
+- Missing fields: **`"Error: Missing fields. Please follow the format: add [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…"`**
+- Repeated applicant: **`"Error: Repeated applicant. Applicant has already been added to the list`**
+>>>>>>> user-guide
 
 **Format:** **`list`**
 
@@ -92,6 +137,7 @@ title: User Guide
 <aside>
 ⭐ Edits an existing applicant in the list of applicants.
 
+<<<<<<< HEAD
 </aside>
 
 **Format:** `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…`
@@ -111,6 +157,50 @@ title: User Guide
     - Edits the phone number and email address of the 1st person to be **`91234567`** and **`johndoe@example.com`**, respectively.
 - **`edit 2 n/Betsy Crower t/`**
     - Edits the name of the 2nd person to be **`Betsy Crower`** and clears all existing tags.
+=======
+### d. Adding an applicant: `add`
+
+![add.jpg](images/add.jpg)
+
+<aside>
+⭐ Adds a new applicant to the list of applicants.
+
+</aside>
+
+**Format:** `add [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…`
+
+- **`n/NAME`**: Name of the applicant.
+- **`p/PHONE`**: Phone number of the applicant.
+- **`e/EMAIL`**: Email address of the applicant.
+- **`g/GPA`**: GPA of the applicant.
+- **`t/TAG`**: Tags of the applicant. Note that editing tags will replace existing tags; it is not cumulative.
+
+**Examples:**
+
+- **`add n/john doe p/91234567 e/johndoe@example.com g/5.0 t/past TA, dean's list`**
+    - Adds a person with the following information
+        - Name: John Doe
+        - Phone number: 91234567
+        - Email address: johndoe@example.com
+        - GPA: 5.0
+        - Tags: past TA, dean’s list
+- **`add n/amanda p/89064678 e/amanda@example.com g/4.3`**
+    - Adds a person with the following information
+        - Name: Amanda
+        - Phone number: 89064678
+        - Email address: amanda@example.com
+        - GPA: 4.3
+
+**Expected Outputs:**
+
+- The applicant and applicant’s information has been successfully added
+- Confirmation message: **`"Applicant added successfully with the following details: Name: <name>, Phone Number: <phone number>, Email: <email>, GPA: <gpa>, tags: <tags>"`**
+
+**Errors:**
+
+- Missing fields: **`"Error: Missing fields. Please follow the format: add [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…"`**
+- Repeated applicant: **`"Error: Repeated applicant. Applicant has already been added to the list`**
+>>>>>>> user-guide
 
 **Expected Outputs:**
 
@@ -254,10 +344,34 @@ title: User Guide
 
 ---
 
-### Saving the data
+### d. Add comments on TA applicant: **`comment`**
 
-AddressBook data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+![comments.jpg](images/comment.jpg)
 
+<aside>
+⭐ Add comments on a specific applicant
+
+</aside>
+
+**Format: `comment INDEX COMMENT`**
+
+- `INDEX`: The index corresponding to the applicant to be commented. The index must be a positive integer (e.g., 1, 2, 3…).
+- **`COMMENT`:** The comment to be made about the applicant.
+
+**Examples:**
+
+- `comment 3 This applicant has an OHS disciplinary record`
+    - Comments on the third applicant.
+
+**Expected outputs:**
+
+- Applicant corresponding to the given index is commented.
+- Confirmation message: `"Applicant at index INDEX has been successfully commented on."`
+
+**Errors:**
+
+- Missing index: `**“Error: Missing index. Please follow the format: 'view INDEX'.”**`
+- Index out of range: `**“Error: Invalid index. Please enter an index within range.”**`
 ### Editing the data file
 
 AddressBook data are saved automatically as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
