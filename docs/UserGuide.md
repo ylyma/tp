@@ -361,34 +361,6 @@ title: User Guide
 
 ---
 
-### d. Add comments on TA applicant: **`comment`**
-
-![comments.jpg](images/comment.jpg)
-
-<aside>
-⭐ Add comments on a specific applicant
-
-</aside>
-
-**Format: `comment INDEX COMMENT`**
-
-- `INDEX`: The index corresponding to the applicant to be commented. The index must be a positive integer (e.g., 1, 2, 3…).
-- **`COMMENT`:** The comment to be made about the applicant.
-
-**Examples:**
-
-- `comment 3 This applicant has an OHS disciplinary record`
-    - Comments on the third applicant.
-
-**Expected outputs:**
-
-- Applicant corresponding to the given index is commented.
-- Confirmation message: `"Applicant at index INDEX has been successfully commented on."`
-
-**Errors:**
-
-- Missing index: `**“Error: Missing index. Please follow the format: 'view INDEX'.”**`
-- Index out of range: `**“Error: Invalid index. Please enter an index within range.”**`
 ### Editing the data file
 
 AddressBook data are saved automatically as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
