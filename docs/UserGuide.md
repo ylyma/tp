@@ -246,24 +246,79 @@ title: User Guide
 
 ## **3. Data management & export**
 
-### a.
+### a. Export applicants into spreadsheet
+
+![export function UI](images/exportUI.png)
+
+<aside>
+⭐  Exports the entire list of applicants along with their details into a spreadsheet
+</aside>
+
+**Format:** **`export FILENAME`**
+
+- `FILENAME`: The desired filename of the spreadsheet (including the file extension)
+
+**Examples:**
+
+- `export ta-applicants.csv`
+    - Exports the entire list of applicants in the CSV format to a file called `ta-applicants.csv` in the same directory as the JAR file
+
+**Expected Output:**
+
+- A toast indicating whether the export was successful.
+- If the export wasn’t successful, the reason why it wasn’t successful should be included in the toast.
+
+**Errors:**
+
+- Missing file permissions: **`"Error: No permission to write to file FILENAME."`**
+- Corrupted data: **`"Error: Data is corrupted, failed to write to file FILENAME."`**
+- Any other unexpected error: **`"Error: Unknown error. Please contact the app developer at contact@email.com"`**
 
 ---
 
-### b.
+### b. Attach file to applicant profiles
+
+![attach function UI](images/attachUI.png)
+
+<aside>
+⭐  Attaches local files to the profiles of applicants to provide even more richness and insight into their applications 
+</aside>
+
+**Format:** **`attach INDEX FILEPATH`**
+
+- `INDEX`: The index of the applicant to edit. The index must be a positive integer (e.g., 1, 2, 3…).
+- `FILEPATH`: The desired path of the file to attach to the applicant’s profile. This is relative to the path of the JAR file unless either `/` or `C:\` is at the start of the path, then the path will be treated as an absolute path.
+
+**Examples:**
+
+- `attach 2 john-resume.pdf`
+    - Attaches the file called `john-resume.pdf` in the same directory as the JAR file to the second applicant in the applicant list
+- `attach 78 /home/jennifer/resumes/benson-resume.pdf`
+    - Attaches the file called `benson-resume.pdf` in the directory `/home/jennifer/resumes` to the 78th applicant in the applicant list
+
+**Expected Output:**
+
+- A toast indicating whether the export was successful.
+- If the export wasn’t successful, the reason why it wasn’t successful should be included in the toast.
+
+**Errors:**
+
+- Missing file permissions: **`"Error: No permission to read from file FILEPATH."`**
+- Corrupted data: **`"Error: Data is corrupted, failed to attach file FILEPATH."`**
+- Any other unexpected error: **`"Error: Unknown error. Please contact the app developer at contact@email.com"`**
 
 ---
 
 ### Saving the data
 
-AddressBook data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+TAFinder data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
 ### Editing the data file
 
-AddressBook data are saved automatically as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
+TAFinder data are saved automatically as a JSON file `[JAR file location]/data/tafinder.json`. Advanced users are welcome to update data directly by editing that data file.
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
-If your changes to the data file makes its format invalid, AddressBook will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.
+If your changes to the data file makes its format invalid, TAFinder will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.
 </div>
 
 ### Archiving data files `[coming in v2.0]`
