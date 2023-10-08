@@ -360,7 +360,6 @@ title: User Guide
 ### b.
 
 ---
-
 ### Editing the data file
 
 AddressBook data are saved automatically as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
