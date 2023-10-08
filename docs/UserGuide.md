@@ -69,12 +69,6 @@ title: User Guide
 
 ### **a. Listing all applicants: `list`**
 
-<aside>
-⭐  Shows a list of all applicants.
-
-<<<<<<< HEAD
-</aside>
-=======
 ### d. Adding an applicant: `add`
 
 ![add.jpg](images/add.jpg)
@@ -117,7 +111,6 @@ title: User Guide
 
 - Missing fields: **`"Error: Missing fields. Please follow the format: add [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…"`**
 - Repeated applicant: **`"Error: Repeated applicant. Applicant has already been added to the list`**
->>>>>>> user-guide
 
 **Format:** **`list`**
 
@@ -137,7 +130,6 @@ title: User Guide
 <aside>
 ⭐ Edits an existing applicant in the list of applicants.
 
-<<<<<<< HEAD
 </aside>
 
 **Format:** `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…`
@@ -157,7 +149,7 @@ title: User Guide
     - Edits the phone number and email address of the 1st person to be **`91234567`** and **`johndoe@example.com`**, respectively.
 - **`edit 2 n/Betsy Crower t/`**
     - Edits the name of the 2nd person to be **`Betsy Crower`** and clears all existing tags.
-=======
+
 ### d. Adding an applicant: `add`
 
 ![add.jpg](images/add.jpg)
