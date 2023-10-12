@@ -300,7 +300,7 @@ title: User Guide
 **Errors:**
 
 - Empty list: `"Error: Empty list. No applicants to sort."`
-- 
+
 ---
 
 ### **b. Compare 2 applicants: `compare`**
@@ -435,7 +435,7 @@ title: User Guide
 ![attach function UI](images/attachUI.png)
 
 <aside>
-⭐  Attaches local files to the profiles of applicants to provide even more richness and insight into their applications 
+⭐  Attaches local files to the profiles of applicants to provide even more richness and insight into their applications
 </aside>
 
 **Format:** **`attach INDEX FILEPATH`**

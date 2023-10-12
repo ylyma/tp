@@ -260,7 +260,7 @@ _{Explain here how the data archiving feature will be implemented}_
 * **University Professors**, specifically:
    * Tech-savvy
    * Within NUS SoC
-   * Responsible for selecting student TAs 
+   * Responsible for selecting student TAs
    * Managing a significant number of TA applicants
    * Can type fast
    * Prefers typing over all other means of input
@@ -374,14 +374,14 @@ _{Explain here how the data archiving feature will be implemented}_
 3. User specifies the indices.
 4. System validates the input.
 5. System retrieves the information of both applicants.
-   
+
    Use case ends.
 
 **Extensions:**
 
 * 4a. The given indices are missing or invalid.
    * 4a1. System shows an error message
-   
+
    Use case resumes at step 2.
 
 *{More to be added}*
