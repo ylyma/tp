@@ -1,15 +1,16 @@
 package seedu.address.logic.parser;
 
+import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.HideCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
-import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 /**
  * Parses input arguments and creates a new HideCommand object.
  */
-public class HideCommandParser implements Parser<HideCommand>  {
+public class HideCommandParser implements Parser<HideCommand> {
 
     /**
      * Parses the given {@code String} of arguments in the context of the HideCommand

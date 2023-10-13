@@ -1,17 +1,19 @@
 package seedu.address.logic.commands;
 
+import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+
+import java.util.List;
+
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.person.IsHidden;
 import seedu.address.model.person.IsHiddenPredicate;
 import seedu.address.model.person.Person;
 
-import java.util.List;
-
-import static java.util.Objects.requireNonNull;
-import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 /**
  * Unhides an applicant from the list of all applicants.
@@ -29,15 +31,18 @@ public class UnhideCommand extends Command {
     public static final String MESSAGE_UNHIDE_APPLICANT_SUCCESS = "Applicant %1$s unhidden from lists";
 
     public final Index targetIndex;
-    private final IsHiddenPredicate predicate = new IsHiddenPredicate(false);
 
+    /**
+     * Constructor for UnhideCommand.
+     * @param targetIndex
+     */
     public UnhideCommand(Index targetIndex) {
         requireAllNonNull(targetIndex);
 
         this.targetIndex = targetIndex;
     }
     @Override
-    public CommandResult execute(Model model) throws CommandException{
+    public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
         List<Person> lastShownList = model.getFilteredPersonList();
 
@@ -46,11 +51,21 @@ public class UnhideCommand extends Command {
         }
 
         Person personToUnhide = lastShownList.get(targetIndex.getZeroBased());
-        personToUnhide.unhide();
-        model.updateFilteredPersonList(predicate);
+        model.setPerson(personToUnhide, createUnhiddenPerson(personToUnhide));
+        model.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_UNHIDDEN_PERSONS);
         return new CommandResult(String.format(MESSAGE_UNHIDE_APPLICANT_SUCCESS, Messages.format(personToUnhide)));
     }
 
+    /**
+     * Creates and returns an unhidden {@code Person} with the details of {@code personToUnhide}
+     * @param personToUnhide {@code Person} to unhide
+     * @return {@code Person} with {@code IsHidden} set to false
+     */
+    private static Person createUnhiddenPerson(Person personToUnhide) {
+        assert personToUnhide != null;
+        return new Person(personToUnhide.getName(), personToUnhide.getPhone(), personToUnhide.getEmail(),
+                personToUnhide.getGpa(), personToUnhide.getTags(), new IsHidden(false));
+    }
     @Override
     public boolean equals(Object other) {
         if (other == this) {

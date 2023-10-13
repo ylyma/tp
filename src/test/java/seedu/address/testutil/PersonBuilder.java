@@ -26,6 +26,7 @@ public class PersonBuilder {
     private Email email;
     private Gpa gpa;
     private Set<Tag> tags;
+    private boolean isHidden;
 
     /**
      * Creates a {@code PersonBuilder} with the default details.
@@ -36,6 +37,7 @@ public class PersonBuilder {
         email = new Email(DEFAULT_EMAIL);
         gpa = new Gpa(DEFAULT_GPA);
         tags = new HashSet<>();
+        isHidden = false;
     }
 
     /**
@@ -89,8 +91,15 @@ public class PersonBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code isHidden} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withHidden(boolean isHidden) {
+        this.isHidden = isHidden;
+        return this;
+    }
     public Person build() {
-        return new Person(name, phone, email, gpa, tags);
+        return new Person(name, phone, email, gpa, tags, isHidden);
     }
 
 }

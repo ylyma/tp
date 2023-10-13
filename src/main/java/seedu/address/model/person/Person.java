@@ -24,12 +24,12 @@ public class Person {
     // Data fields
     private final Gpa gpa;
     private final Set<Tag> tags = new HashSet<>();
-    private boolean isHidden;
+    private final IsHidden isHidden;
 
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Gpa gpa, Set<Tag> tags, boolean isHidden) {
+    public Person(Name name, Phone phone, Email email, Gpa gpa, Set<Tag> tags, IsHidden isHidden) {
         requireAllNonNull(name, phone, email, gpa, tags, isHidden);
         this.name = name;
         this.phone = phone;
@@ -63,22 +63,8 @@ public class Person {
         return Collections.unmodifiableSet(tags);
     }
 
-    public boolean getIsHidden() {
+    public IsHidden getIsHidden() {
         return this.isHidden;
-    }
-
-    /**
-     * Hides the person from appearing in lists.
-     */
-    public void hide() {
-        this.isHidden = true;
-    }
-
-    /**
-     * Unhides the person from appearing in lists.
-     */
-    public void unhide() {
-        this.isHidden = false;
     }
 
     /**

@@ -1,9 +1,12 @@
 package seedu.address.model.person;
 
-import seedu.address.commons.util.ToStringBuilder;
-
 import java.util.function.Predicate;
 
+import seedu.address.commons.util.ToStringBuilder;
+
+/**
+ * Tests that a {@code Person}'s isHidden matches the boolean given.
+ */
 public class IsHiddenPredicate implements Predicate<Person> {
     private final boolean isHidden;
 
@@ -13,7 +16,7 @@ public class IsHiddenPredicate implements Predicate<Person> {
 
     @Override
     public boolean test(Person person) {
-        return person.getIsHidden() == this.isHidden;
+        return person.getIsHidden().value == isHidden;
     }
 
     @Override

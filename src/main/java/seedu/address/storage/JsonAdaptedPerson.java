@@ -10,11 +10,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.person.Email;
-import seedu.address.model.person.Gpa;
-import seedu.address.model.person.Name;
-import seedu.address.model.person.Person;
-import seedu.address.model.person.Phone;
+import seedu.address.logic.commands.ListHiddenCommand;
+import seedu.address.model.person.*;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -60,7 +57,7 @@ class JsonAdaptedPerson {
         tags.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
-        isHidden = source.getIsHidden();
+        isHidden = source.getIsHidden().value;
     }
 
     /**
@@ -108,7 +105,9 @@ class JsonAdaptedPerson {
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
 
-        return new Person(modelName, modelPhone, modelEmail, modelGpa, modelTags, isHidden);
+        IsHidden modelIsHidden = new IsHidden(isHidden);
+
+        return new Person(modelName, modelPhone, modelEmail, modelGpa, modelTags, modelIsHidden);
     }
 
 }
