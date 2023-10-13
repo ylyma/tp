@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
- * Represents a Person's Gpa in the address book.
+ * Represents a Person's Grade Point Average (Gpa) in the applicant list.
  * Guarantees: immutable; is valid as declared in {@link #isValidGpa(String)}
  */
 public class Gpa {
@@ -12,17 +12,16 @@ public class Gpa {
     public static final String MESSAGE_CONSTRAINTS = "GPA can take values from 0.0-5.0, and it should not be blank";
 
     /**
-     * The first character of the Gpa must not be a whitespace,
-     * otherwise " " (a blank string) becomes a valid input.
+     * Single digit, followed by a period, followed by one to two digits.
      */
-    public static final String VALIDATION_REGEX = "^(?:[0-4](\\.\\d+)?|5\\.0)$";
+    public static final String VALIDATION_REGEX = "[0-5]\\.[0-9][0-9]?$";
 
     public final String value;
 
     /**
      * Constructs an {@code Gpa}.
      *
-     * @param gpa A valid Gpa.
+     * @param gpa A possible gpa of a person.
      */
     public Gpa(String gpa) {
         requireNonNull(gpa);
