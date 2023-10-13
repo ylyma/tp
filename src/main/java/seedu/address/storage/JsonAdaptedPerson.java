@@ -27,7 +27,7 @@ class JsonAdaptedPerson {
     private final String name;
     private final String phone;
     private final String email;
-    private final String gpa;
+    private final Double gpa;
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
     private final boolean isHidden;
 
@@ -36,8 +36,9 @@ class JsonAdaptedPerson {
      */
     @JsonCreator
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
-            @JsonProperty("email") String email, @JsonProperty("gpa") String gpa,
+            @JsonProperty("email") String email, @JsonProperty("gpa") Double gpa,
             @JsonProperty("tags") List<JsonAdaptedTag> tags, @JsonProperty("isHidden") boolean isHidden) {
+
         this.name = name;
         this.phone = phone;
         this.email = email;

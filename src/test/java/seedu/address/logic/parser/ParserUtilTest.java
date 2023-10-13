@@ -29,7 +29,7 @@ public class ParserUtilTest {
 
     private static final String VALID_NAME = "Rachel Walker";
     private static final String VALID_PHONE = "123456";
-    private static final String VALID_GPA = "5.0";
+    private static final double VALID_GPA = 5.0;
     private static final String VALID_EMAIL = "rachel@example.com";
     private static final String VALID_TAG_1 = "friend";
     private static final String VALID_TAG_2 = "neighbour";
@@ -115,7 +115,7 @@ public class ParserUtilTest {
     @Test
     public void parseAddress_validValueWithoutWhitespace_returnsAddress() throws Exception {
         Gpa expectedGpa = new Gpa(VALID_GPA);
-        assertEquals(expectedGpa, ParserUtil.parseGpa(VALID_GPA));
+        assertEquals(expectedGpa, ParserUtil.parseGpa(Double.toString(VALID_GPA)));
     }
 
     @Test

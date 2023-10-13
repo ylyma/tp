@@ -4,42 +4,41 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
- * Represents a Person's gpa in the address book.
+ * Represents a Person's Grade Point Average (Gpa) in the applicant list.
  * Guarantees: immutable; is valid as declared in {@link #isValidGpa(String)}
  */
 public class Gpa {
 
-    public static final String MESSAGE_CONSTRAINTS = "GPA can take values from 0.0-5.0, and it should not be blank";
+    public static final String MESSAGE_CONSTRAINTS = "Gpa can take values from 0.00 to 5.00, and cannot be blank";
 
     /*
-     * The first character of the gpa must not be a whitespace,
-     * otherwise " " (a blank string) becomes a valid input.
+     * Single digit, followed by a period, followed by one to two digits.
      */
-    public static final String VALIDATION_REGEX = "[^\\s].*";
+    public static final String VALIDATION_REGEX = "[0-5]\\.[0-9][0-9]?$";
 
-    public final String value;
+    public final double value;
 
     /**
      * Constructs an {@code Gpa}.
      *
-     * @param gpa A valid gpa.
+     * @param gpa A possible gpa of a person.
      */
-    public Gpa(String gpa) {
+    public Gpa(double gpa) {
         requireNonNull(gpa);
         checkArgument(isValidGpa(gpa), MESSAGE_CONSTRAINTS);
         value = gpa;
     }
 
     /**
-     * Returns true if a given string is a valid email.
+     * Returns true if a given double is a valid Gpa.
      */
-    public static boolean isValidGpa(String test) {
-        return test.matches(VALIDATION_REGEX);
+    public static boolean isValidGpa(double test) {
+        return test >= 0.0 && test <= 5.0;
     }
 
     @Override
     public String toString() {
-        return value;
+        return Double.toString(value);
     }
 
     @Override
@@ -54,12 +53,12 @@ public class Gpa {
         }
 
         Gpa otherGpa = (Gpa) other;
-        return value.equals(otherGpa.value);
+        return value == otherGpa.value;
     }
 
     @Override
     public int hashCode() {
-        return value.hashCode();
+        return Double.hashCode(value);
     }
 
 }

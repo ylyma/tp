@@ -19,7 +19,7 @@ public class PersonBuilder {
     public static final String DEFAULT_NAME = "Amy Bee";
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
-    public static final String DEFAULT_GPA = "4.0";
+    public static final double DEFAULT_GPA = 4.0;
 
     private Name name;
     private Phone phone;
@@ -66,10 +66,10 @@ public class PersonBuilder {
     }
 
     /**
-     * Sets the {@code Address} of the {@code Person} that we are building.
+     * Sets the {@code Gpa} of the {@code Person} that we are building.
      */
-    public PersonBuilder withGpa(String address) {
-        this.gpa = new Gpa(address);
+    public PersonBuilder withGpa(double gpa) {
+        this.gpa = new Gpa(gpa);
         return this;
     }
 

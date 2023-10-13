@@ -66,18 +66,24 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String address} into an {@code Address}.
+     * Parses a {@code String gpa} into an {@code Gpa}.
      * Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code address} is invalid.
+     * @throws ParseException if the given {@code gpa} is invalid.
      */
-    public static Gpa parseGpa(String address) throws ParseException {
-        requireNonNull(address);
-        String trimmedAddress = address.trim();
-        if (!Gpa.isValidGpa(trimmedAddress)) {
+    public static Gpa parseGpa(String gpaString) throws ParseException {
+        requireNonNull(gpaString);
+        String trimmedGpaString = gpaString.trim();
+        double gpa;
+        try {
+            gpa = Double.parseDouble(trimmedGpaString);
+        } catch (NumberFormatException e) {
             throw new ParseException(Gpa.MESSAGE_CONSTRAINTS);
         }
-        return new Gpa(trimmedAddress);
+        if (!Gpa.isValidGpa(gpa)) {
+            throw new ParseException(Gpa.MESSAGE_CONSTRAINTS);
+        }
+        return new Gpa(gpa);
     }
 
     /**
