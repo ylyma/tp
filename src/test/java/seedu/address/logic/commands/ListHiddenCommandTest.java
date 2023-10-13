@@ -130,5 +130,4 @@ public class ListHiddenCommandTest {
             return hiddenList;
         }
     }
-
 }
