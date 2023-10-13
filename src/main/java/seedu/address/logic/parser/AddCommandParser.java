@@ -45,7 +45,7 @@ public class AddCommandParser implements Parser<AddCommand> {
         Gpa gpa = ParserUtil.parseGpa(argMultimap.getValue(PREFIX_GPA).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
-        Person person = new Person(name, phone, email, gpa, tagList);
+        Person person = new Person(name, phone, email, gpa, tagList, false);
 
         return new AddCommand(person);
     }

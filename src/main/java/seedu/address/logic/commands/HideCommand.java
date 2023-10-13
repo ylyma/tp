@@ -5,6 +5,7 @@ import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.person.IsHiddenPredicate;
 import seedu.address.model.person.Person;
 
 import java.util.List;
@@ -28,6 +29,7 @@ public class HideCommand extends Command {
     public static final String MESSAGE_HIDE_PERSON_SUCCESS = "Person %1$s hidden from lists";
 
     public final Index targetIndex;
+    private final IsHiddenPredicate predicate = new IsHiddenPredicate(false);
 
     public HideCommand(Index targetIndex) {
         requireAllNonNull(targetIndex);
@@ -45,6 +47,7 @@ public class HideCommand extends Command {
 
         Person personToHide = lastShownList.get(targetIndex.getZeroBased());
         personToHide.hide();
+        model.updateFilteredPersonList(predicate);
         return new CommandResult(String.format(MESSAGE_HIDE_PERSON_SUCCESS, Messages.format(personToHide)));
     }
 

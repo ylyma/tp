@@ -29,6 +29,7 @@ class JsonAdaptedPerson {
     private final String email;
     private final String gpa;
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
+    private final boolean isHidden;
 
     /**
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
@@ -36,7 +37,7 @@ class JsonAdaptedPerson {
     @JsonCreator
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
             @JsonProperty("email") String email, @JsonProperty("gpa") String gpa,
-            @JsonProperty("tags") List<JsonAdaptedTag> tags) {
+            @JsonProperty("tags") List<JsonAdaptedTag> tags, @JsonProperty("isHidden") boolean isHidden) {
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -44,6 +45,7 @@ class JsonAdaptedPerson {
         if (tags != null) {
             this.tags.addAll(tags);
         }
+        this.isHidden = isHidden;
     }
 
     /**
@@ -57,6 +59,7 @@ class JsonAdaptedPerson {
         tags.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
+        isHidden = source.getIsHidden();
     }
 
     /**
@@ -103,7 +106,8 @@ class JsonAdaptedPerson {
         final Gpa modelGpa = new Gpa(gpa);
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
-        return new Person(modelName, modelPhone, modelEmail, modelGpa, modelTags);
+
+        return new Person(modelName, modelPhone, modelEmail, modelGpa, modelTags, isHidden);
     }
 
 }

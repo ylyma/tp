@@ -100,7 +100,7 @@ public class EditCommand extends Command {
         Gpa updatedGpa = editPersonDescriptor.getAddress().orElse(personToEdit.getGpa());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedGpa, updatedTags);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedGpa, updatedTags, personToEdit.getIsHidden());
     }
 
     @Override

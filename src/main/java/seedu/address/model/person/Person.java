@@ -29,14 +29,14 @@ public class Person {
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Gpa gpa, Set<Tag> tags) {
+    public Person(Name name, Phone phone, Email email, Gpa gpa, Set<Tag> tags, boolean isHidden) {
         requireAllNonNull(name, phone, email, gpa, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.gpa = gpa;
         this.tags.addAll(tags);
-        this.isHidden = false;
+        this.isHidden = isHidden;
     }
 
     public Name getName() {
