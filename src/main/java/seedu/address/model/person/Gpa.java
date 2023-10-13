@@ -11,7 +11,7 @@ public class Gpa {
 
     public static final String MESSAGE_CONSTRAINTS = "GPA can take values from 0.0-5.0, and it should not be blank";
 
-    /**
+    /*
      * Single digit, followed by a period, followed by one to two digits.
      */
     public static final String VALIDATION_REGEX = "[0-5]\\.[0-9][0-9]?$";
