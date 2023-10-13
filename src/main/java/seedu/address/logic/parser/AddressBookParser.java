@@ -75,6 +75,11 @@ public class AddressBookParser {
         case HideCommand.COMMAND_WORD:
             return new HideCommandParser().parse(arguments);
 
+        case UnhideCommand.COMMAND_WORD:
+            return new UnhideCommandParser().parse(arguments);
+
+        case ListHiddenCommand.COMMAND_WORD:
+            return new ListHiddenCommand();
 
         default:
             logger.finer("This user input caused a ParseException: " + userInput);

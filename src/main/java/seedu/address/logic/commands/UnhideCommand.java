@@ -22,15 +22,14 @@ public class UnhideCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Unhides an applicant, identified by the index number "
-            + "used in the list of hidden applicants, in all future lists of applicants.\n"
+            + "used in the last list, in all future lists of applicants.\n"
             + "Parameter: INDEX (must be a positive integer) \n"
             + "Example: " + COMMAND_WORD + " 1 ";
 
     public static final String MESSAGE_HIDE_PERSON_SUCCESS = "Person %1$s hidden from lists";
 
     public final Index targetIndex;
-    private final IsHiddenPredicate hiddenApplicantsPredicate = new IsHiddenPredicate(true);
-    private final IsHiddenPredicate unhiddenAppliantsPredicate = new IsHiddenPredicate(false);
+    private final IsHiddenPredicate predicate = new IsHiddenPredicate(false);
 
     public UnhideCommand(Index targetIndex) {
         requireAllNonNull(targetIndex);
@@ -40,7 +39,6 @@ public class UnhideCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException{
         requireNonNull(model);
-        model.updateFilteredPersonList(hiddenApplicantsPredicate);
         List<Person> lastShownList = model.getFilteredPersonList();
 
         if (this.targetIndex.getZeroBased() >= lastShownList.size()) {
@@ -49,7 +47,7 @@ public class UnhideCommand extends Command {
 
         Person personToUnhide = lastShownList.get(targetIndex.getZeroBased());
         personToUnhide.unhide();
-        model.updateFilteredPersonList(unhiddenAppliantsPredicate);
+        model.updateFilteredPersonList(predicate);
         return new CommandResult(String.format(MESSAGE_HIDE_PERSON_SUCCESS, Messages.format(personToUnhide)));
     }
 
