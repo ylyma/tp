@@ -16,13 +16,13 @@
     "name" : "Carl Kurz",
     "phone" : "95352563",
     "email" : "heinz@example.com",
-    "address" : "wall street",
+    "gpa" : "4.0",
     "tags" : [ ]
   }, {
     "name" : "Daniel Meier",
     "phone" : "87652533",
     "email" : "cornelia@example.com",
-    "gpa" : "10th street",
+    "gpa" : "3.0",
     "tags" : [ "friends" ]
   }, {
     "name" : "Elle Meyer",
