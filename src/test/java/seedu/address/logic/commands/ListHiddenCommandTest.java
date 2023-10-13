@@ -1,66 +1,41 @@
 package seedu.address.logic.commands;
 
-import javafx.collections.ObservableList;
+import static java.util.Objects.requireNonNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+import static seedu.address.testutil.Assert.assertThrows;
+import static seedu.address.testutil.TypicalPersons.ALICE;
+
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.function.Predicate;
+
 import org.junit.jupiter.api.Test;
+
+import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.Messages;
+import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.person.Person;
 import seedu.address.testutil.PersonBuilder;
 
-import java.nio.file.Path;
-import java.util.function.Predicate;
-
-import static java.util.Objects.requireNonNull;
-import static org.junit.jupiter.api.Assertions.*;
-import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
-import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
-import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
-
-public class HideCommandTest {
-
+public class ListHiddenCommandTest {
     @Test
-    public void execute_personHidden_hideSuccessful() throws Exception {
-        ModelStubWithPerson modelStubWithPerson = new ModelStubWithPerson(new PersonBuilder().build());
-        CommandResult commandResult = new HideCommand(Index.fromZeroBased(0)).execute(modelStubWithPerson);
-        assertEquals(String.format(HideCommand.MESSAGE_HIDE_APPLICANT_SUCCESS, Messages.format(modelStubWithPerson.getFilteredPersonList().get(0))),
+    public void execute_listHiddenPersons_listHiddenSuccessful() {
+        ModelStubWithPersons modelStubWithPersons = new ModelStubWithPersons(new PersonBuilder().build(),
+                new PersonBuilder().build(), new PersonBuilder().build());
+        CommandResult commandResult = new ListHiddenCommand().execute(modelStubWithPersons);
+        assertEquals(String.format(ListHiddenCommand.MESSAGE_SUCCESS, modelStubWithPersons.hiddenPersons().size()),
                 commandResult.getFeedbackToUser());
-        assertEquals(modelStubWithPerson.getFilteredPersonList().get(0).getIsHidden(), true);
-    }
-
-    @Test
-    public void execute_indexOutOfRange_throwsCommandException() {
-        ModelStubWithPerson modelStubWithPerson = new ModelStubWithPerson(new PersonBuilder().build());
-        HideCommand hideCommand = new HideCommand(Index.fromZeroBased(1));
-        assertCommandFailure(hideCommand, modelStubWithPerson, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
-    }
-
-    @Test
-    public void equals() {
-        HideCommand hideFirstCommand = new HideCommand(INDEX_FIRST_PERSON);
-        HideCommand hideSecondCommand = new HideCommand(INDEX_SECOND_PERSON);
-
-        assertTrue(hideFirstCommand.equals(hideFirstCommand));
-
-        HideCommand hideFirstCommandCopy = new HideCommand(INDEX_FIRST_PERSON);
-        assertTrue(hideFirstCommand.equals(hideFirstCommandCopy));
-
-        assertFalse(hideFirstCommand.equals(1));
-
-        assertFalse(hideFirstCommand.equals(null));
-
-        assertFalse(hideFirstCommand.equals(hideSecondCommand));
-    }
-
-    @Test
-    public void toStringMethod() {
-        Index targetIndex = Index.fromOneBased(1);
-        HideCommand hideCommand = new HideCommand(targetIndex);
-        String expected = HideCommand.class.getCanonicalName() + "{targetIndex=" + targetIndex + "}";
-        assertEquals(expected, hideCommand.toString());
+        assertEquals(modelStubWithPersons.hiddenPersons(), modelStubWithPersons.getFilteredPersonList());
     }
 
     /**
@@ -144,14 +119,27 @@ public class HideCommandTest {
     }
 
     /**
-     * A Model stub that contains a single person.
+     * A Model stub that contains two hidden people and one unhidden person.
      */
-    private class ModelStubWithPerson extends ModelStub {
-        private final Person person;
+    private class ModelStubWithPersons extends ModelStub {
+        private final Person firstHiddenPerson;
+        private final Person secondHiddenPerson;
+        private final Person unhiddenPerson;
 
-        ModelStubWithPerson(Person person) {
-            requireNonNull(person);
-            this.person = person;
+        ModelStubWithPersons(Person personOne, Person personTwo, Person personThree) {
+            requireAllNonNull(personOne, personTwo, personThree);
+            this.firstHiddenPerson = personOne;
+            this.secondHiddenPerson = personTwo;
+            this.unhiddenPerson = personThree;
+        }
+
+        public ArrayList<Person> hiddenPersons() {
+            ArrayList<Person> list = new ArrayList<>();
+            list.add(firstHiddenPerson);
+            list.add(secondHiddenPerson);
+            return list;
         }
     }
+
+
 }
