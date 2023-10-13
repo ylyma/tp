@@ -49,7 +49,7 @@ public class Person {
         return email;
     }
 
-    public Gpa getAddress() {
+    public Gpa getGpa() {
         return gpa;
     }
 
