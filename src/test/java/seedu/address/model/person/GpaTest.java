@@ -2,55 +2,40 @@ package seedu.address.model.person;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.testutil.Assert.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
 public class GpaTest {
 
     @Test
-    public void constructor_null_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> new Gpa(null));
-    }
+    public void isValidGpa() {
+        // invalid GPAs
+        assertFalse(Gpa.isValidGpa(-1.0));
+        assertFalse(Gpa.isValidGpa(5.1));
 
-    @Test
-    public void constructor_invalidAddress_throwsIllegalArgumentException() {
-        String invalidAddress = "";
-        assertThrows(IllegalArgumentException.class, () -> new Gpa(invalidAddress));
-    }
-
-    @Test
-    public void isValidAddress() {
-        // null address
-        assertThrows(NullPointerException.class, () -> Gpa.isValidGpa(null));
-
-        // invalid addresses
-        assertFalse(Gpa.isValidGpa("")); // empty string
-        assertFalse(Gpa.isValidGpa(" ")); // spaces only
-
-        // valid addresses
-        assertTrue(Gpa.isValidGpa("4.0"));
-        assertTrue(Gpa.isValidGpa("-")); // one character
-        assertTrue(Gpa.isValidGpa("5.0")); // long address
+        // valid GPAs
+        assertTrue(Gpa.isValidGpa(0.0));
+        assertTrue(Gpa.isValidGpa(4.0));
+        assertTrue(Gpa.isValidGpa(5.0));
     }
 
     @Test
     public void equals() {
-        Gpa address = new Gpa("Valid GPA");
+        Gpa gpa = new Gpa(3.2);
 
         // same values -> returns true
-        assertTrue(address.equals(new Gpa("Valid GPA")));
+        assertTrue(gpa.equals(new Gpa(3.2)));
 
         // same object -> returns true
-        assertTrue(address.equals(address));
+        assertTrue(gpa.equals(gpa));
 
         // null -> returns false
-        assertFalse(address.equals(null));
+        assertFalse(gpa.equals(null));
 
         // different types -> returns false
-        assertFalse(address.equals(5.0f));
+        assertFalse(gpa.equals("Test"));
 
         // different values -> returns false
-        assertFalse(address.equals(new Gpa("Other Valid GPA")));
+        assertFalse(gpa.equals(new Gpa(3.3)));
     }
 }

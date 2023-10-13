@@ -64,9 +64,9 @@ public class EditPersonDescriptorBuilder {
     }
 
     /**
-     * Sets the {@code Address} of the {@code EditPersonDescriptor} that we are building.
+     * Sets the {@code Gpa} of the {@code EditPersonDescriptor} that we are building.
      */
-    public EditPersonDescriptorBuilder withGpa(String gpa) {
+    public EditPersonDescriptorBuilder withGpa(double gpa) {
         descriptor.setGpa(new Gpa(gpa));
         return this;
     }
