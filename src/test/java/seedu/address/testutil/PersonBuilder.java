@@ -1,8 +1,10 @@
 package seedu.address.testutil;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+import seedu.address.model.person.Attachment;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gpa;
 import seedu.address.model.person.Name;
@@ -26,6 +28,7 @@ public class PersonBuilder {
     private Email email;
     private Gpa gpa;
     private Set<Tag> tags;
+    private List<Attachment> attachments;
 
     /**
      * Creates a {@code PersonBuilder} with the default details.
@@ -36,6 +39,7 @@ public class PersonBuilder {
         email = new Email(DEFAULT_EMAIL);
         gpa = new Gpa(DEFAULT_GPA);
         tags = new HashSet<>();
+        attachments = List.of();
     }
 
     /**
@@ -47,6 +51,7 @@ public class PersonBuilder {
         email = personToCopy.getEmail();
         gpa = personToCopy.getGpa();
         tags = new HashSet<>(personToCopy.getTags());
+        attachments = personToCopy.getAttachments();
     }
 
     /**
@@ -62,6 +67,14 @@ public class PersonBuilder {
      */
     public PersonBuilder withTags(String ... tags) {
         this.tags = SampleDataUtil.getTagSet(tags);
+        return this;
+    }
+
+    /**
+     * Parses the {@code pathStrings} into a {@code List<File>} and set it to the {@code Person} that we are building.
+     */
+    public PersonBuilder withAttachments(String ... pathStrings) {
+        this.attachments = SampleDataUtil.getAttachments(pathStrings);
         return this;
     }
 
@@ -90,7 +103,7 @@ public class PersonBuilder {
     }
 
     public Person build() {
-        return new Person(name, phone, email, gpa, tags);
+        return new Person(name, phone, email, gpa, tags, attachments);
     }
 
 }
