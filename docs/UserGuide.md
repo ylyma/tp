@@ -241,18 +241,18 @@ title: User Guide
 
 ---
 
-### e. Viewing the details of an applicant: `view`
+### e. Viewing the details of a single applicant: `view`
 
 ![edit function UI](images/viewUI.png)
 
 <aside>
-⭐ Displays all details of a specific applicant.
+⭐ Displays a single applicant.
 
 </aside>
 
 **Format:** `view INDEX`
 
-- `INDEX`: The index corresponding to the applicant whose details are to be displayed. The index must be a positive integer (e.g., 1, 2, 3…).
+- `INDEX`: The index corresponding to the applicant to be displayed. The index must be a positive integer (e.g., 1, 2, 3…).
 
 **Examples:**
 
@@ -271,7 +271,7 @@ title: User Guide
     `Phone Number: 91234567`\
     `Email Address: johndoe@example.come`\
     `GPA: 5.0`\
-    `Tags: past TA, dean's list`
+    `Tags: pastTA, deansList`
 
 **Errors:**
 
@@ -300,7 +300,7 @@ title: User Guide
 **Errors:**
 
 - Empty list: `"Error: Empty list. No applicants to sort."`
-- 
+
 ---
 
 ### **b. Compare 2 applicants: `compare`**
@@ -435,7 +435,7 @@ title: User Guide
 ![attach function UI](images/attachUI.png)
 
 <aside>
-⭐  Attaches local files to the profiles of applicants to provide even more richness and insight into their applications 
+⭐  Attaches local files to the profiles of applicants to provide even more richness and insight into their applications
 </aside>
 
 **Format:** **`attach INDEX FILEPATH`**

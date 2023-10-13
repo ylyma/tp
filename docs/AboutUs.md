@@ -31,7 +31,7 @@ We are a team based in the [School of Computing, National University of Singapor
 
 <img src="images/lheng1.png" width="200px">
 
-[[github](http://github.com/lheng1)] 
+[[github](http://github.com/lheng1)]
 [[portfolio](team/lheng1.md)]
 
 * Role: Code Quality
