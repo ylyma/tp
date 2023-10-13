@@ -18,12 +18,10 @@ public class UnhideAllCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Unhides all applicants in all future lists of applicants.\n"
-            + "Parameter: INDEX (must be a positive integer) \n"
-            + "Example: " + COMMAND_WORD + " 1 ";
+            + "Example: " + COMMAND_WORD;
 
-    public static final String MESSAGE_UNHIDE_ALL_SUCCESS = "All applicants unhidden from lists";
+    public static final String MESSAGE_SUCCESS = "All applicants unhidden from lists";
     private final IsHiddenPredicate hiddenApplicantsPredicate = new IsHiddenPredicate(true);
-
     private final IsHiddenPredicate unhiddenApplicantsPredicate = new IsHiddenPredicate(false);
 
     @Override
@@ -33,6 +31,6 @@ public class UnhideAllCommand extends Command {
         List<Person> hiddenList = model.getFilteredPersonList();
         hiddenList.forEach(Person::unhide);
         model.updateFilteredPersonList(unhiddenApplicantsPredicate);
-        return new CommandResult(String.format(MESSAGE_UNHIDE_ALL_SUCCESS));
+        return new CommandResult(String.format(MESSAGE_SUCCESS));
     }
 }

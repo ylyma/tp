@@ -2,7 +2,9 @@ package seedu.address.logic.commands;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.function.Predicate;
 
 import org.junit.jupiter.api.Test;
@@ -10,20 +12,26 @@ import org.junit.jupiter.api.Test;
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.index.Index;
+import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.person.Person;
 import seedu.address.testutil.PersonBuilder;
 
-public class ListHiddenCommandTest {
+public class UnhideAllCommandTest {
     @Test
-    public void execute_listHiddenPersons_listHiddenSuccessful() {
-        ModelStubWithPersons modelStubWithPersons = new ModelStubWithPersons(new PersonBuilder().build(),
-                new PersonBuilder().build(), new PersonBuilder().build());
-        ListHiddenCommand listHiddenCommand = new ListHiddenCommand();
-        String expectedMessage = ListHiddenCommand.MESSAGE_SUCCESS;
-        assertCommandSuccess(listHiddenCommand, modelStubWithPersons, expectedMessage, modelStubWithPersons.hiddenPersons());
+    public void execute_unhideAll_unhideAllSuccessful() {
+        Person validPersonOne = new PersonBuilder().build();
+        Person validPersonTwo = new PersonBuilder().build();
+        Person validPersonThree = new PersonBuilder().build();
+        ModelStubWithHiddenPersons modelStubWithHiddenPersons = new ModelStubWithHiddenPersons(validPersonOne,
+                validPersonTwo, validPersonThree);
+        ModelStubWithUnhiddenPersons modelStubWithUnhiddenPersons = new ModelStubWithUnhiddenPersons(validPersonOne,
+                validPersonTwo, validPersonThree);
+        UnhideAllCommand unhideAllCommand = new UnhideAllCommand();
+        String expectedMessage = UnhideAllCommand.MESSAGE_SUCCESS;
+        assertCommandSuccess(unhideAllCommand, modelStubWithHiddenPersons, expectedMessage, modelStubWithUnhiddenPersons);
     }
 
     /**
@@ -109,25 +117,33 @@ public class ListHiddenCommandTest {
     /**
      * A Model stub that contains two hidden people and one unhidden person.
      */
-    private class ModelStubWithPersons extends ModelStub {
+    private class ModelStubWithHiddenPersons extends ModelStub {
         private final Person firstHiddenPerson;
         private final Person secondHiddenPerson;
         private final Person unhiddenPerson;
 
-        ModelStubWithPersons(Person personOne, Person personTwo, Person personThree) {
+        ModelStubWithHiddenPersons(Person personOne, Person personTwo, Person personThree) {
             requireAllNonNull(personOne, personTwo, personThree);
             this.firstHiddenPerson = personOne;
             this.secondHiddenPerson = personTwo;
-            this.unhiddenPerson = personThree;
-        }
-
-        public ModelStub hiddenPersons() {
-            ModelStub hiddenList = new ModelStub();
-            hiddenList.addPerson(firstHiddenPerson);
-            hiddenList.addPerson(secondHiddenPerson);
             firstHiddenPerson.hide();
             secondHiddenPerson.hide();
-            return hiddenList;
+            this.unhiddenPerson = personThree;
+        }
+    }
+    /**
+     * A Model stub that contains unhidden persons.
+     */
+    private class ModelStubWithUnhiddenPersons extends ModelStub {
+        private final Person firstPerson;
+        private final Person secondPerson;
+        private final Person thirdPerson;
+
+        ModelStubWithUnhiddenPersons(Person personOne, Person personTwo, Person personThree) {
+            requireAllNonNull(personOne, personTwo, personThree);
+            this.firstPerson = personOne;
+            this.secondPerson = personTwo;
+            this.thirdPerson = personThree;
         }
     }
 }

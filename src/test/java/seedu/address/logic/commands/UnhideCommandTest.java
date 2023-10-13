@@ -17,25 +17,28 @@ import java.util.function.Predicate;
 import static java.util.Objects.requireNonNull;
 import static org.junit.jupiter.api.Assertions.*;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
 
 public class UnhideCommandTest {
 
     @Test
-    public void execute_personUnhidden_unhideSuccessful() throws Exception {
-        ModelStubWithPerson modelStubWithPerson = new ModelStubWithPerson(new PersonBuilder().build());
-        CommandResult commandResult = new UnhideCommand(Index.fromZeroBased(0)).execute(modelStubWithPerson);
-        assertEquals(String.format(UnhideCommand.MESSAGE_UNHIDE_APPLICANT_SUCCESS, Messages.format(modelStubWithPerson.getFilteredPersonList().get(0))),
-                commandResult.getFeedbackToUser());
-        assertEquals(modelStubWithPerson.getFilteredPersonList().get(0).getIsHidden(), false);
+    public void execute_personUnhidden_unhideSuccessful() {
+        Person validPerson = new PersonBuilder().build();
+        ModelStubWithHiddenPerson modelStubWithHiddenPerson = new ModelStubWithHiddenPerson(validPerson);
+        ModelStubWithUnhiddenPerson modelStubWithUnhiddenPerson = new ModelStubWithUnhiddenPerson(validPerson);
+        UnhideCommand unhideCommand = new UnhideCommand(Index.fromZeroBased(0));
+        String expectedMessage = String.format(UnhideCommand.MESSAGE_UNHIDE_APPLICANT_SUCCESS, Messages.format(validPerson));
+
+        assertCommandSuccess(unhideCommand, modelStubWithHiddenPerson, expectedMessage, modelStubWithUnhiddenPerson);
     }
 
     @Test
     public void execute_indexOutOfRange_throwsCommandException() {
-        ModelStubWithPerson modelStubWithPerson = new ModelStubWithPerson(new PersonBuilder().build());
+        ModelStubWithHiddenPerson modelStubWithHiddenPerson = new ModelStubWithHiddenPerson(new PersonBuilder().build());
         UnhideCommand unhideCommand = new UnhideCommand(Index.fromZeroBased(1));
-        assertCommandFailure(unhideCommand, modelStubWithPerson, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+        assertCommandFailure(unhideCommand, modelStubWithHiddenPerson, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
     }
 
     @Test
@@ -146,13 +149,24 @@ public class UnhideCommandTest {
     /**
      * A Model stub that contains a single hidden person.
      */
-    private class ModelStubWithPerson extends ModelStub {
+    private class ModelStubWithHiddenPerson extends ModelStub {
         private final Person person;
 
-        ModelStubWithPerson(Person person) {
+        ModelStubWithHiddenPerson(Person person) {
             requireNonNull(person);
             this.person = person;
             this.person.hide();
+        }
+    }
+    /**
+     * A Model stub that contains a single unhidden person.
+     */
+    private class ModelStubWithUnhiddenPerson extends ModelStub {
+        private final Person person;
+
+        ModelStubWithUnhiddenPerson(Person person) {
+            requireNonNull(person);
+            this.person = person;
         }
     }
 }

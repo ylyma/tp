@@ -17,6 +17,7 @@ import java.util.function.Predicate;
 import static java.util.Objects.requireNonNull;
 import static org.junit.jupiter.api.Assertions.*;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
 
@@ -24,18 +25,19 @@ public class HideCommandTest {
 
     @Test
     public void execute_personHidden_hideSuccessful() throws Exception {
-        ModelStubWithPerson modelStubWithPerson = new ModelStubWithPerson(new PersonBuilder().build());
-        CommandResult commandResult = new HideCommand(Index.fromZeroBased(0)).execute(modelStubWithPerson);
-        assertEquals(String.format(HideCommand.MESSAGE_HIDE_APPLICANT_SUCCESS, Messages.format(modelStubWithPerson.getFilteredPersonList().get(0))),
-                commandResult.getFeedbackToUser());
-        assertEquals(modelStubWithPerson.getFilteredPersonList().get(0).getIsHidden(), true);
+        Person validPerson = new PersonBuilder().build();
+        ModelStubWithUnhiddenPerson modelStubWithUnhiddenPerson = new ModelStubWithUnhiddenPerson(validPerson);
+        ModelStubWithHiddenPerson modelStubWithHiddenPerson = new ModelStubWithHiddenPerson(validPerson);
+        HideCommand hideCommand = new HideCommand(Index.fromZeroBased(0));
+        String expectedMessage = String.format(HideCommand.MESSAGE_HIDE_APPLICANT_SUCCESS, Messages.format(validPerson));
+        assertCommandSuccess(hideCommand, modelStubWithUnhiddenPerson, expectedMessage, modelStubWithHiddenPerson);
     }
 
     @Test
     public void execute_indexOutOfRange_throwsCommandException() {
-        ModelStubWithPerson modelStubWithPerson = new ModelStubWithPerson(new PersonBuilder().build());
+        ModelStubWithUnhiddenPerson modelStubWithUnhiddenPerson = new ModelStubWithUnhiddenPerson(new PersonBuilder().build());
         HideCommand hideCommand = new HideCommand(Index.fromZeroBased(1));
-        assertCommandFailure(hideCommand, modelStubWithPerson, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+        assertCommandFailure(hideCommand, modelStubWithUnhiddenPerson, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
     }
 
     @Test
@@ -144,14 +146,26 @@ public class HideCommandTest {
     }
 
     /**
-     * A Model stub that contains a single person.
+     * A Model stub that contains a single unhidden person.
      */
-    private class ModelStubWithPerson extends ModelStub {
+    private class ModelStubWithUnhiddenPerson extends ModelStub {
         private final Person person;
 
-        ModelStubWithPerson(Person person) {
+        ModelStubWithUnhiddenPerson(Person person) {
             requireNonNull(person);
             this.person = person;
+        }
+    }
+    /**
+     * A Model stub that contains a single hidden person.
+     */
+    private class ModelStubWithHiddenPerson extends ModelStub {
+        private final Person person;
+
+        ModelStubWithHiddenPerson(Person person) {
+            requireNonNull(person);
+            this.person = person;
+            this.person.hide();
         }
     }
 }
