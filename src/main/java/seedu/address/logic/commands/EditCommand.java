@@ -97,7 +97,7 @@ public class EditCommand extends Command {
         Name updatedName = editPersonDescriptor.getName().orElse(personToEdit.getName());
         Phone updatedPhone = editPersonDescriptor.getPhone().orElse(personToEdit.getPhone());
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
-        Gpa updatedGpa = editPersonDescriptor.getAddress().orElse(personToEdit.getGpa());
+        Gpa updatedGpa = editPersonDescriptor.getGpa().orElse(personToEdit.getGpa());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
         return new Person(updatedName, updatedPhone, updatedEmail, updatedGpa, updatedTags);
@@ -187,7 +187,7 @@ public class EditCommand extends Command {
             this.gpa = gpa;
         }
 
-        public Optional<Gpa> getAddress() {
+        public Optional<Gpa> getGpa() {
             return Optional.ofNullable(gpa);
         }
 
