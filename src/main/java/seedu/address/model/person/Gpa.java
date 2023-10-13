@@ -13,17 +13,10 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class Gpa {
 
-<<<<<<< HEAD
     public static final String MESSAGE_CONSTRAINTS = "GPA can take values from 0.0-5.0, and it should not be blank";
 
-    /*
-     * The first character of the gpa must not be a whitespace,
-=======
-    public static final String MESSAGE_CONSTRAINTS = "Gpa can take any values from 0.0-5.0, and it should not be blank";
-
-    /*
+    /**
      * The first character of the Gpa must not be a whitespace,
->>>>>>> add-applicant
      * otherwise " " (a blank string) becomes a valid input.
      */
     public static final String VALIDATION_REGEX = "^(?:[0-4](\\.\\d+)?|5\\.0)$";
@@ -33,11 +26,7 @@ public class Gpa {
     /**
      * Constructs an {@code Gpa}.
      *
-<<<<<<< HEAD
-     * @param gpa A valid gpa.
-=======
      * @param gpa A valid Gpa.
->>>>>>> add-applicant
      */
     public Gpa(String gpa) {
         requireNonNull(gpa);
