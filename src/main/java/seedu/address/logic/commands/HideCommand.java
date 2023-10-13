@@ -26,7 +26,7 @@ public class HideCommand extends Command {
             + "Parameter: INDEX (must be a positive integer) \n"
             + "Example: " + COMMAND_WORD + " 1 ";
 
-    public static final String MESSAGE_HIDE_PERSON_SUCCESS = "Person %1$s hidden from lists";
+    public static final String MESSAGE_HIDE_APPLICANT_SUCCESS = "Applicant %1$s hidden from lists";
 
     public final Index targetIndex;
     private final IsHiddenPredicate predicate = new IsHiddenPredicate(false);
@@ -48,7 +48,7 @@ public class HideCommand extends Command {
         Person personToHide = lastShownList.get(targetIndex.getZeroBased());
         personToHide.hide();
         model.updateFilteredPersonList(predicate);
-        return new CommandResult(String.format(MESSAGE_HIDE_PERSON_SUCCESS, Messages.format(personToHide)));
+        return new CommandResult(String.format(MESSAGE_HIDE_APPLICANT_SUCCESS, Messages.format(personToHide)));
     }
 
     @Override

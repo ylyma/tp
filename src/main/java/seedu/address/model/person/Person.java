@@ -30,7 +30,7 @@ public class Person {
      * Every field must be present and not null.
      */
     public Person(Name name, Phone phone, Email email, Gpa gpa, Set<Tag> tags, boolean isHidden) {
-        requireAllNonNull(name, phone, email, gpa, tags);
+        requireAllNonNull(name, phone, email, gpa, tags, isHidden);
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -114,23 +114,26 @@ public class Person {
                 && phone.equals(otherPerson.phone)
                 && email.equals(otherPerson.email)
                 && gpa.equals(otherPerson.gpa)
-                && tags.equals(otherPerson.tags);
+                && tags.equals(otherPerson.tags)
+                && isHidden == otherPerson.getIsHidden();
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, gpa, tags);
+        return Objects.hash(name, phone, email, gpa, tags, isHidden);
     }
 
     @Override
     public String toString() {
         return new ToStringBuilder(this)
+
                 .add("name", name)
                 .add("phone", phone)
                 .add("email", email)
                 .add("gpa", gpa)
                 .add("tags", tags)
+                .add("hidden", isHidden)
                 .toString();
     }
 

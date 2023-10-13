@@ -7,7 +7,7 @@ import seedu.address.model.Model;
 import seedu.address.model.person.IsHiddenPredicate;
 
 /**
- * Lists all applicants in the applicant list to the user.
+ * Lists all hidden applicants in the applicant list to the user.
  */
 public class ListHiddenCommand extends Command {
 

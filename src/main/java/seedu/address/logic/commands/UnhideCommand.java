@@ -26,7 +26,7 @@ public class UnhideCommand extends Command {
             + "Parameter: INDEX (must be a positive integer) \n"
             + "Example: " + COMMAND_WORD + " 1 ";
 
-    public static final String MESSAGE_HIDE_PERSON_SUCCESS = "Person %1$s hidden from lists";
+    public static final String MESSAGE_UNHIDE_APPLICANT_SUCCESS = "Applicant %1$s unhidden from lists";
 
     public final Index targetIndex;
     private final IsHiddenPredicate predicate = new IsHiddenPredicate(false);
@@ -48,7 +48,7 @@ public class UnhideCommand extends Command {
         Person personToUnhide = lastShownList.get(targetIndex.getZeroBased());
         personToUnhide.unhide();
         model.updateFilteredPersonList(predicate);
-        return new CommandResult(String.format(MESSAGE_HIDE_PERSON_SUCCESS, Messages.format(personToUnhide)));
+        return new CommandResult(String.format(MESSAGE_UNHIDE_APPLICANT_SUCCESS, Messages.format(personToUnhide)));
     }
 
     @Override
