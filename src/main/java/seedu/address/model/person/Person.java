@@ -24,6 +24,7 @@ public class Person {
     // Data fields
     private final Gpa gpa;
     private final Set<Tag> tags = new HashSet<>();
+    private boolean isHidden;
 
     /**
      * Every field must be present and not null.
@@ -35,22 +36,23 @@ public class Person {
         this.email = email;
         this.gpa = gpa;
         this.tags.addAll(tags);
+        this.isHidden = false;
     }
 
     public Name getName() {
-        return name;
+        return this.name;
     }
 
     public Phone getPhone() {
-        return phone;
+        return this.phone;
     }
 
     public Email getEmail() {
-        return email;
+        return this.email;
     }
 
     public Gpa getGpa() {
-        return gpa;
+        return this.gpa;
     }
 
     /**
@@ -59,6 +61,24 @@ public class Person {
      */
     public Set<Tag> getTags() {
         return Collections.unmodifiableSet(tags);
+    }
+
+    public boolean getIsHidden() {
+        return this.isHidden;
+    }
+
+    /**
+     * Hides the person from appearing in lists.
+     */
+    public void hide() {
+        this.isHidden = true;
+    }
+
+    /**
+     * Unhides the person from appearing in lists.
+     */
+    public void unhide() {
+        this.isHidden = false;
     }
 
     /**
