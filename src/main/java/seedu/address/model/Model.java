@@ -1,11 +1,13 @@
 package seedu.address.model;
 
 import java.nio.file.Path;
+import java.util.Comparator;
 import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.index.Index;
+import seedu.address.model.person.GpaComparator;
 import seedu.address.model.person.IsHiddenPredicate;
 import seedu.address.model.person.Person;
 
@@ -24,6 +26,10 @@ public interface Model {
      * {@code Predicate} that filters for all unhidden persons
      */
     Predicate<Person> PREDICATE_SHOW_ALL_UNHIDDEN_PERSONS = new IsHiddenPredicate(false);
+    /**
+     * {@code Comparator} that sorts by GPA
+     */
+    Comparator<Person> COMPARATOR_SORT_BY_GPA = new GpaComparator();
     /**
      * Replaces user prefs data with the data in {@code userPrefs}.
      */
@@ -100,4 +106,11 @@ public interface Model {
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredPersonList(Predicate<Person> predicate);
+
+    /**
+     * Updates the sorted person list to sort by the given {@code comparator}.
+     *  @throws NullPointerException if {@code predicate} is null.
+     */
+    void sortFilteredPersonList(Comparator<Person> comparator);
+
 }

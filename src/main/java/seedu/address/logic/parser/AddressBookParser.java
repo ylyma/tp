@@ -19,6 +19,7 @@ import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.HideCommand;
 import seedu.address.logic.commands.ListCommand;
 import seedu.address.logic.commands.ListHiddenCommand;
+import seedu.address.logic.commands.SortByGpaCommand;
 import seedu.address.logic.commands.UnhideAllCommand;
 import seedu.address.logic.commands.UnhideCommand;
 import seedu.address.logic.commands.ViewCommand;
@@ -97,6 +98,9 @@ public class AddressBookParser {
 
         case UnhideAllCommand.COMMAND_WORD:
             return new UnhideAllCommand();
+
+        case SortByGpaCommand.COMMAND_WORD:
+            return new SortByGpaCommand();
         default:
             logger.finer("This user input caused a ParseException: " + userInput);
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
