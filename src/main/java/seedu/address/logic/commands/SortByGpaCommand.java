@@ -4,6 +4,9 @@ import static java.util.Objects.requireNonNull;
 
 import seedu.address.model.Model;
 
+/**
+ * Sorts all applicants by GPA.
+ */
 public class SortByGpaCommand extends Command {
 
     public static final String COMMAND_WORD = "sort-gpa";
