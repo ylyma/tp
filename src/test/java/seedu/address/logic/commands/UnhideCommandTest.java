@@ -17,6 +17,7 @@ import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.person.Person;
+import seedu.address.testutil.PersonBuilder;
 
 
 public class UnhideCommandTest {
@@ -25,12 +26,15 @@ public class UnhideCommandTest {
 
     @Test
     public void execute_personUnhidden_unhideSuccessful() throws CommandException {
-        Person validPerson = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
+        Person hiddenPerson = new PersonBuilder().withHidden(true).build();
+        model.setPerson(model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased()), hiddenPerson);
         CommandResult commandResult = new UnhideCommand(INDEX_FIRST_PERSON).execute(model);
+
         String expectedMessage = String.format(UnhideCommand.MESSAGE_UNHIDE_APPLICANT_SUCCESS,
-                Messages.format(validPerson));
+                Messages.format(hiddenPerson));
+
         assertEquals(expectedMessage, commandResult.getFeedbackToUser());
-        assertEquals(validPerson.getIsHidden(), false);
+        assertFalse(model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased()).getIsHidden().value);
     }
 
     @Test

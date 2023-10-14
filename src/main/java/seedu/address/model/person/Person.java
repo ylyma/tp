@@ -101,7 +101,7 @@ public class Person {
                 && email.equals(otherPerson.email)
                 && gpa.equals(otherPerson.gpa)
                 && tags.equals(otherPerson.tags)
-                && isHidden == otherPerson.getIsHidden();
+                && isHidden.equals(getIsHidden());
     }
 
     @Override

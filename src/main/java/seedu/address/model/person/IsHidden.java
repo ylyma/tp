@@ -4,7 +4,7 @@ package seedu.address.model.person;
  * Represents whether a Person is hidden in the address book.
  */
 public class IsHidden {
-    public boolean value;
+    public final boolean value;
 
     /**
      * Constructs a {@code IsHidden}.
@@ -29,7 +29,7 @@ public class IsHidden {
             return false;
         }
 
-       IsHidden otherIsHidden = (IsHidden) other;
+        IsHidden otherIsHidden = (IsHidden) other;
         return value == otherIsHidden.value;
     }
 

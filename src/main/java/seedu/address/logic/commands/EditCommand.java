@@ -22,6 +22,7 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gpa;
+import seedu.address.model.person.IsHidden;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -99,8 +100,9 @@ public class EditCommand extends Command {
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
         Gpa updatedGpa = editPersonDescriptor.getAddress().orElse(personToEdit.getGpa());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
+        IsHidden isHidden = editPersonDescriptor.getIsHidden().orElse(personToEdit.getIsHidden());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedGpa, updatedTags, personToEdit.getIsHidden());
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedGpa, updatedTags, isHidden);
     }
 
     @Override
@@ -138,6 +140,7 @@ public class EditCommand extends Command {
         private Gpa gpa;
         private Set<Tag> tags;
 
+        private IsHidden isHidden;
         public EditPersonDescriptor() {}
 
         /**
@@ -150,6 +153,7 @@ public class EditCommand extends Command {
             setEmail(toCopy.email);
             setGpa(toCopy.gpa);
             setTags(toCopy.tags);
+            setIsHidden(toCopy.isHidden);
         }
 
         /**
@@ -208,6 +212,13 @@ public class EditCommand extends Command {
             return (tags != null) ? Optional.of(Collections.unmodifiableSet(tags)) : Optional.empty();
         }
 
+        public void setIsHidden(IsHidden isHidden) {
+            this.isHidden = isHidden;
+        }
+
+        public Optional<IsHidden> getIsHidden() {
+            return Optional.ofNullable(isHidden);
+        }
         @Override
         public boolean equals(Object other) {
             if (other == this) {
@@ -237,5 +248,6 @@ public class EditCommand extends Command {
                     .add("tags", tags)
                     .toString();
         }
+
     }
 }

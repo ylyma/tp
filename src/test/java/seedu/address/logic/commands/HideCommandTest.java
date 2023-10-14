@@ -18,18 +18,21 @@ import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.person.Person;
 
-
 public class HideCommandTest {
 
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
+
     @Test
     public void execute_personHidden_hideSuccessful() throws CommandException {
-        Person validPerson = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
+        Person hiddenPerson = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
+        Person secondPerson = model.getFilteredPersonList().get(INDEX_SECOND_PERSON.getZeroBased());
         CommandResult commandResult = new HideCommand(INDEX_FIRST_PERSON).execute(model);
+
         String expectedMessage = String.format(HideCommand.MESSAGE_HIDE_APPLICANT_SUCCESS,
-                Messages.format(validPerson));
+                Messages.format(hiddenPerson));
+
         assertEquals(expectedMessage, commandResult.getFeedbackToUser());
-        assertEquals(validPerson.getIsHidden(), true);
+        assertEquals(model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased()), secondPerson);
     }
 
     @Test
