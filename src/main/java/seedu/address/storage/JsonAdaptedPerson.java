@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
+import seedu.address.model.person.Attachment;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gpa;
 import seedu.address.model.person.IsHidden;
@@ -31,15 +32,21 @@ class JsonAdaptedPerson {
     private final Double gpa;
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
     private final boolean isHidden;
+    private final List<JsonAdaptedAttachment> attachments = new ArrayList<>();
 
     /**
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
      */
     @JsonCreator
-    public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
-            @JsonProperty("email") String email, @JsonProperty("gpa") Double gpa,
-            @JsonProperty("tags") List<JsonAdaptedTag> tags, @JsonProperty("isHidden") boolean isHidden) {
-
+    public JsonAdaptedPerson(
+            @JsonProperty("name") String name,
+            @JsonProperty("phone") String phone,
+            @JsonProperty("email") String email,
+            @JsonProperty("gpa") Double gpa,
+            @JsonProperty("tags") List<JsonAdaptedTag> tags,
+            @JsonProperty("isHidden") boolean isHidden,
+            @JsonProperty("attachments") List<JsonAdaptedAttachment> attachments
+    ) {
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -48,6 +55,9 @@ class JsonAdaptedPerson {
             this.tags.addAll(tags);
         }
         this.isHidden = isHidden;
+        if (attachments != null) {
+            this.attachments.addAll(attachments);
+        }
     }
 
     /**
@@ -62,6 +72,9 @@ class JsonAdaptedPerson {
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
         isHidden = source.getIsHidden().value;
+        attachments.addAll(source.getAttachments().stream()
+                .map(JsonAdaptedAttachment::new)
+                .collect(Collectors.toList()));
     }
 
     /**
@@ -73,6 +86,11 @@ class JsonAdaptedPerson {
         final List<Tag> personTags = new ArrayList<>();
         for (JsonAdaptedTag tag : tags) {
             personTags.add(tag.toModelType());
+        }
+
+        final List<Attachment> personAttachments = new ArrayList<>();
+        for (JsonAdaptedAttachment attachment : attachments) {
+            personAttachments.add(attachment.toModelType());
         }
 
         if (name == null) {
@@ -111,7 +129,7 @@ class JsonAdaptedPerson {
 
         IsHidden modelIsHidden = new IsHidden(isHidden);
 
-        return new Person(modelName, modelPhone, modelEmail, modelGpa, modelTags, modelIsHidden);
+        return new Person(modelName, modelPhone, modelEmail, modelGpa, modelTags, modelIsHidden, personAttachments);
     }
 
 }
