@@ -2,8 +2,10 @@ package seedu.address.model.person;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -11,7 +13,7 @@ import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.model.tag.Tag;
 
 /**
- * Represents a Person in the address book.
+ * Represents an applicant in the TA applicant list.
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
 public class Person {
@@ -24,17 +26,19 @@ public class Person {
     // Data fields
     private final Gpa gpa;
     private final Set<Tag> tags = new HashSet<>();
+    private final List<Attachment> attachments = new ArrayList<>();
 
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Gpa gpa, Set<Tag> tags) {
+    public Person(Name name, Phone phone, Email email, Gpa gpa, Set<Tag> tags, List<Attachment> attachments) {
         requireAllNonNull(name, phone, email, gpa, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.gpa = gpa;
         this.tags.addAll(tags);
+        this.attachments.addAll(attachments);
     }
 
     public Name getName() {
@@ -59,6 +63,14 @@ public class Person {
      */
     public Set<Tag> getTags() {
         return Collections.unmodifiableSet(tags);
+    }
+
+    /**
+     * Returns an immutable attachment list, which throws {@code UnsupportedOperationException}
+     * if modification is attempted.
+     */
+    public List<Attachment> getAttachments() {
+        return Collections.unmodifiableList(attachments);
     }
 
     /**
@@ -94,13 +106,14 @@ public class Person {
                 && phone.equals(otherPerson.phone)
                 && email.equals(otherPerson.email)
                 && gpa.equals(otherPerson.gpa)
-                && tags.equals(otherPerson.tags);
+                && tags.equals(otherPerson.tags)
+                && attachments.equals(otherPerson.attachments);
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, gpa, tags);
+        return Objects.hash(name, phone, email, gpa, tags, attachments);
     }
 
     @Override
@@ -111,6 +124,7 @@ public class Person {
                 .add("email", email)
                 .add("gpa", gpa)
                 .add("tags", tags)
+                .add("attachments", attachments)
                 .toString();
     }
 
