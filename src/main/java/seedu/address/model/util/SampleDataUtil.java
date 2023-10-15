@@ -10,6 +10,7 @@ import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.attachment.Attachment;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gpa;
+import seedu.address.model.person.IsHidden;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -29,6 +30,7 @@ public class SampleDataUtil {
                 new Email("alexyeoh@example.com"),
                 new Gpa(4.2),
                 getTagSet("pastTA"),
+                new IsHidden(false),
                 getAttachments("resume.pdf")
             ),
             new Person(
@@ -38,6 +40,7 @@ public class SampleDataUtil {
                 new Email("berniceyu@example.com"),
                 new Gpa(5.0),
                 getTagSet("pastTA", "deansList"),
+                new IsHidden(false),
                 getAttachments("cv.pdf")
             ),
             new Person(
@@ -47,6 +50,7 @@ public class SampleDataUtil {
                 new Email("charlotte@example.com"),
                 new Gpa(3.6),
                 getTagSet("pastTA"),
+                new IsHidden(false),
                 getAttachments("resume-v2.pdf")
             ),
             new Person(
@@ -56,6 +60,7 @@ public class SampleDataUtil {
                 new Email("lidavid@example.com"),
                 new Gpa(4.71),
                 getTagSet("pastTA"),
+                new IsHidden(false),
                 getAttachments("resume.pdf")
             ),
             new Person(
@@ -65,6 +70,7 @@ public class SampleDataUtil {
                 new Email("irfan@example.com"),
                 new Gpa(3.67),
                 getTagSet("topInModule"),
+                new IsHidden(false),
                 getAttachments("courses.xlsx")
             ),
             new Person(
@@ -74,6 +80,7 @@ public class SampleDataUtil {
                 new Email("royb@example.com"),
                 new Gpa(4.3),
                 getTagSet("pastTA"),
+                new IsHidden(false),
                 getAttachments("data.json", "todo.txt")
             )
         };

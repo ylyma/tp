@@ -13,6 +13,7 @@ import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.attachment.Attachment;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gpa;
+import seedu.address.model.person.IsHidden;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -32,12 +33,14 @@ class JsonAdaptedPerson {
     private final String email;
     private final Double gpa;
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
+    private final boolean isHidden;
     private final List<JsonAdaptedAttachment> attachments = new ArrayList<>();
 
     /**
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
      */
     @JsonCreator
+
     public JsonAdaptedPerson(
         @JsonProperty("studentNo") String studentNo,
         @JsonProperty("name") String name,
@@ -45,6 +48,7 @@ class JsonAdaptedPerson {
         @JsonProperty("email") String email,
         @JsonProperty("gpa") Double gpa,
         @JsonProperty("tags") List<JsonAdaptedTag> tags,
+        @JsonProperty("isHidden") boolean isHidden,
         @JsonProperty("attachments") List<JsonAdaptedAttachment> attachments
     ) {
         this.studentNo = studentNo;
@@ -55,6 +59,7 @@ class JsonAdaptedPerson {
         if (tags != null) {
             this.tags.addAll(tags);
         }
+        this.isHidden = isHidden;
         if (attachments != null) {
             this.attachments.addAll(attachments);
         }
@@ -72,6 +77,7 @@ class JsonAdaptedPerson {
         tags.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
+        isHidden = source.getIsHidden().value;
         attachments.addAll(source.getAttachments().stream()
                 .map(JsonAdaptedAttachment::new)
                 .collect(Collectors.toList()));
@@ -140,7 +146,10 @@ class JsonAdaptedPerson {
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
 
-        return new Person(modelStudentNo, modelName, modelPhone, modelEmail, modelGpa, modelTags, personAttachments);
+        final IsHidden modelIsHidden = new IsHidden(isHidden);
+
+        return new Person(modelStudentNo, modelName, modelPhone, modelEmail,
+            modelGpa, modelTags, modelIsHidden, personAttachments);
     }
 
 }

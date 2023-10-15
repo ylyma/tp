@@ -6,6 +6,7 @@ import java.util.function.Predicate;
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.index.Index;
+import seedu.address.model.person.IsHiddenPredicate;
 import seedu.address.model.person.Person;
 
 /**
@@ -15,6 +16,14 @@ public interface Model {
     /** {@code Predicate} that always evaluate to true */
     Predicate<Person> PREDICATE_SHOW_ALL_PERSONS = unused -> true;
 
+    /**
+     * {@code Predicate} that filters for all hidden persons
+     */
+    Predicate<Person> PREDICATE_SHOW_ALL_HIDDEN_PERSONS = new IsHiddenPredicate(true);
+    /**
+     * {@code Predicate} that filters for all unhidden persons
+     */
+    Predicate<Person> PREDICATE_SHOW_ALL_UNHIDDEN_PERSONS = new IsHiddenPredicate(false);
     /**
      * Replaces user prefs data with the data in {@code userPrefs}.
      */

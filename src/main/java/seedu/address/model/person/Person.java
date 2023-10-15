@@ -24,6 +24,7 @@ public class Person {
     private final Name name;
     private final Phone phone;
     private final Email email;
+    private final IsHidden isHidden;
 
     // Data fields
     private final Gpa gpa;
@@ -40,15 +41,17 @@ public class Person {
         Email email,
         Gpa gpa,
         Set<Tag> tags,
+        IsHidden isHidden,
         List<Attachment> attachments
     ) {
-        requireAllNonNull(studentNo, name, phone, email, gpa, tags);
+        requireAllNonNull(studentNo, name, phone, email, gpa, tags, isHidden);
         this.studentNo = studentNo;
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.gpa = gpa;
         this.tags.addAll(tags);
+        this.isHidden = isHidden;
         this.attachments.addAll(attachments);
     }
 
@@ -57,19 +60,19 @@ public class Person {
     }
 
     public Name getName() {
-        return name;
+        return this.name;
     }
 
     public Phone getPhone() {
-        return phone;
+        return this.phone;
     }
 
     public Email getEmail() {
-        return email;
+        return this.email;
     }
 
     public Gpa getGpa() {
-        return gpa;
+        return this.gpa;
     }
 
     /**
@@ -78,6 +81,10 @@ public class Person {
      */
     public Set<Tag> getTags() {
         return Collections.unmodifiableSet(tags);
+    }
+
+    public IsHidden getIsHidden() {
+        return this.isHidden;
     }
 
     /**
@@ -123,13 +130,14 @@ public class Person {
                 && email.equals(otherPerson.email)
                 && gpa.equals(otherPerson.gpa)
                 && tags.equals(otherPerson.tags)
+                && isHidden.equals(getIsHidden())
                 && attachments.equals(otherPerson.attachments);
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(studentNo, name, phone, email, gpa, tags, attachments);
+        return Objects.hash(studentNo, name, phone, email, gpa, tags, isHidden, attachments);
     }
 
     @Override
@@ -141,6 +149,7 @@ public class Person {
                 .add("email", email)
                 .add("gpa", gpa)
                 .add("tags", tags)
+                .add("hidden", isHidden)
                 .add("attachments", attachments)
                 .toString();
     }
