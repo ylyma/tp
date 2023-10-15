@@ -7,6 +7,7 @@ import java.util.Set;
 import seedu.address.model.person.Attachment;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gpa;
+import seedu.address.model.person.IsHidden;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -22,12 +23,14 @@ public class PersonBuilder {
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final double DEFAULT_GPA = 4.0;
+    public static final boolean DEFAULT_IS_HIDDEN = false;
 
     private Name name;
     private Phone phone;
     private Email email;
     private Gpa gpa;
     private Set<Tag> tags;
+    private IsHidden isHidden;
     private List<Attachment> attachments;
 
     /**
@@ -39,6 +42,7 @@ public class PersonBuilder {
         email = new Email(DEFAULT_EMAIL);
         gpa = new Gpa(DEFAULT_GPA);
         tags = new HashSet<>();
+        isHidden = new IsHidden(DEFAULT_IS_HIDDEN);
         attachments = List.of();
     }
 
@@ -51,6 +55,7 @@ public class PersonBuilder {
         email = personToCopy.getEmail();
         gpa = personToCopy.getGpa();
         tags = new HashSet<>(personToCopy.getTags());
+        isHidden = personToCopy.getIsHidden();
         attachments = personToCopy.getAttachments();
     }
 
@@ -102,8 +107,15 @@ public class PersonBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code isHidden} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withHidden(boolean isHidden) {
+        this.isHidden = new IsHidden(isHidden);
+        return this;
+    }
     public Person build() {
-        return new Person(name, phone, email, gpa, tags, attachments);
+        return new Person(name, phone, email, gpa, tags, isHidden, attachments);
     }
 
 }
