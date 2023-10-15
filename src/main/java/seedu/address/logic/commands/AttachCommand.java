@@ -102,6 +102,7 @@ public class AttachCommand extends Command {
         Path sourcePath = attachment.file.toPath();
         String fileName = sourcePath.getFileName().toString();
         Path destPath = Paths.get(basePath.toString(), personToAttachTo.getStudentNumber().toString(), fileName);
+        destPath.getParent().toFile().mkdirs();
         Files.copy(sourcePath, destPath);
         return new Attachment(destPath.toString());
     }
