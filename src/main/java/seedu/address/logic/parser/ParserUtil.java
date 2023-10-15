@@ -13,6 +13,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Gpa;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.StudentNumber;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -33,6 +34,21 @@ public class ParserUtil {
             throw new ParseException(MESSAGE_INVALID_INDEX);
         }
         return Index.fromOneBased(Integer.parseInt(trimmedIndex));
+    }
+
+    /**
+     * Parses a {@code String studentNo} into a {@code StudentNumber}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code name} is invalid.
+     */
+    public static StudentNumber parseStudentNumber(String studentNo) throws ParseException {
+        requireNonNull(studentNo);
+        String trimmedStudentNo = studentNo.trim();
+        if (!StudentNumber.isValidStudentNumber(trimmedStudentNo)) {
+            throw new ParseException(StudentNumber.MESSAGE_CONSTRAINTS);
+        }
+        return new StudentNumber(trimmedStudentNo);
     }
 
     /**

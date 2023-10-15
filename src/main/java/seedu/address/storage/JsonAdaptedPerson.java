@@ -10,13 +10,14 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.person.Attachment;
+import seedu.address.model.attachment.Attachment;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gpa;
 import seedu.address.model.person.IsHidden;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.StudentNumber;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -26,6 +27,7 @@ class JsonAdaptedPerson {
 
     public static final String MISSING_FIELD_MESSAGE_FORMAT = "Person's %s field is missing!";
 
+    private final String studentNo;
     private final String name;
     private final String phone;
     private final String email;
@@ -40,15 +42,16 @@ class JsonAdaptedPerson {
     @JsonCreator
 
     public JsonAdaptedPerson(
-            @JsonProperty("name") String name,
-            @JsonProperty("phone") String phone,
-            @JsonProperty("email") String email,
-            @JsonProperty("gpa") Double gpa,
-            @JsonProperty("tags") List<JsonAdaptedTag> tags,
-            @JsonProperty("isHidden") boolean isHidden,
-            @JsonProperty("attachments") List<JsonAdaptedAttachment> attachments
+        @JsonProperty("studentNo") String studentNo,
+        @JsonProperty("name") String name,
+        @JsonProperty("phone") String phone,
+        @JsonProperty("email") String email,
+        @JsonProperty("gpa") Double gpa,
+        @JsonProperty("tags") List<JsonAdaptedTag> tags,
+        @JsonProperty("isHidden") boolean isHidden,
+        @JsonProperty("attachments") List<JsonAdaptedAttachment> attachments
     ) {
-
+        this.studentNo = studentNo;
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -66,6 +69,7 @@ class JsonAdaptedPerson {
      * Converts a given {@code Person} into this class for Jackson use.
      */
     public JsonAdaptedPerson(Person source) {
+        studentNo = source.getStudentNumber().value;
         name = source.getName().fullName;
         phone = source.getPhone().value;
         email = source.getEmail().value;
@@ -94,6 +98,19 @@ class JsonAdaptedPerson {
         for (JsonAdaptedAttachment attachment : attachments) {
             personAttachments.add(attachment.toModelType());
         }
+
+        if (studentNo == null) {
+            throw new IllegalValueException(
+                String.format(
+                    MISSING_FIELD_MESSAGE_FORMAT,
+                    StudentNumber.class.getSimpleName()
+                )
+            );
+        }
+        if (!StudentNumber.isValidStudentNumber(studentNo)) {
+            throw new IllegalValueException(StudentNumber.MESSAGE_CONSTRAINTS);
+        }
+        final StudentNumber modelStudentNo = new StudentNumber(studentNo);
 
         if (name == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName()));
@@ -128,9 +145,11 @@ class JsonAdaptedPerson {
         final Gpa modelGpa = new Gpa(gpa);
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
-        IsHidden modelIsHidden = new IsHidden(isHidden);
-        return new Person(modelName, modelPhone, modelEmail, modelGpa, modelTags, modelIsHidden, personAttachments);
 
+        final IsHidden modelIsHidden = new IsHidden(isHidden);
+
+        return new Person(modelStudentNo, modelName, modelPhone, modelEmail,
+            modelGpa, modelTags, modelIsHidden, personAttachments);
     }
 
 }
