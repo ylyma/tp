@@ -84,10 +84,10 @@ public class TypicalPersons {
             .build();
 
     // Manually added
-    public static final Person HOON = new PersonBuilder().withName("Hoon Meier").withPhone("8482424")
-            .withEmail("stefan@example.com").withGpa(0.1).withAttachments().build();
-    public static final Person IDA = new PersonBuilder().withName("Ida Mueller").withPhone("8482131")
-            .withEmail("hans@example.com").withGpa(0.5).withAttachments().build();
+    public static final Person HOON = new PersonBuilder().withStudentNumber("A0348483G").withName("Hoon Meier")
+            .withPhone("8482424").withEmail("stefan@example.com").withGpa(0.1).withAttachments().build();
+    public static final Person IDA = new PersonBuilder().withStudentNumber("A3974743C").withName("Ida Mueller")
+            .withPhone("8482131").withEmail("hans@example.com").withGpa(0.5).withAttachments().build();
 
     // Manually added - Person's details found in {@code CommandTestUtil}
     public static final Person AMY = new PersonBuilder().withStudentNumber(VALID_STUDENT_NUMBER_AMY)
