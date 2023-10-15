@@ -105,7 +105,7 @@ public class EditCommand extends Command {
 
         List<Attachment> attachments = personToEdit.getAttachments();
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedGpa, updatedTags, isHidden attachments);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedGpa, updatedTags, isHidden, attachments);
 
     }
 

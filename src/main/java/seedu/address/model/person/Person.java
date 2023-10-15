@@ -117,7 +117,7 @@ public class Person {
                 && email.equals(otherPerson.email)
                 && gpa.equals(otherPerson.gpa)
                 && tags.equals(otherPerson.tags)
-                && isHidden.equals(getIsHidden());
+                && isHidden.equals(getIsHidden())
                 && attachments.equals(otherPerson.attachments);
     }
 
