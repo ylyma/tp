@@ -20,6 +20,7 @@ import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.person.Attachment;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gpa;
 import seedu.address.model.person.IsHidden;
@@ -102,7 +103,10 @@ public class EditCommand extends Command {
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
         IsHidden isHidden = editPersonDescriptor.getIsHidden().orElse(personToEdit.getIsHidden());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedGpa, updatedTags, isHidden);
+        List<Attachment> attachments = personToEdit.getAttachments();
+
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedGpa, updatedTags, isHidden attachments);
+
     }
 
     @Override

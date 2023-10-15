@@ -1,8 +1,10 @@
 package seedu.address.testutil;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+import seedu.address.model.person.Attachment;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gpa;
 import seedu.address.model.person.IsHidden;
@@ -29,6 +31,7 @@ public class PersonBuilder {
     private Gpa gpa;
     private Set<Tag> tags;
     private IsHidden isHidden;
+    private List<Attachment> attachments;
 
     /**
      * Creates a {@code PersonBuilder} with the default details.
@@ -40,6 +43,7 @@ public class PersonBuilder {
         gpa = new Gpa(DEFAULT_GPA);
         tags = new HashSet<>();
         isHidden = new IsHidden(DEFAULT_IS_HIDDEN);
+        attachments = List.of();
     }
 
     /**
@@ -52,6 +56,7 @@ public class PersonBuilder {
         gpa = personToCopy.getGpa();
         tags = new HashSet<>(personToCopy.getTags());
         isHidden = personToCopy.getIsHidden();
+        attachments = personToCopy.getAttachments();
     }
 
     /**
@@ -67,6 +72,14 @@ public class PersonBuilder {
      */
     public PersonBuilder withTags(String ... tags) {
         this.tags = SampleDataUtil.getTagSet(tags);
+        return this;
+    }
+
+    /**
+     * Parses the {@code pathStrings} into a {@code List<File>} and set it to the {@code Person} that we are building.
+     */
+    public PersonBuilder withAttachments(String ... pathStrings) {
+        this.attachments = SampleDataUtil.getAttachments(pathStrings);
         return this;
     }
 
@@ -102,7 +115,7 @@ public class PersonBuilder {
         return this;
     }
     public Person build() {
-        return new Person(name, phone, email, gpa, tags, isHidden);
+        return new Person(name, phone, email, gpa, tags, isHidden, attachments);
     }
 
 }

@@ -7,6 +7,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Stream;
 
@@ -47,7 +48,8 @@ public class AddCommandParser implements Parser<AddCommand> {
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
         IsHidden isHidden = new IsHidden(false);
 
-        Person person = new Person(name, phone, email, gpa, tagList, isHidden);
+        Person person = new Person(name, phone, email, gpa, tagList, isHidden, List.of());
+
 
         return new AddCommand(person);
     }
