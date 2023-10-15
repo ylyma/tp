@@ -36,7 +36,7 @@ public class AttachCommandParser implements Parser<AttachCommand> {
         }
 
         if (!argMultimap.getValue(PREFIX_FILE).isPresent()) {
-            throw new ParseException("<INSERT MESSAGE HERE>");
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AttachCommand.MESSAGE_USAGE));
         }
         List<Attachment> attachments = parseAttachments(argMultimap.getAllValues(PREFIX_FILE));
 
