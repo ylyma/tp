@@ -128,9 +128,7 @@ class JsonAdaptedPerson {
         final Gpa modelGpa = new Gpa(gpa);
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
-
         IsHidden modelIsHidden = new IsHidden(isHidden);
-      
         return new Person(modelName, modelPhone, modelEmail, modelGpa, modelTags, modelIsHidden, personAttachments);
 
     }
