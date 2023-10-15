@@ -64,7 +64,8 @@ public class HideCommand extends Command {
         assert personToHide != null;
 
         return new Person(personToHide.getName(), personToHide.getPhone(), personToHide.getEmail(),
-                personToHide.getGpa(), personToHide.getTags(), new IsHidden(true));
+                personToHide.getGpa(), personToHide.getTags(), new IsHidden(true),
+                personToHide.getAttachments());
     }
     @Override
     public boolean equals(Object other) {
