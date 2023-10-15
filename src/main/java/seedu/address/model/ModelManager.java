@@ -15,6 +15,7 @@ import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.core.index.Index;
 import seedu.address.model.person.Person;
+import seedu.address.storage.AttachmentsStorage;
 
 /**
  * Represents the in-memory model of the address book data.
@@ -27,7 +28,7 @@ public class ModelManager implements Model {
     private final FilteredList<Person> filteredPersons;
 
     /**
-     * Initializes a ModelManager with the given addressBook and userPrefs.
+     * Initializes a ModelManager with the given addressBook, userPrefs and attachments interface.
      */
     public ModelManager(ReadOnlyAddressBook addressBook, ReadOnlyUserPrefs userPrefs) {
         requireAllNonNull(addressBook, userPrefs);

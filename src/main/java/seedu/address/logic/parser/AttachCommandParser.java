@@ -4,11 +4,14 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_FILE;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.AttachCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.attachment.Attachment;
 
 /**
  * Parses input arguments and creates a new AttachCommand object
@@ -35,9 +38,30 @@ public class AttachCommandParser implements Parser<AttachCommand> {
         if (!argMultimap.getValue(PREFIX_FILE).isPresent()) {
             throw new ParseException("<INSERT MESSAGE HERE>");
         }
-        List<String> filePaths = argMultimap.getAllValues(PREFIX_FILE);
+        List<Attachment> attachments = parseAttachments(argMultimap.getAllValues(PREFIX_FILE));
 
-        return new AttachCommand(index, filePaths);
+        return new AttachCommand(index, attachments);
     }
 
+    /**
+     * Parses {@code Collection<String> pathStrings} into a {@code List<Path>} if {@code pathStrings} is non-empty.
+     * If {@code pathStrings} contain only one element which is an empty string, it will be parsed into a
+     * {@code List<Path>} containing zero tags.
+     */
+    private List<Attachment> parseAttachments(Collection<String> pathStrings) throws ParseException {
+        assert pathStrings != null;
+
+        if (pathStrings.isEmpty()) {
+            return List.of();
+        }
+
+        Collection<String> pathSet;
+        if (pathStrings.size() == 1 && pathStrings.contains("")) {
+            pathSet = Collections.emptySet();
+        } else {
+            pathSet = pathStrings;
+        }
+
+        return ParserUtil.parseAttachments(pathSet);
+    }
 }
