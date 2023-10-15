@@ -10,8 +10,6 @@ import seedu.address.commons.exceptions.DataLoadingException;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.UserPrefs;
-import seedu.address.model.attachment.Attachment;
-import seedu.address.model.person.Person;
 
 /**
  * Manages storage of AddressBook data in local storage.
@@ -21,15 +19,13 @@ public class StorageManager implements Storage {
     private static final Logger logger = LogsCenter.getLogger(StorageManager.class);
     private AddressBookStorage addressBookStorage;
     private UserPrefsStorage userPrefsStorage;
-    private AttachmentsStorage attachmentsStorage;
 
     /**
      * Creates a {@code StorageManager} with the given {@code AddressBookStorage} and {@code UserPrefStorage}.
      */
-    public StorageManager(AddressBookStorage addressBookStorage, UserPrefsStorage userPrefsStorage, AttachmentsStorage attachmentsStorage) {
+    public StorageManager(AddressBookStorage addressBookStorage, UserPrefsStorage userPrefsStorage) {
         this.addressBookStorage = addressBookStorage;
         this.userPrefsStorage = userPrefsStorage;
-        this.attachmentsStorage = attachmentsStorage;
     }
 
     // ================ UserPrefs methods ==============================
@@ -47,19 +43,6 @@ public class StorageManager implements Storage {
     @Override
     public void saveUserPrefs(ReadOnlyUserPrefs userPrefs) throws IOException {
         userPrefsStorage.saveUserPrefs(userPrefs);
-    }
-
-
-    // ================ Attachment methods ==============================
-
-    @Override
-    public Path getAttachmentsPath(Person person) {
-        return attachmentsStorage.getAttachmentsPath(person);
-    }
-
-    @Override
-    public Attachment copyAttachment(Person person, Attachment attachmentToCopy) throws IOException {
-        return attachmentsStorage.copyAttachment(person, attachmentToCopy);
     }
 
     // ================ AddressBook methods ==============================

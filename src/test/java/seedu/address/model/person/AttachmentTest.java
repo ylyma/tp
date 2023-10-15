@@ -15,14 +15,14 @@ public class AttachmentTest {
 
     @Test
     public void constructor_invalidPathString_throwsIllegalArgumentException() {
-        String invalidPathString = "a\nb";
-        assertThrows(IllegalArgumentException.class, () -> new Attachment(invalidPathString));
+        String invalidPath = "a\nb";
+        assertThrows(IllegalArgumentException.class, () -> new Attachment(invalidPath));
     }
 
     @Test
     public void isValidPathString() {
         // null path string
-        assertThrows(NullPointerException.class, () -> Attachment.isValidPath(null));
+        assertThrows(NullPointerException.class, () -> Attachment.isValidAttachment(null));
     }
 
 }

@@ -1,8 +1,12 @@
 package seedu.address.logic.commands;
 
-import static seedu.address.logic.parser.CliSyntax.PREFIX_FILE;
 import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_FILE;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +34,7 @@ public class AttachCommand extends Command {
             + "[" + PREFIX_FILE + "FILE]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_FILE + "samples/resume.pdf";
+    public static final String MESSAGE_FAILED_TO_COPY = "Failed to copy attachment";
 
     private final Index index;
     private final List<Attachment> attachments;
@@ -47,11 +52,11 @@ public class AttachCommand extends Command {
     }
 
     @Override
-    public CommandResult execute(Model model) {
+    public CommandResult execute(Model model) throws CommandException {
         // 1. Read the contents of the existing directory
         // 2. Copy in all the new attachments, failing first if one of them fails
         // 3. Add the attachments to the model
-        
+
         requireNonNull(model);
         List<Person> lastShownList = model.getFilteredPersonList();
 
@@ -62,9 +67,14 @@ public class AttachCommand extends Command {
         Person personToAttachTo = lastShownList.get(index.getZeroBased());
 
         List<Attachment> updatedAttachments = new ArrayList<>(personToAttachTo.getAttachments());
-        for (Attachment attachment : attachments) {
-            Attachment copiedAttachment = copyAttachment(attachment);
-            updatedAttachments.add(copiedAttachment);
+        try {
+            for (Attachment attachment : attachments) {
+                Attachment copiedAttachment = copyAttachment(
+                    model.getUserPrefs().getAttachmentsBasePath(), attachment, personToAttachTo);
+                updatedAttachments.add(copiedAttachment);
+            }
+        } catch (IOException e) {
+            throw new CommandException(MESSAGE_FAILED_TO_COPY);
         }
 
         Person attachedPerson = new Person(
@@ -74,11 +84,25 @@ public class AttachCommand extends Command {
             personToAttachTo.getEmail(),
             personToAttachTo.getGpa(),
             personToAttachTo.getTags(),
+            personToAttachTo.getIsHidden(),
             updatedAttachments
         );
+        model.setPerson(personToAttachTo, attachedPerson);
+        model.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_UNHIDDEN_PERSONS);
+
+        return new CommandResult(
+            "Attached " + attachments.size() + " attachments to " + personToAttachTo.getName() + "!");
     }
 
-    private Attachment copyAttachment(Attachment attachment) {
-
+    private Attachment copyAttachment(
+        Path basePath,
+        Attachment attachment,
+        Person personToAttachTo
+    ) throws IOException {
+        Path sourcePath = attachment.file.toPath();
+        String fileName = sourcePath.getFileName().toString();
+        Path destPath = Paths.get(basePath.toString(), personToAttachTo.getStudentNumber().toString(), fileName);
+        Files.copy(sourcePath, destPath);
+        return new Attachment(destPath.toString());
     }
 }
