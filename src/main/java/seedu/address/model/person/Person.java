@@ -20,6 +20,7 @@ import seedu.address.model.tag.Tag;
 public class Person {
 
     // Identity fields
+    private final StudentNumber studentNo;
     private final Name name;
     private final Phone phone;
     private final Email email;
@@ -32,14 +33,27 @@ public class Person {
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Gpa gpa, Set<Tag> tags, List<Attachment> attachments) {
-        requireAllNonNull(name, phone, email, gpa, tags);
+    public Person(
+        StudentNumber studentNo,
+        Name name,
+        Phone phone,
+        Email email,
+        Gpa gpa,
+        Set<Tag> tags,
+        List<Attachment> attachments
+    ) {
+        requireAllNonNull(studentNo, name, phone, email, gpa, tags);
+        this.studentNo = studentNo;
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.gpa = gpa;
         this.tags.addAll(tags);
         this.attachments.addAll(attachments);
+    }
+
+    public StudentNumber getStudentNumber() {
+        return studentNo;
     }
 
     public Name getName() {
@@ -103,7 +117,8 @@ public class Person {
         }
 
         Person otherPerson = (Person) other;
-        return name.equals(otherPerson.name)
+        return studentNo.equals(otherPerson.studentNo)
+                && name.equals(otherPerson.name)
                 && phone.equals(otherPerson.phone)
                 && email.equals(otherPerson.email)
                 && gpa.equals(otherPerson.gpa)
@@ -114,12 +129,13 @@ public class Person {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, gpa, tags, attachments);
+        return Objects.hash(studentNo, name, phone, email, gpa, tags, attachments);
     }
 
     @Override
     public String toString() {
         return new ToStringBuilder(this)
+                .add("studentNo", studentNo)
                 .add("name", name)
                 .add("phone", phone)
                 .add("email", email)

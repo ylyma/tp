@@ -1,11 +1,13 @@
 {
   "persons": [ {
+    "studentNo": "A0222222A",
     "name": "Alice Pauline",
     "phone": "94351253",
     "email": "alice@example.com",
     "gpa": "3.1",
     "tags": [ "friends" ]
   }, {
+    "studentNo": "A0222222A",
     "name": "Alice Pauline",
     "phone": "94351253",
     "email": "pauline@example.com",

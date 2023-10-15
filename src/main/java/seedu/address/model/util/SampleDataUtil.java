@@ -13,6 +13,7 @@ import seedu.address.model.person.Gpa;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.StudentNumber;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -21,30 +22,60 @@ import seedu.address.model.tag.Tag;
 public class SampleDataUtil {
     public static Person[] getSamplePersons() {
         return new Person[] {
-            new Person(new Name("Alex Yeoh"), new Phone("87438807"), new Email("alexyeoh@example.com"),
+            new Person(
+                new StudentNumber("A0123456A"),
+                new Name("Alex Yeoh"),
+                new Phone("87438807"),
+                new Email("alexyeoh@example.com"),
                 new Gpa(4.2),
                 getTagSet("pastTA"),
-                getAttachments("data/attachments/tmp.json")),
-            new Person(new Name("Bernice Yu"), new Phone("99272758"), new Email("berniceyu@example.com"),
+                getAttachments("resume.pdf")
+            ),
+            new Person(
+                new StudentNumber("A0321654B"),
+                new Name("Bernice Yu"),
+                new Phone("99272758"),
+                new Email("berniceyu@example.com"),
                 new Gpa(5.0),
                 getTagSet("pastTA", "deansList"),
-                getAttachments("data/attachments/tmp.json")),
-            new Person(new Name("Charlotte Oliveiro"), new Phone("93210283"), new Email("charlotte@example.com"),
+                getAttachments("cv.pdf")
+            ),
+            new Person(
+                new StudentNumber("A0654123C"),
+                new Name("Charlotte Oliveiro"),
+                new Phone("93210283"),
+                new Email("charlotte@example.com"),
                 new Gpa(3.6),
                 getTagSet("pastTA"),
-                getAttachments("data/attachments/tmp.json")),
-            new Person(new Name("David Li"), new Phone("91031282"), new Email("lidavid@example.com"),
+                getAttachments("resume-v2.pdf")
+            ),
+            new Person(
+                new StudentNumber("A0654321D"),
+                new Name("David Li"),
+                new Phone("91031282"),
+                new Email("lidavid@example.com"),
                 new Gpa(4.71),
                 getTagSet("pastTA"),
-                getAttachments("data/attachments/tmp.json")),
-            new Person(new Name("Irfan Ibrahim"), new Phone("92492021"), new Email("irfan@example.com"),
+                getAttachments("resume.pdf")
+            ),
+            new Person(
+                new StudentNumber("A0321456E"),
+                new Name("Irfan Ibrahim"),
+                new Phone("92492021"),
+                new Email("irfan@example.com"),
                 new Gpa(3.67),
                 getTagSet("topInModule"),
-                getAttachments("data/attachments/tmp.json")),
-            new Person(new Name("Roy Balakrishnan"), new Phone("92624417"), new Email("royb@example.com"),
+                getAttachments("courses.xlsx")
+            ),
+            new Person(
+                new StudentNumber("A03784384F"),
+                new Name("Roy Balakrishnan"),
+                new Phone("92624417"),
+                new Email("royb@example.com"),
                 new Gpa(4.3),
                 getTagSet("pastTA"),
-                getAttachments("data/attachments/tmp.json"))
+                getAttachments("data.json", "todo.txt")
+            )
         };
     }
 

@@ -10,6 +10,7 @@ import seedu.address.model.person.Gpa;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.StudentNumber;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 
@@ -18,11 +19,13 @@ import seedu.address.model.util.SampleDataUtil;
  */
 public class PersonBuilder {
 
+    public static final String DEFAULT_STUDENT_NUMBER = "A0616616A";
     public static final String DEFAULT_NAME = "Amy Bee";
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final double DEFAULT_GPA = 4.0;
 
+    private StudentNumber studentNo;
     private Name name;
     private Phone phone;
     private Email email;
@@ -34,6 +37,7 @@ public class PersonBuilder {
      * Creates a {@code PersonBuilder} with the default details.
      */
     public PersonBuilder() {
+        studentNo = new StudentNumber(DEFAULT_STUDENT_NUMBER);
         name = new Name(DEFAULT_NAME);
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
@@ -46,6 +50,7 @@ public class PersonBuilder {
      * Initializes the PersonBuilder with the data of {@code personToCopy}.
      */
     public PersonBuilder(Person personToCopy) {
+        studentNo = personToCopy.getStudentNumber();
         name = personToCopy.getName();
         phone = personToCopy.getPhone();
         email = personToCopy.getEmail();
@@ -59,6 +64,14 @@ public class PersonBuilder {
      */
     public PersonBuilder withName(String name) {
         this.name = new Name(name);
+        return this;
+    }
+
+    /**
+     * Sets the {@code StudentNumber} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withStudentNumber(String studentNo) {
+        this.studentNo = new StudentNumber(studentNo);
         return this;
     }
 
@@ -103,7 +116,7 @@ public class PersonBuilder {
     }
 
     public Person build() {
-        return new Person(name, phone, email, gpa, tags, attachments);
+        return new Person(studentNo, name, phone, email, gpa, tags, attachments);
     }
 
 }
