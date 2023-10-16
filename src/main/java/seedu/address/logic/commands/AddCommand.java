@@ -20,7 +20,7 @@ public class AddCommand extends Command {
 
     public static final String COMMAND_WORD = "add";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a person to the TA list. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a person to the applicant list. "
             + "Parameters: "
             + PREFIX_NAME + "NAME "
             + PREFIX_PHONE + "PHONE "
@@ -36,7 +36,7 @@ public class AddCommand extends Command {
             + PREFIX_TAG + "dean's list";
 
     public static final String MESSAGE_SUCCESS = "New applicant added: %1$s";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This applicant already exists in the TA list";
+    public static final String MESSAGE_DUPLICATE_PERSON = "This applicant already exists in the applicant list";
 
     private final Person toAdd;
 
