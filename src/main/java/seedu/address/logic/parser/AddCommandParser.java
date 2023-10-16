@@ -14,6 +14,7 @@ import java.util.stream.Stream;
 
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.person.Bookmark;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gpa;
 import seedu.address.model.person.IsHidden;
@@ -55,8 +56,9 @@ public class AddCommandParser implements Parser<AddCommand> {
         Gpa gpa = ParserUtil.parseGpa(argMultimap.getValue(PREFIX_GPA).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
         IsHidden isHidden = new IsHidden(false);
+        Bookmark bookmark = new Bookmark(false);
 
-        Person person = new Person(studentNo, name, phone, email, gpa, tagList, isHidden, List.of());
+        Person person = new Person(studentNo, name, phone, email, gpa, tagList, isHidden, List.of(), bookmark);
 
         return new AddCommand(person);
     }

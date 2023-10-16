@@ -21,6 +21,7 @@ import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.attachment.Attachment;
+import seedu.address.model.person.Bookmark;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gpa;
 import seedu.address.model.person.IsHidden;
@@ -103,12 +104,13 @@ public class EditCommand extends Command {
         Gpa updatedGpa = editPersonDescriptor.getGpa().orElse(personToEdit.getGpa());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
         IsHidden isHidden = editPersonDescriptor.getIsHidden().orElse(personToEdit.getIsHidden());
+        Bookmark bookmark = personToEdit.getBookmark();
 
         StudentNumber studentNo = personToEdit.getStudentNumber();
         List<Attachment> attachments = personToEdit.getAttachments();
 
         return new Person(studentNo, updatedName, updatedPhone, updatedEmail,
-                updatedGpa, updatedTags, isHidden, attachments);
+                updatedGpa, updatedTags, isHidden, attachments, bookmark);
     }
 
     @Override
@@ -146,6 +148,7 @@ public class EditCommand extends Command {
         private Gpa gpa;
         private Set<Tag> tags;
         private IsHidden isHidden;
+        private Bookmark bookmark;
         public EditPersonDescriptor() {}
 
         /**
@@ -159,6 +162,8 @@ public class EditCommand extends Command {
             setGpa(toCopy.gpa);
             setTags(toCopy.tags);
             setIsHidden(toCopy.isHidden);
+            setBookmark(toCopy.bookmark);
+
         }
 
         /**
@@ -224,6 +229,15 @@ public class EditCommand extends Command {
         public Optional<IsHidden> getIsHidden() {
             return Optional.ofNullable(isHidden);
         }
+
+        public void setBookmark(Bookmark bookmark) {
+            this.bookmark = bookmark;
+        }
+
+        public Optional<Bookmark> getBookmark() {
+            return Optional.ofNullable(bookmark);
+        }
+
         @Override
         public boolean equals(Object other) {
             if (other == this) {
@@ -240,7 +254,8 @@ public class EditCommand extends Command {
                     && Objects.equals(phone, otherEditPersonDescriptor.phone)
                     && Objects.equals(email, otherEditPersonDescriptor.email)
                     && Objects.equals(gpa, otherEditPersonDescriptor.gpa)
-                    && Objects.equals(tags, otherEditPersonDescriptor.tags);
+                    && Objects.equals(tags, otherEditPersonDescriptor.tags)
+                    && Objects.equals(bookmark, otherEditPersonDescriptor.bookmark);
         }
 
         @Override
@@ -251,6 +266,7 @@ public class EditCommand extends Command {
                     .add("email", email)
                     .add("address", gpa)
                     .add("tags", tags)
+                    .add("bookmark", bookmark)
                     .toString();
         }
     }
