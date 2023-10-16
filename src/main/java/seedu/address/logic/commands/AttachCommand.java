@@ -85,7 +85,8 @@ public class AttachCommand extends Command {
             personToAttachTo.getGpa(),
             personToAttachTo.getTags(),
             personToAttachTo.getIsHidden(),
-            updatedAttachments
+            updatedAttachments,
+            personToAttachTo.getBookmark()
         );
         model.setPerson(personToAttachTo, attachedPerson);
         model.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_UNHIDDEN_PERSONS);
