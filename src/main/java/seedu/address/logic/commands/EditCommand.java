@@ -145,7 +145,6 @@ public class EditCommand extends Command {
         private Email email;
         private Gpa gpa;
         private Set<Tag> tags;
-
         private IsHidden isHidden;
         public EditPersonDescriptor() {}
 
@@ -254,6 +253,5 @@ public class EditCommand extends Command {
                     .add("tags", tags)
                     .toString();
         }
-
     }
 }
