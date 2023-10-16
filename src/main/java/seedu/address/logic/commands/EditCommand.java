@@ -20,13 +20,14 @@ import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.person.Attachment;
+import seedu.address.model.attachment.Attachment;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gpa;
 import seedu.address.model.person.IsHidden;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.StudentNumber;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -99,12 +100,15 @@ public class EditCommand extends Command {
         Name updatedName = editPersonDescriptor.getName().orElse(personToEdit.getName());
         Phone updatedPhone = editPersonDescriptor.getPhone().orElse(personToEdit.getPhone());
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
-        Gpa updatedGpa = editPersonDescriptor.getAddress().orElse(personToEdit.getGpa());
+        Gpa updatedGpa = editPersonDescriptor.getGpa().orElse(personToEdit.getGpa());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
         IsHidden isHidden = editPersonDescriptor.getIsHidden().orElse(personToEdit.getIsHidden());
+
+        StudentNumber studentNo = personToEdit.getStudentNumber();
         List<Attachment> attachments = personToEdit.getAttachments();
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedGpa, updatedTags, isHidden, attachments);
+        return new Person(studentNo, updatedName, updatedPhone, updatedEmail,
+                updatedGpa, updatedTags, isHidden, attachments);
     }
 
     @Override
@@ -192,7 +196,7 @@ public class EditCommand extends Command {
             this.gpa = gpa;
         }
 
-        public Optional<Gpa> getAddress() {
+        public Optional<Gpa> getGpa() {
             return Optional.ofNullable(gpa);
         }
 

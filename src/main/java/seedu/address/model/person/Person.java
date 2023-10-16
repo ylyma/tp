@@ -10,6 +10,7 @@ import java.util.Objects;
 import java.util.Set;
 
 import seedu.address.commons.util.ToStringBuilder;
+import seedu.address.model.attachment.Attachment;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -19,22 +20,32 @@ import seedu.address.model.tag.Tag;
 public class Person {
 
     // Identity fields
+    private final StudentNumber studentNo;
     private final Name name;
     private final Phone phone;
     private final Email email;
+    private final IsHidden isHidden;
 
     // Data fields
     private final Gpa gpa;
     private final Set<Tag> tags = new HashSet<>();
-    private final IsHidden isHidden;
     private final List<Attachment> attachments = new ArrayList<>();
 
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Gpa gpa, Set<Tag> tags,
-                  IsHidden isHidden, List<Attachment> attachments) {
-        requireAllNonNull(name, phone, email, gpa, tags, isHidden);
+    public Person(
+        StudentNumber studentNo,
+        Name name,
+        Phone phone,
+        Email email,
+        Gpa gpa,
+        Set<Tag> tags,
+        IsHidden isHidden,
+        List<Attachment> attachments
+    ) {
+        requireAllNonNull(studentNo, name, phone, email, gpa, tags, isHidden);
+        this.studentNo = studentNo;
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -42,6 +53,10 @@ public class Person {
         this.tags.addAll(tags);
         this.isHidden = isHidden;
         this.attachments.addAll(attachments);
+    }
+
+    public StudentNumber getStudentNumber() {
+        return studentNo;
     }
 
     public Name getName() {
@@ -86,7 +101,7 @@ public class Person {
     }
 
     /**
-     * Returns true if both persons have the same name.
+     * Returns true if both persons have the same student number.
      * This defines a weaker notion of equality between two persons.
      */
     public boolean isSamePerson(Person otherPerson) {
@@ -95,7 +110,7 @@ public class Person {
         }
 
         return otherPerson != null
-                && otherPerson.getName().equals(getName());
+                && otherPerson.getStudentNumber().equals(getStudentNumber());
     }
 
     /**
@@ -114,7 +129,8 @@ public class Person {
         }
 
         Person otherPerson = (Person) other;
-        return name.equals(otherPerson.name)
+        return studentNo.equals(otherPerson.studentNo)
+                && name.equals(otherPerson.name)
                 && phone.equals(otherPerson.phone)
                 && email.equals(otherPerson.email)
                 && gpa.equals(otherPerson.gpa)
@@ -126,12 +142,13 @@ public class Person {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, gpa, tags, isHidden, attachments);
+        return Objects.hash(studentNo, name, phone, email, gpa, tags, isHidden, attachments);
     }
 
     @Override
     public String toString() {
         return new ToStringBuilder(this)
+                .add("studentNo", studentNo)
                 .add("name", name)
                 .add("phone", phone)
                 .add("email", email)

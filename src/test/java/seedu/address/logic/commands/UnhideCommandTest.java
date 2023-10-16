@@ -2,7 +2,7 @@ package seedu.address.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
@@ -49,16 +49,16 @@ public class UnhideCommandTest {
         HideCommand hideFirstCommand = new HideCommand(INDEX_FIRST_PERSON);
         HideCommand hideSecondCommand = new HideCommand(INDEX_SECOND_PERSON);
 
-        assertTrue(hideFirstCommand.equals(hideFirstCommand));
+        assertEquals(hideFirstCommand, hideFirstCommand);
 
         HideCommand hideFirstCommandCopy = new HideCommand(INDEX_FIRST_PERSON);
-        assertTrue(hideFirstCommand.equals(hideFirstCommandCopy));
+        assertEquals(hideFirstCommand, hideFirstCommandCopy);
 
-        assertFalse(hideFirstCommand.equals(1));
+        assertNotEquals(1, hideFirstCommand);
 
-        assertFalse(hideFirstCommand.equals(null));
+        assertNotEquals(null, hideFirstCommand);
 
-        assertFalse(hideFirstCommand.equals(hideSecondCommand));
+        assertNotEquals(hideFirstCommand, hideSecondCommand);
     }
 
     @Test
