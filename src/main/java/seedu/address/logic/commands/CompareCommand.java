@@ -4,6 +4,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
+import seedu.address.ui.MainWindow;
 
 import static java.util.Objects.requireNonNull;
 
@@ -39,12 +40,10 @@ public class CompareCommand extends Command {
             Person person1 = model.getFilteredPersonList().get(index1.getZeroBased());
             Person person2 = model.getFilteredPersonList().get(index2.getZeroBased());
 
-            // TODO: Implement the comparison and display logic here
-
             return new CommandResult("Comparison successful");
         } catch (IndexOutOfBoundsException e) {
             throw new CommandException("Error: One or both of the specified applicants"
-                    + "were not found in the list.");
+                    + " were not found in the list.");
         }
     }
 }
