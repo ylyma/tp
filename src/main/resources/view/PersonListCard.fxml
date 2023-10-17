@@ -12,13 +12,10 @@
 
 <HBox id="cardPane" fx:id="cardPane" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <GridPane HBox.hgrow="ALWAYS">
-    <!-- Define columns -->
     <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="150" />
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10" />
     </columnConstraints>
-
-    <!-- Details (Name to Bookmark) in the first column -->
     <VBox alignment="CENTER_LEFT" minHeight="105" GridPane.columnIndex="0">
       <padding>
         <Insets bottom="5" left="15" right="5" top="5" />
@@ -36,12 +33,13 @@
       <Label fx:id="phone" styleClass="cell_small_label" text="\$phone" />
       <Label fx:id="email" styleClass="cell_small_label" text="\$email" />
       <Label fx:id="gpa" styleClass="cell_small_label" text="\$gpa" />
-      <Label fx:id="bookmark" styleClass="cell_small_label" text="\$bookmark" />
     </VBox>
 
-    <!-- Image in the second column -->
     <VBox alignment="TOP_RIGHT" minHeight="105" GridPane.columnIndex="1">
-      <ImageView fx:id="bookmarkImageView" />
+      <padding>
+        <Insets top="8" right="7" />
+      </padding>
+      <ImageView fx:id="bookmarkImageView" fitHeight="23.0" fitWidth="23.0"/>
     </VBox>
 
   </GridPane>

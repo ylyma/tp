@@ -44,7 +44,7 @@ public class SampleDataUtil {
                 getTagSet("pastTA", "deansList"),
                 new IsHidden(false),
                 getAttachments(),
-                new Bookmark(false)
+                new Bookmark(true)
             ),
             new Person(
                 new StudentNumber("A0654123C"),
@@ -77,7 +77,7 @@ public class SampleDataUtil {
                 getTagSet("topInModule"),
                 new IsHidden(false),
                 getAttachments(),
-                new Bookmark(false)
+                new Bookmark(true)
             ),
             new Person(
                 new StudentNumber("A0374384F"),

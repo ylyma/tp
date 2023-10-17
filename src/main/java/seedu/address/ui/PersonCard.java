@@ -43,9 +43,6 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private FlowPane tags;
     @FXML
-    private Label bookmark;
-
-    @FXML
     private ImageView bookmarkImageView;
 
     /**
@@ -62,7 +59,6 @@ public class PersonCard extends UiPart<Region> {
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
-        bookmark.setText(person.getBookmark().toString());
         updateBookmarkImage(person.getBookmark().value);
     }
 
