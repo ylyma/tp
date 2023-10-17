@@ -8,6 +8,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.logic.commands.CommentCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.person.Comment;
 
 public class CommentCommandParser {
     public CommentCommand parse(String args) throws ParseException {
@@ -23,8 +24,8 @@ public class CommentCommandParser {
                     CommentCommand.MESSAGE_USAGE), ive);
         }
 
-        String remark = argMultimap.getValue(PREFIX_COMMENT).orElse("");
+        String comment = argMultimap.getValue(PREFIX_COMMENT).orElse("");
 
-        return new CommentCommand(index, remark);
+        return new CommentCommand(index, new Comment(comment));
     }
 }

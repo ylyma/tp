@@ -5,6 +5,7 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import seedu.address.model.Model;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.commons.core.index.Index;
+import seedu.address.model.person.Comment;
 
 /**
  * Changes the comment of an existing person in the address book.
@@ -23,23 +24,23 @@ public class CommentCommand extends Command {
     public static final String MESSAGE_NOT_IMPLEMENTED_YET = "Remark command not implemented yet";
     public static final String MESSAGE_ARGUMENTS = "Index: %1$d, Remark: %2$s";
     private final Index index;
-    private final String remark;
+    private final Comment comment;
 
     /**
-     * @param index of the person in the filtered person list to edit the remark
-     * @param remark of the person to be updated to
+     * @param index of the person in the filtered person list to edit the comment
+     * @param comment of the person to be updated to
      */
-    public CommentCommand(Index index, String remark) {
-        requireAllNonNull(index, remark);
+    public CommentCommand(Index index, Comment comment) {
+        requireAllNonNull(index, comment);
 
         this.index = index;
-        this.remark = remark;
+        this.comment = comment;
     }
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
         throw new CommandException(
-                String.format(MESSAGE_ARGUMENTS, index.getOneBased(), remark));
+                String.format(MESSAGE_ARGUMENTS, index.getOneBased(), comment.toString()));
     }
 
     @Override
@@ -55,7 +56,7 @@ public class CommentCommand extends Command {
 
         CommentCommand e = (CommentCommand) other;
         return index.equals(e.index)
-                && remark.equals(e.remark);
+                && comment.equals(e.comment);
     }
 
 
