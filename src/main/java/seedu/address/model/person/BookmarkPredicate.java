@@ -16,7 +16,7 @@ public class BookmarkPredicate implements Predicate<Person> {
 
     @Override
     public boolean test(Person person) {
-        return person.getIsHidden().value == isBookmarked;
+        return person.getBookmark().value == isBookmarked;
     }
 
     @Override

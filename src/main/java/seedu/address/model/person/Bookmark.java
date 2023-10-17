@@ -15,7 +15,7 @@ public class Bookmark {
 
     @Override
     public String toString() {
-        return value ? "true" : "false";
+        return Boolean.toString(value);
     }
 
     @Override

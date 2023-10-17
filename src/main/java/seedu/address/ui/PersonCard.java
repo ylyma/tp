@@ -17,6 +17,8 @@ import seedu.address.model.person.Person;
 public class PersonCard extends UiPart<Region> {
 
     private static final String FXML = "PersonListCard.fxml";
+    private static Image BOOKMARKED = new Image("/images/bookmarked.png");
+    private static Image NOT_BOOKMARKED = new Image("/images/unbookmarked.png");
 
     /**
      * Note: Certain keywords such as "location" and "resources" are reserved keywords in JavaFX.
@@ -68,9 +70,9 @@ public class PersonCard extends UiPart<Region> {
     private void updateBookmarkImage(Boolean bookmarked) {
         Image img;
         if (bookmarked) {
-            img = new Image("/images/bookmarked.png");
+            img = BOOKMARKED;
         } else {
-            img = new Image("/images/unbookmarked.png");
+            img = NOT_BOOKMARKED;
         }
         bookmarkImageView.setImage(img);
     }
