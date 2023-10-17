@@ -104,7 +104,7 @@ public class EditCommand extends Command {
         Gpa updatedGpa = editPersonDescriptor.getGpa().orElse(personToEdit.getGpa());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
         IsHidden isHidden = editPersonDescriptor.getIsHidden().orElse(personToEdit.getIsHidden());
-        Bookmark bookmark = personToEdit.getBookmark();
+        Bookmark bookmark = editPersonDescriptor.getBookmark().orElse(personToEdit.getBookmark());
 
         StudentNumber studentNo = personToEdit.getStudentNumber();
         List<Attachment> attachments = personToEdit.getAttachments();
@@ -254,8 +254,7 @@ public class EditCommand extends Command {
                     && Objects.equals(phone, otherEditPersonDescriptor.phone)
                     && Objects.equals(email, otherEditPersonDescriptor.email)
                     && Objects.equals(gpa, otherEditPersonDescriptor.gpa)
-                    && Objects.equals(tags, otherEditPersonDescriptor.tags)
-                    && Objects.equals(bookmark, otherEditPersonDescriptor.bookmark);
+                    && Objects.equals(tags, otherEditPersonDescriptor.tags);
         }
 
         @Override
@@ -266,7 +265,6 @@ public class EditCommand extends Command {
                     .add("email", email)
                     .add("address", gpa)
                     .add("tags", tags)
-                    .add("bookmark", bookmark)
                     .toString();
         }
     }

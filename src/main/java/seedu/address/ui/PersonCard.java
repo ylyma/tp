@@ -4,6 +4,8 @@ import java.util.Comparator;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
@@ -43,6 +45,9 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label bookmark;
 
+    @FXML
+    private ImageView bookmarkImageView;
+
     /**
      * Creates a {@code PersonCode} with the given {@code Person} and index to display.
      */
@@ -58,5 +63,19 @@ public class PersonCard extends UiPart<Region> {
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
         bookmark.setText(person.getBookmark().toString());
+        updateBookmarkImage(person.getBookmark().value);
+    }
+
+    /**
+     * Updates the bookmark image view based on the provided bookmark value.
+     */
+    private void updateBookmarkImage(Boolean bookmarked) {
+        Image img;
+        if (bookmarked) {
+            img = new Image("/images/bookmarked.png");
+        } else {
+            img = new Image("/images/unbookmarked.png");
+        }
+        bookmarkImageView.setImage(img);
     }
 }
