@@ -32,7 +32,7 @@ public class SampleDataUtil {
                 new Gpa(4.2),
                 getTagSet("pastTA"),
                 new IsHidden(false),
-                getAttachments("resume.pdf"),
+                getAttachments(),
                 new Bookmark(false)
             ),
             new Person(
@@ -43,7 +43,7 @@ public class SampleDataUtil {
                 new Gpa(5.0),
                 getTagSet("pastTA", "deansList"),
                 new IsHidden(false),
-                getAttachments("cv.pdf"),
+                getAttachments(),
                 new Bookmark(false)
             ),
             new Person(
@@ -54,7 +54,7 @@ public class SampleDataUtil {
                 new Gpa(3.6),
                 getTagSet("pastTA"),
                 new IsHidden(false),
-                getAttachments("resume-v2.pdf"),
+                getAttachments(),
                 new Bookmark(false)
             ),
             new Person(
@@ -65,7 +65,7 @@ public class SampleDataUtil {
                 new Gpa(4.71),
                 getTagSet("pastTA"),
                 new IsHidden(false),
-                getAttachments("resume.pdf"),
+                getAttachments(),
                 new Bookmark(false)
             ),
             new Person(
@@ -76,18 +76,18 @@ public class SampleDataUtil {
                 new Gpa(3.67),
                 getTagSet("topInModule"),
                 new IsHidden(false),
-                getAttachments("courses.xlsx"),
+                getAttachments(),
                 new Bookmark(false)
             ),
             new Person(
-                new StudentNumber("A03784384F"),
+                new StudentNumber("A0374384F"),
                 new Name("Roy Balakrishnan"),
                 new Phone("92624417"),
                 new Email("royb@example.com"),
                 new Gpa(4.3),
                 getTagSet("pastTA"),
                 new IsHidden(false),
-                getAttachments("data.json", "todo.txt"),
+                getAttachments(),
                 new Bookmark(false)
             )
         };
