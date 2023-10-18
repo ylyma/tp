@@ -38,6 +38,7 @@ public class JsonAdaptedPersonTest {
     private static final List<JsonAdaptedAttachment> VALID_ATTACHMENTS = BENSON.getAttachments().stream()
             .map(JsonAdaptedAttachment::new)
             .collect(Collectors.toList());
+    private static final boolean VALID_BOOKMARK = BENSON.getBookmark().value;
 
     @Test
     public void toModelType_validPersonDetails_returnsPerson() throws Exception {
@@ -55,7 +56,8 @@ public class JsonAdaptedPersonTest {
             VALID_GPA,
             VALID_TAGS,
             VALID_IS_HIDDEN,
-            VALID_ATTACHMENTS
+            VALID_ATTACHMENTS,
+            VALID_BOOKMARK
         );
         String expectedMessage = StudentNumber.MESSAGE_CONSTRAINTS;
         assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
@@ -71,7 +73,8 @@ public class JsonAdaptedPersonTest {
             VALID_GPA,
             VALID_TAGS,
             VALID_IS_HIDDEN,
-            VALID_ATTACHMENTS
+            VALID_ATTACHMENTS,
+            VALID_BOOKMARK
         );
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, StudentNumber.class.getSimpleName());
         assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
@@ -88,7 +91,8 @@ public class JsonAdaptedPersonTest {
             VALID_GPA,
             VALID_TAGS,
             VALID_IS_HIDDEN,
-            VALID_ATTACHMENTS
+            VALID_ATTACHMENTS,
+            VALID_BOOKMARK
         );
         String expectedMessage = Name.MESSAGE_CONSTRAINTS;
         assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
@@ -104,7 +108,8 @@ public class JsonAdaptedPersonTest {
             VALID_GPA,
             VALID_TAGS,
             VALID_IS_HIDDEN,
-            VALID_ATTACHMENTS
+            VALID_ATTACHMENTS,
+            VALID_BOOKMARK
         );
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName());
         assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
@@ -120,7 +125,8 @@ public class JsonAdaptedPersonTest {
             VALID_GPA,
             VALID_TAGS,
             VALID_IS_HIDDEN,
-            VALID_ATTACHMENTS
+            VALID_ATTACHMENTS,
+            VALID_BOOKMARK
         );
         String expectedMessage = Phone.MESSAGE_CONSTRAINTS;
         assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
@@ -136,7 +142,8 @@ public class JsonAdaptedPersonTest {
             VALID_GPA,
             VALID_TAGS,
             VALID_IS_HIDDEN,
-            VALID_ATTACHMENTS
+            VALID_ATTACHMENTS,
+            VALID_BOOKMARK
         );
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Phone.class.getSimpleName());
         assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
@@ -152,7 +159,8 @@ public class JsonAdaptedPersonTest {
             VALID_GPA,
             VALID_TAGS,
             VALID_IS_HIDDEN,
-            VALID_ATTACHMENTS
+            VALID_ATTACHMENTS,
+            VALID_BOOKMARK
         );
         String expectedMessage = Email.MESSAGE_CONSTRAINTS;
         assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
@@ -168,7 +176,8 @@ public class JsonAdaptedPersonTest {
             VALID_GPA,
             VALID_TAGS,
             VALID_IS_HIDDEN,
-            VALID_ATTACHMENTS
+            VALID_ATTACHMENTS,
+            VALID_BOOKMARK
         );
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Email.class.getSimpleName());
         assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
@@ -184,7 +193,8 @@ public class JsonAdaptedPersonTest {
             INVALID_GPA,
             VALID_TAGS,
             VALID_IS_HIDDEN,
-            VALID_ATTACHMENTS
+            VALID_ATTACHMENTS,
+            VALID_BOOKMARK
         );
         String expectedMessage = Gpa.MESSAGE_CONSTRAINTS;
         assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
@@ -200,7 +210,8 @@ public class JsonAdaptedPersonTest {
             null,
             VALID_TAGS,
             VALID_IS_HIDDEN,
-            VALID_ATTACHMENTS
+            VALID_ATTACHMENTS,
+            VALID_BOOKMARK
         );
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Gpa.class.getSimpleName());
         assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
@@ -218,7 +229,8 @@ public class JsonAdaptedPersonTest {
             VALID_GPA,
             invalidTags,
             VALID_IS_HIDDEN,
-            VALID_ATTACHMENTS
+            VALID_ATTACHMENTS,
+            VALID_BOOKMARK
         );
         assertThrows(IllegalValueException.class, person::toModelType);
     }

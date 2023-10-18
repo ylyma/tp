@@ -2,13 +2,16 @@ package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.attachment.Attachment;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gpa;
 import seedu.address.model.person.Name;
@@ -22,6 +25,7 @@ import seedu.address.model.tag.Tag;
 public class ParserUtil {
 
     public static final String MESSAGE_INVALID_INDEX = "Index is not a non-zero unsigned integer.";
+    public static final String MESSAGE_INVALID_PATH = "Please provide a valid file path.";
 
     /**
      * Parses {@code oneBasedIndex} into an {@code Index} and returns it. Leading and trailing whitespaces will be
@@ -142,5 +146,32 @@ public class ParserUtil {
             tagSet.add(parseTag(tagName));
         }
         return tagSet;
+    }
+
+    /**
+     * Parses a {@code String pathString} into a {@code Attachment}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code pathString} is invalid.
+     */
+    public static Attachment parseAttachment(String pathString) throws ParseException {
+        requireNonNull(pathString);
+        String trimmedPathString = pathString.trim();
+        if (!Attachment.isValidAttachment(pathString)) {
+            throw new ParseException(MESSAGE_INVALID_PATH);
+        }
+        return new Attachment(trimmedPathString);
+    }
+
+    /**
+     * Parses {@code Collection<String> pathStrings} into a {@code List<Attachment>}.
+     */
+    public static List<Attachment> parseAttachments(Collection<String> pathStrings) throws ParseException {
+        requireNonNull(pathStrings);
+        final List<Attachment> pathList = new ArrayList<>();
+        for (String pathString : pathStrings) {
+            pathList.add(parseAttachment(pathString));
+        }
+        return pathList;
     }
 }

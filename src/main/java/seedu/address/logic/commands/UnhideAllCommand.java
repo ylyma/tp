@@ -42,6 +42,6 @@ public class UnhideAllCommand extends Command {
         assert personToUnhide != null;
         return new Person(personToUnhide.getStudentNumber(), personToUnhide.getName(), personToUnhide.getPhone(),
                 personToUnhide.getEmail(), personToUnhide.getGpa(), personToUnhide.getTags(), new IsHidden(false),
-                personToUnhide.getAttachments());
+                personToUnhide.getAttachments(), personToUnhide.getBookmark());
     }
 }
