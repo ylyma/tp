@@ -3,8 +3,11 @@ package seedu.address.logic.commands;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.person.Gpa;
 import seedu.address.model.person.Person;
 import seedu.address.ui.MainWindow;
+
+import java.util.List;
 
 import static java.util.Objects.requireNonNull;
 
@@ -19,6 +22,8 @@ public class CompareCommand extends Command {
     private final Index index1;
     private final Index index2;
 
+    private String compare_message;
+
     public CompareCommand(Index index1, Index index2) {
         requireNonNull(index1);
         requireNonNull(index2);
@@ -30,6 +35,7 @@ public class CompareCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
+        List<Person> lastShownList = model.getFilteredPersonList();
 
         if (index1.equals(index2)) {
             throw new CommandException("Error: Please provide distinct indices. "
@@ -37,10 +43,24 @@ public class CompareCommand extends Command {
         }
 
         try {
-            Person person1 = model.getFilteredPersonList().get(index1.getZeroBased());
-            Person person2 = model.getFilteredPersonList().get(index2.getZeroBased());
+            Person personToCompare1 = lastShownList.get(index1.getZeroBased());
+            Person personToCompare2 = lastShownList.get(index2.getZeroBased());
 
-            return new CommandResult("Comparison successful");
+            model.updateFilteredPersonList(person -> person.equals(personToCompare1)
+                    || person.equals(personToCompare2));
+
+            Gpa gpa1 = personToCompare1.getGpa();
+            Gpa gpa2 = personToCompare2.getGpa();
+
+            if (gpa1 == gpa2) {
+                compare_message = "They have the same GPA, do look out for other criteria!";
+            } else if (gpa1.isGreaterThan(gpa2)) {
+                compare_message = personToCompare1.getName() + " has a higher GPA!";
+            } else {
+                compare_message = personToCompare2.getName() + " has a higher GPA!";
+            }
+
+            return new CommandResult("Comparison successful! " + compare_message);
         } catch (IndexOutOfBoundsException e) {
             throw new CommandException("Error: One or both of the specified applicants"
                     + " were not found in the list.");

@@ -106,8 +106,10 @@ public class AddressBookParser {
 
         case SortByGpaCommand.COMMAND_WORD:
             return new SortByGpaCommand();
+
         case CompareCommand.COMMAND_WORD:
             return new CompareCommandParser().parse(arguments);
+
         default:
             logger.finer("This user input caused a ParseException: " + userInput);
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);

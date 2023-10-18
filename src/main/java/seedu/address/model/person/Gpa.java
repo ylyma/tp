@@ -36,6 +36,16 @@ public class Gpa {
         return test >= 0.0 && test <= 5.0;
     }
 
+    /**
+     * Compares this GPA with another GPA and returns true if this GPA is greater.
+     *
+     * @param other The other Gpa object to compare with.
+     * @return True if this GPA is greater than the other GPA, false otherwise.
+     */
+    public boolean isGreaterThan(Gpa other) {
+        return this.value > other.value;
+    }
+
     @Override
     public String toString() {
         return Double.toString(value);
