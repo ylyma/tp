@@ -15,27 +15,27 @@ import seedu.address.model.person.Person;
 
 
 /**
- * Bookmarks an applicant from the list of all applicants.
+ * Unbookmarks an applicant from the list of all applicants.
  */
-public class BookmarkCommand extends Command {
+public class UnbookmarkCommand extends Command {
 
-    public static final String COMMAND_WORD = "bookmark";
+    public static final String COMMAND_WORD = "unbookmark";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Bookmarks an applicant, identified by the index number "
+            + ": Unbookmarks an applicant, identified by the index number "
             + "used in the last list, from all future lists of applicants.\n"
             + "Parameter: INDEX (must be a positive integer) \n"
             + "Example: " + COMMAND_WORD + " 1 ";
 
-    public static final String MESSAGE_BOOKMARK_APPLICANT_SUCCESS = "Applicant %1$s bookmarked";
+    public static final String MESSAGE_UNBOOKMARK_APPLICANT_SUCCESS = "Applicant %1$s unbookmarked";
 
     public final Index targetIndex;
 
     /**
-     * Constructor for BookmarkCommand.
+     * Constructor for UnbookmarkCommand.
      * @param targetIndex
      */
-    public BookmarkCommand(Index targetIndex) {
+    public UnbookmarkCommand(Index targetIndex) {
         requireAllNonNull(targetIndex);
 
         this.targetIndex = targetIndex;
@@ -49,14 +49,14 @@ public class BookmarkCommand extends Command {
             throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
 
-        Person personToBookmark = lastShownList.get(targetIndex.getZeroBased());
-        Person bookmarkedPerson = new Person(personToBookmark.getStudentNumber(), personToBookmark.getName(),
-                personToBookmark.getPhone(), personToBookmark.getEmail(), personToBookmark.getGpa(),
-                personToBookmark.getTags(), personToBookmark.getIsHidden(), personToBookmark.getAttachments(),
-                new Bookmark(true));
-        model.setPerson(personToBookmark, bookmarkedPerson);
+        Person personToUnbookmark = lastShownList.get(targetIndex.getZeroBased());
+        Person unbookmarkedPerson = new Person(personToUnbookmark.getStudentNumber(), personToUnbookmark.getName(),
+                personToUnbookmark.getPhone(), personToUnbookmark.getEmail(), personToUnbookmark.getGpa(),
+                personToUnbookmark.getTags(), personToUnbookmark.getIsHidden(), personToUnbookmark.getAttachments(),
+                new Bookmark(false));
+        model.setPerson(personToUnbookmark, unbookmarkedPerson);
         model.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_UNHIDDEN_PERSONS);
-        return new CommandResult(String.format(MESSAGE_BOOKMARK_APPLICANT_SUCCESS, Messages.format(bookmarkedPerson)));
+        return new CommandResult(String.format(MESSAGE_UNBOOKMARK_APPLICANT_SUCCESS, Messages.format(unbookmarkedPerson)));
     }
 
     @Override
@@ -65,11 +65,11 @@ public class BookmarkCommand extends Command {
             return true;
         }
 
-        if (!(other instanceof BookmarkCommand)) {
+        if (!(other instanceof UnbookmarkCommand)) {
             return false;
         }
 
-        BookmarkCommand e = (BookmarkCommand) other;
+        UnbookmarkCommand e = (UnbookmarkCommand) other;
         return targetIndex.equals(e.targetIndex);
     }
 
