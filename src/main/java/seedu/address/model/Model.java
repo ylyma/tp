@@ -7,6 +7,7 @@ import java.util.function.Predicate;
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.index.Index;
+import seedu.address.model.person.BookmarkPredicate;
 import seedu.address.model.person.GpaComparator;
 import seedu.address.model.person.IsHiddenPredicate;
 import seedu.address.model.person.Person;
@@ -30,7 +31,7 @@ public interface Model {
     /**
      * {@code Predicate} that filters for all bookmarked applicants
      */
-    Predicate<Person> PREDICATE_SHOW_ALL_BOOKMARKED_PERSONS = new IsHiddenPredicate(true);
+    Predicate<Person> PREDICATE_SHOW_ALL_BOOKMARKED_PERSONS = new BookmarkPredicate(true);
 
     /**
      * {@code Comparator} that sorts by GPA
