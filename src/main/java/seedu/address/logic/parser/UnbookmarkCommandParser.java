@@ -22,7 +22,8 @@ public class UnbookmarkCommandParser implements Parser<UnbookmarkCommand> {
             Index index = ParserUtil.parseIndex(args);
             return new UnbookmarkCommand(index);
         } catch (ParseException pe) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, UnbookmarkCommand.MESSAGE_USAGE), pe);
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                    UnbookmarkCommand.MESSAGE_USAGE), pe);
         }
     }
 }

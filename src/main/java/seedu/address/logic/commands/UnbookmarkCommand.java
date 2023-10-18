@@ -55,7 +55,8 @@ public class UnbookmarkCommand extends Command {
                 personToUnbookmark.getTags(), personToUnbookmark.getIsHidden(), personToUnbookmark.getAttachments(),
                 new Bookmark(false));
         model.setPerson(personToUnbookmark, unbookmarkedPerson);
-        return new CommandResult(String.format(MESSAGE_UNBOOKMARK_APPLICANT_SUCCESS, Messages.format(unbookmarkedPerson)));
+        return new CommandResult(String.format(MESSAGE_UNBOOKMARK_APPLICANT_SUCCESS,
+                Messages.format(unbookmarkedPerson)));
     }
 
     @Override
