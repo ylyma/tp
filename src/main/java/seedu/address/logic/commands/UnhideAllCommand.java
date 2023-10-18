@@ -27,8 +27,8 @@ public class UnhideAllCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-        model.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_HIDDEN_PERSONS);
-        List<Person> hiddenList = model.getFilteredPersonList();
+        List<Person> hiddenList = model.getFilteredPersonList().stream().filter(p -> p.getIsHidden().value)
+                .collect(java.util.stream.Collectors.toList());
         hiddenList.forEach(p -> model.setPerson(p, createUnhiddenPerson(p)));
         model.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_UNHIDDEN_PERSONS);
         return new CommandResult(String.format(MESSAGE_SUCCESS));

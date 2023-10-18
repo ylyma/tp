@@ -87,7 +87,6 @@ public class Person {
      * Returns an immutable isHidden value, which throws {@code UnsupportedOperationException}
      * if modification is attempted.
      */
-
     public IsHidden getIsHidden() {
         return this.isHidden;
     }
