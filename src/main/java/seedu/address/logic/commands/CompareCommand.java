@@ -52,7 +52,7 @@ public class CompareCommand extends Command {
             Gpa gpa1 = personToCompare1.getGpa();
             Gpa gpa2 = personToCompare2.getGpa();
 
-            if (gpa1 == gpa2) {
+            if (gpa1.equals(gpa2)) {
                 compare_message = "They have the same GPA, do look out for other criteria!";
             } else if (gpa1.isGreaterThan(gpa2)) {
                 compare_message = personToCompare1.getName() + " has a higher GPA!";
