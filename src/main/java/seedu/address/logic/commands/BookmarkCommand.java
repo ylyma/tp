@@ -55,7 +55,6 @@ public class BookmarkCommand extends Command {
                 personToBookmark.getTags(), personToBookmark.getIsHidden(), personToBookmark.getAttachments(),
                 new Bookmark(true));
         model.setPerson(personToBookmark, bookmarkedPerson);
-        model.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_UNHIDDEN_PERSONS);
         return new CommandResult(String.format(MESSAGE_BOOKMARK_APPLICANT_SUCCESS, Messages.format(bookmarkedPerson)));
     }
 

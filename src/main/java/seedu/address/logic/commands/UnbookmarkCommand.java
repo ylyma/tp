@@ -55,7 +55,6 @@ public class UnbookmarkCommand extends Command {
                 personToUnbookmark.getTags(), personToUnbookmark.getIsHidden(), personToUnbookmark.getAttachments(),
                 new Bookmark(false));
         model.setPerson(personToUnbookmark, unbookmarkedPerson);
-        model.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_UNHIDDEN_PERSONS);
         return new CommandResult(String.format(MESSAGE_UNBOOKMARK_APPLICANT_SUCCESS, Messages.format(unbookmarkedPerson)));
     }
 
