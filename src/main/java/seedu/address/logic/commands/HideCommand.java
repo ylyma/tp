@@ -65,7 +65,7 @@ public class HideCommand extends Command {
 
         return new Person(personToHide.getStudentNumber(), personToHide.getName(), personToHide.getPhone(),
                 personToHide.getEmail(), personToHide.getGpa(), personToHide.getTags(), new IsHidden(true),
-                personToHide.getAttachments());
+                personToHide.getAttachments(), personToHide.getBookmark());
     }
     @Override
     public boolean equals(Object other) {

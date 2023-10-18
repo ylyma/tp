@@ -26,6 +26,12 @@ public interface Model {
      * {@code Predicate} that filters for all unhidden persons
      */
     Predicate<Person> PREDICATE_SHOW_ALL_UNHIDDEN_PERSONS = new IsHiddenPredicate(false);
+
+    /**
+     * {@code Predicate} that filters for all bookmarked applicants
+     */
+    Predicate<Person> PREDICATE_SHOW_ALL_BOOKMARKED_PERSONS = new IsHiddenPredicate(true);
+
     /**
      * {@code Comparator} that sorts by GPA
      */
