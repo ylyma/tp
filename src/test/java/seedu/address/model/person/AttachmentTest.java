@@ -15,7 +15,7 @@ public class AttachmentTest {
 
     @Test
     public void constructor_invalidPathString_throwsIllegalArgumentException() {
-        String invalidPath = "a\nb";
+        String invalidPath = "[E:\\Temp\0\\564\\324\\123.txt]";
         assertThrows(IllegalArgumentException.class, () -> new Attachment(invalidPath));
     }
 
