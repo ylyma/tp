@@ -34,7 +34,8 @@ public class AttachCommand extends Command {
             + "[" + PREFIX_FILE + "FILE]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_FILE + "samples/resume.pdf";
-    public static final String MESSAGE_FAILED_TO_COPY = "Failed to copy attachment";
+    public static final String MESSAGE_FAILED_TO_COPY = "Failed to copy attachment.";
+    public static final String MESSAGE_ATTACHMENT_ALREADY_EXISTS = "Attachment names should be unique.";
 
     private final Index index;
     private final List<Attachment> attachments;
@@ -69,6 +70,7 @@ public class AttachCommand extends Command {
         List<Attachment> updatedAttachments = new ArrayList<>(personToAttachTo.getAttachments());
         try {
             for (Attachment attachment : attachments) {
+                checkAttachmentUnique(attachment, updatedAttachments);
                 Attachment copiedAttachment = copyAttachment(
                     model.getUserPrefs().getAttachmentsBasePath(), attachment, personToAttachTo);
                 updatedAttachments.add(copiedAttachment);
@@ -89,10 +91,22 @@ public class AttachCommand extends Command {
             personToAttachTo.getBookmark()
         );
         model.setPerson(personToAttachTo, attachedPerson);
-        model.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_UNHIDDEN_PERSONS);
 
         return new CommandResult(
             "Attached " + attachments.size() + " attachments to " + personToAttachTo.getName() + "!");
+    }
+
+    private void checkAttachmentUnique(
+        Attachment attachment,
+        List<Attachment> existingAttachments
+    ) throws CommandException {
+        for (Attachment existingAttachment : existingAttachments) {
+            Path attachmentFileName = attachment.file.toPath().getFileName();
+            Path existingAttachmentFileName = existingAttachment.file.toPath().getFileName();
+            if (attachmentFileName.equals(existingAttachmentFileName)) {
+                throw new CommandException(MESSAGE_ATTACHMENT_ALREADY_EXISTS);
+            }
+        }
     }
 
     private Attachment copyAttachment(
