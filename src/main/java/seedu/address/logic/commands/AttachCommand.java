@@ -4,13 +4,16 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_FILE;
 
 import java.io.IOException;
+import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
 import seedu.address.commons.core.index.Index;
+import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
@@ -34,6 +37,7 @@ public class AttachCommand extends Command {
             + "[" + PREFIX_FILE + "FILE]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_FILE + "samples/resume.pdf";
+    public static final String MESSAGE_ATTACH_SUCCESS = "Attached %1$s attachments to %2$s!";
     public static final String MESSAGE_FAILED_TO_COPY = "Failed to copy attachment.";
     public static final String MESSAGE_ATTACHMENT_ALREADY_EXISTS = "Attachment names should be unique.";
 
@@ -41,10 +45,11 @@ public class AttachCommand extends Command {
     private final List<Attachment> attachments;
 
     /**
-     * Creates a new attach command, representing the attachment of a file/files to an
+     * Creates a new attach command, representing the attachment of a file/files to
+     * an
      * applicant at the specified index on the visible applicant list.
      *
-     * @param index index of the applicant to attach the file to
+     * @param index     index of the applicant to attach the file to
      * @param filePaths the path(s) of the file/files to be attached
      */
     public AttachCommand(Index index, List<Attachment> attachments) {
@@ -72,7 +77,7 @@ public class AttachCommand extends Command {
             for (Attachment attachment : attachments) {
                 checkAttachmentUnique(attachment, updatedAttachments);
                 Attachment copiedAttachment = copyAttachment(
-                    model.getUserPrefs().getAttachmentsBasePath(), attachment, personToAttachTo);
+                        model.getUserPrefs().getAttachmentsBasePath(), attachment, personToAttachTo);
                 updatedAttachments.add(copiedAttachment);
             }
         } catch (IOException e) {
@@ -80,26 +85,24 @@ public class AttachCommand extends Command {
         }
 
         Person attachedPerson = new Person(
-            personToAttachTo.getStudentNumber(),
-            personToAttachTo.getName(),
-            personToAttachTo.getPhone(),
-            personToAttachTo.getEmail(),
-            personToAttachTo.getGpa(),
-            personToAttachTo.getTags(),
-            personToAttachTo.getIsHidden(),
-            updatedAttachments,
-            personToAttachTo.getBookmark()
-        );
+                personToAttachTo.getStudentNumber(),
+                personToAttachTo.getName(),
+                personToAttachTo.getPhone(),
+                personToAttachTo.getEmail(),
+                personToAttachTo.getGpa(),
+                personToAttachTo.getTags(),
+                personToAttachTo.getIsHidden(),
+                updatedAttachments,
+                personToAttachTo.getBookmark());
         model.setPerson(personToAttachTo, attachedPerson);
 
         return new CommandResult(
-            "Attached " + attachments.size() + " attachments to " + personToAttachTo.getName() + "!");
+                String.format(MESSAGE_ATTACH_SUCCESS, attachments.size(), personToAttachTo.getName()));
     }
 
     private void checkAttachmentUnique(
-        Attachment attachment,
-        List<Attachment> existingAttachments
-    ) throws CommandException {
+            Attachment attachment,
+            List<Attachment> existingAttachments) throws CommandException {
         for (Attachment existingAttachment : existingAttachments) {
             Path attachmentFileName = attachment.file.toPath().getFileName();
             Path existingAttachmentFileName = existingAttachment.file.toPath().getFileName();
@@ -110,15 +113,38 @@ public class AttachCommand extends Command {
     }
 
     private Attachment copyAttachment(
-        Path basePath,
-        Attachment attachment,
-        Person personToAttachTo
-    ) throws IOException {
+            Path basePath,
+            Attachment attachment,
+            Person personToAttachTo) throws IOException {
         Path sourcePath = attachment.file.toPath();
         String fileName = sourcePath.getFileName().toString();
         Path destPath = Paths.get(basePath.toString(), personToAttachTo.getStudentNumber().toString(), fileName);
         destPath.getParent().toFile().mkdirs();
-        Files.copy(sourcePath, destPath);
+        Files.copy(sourcePath, destPath, StandardCopyOption.REPLACE_EXISTING);
         return new Attachment(destPath.toString());
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+
+        // instanceof handles nulls
+        if (!(other instanceof AttachCommand)) {
+            return false;
+        }
+
+        AttachCommand otherAttachCommand = (AttachCommand) other;
+        return index.equals(otherAttachCommand.index)
+                && attachments.equals(otherAttachCommand.attachments);
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .add("targetIndex", index)
+                .add("attachments", attachments)
+                .toString();
     }
 }
