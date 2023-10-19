@@ -44,7 +44,7 @@ public class AttachCommand extends Command {
      * applicant at the specified index on the visible applicant list.
      *
      * @param index index of the applicant to attach the file to
-     * @param filePaths the path(s) of the file/files to be attached
+     * @param attachments the path(s) of the file/files to be attached
      */
     public AttachCommand(Index index, List<Attachment> attachments) {
         this.index = index;
@@ -83,6 +83,7 @@ public class AttachCommand extends Command {
             personToAttachTo.getPhone(),
             personToAttachTo.getEmail(),
             personToAttachTo.getGpa(),
+            personToAttachTo.getComment(),
             personToAttachTo.getTags(),
             personToAttachTo.getIsHidden(),
             updatedAttachments

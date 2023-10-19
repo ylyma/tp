@@ -40,8 +40,15 @@ public class UnhideAllCommand extends Command {
      */
     private static Person createUnhiddenPerson(Person personToUnhide) {
         assert personToUnhide != null;
-        return new Person(personToUnhide.getStudentNumber(), personToUnhide.getName(), personToUnhide.getPhone(),
-                personToUnhide.getEmail(), personToUnhide.getGpa(), personToUnhide.getTags(), new IsHidden(false),
+        return new Person(
+                personToUnhide.getStudentNumber(),
+                personToUnhide.getName(),
+                personToUnhide.getPhone(),
+                personToUnhide.getEmail(),
+                personToUnhide.getGpa(),
+                personToUnhide.getComment(),
+                personToUnhide.getTags(),
+                new IsHidden(false),
                 personToUnhide.getAttachments());
     }
 }

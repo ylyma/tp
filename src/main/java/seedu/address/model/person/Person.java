@@ -28,6 +28,7 @@ public class Person {
 
     // Data fields
     private final Gpa gpa;
+    private final Comment comment;
     private final Set<Tag> tags = new HashSet<>();
     private final List<Attachment> attachments = new ArrayList<>();
 
@@ -40,16 +41,18 @@ public class Person {
         Phone phone,
         Email email,
         Gpa gpa,
+        Comment comment,
         Set<Tag> tags,
         IsHidden isHidden,
         List<Attachment> attachments
     ) {
-        requireAllNonNull(studentNo, name, phone, email, gpa, tags, isHidden);
+        requireAllNonNull(studentNo, name, phone, email, gpa, comment, tags, isHidden);
         this.studentNo = studentNo;
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.gpa = gpa;
+        this.comment = comment;
         this.tags.addAll(tags);
         this.isHidden = isHidden;
         this.attachments.addAll(attachments);
@@ -75,6 +78,10 @@ public class Person {
         return this.gpa;
     }
 
+    public Comment getComment() {
+        return this.comment;
+    }
+
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
      * if modification is attempted.
@@ -87,7 +94,6 @@ public class Person {
      * Returns an immutable isHidden value, which throws {@code UnsupportedOperationException}
      * if modification is attempted.
      */
-
     public IsHidden getIsHidden() {
         return this.isHidden;
     }
@@ -134,6 +140,7 @@ public class Person {
                 && phone.equals(otherPerson.phone)
                 && email.equals(otherPerson.email)
                 && gpa.equals(otherPerson.gpa)
+                && comment.equals(otherPerson.comment)
                 && tags.equals(otherPerson.tags)
                 && isHidden.equals(getIsHidden())
                 && attachments.equals(otherPerson.attachments);
@@ -142,7 +149,7 @@ public class Person {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(studentNo, name, phone, email, gpa, tags, isHidden, attachments);
+        return Objects.hash(studentNo, name, phone, email, gpa, comment, tags, isHidden, attachments);
     }
 
     @Override
@@ -153,6 +160,7 @@ public class Person {
                 .add("phone", phone)
                 .add("email", email)
                 .add("gpa", gpa)
+                .add("comment", comment)
                 .add("tags", tags)
                 .add("hidden", isHidden)
                 .add("attachments", attachments)

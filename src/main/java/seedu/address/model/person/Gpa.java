@@ -5,7 +5,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
  * Represents a Person's Grade Point Average (Gpa) in the applicant list.
- * Guarantees: immutable; is valid as declared in {@link #isValidGpa(String)}
+ * Guarantees: immutable; is valid as declared in {@link #isValidGpa(double)}
  */
 public class Gpa {
 

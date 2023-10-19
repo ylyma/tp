@@ -3,6 +3,7 @@ package seedu.address.logic.commands;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_GPA;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_COMMENT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
@@ -21,13 +22,7 @@ import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.attachment.Attachment;
-import seedu.address.model.person.Email;
-import seedu.address.model.person.Gpa;
-import seedu.address.model.person.IsHidden;
-import seedu.address.model.person.Name;
-import seedu.address.model.person.Person;
-import seedu.address.model.person.Phone;
-import seedu.address.model.person.StudentNumber;
+import seedu.address.model.person.*;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -101,6 +96,7 @@ public class EditCommand extends Command {
         Phone updatedPhone = editPersonDescriptor.getPhone().orElse(personToEdit.getPhone());
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
         Gpa updatedGpa = editPersonDescriptor.getGpa().orElse(personToEdit.getGpa());
+        Comment updatedComment = editPersonDescriptor.getComment().orElse(personToEdit.getComment());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
         IsHidden isHidden = editPersonDescriptor.getIsHidden().orElse(personToEdit.getIsHidden());
 
@@ -108,7 +104,7 @@ public class EditCommand extends Command {
         List<Attachment> attachments = personToEdit.getAttachments();
 
         return new Person(studentNo, updatedName, updatedPhone, updatedEmail,
-                updatedGpa, updatedTags, isHidden, attachments);
+                updatedGpa, updatedComment, updatedTags, isHidden, attachments);
     }
 
     @Override
@@ -144,6 +140,7 @@ public class EditCommand extends Command {
         private Phone phone;
         private Email email;
         private Gpa gpa;
+        private Comment comment;
         private Set<Tag> tags;
         private IsHidden isHidden;
         public EditPersonDescriptor() {}
@@ -157,6 +154,7 @@ public class EditCommand extends Command {
             setPhone(toCopy.phone);
             setEmail(toCopy.email);
             setGpa(toCopy.gpa);
+            setComment(toCopy.comment);
             setTags(toCopy.tags);
             setIsHidden(toCopy.isHidden);
         }
@@ -165,7 +163,7 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, gpa, tags);
+            return CollectionUtil.isAnyNonNull(name, phone, email, gpa, comment, tags);
         }
 
         public void setName(Name name) {
@@ -198,6 +196,14 @@ public class EditCommand extends Command {
 
         public Optional<Gpa> getGpa() {
             return Optional.ofNullable(gpa);
+        }
+
+        public void setComment(Comment comment) {
+            this.comment = comment;
+        }
+
+        public Optional<Comment> getComment() {
+            return Optional.ofNullable(comment);
         }
 
         /**
@@ -240,6 +246,7 @@ public class EditCommand extends Command {
                     && Objects.equals(phone, otherEditPersonDescriptor.phone)
                     && Objects.equals(email, otherEditPersonDescriptor.email)
                     && Objects.equals(gpa, otherEditPersonDescriptor.gpa)
+                    && Objects.equals(comment, otherEditPersonDescriptor.comment)
                     && Objects.equals(tags, otherEditPersonDescriptor.tags);
         }
 
@@ -249,7 +256,8 @@ public class EditCommand extends Command {
                     .add("name", name)
                     .add("phone", phone)
                     .add("email", email)
-                    .add("address", gpa)
+                    .add("gpa", gpa)
+                    .add("comment", comment)
                     .add("tags", tags)
                     .toString();
         }

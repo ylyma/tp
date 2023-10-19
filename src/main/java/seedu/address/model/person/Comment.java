@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
- * Represents a Person's name in the address book.
+ * Represents a comment for an applicant in the applicant list.
  * Guarantees: immutable; is valid as declared in {@link #isValidComment(String)}
  */
 public class Comment {
@@ -47,7 +47,7 @@ public class Comment {
         }
 
         // instanceof handles nulls
-        if (!(other instanceof Gpa)) {
+        if (!(other instanceof Comment)) {
             return false;
         }
 
