@@ -47,10 +47,13 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private FlowPane tags;
     @FXML
+    private FlowPane attachments;
+    @FXML
     private ImageView bookmarkImageView;
 
     /**
-     * Creates a {@code PersonCode} with the given {@code Person} and index to display.
+     * Creates a {@code PersonCode} with the given {@code Person} and index to
+     * display.
      */
     public PersonCard(Person person, int displayedIndex) {
         super(FXML);
@@ -63,6 +66,10 @@ public class PersonCard extends UiPart<Region> {
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+        person.getAttachments().stream()
+                .sorted(Comparator.comparing(attachment -> attachment.toString()))
+                .forEach(attachment -> attachments.getChildren()
+                        .add(new Label(attachment.file.toPath().getFileName().toString())));
         updateBookmarkImage(person.getBookmark().value);
     }
 
