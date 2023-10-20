@@ -6,6 +6,7 @@ import java.util.List;
 
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.ModelManager;
 import seedu.address.model.person.IsHidden;
 import seedu.address.model.person.Person;
 
@@ -27,8 +28,9 @@ public class UnhideAllCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-        model.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_HIDDEN_PERSONS);
-        List<Person> hiddenList = model.getFilteredPersonList();
+        Model modelCopy = new ModelManager(model.getAddressBook(), model.getUserPrefs());
+        modelCopy.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_HIDDEN_PERSONS);
+        List<Person> hiddenList = modelCopy.getFilteredPersonList();
         hiddenList.forEach(p -> model.setPerson(p, createUnhiddenPerson(p)));
         model.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_UNHIDDEN_PERSONS);
         return new CommandResult(String.format(MESSAGE_SUCCESS));
