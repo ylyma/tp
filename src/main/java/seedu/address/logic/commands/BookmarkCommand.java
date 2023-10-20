@@ -10,32 +10,32 @@ import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.person.IsHidden;
+import seedu.address.model.person.Bookmark;
 import seedu.address.model.person.Person;
 
 
 /**
- * Hides an applicant from the list of all applicants.
+ * Bookmarks an applicant from the list of all applicants.
  */
-public class HideCommand extends Command {
+public class BookmarkCommand extends Command {
 
-    public static final String COMMAND_WORD = "hide";
+    public static final String COMMAND_WORD = "bookmark";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Hides an applicant, identified by the index number "
+            + ": Bookmarks an applicant, identified by the index number "
             + "used in the last list, from all future lists of applicants.\n"
             + "Parameter: INDEX (must be a positive integer) \n"
             + "Example: " + COMMAND_WORD + " 1 ";
 
-    public static final String MESSAGE_HIDE_APPLICANT_SUCCESS = "Applicant %1$s hidden from lists";
+    public static final String MESSAGE_BOOKMARK_APPLICANT_SUCCESS = "Applicant %1$s bookmarked";
 
     public final Index targetIndex;
 
     /**
-     * Constructor for HideCommand.
+     * Constructor for BookmarkCommand.
      * @param targetIndex
      */
-    public HideCommand(Index targetIndex) {
+    public BookmarkCommand(Index targetIndex) {
         requireAllNonNull(targetIndex);
 
         this.targetIndex = targetIndex;
@@ -49,35 +49,26 @@ public class HideCommand extends Command {
             throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
 
-        Person personToHide = lastShownList.get(targetIndex.getZeroBased());
-        model.setPerson(personToHide, createHiddenPerson(personToHide));
-        model.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_UNHIDDEN_PERSONS);
-        return new CommandResult(String.format(MESSAGE_HIDE_APPLICANT_SUCCESS, Messages.format(personToHide)));
+        Person personToBookmark = lastShownList.get(targetIndex.getZeroBased());
+        Person bookmarkedPerson = new Person(personToBookmark.getStudentNumber(), personToBookmark.getName(),
+                personToBookmark.getPhone(), personToBookmark.getEmail(), personToBookmark.getGpa(),
+                personToBookmark.getTags(), personToBookmark.getIsHidden(), personToBookmark.getAttachments(),
+                new Bookmark(true));
+        model.setPerson(personToBookmark, bookmarkedPerson);
+        return new CommandResult(String.format(MESSAGE_BOOKMARK_APPLICANT_SUCCESS, Messages.format(bookmarkedPerson)));
     }
 
-    /**
-     * Creates and returns a hidden {@code Person} with the details of {@code personToHide}
-     * @param personToHide {@code Person} to hide
-     * @return {@code Person} with {@code IsHidden} set to true
-     */
-    private static Person createHiddenPerson(Person personToHide) {
-        assert personToHide != null;
-
-        return new Person(personToHide.getStudentNumber(), personToHide.getName(), personToHide.getPhone(),
-                personToHide.getEmail(), personToHide.getGpa(), personToHide.getTags(), new IsHidden(true),
-                personToHide.getAttachments(), personToHide.getBookmark());
-    }
     @Override
     public boolean equals(Object other) {
         if (other == this) {
             return true;
         }
 
-        if (!(other instanceof HideCommand)) {
+        if (!(other instanceof BookmarkCommand)) {
             return false;
         }
 
-        HideCommand e = (HideCommand) other;
+        BookmarkCommand e = (BookmarkCommand) other;
         return targetIndex.equals(e.targetIndex);
     }
 

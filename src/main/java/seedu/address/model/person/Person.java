@@ -25,6 +25,7 @@ public class Person {
     private final Phone phone;
     private final Email email;
     private final IsHidden isHidden;
+    private final Bookmark bookmark;
 
     // Data fields
     private final Gpa gpa;
@@ -42,7 +43,7 @@ public class Person {
         Gpa gpa,
         Set<Tag> tags,
         IsHidden isHidden,
-        List<Attachment> attachments
+        List<Attachment> attachments, Bookmark bookmark
     ) {
         requireAllNonNull(studentNo, name, phone, email, gpa, tags, isHidden);
         this.studentNo = studentNo;
@@ -53,6 +54,7 @@ public class Person {
         this.tags.addAll(tags);
         this.isHidden = isHidden;
         this.attachments.addAll(attachments);
+        this.bookmark = bookmark;
     }
 
     public StudentNumber getStudentNumber() {
@@ -73,6 +75,9 @@ public class Person {
 
     public Gpa getGpa() {
         return this.gpa;
+    }
+    public Bookmark getBookmark() {
+        return this.bookmark;
     }
 
     /**
@@ -136,7 +141,9 @@ public class Person {
                 && gpa.equals(otherPerson.gpa)
                 && tags.equals(otherPerson.tags)
                 && isHidden.equals(getIsHidden())
-                && attachments.equals(otherPerson.attachments);
+                && attachments.equals(otherPerson.attachments)
+                && bookmark.equals(getBookmark());
+
     }
 
     @Override
@@ -156,6 +163,7 @@ public class Person {
                 .add("tags", tags)
                 .add("hidden", isHidden)
                 .add("attachments", attachments)
+                .add("bookmark", bookmark)
                 .toString();
     }
 

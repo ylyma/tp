@@ -1,16 +1,20 @@
 package seedu.address.logic.commands;
 
+import static java.util.Objects.requireNonNull;
+
+import java.util.List;
+
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Gpa;
 import seedu.address.model.person.Person;
-import seedu.address.ui.MainWindow;
 
-import java.util.List;
 
-import static java.util.Objects.requireNonNull;
-
+/**
+ * Compare two applicants side by side.
+ * It takes two indices as parameters and compares the GPA of the applicants at those indices.
+ */
 public class CompareCommand extends Command {
 
     public static final String COMMAND_WORD = "compare";
@@ -22,8 +26,14 @@ public class CompareCommand extends Command {
     private final Index index1;
     private final Index index2;
 
-    private String compare_message;
+    private String compareMessage;
 
+    /**
+     * Constructs a `CompareCommand` with the given indices.
+     *
+     * @param index1 The index of the first applicant to compare.
+     * @param index2 The index of the second applicant to compare.
+     */
     public CompareCommand(Index index1, Index index2) {
         requireNonNull(index1);
         requireNonNull(index2);
@@ -53,14 +63,14 @@ public class CompareCommand extends Command {
             Gpa gpa2 = personToCompare2.getGpa();
 
             if (gpa1.equals(gpa2)) {
-                compare_message = "They have the same GPA, do look out for other criteria!";
+                compareMessage = "They have the same GPA, do look out for other criteria!";
             } else if (gpa1.isGreaterThan(gpa2)) {
-                compare_message = personToCompare1.getName() + " has a higher GPA!";
+                compareMessage = personToCompare1.getName() + " has a higher GPA!";
             } else {
-                compare_message = personToCompare2.getName() + " has a higher GPA!";
+                compareMessage = personToCompare2.getName() + " has a higher GPA!";
             }
 
-            return new CommandResult("Comparison successful! " + compare_message);
+            return new CommandResult("Comparison successful! " + compareMessage);
         } catch (IndexOutOfBoundsException e) {
             throw new CommandException("Error: One or both of the specified applicants"
                     + " were not found in the list.");
