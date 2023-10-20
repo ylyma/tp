@@ -10,7 +10,15 @@ import java.util.stream.Stream;
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.attachment.Attachment;
-import seedu.address.model.person.*;
+import seedu.address.model.person.Bookmark;
+import seedu.address.model.person.Email;
+import seedu.address.model.person.Gpa;
+import seedu.address.model.person.Comment;
+import seedu.address.model.person.IsHidden;
+import seedu.address.model.person.Name;
+import seedu.address.model.person.Person;
+import seedu.address.model.person.Phone;
+import seedu.address.model.person.StudentNumber;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -47,8 +55,9 @@ public class AddCommandParser implements Parser<AddCommand> {
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
         IsHidden isHidden = new IsHidden(false);
         List<Attachment> attachments = List.of();
+        Bookmark bookmark = new Bookmark(false);
 
-        Person person = new Person(studentNo, name, phone, email, gpa, comment, tagList, isHidden, attachments);
+        Person person = new Person(studentNo, name, phone, email, gpa, comment, tagList, isHidden, attachments, bookmark);
 
         return new AddCommand(person);
     }

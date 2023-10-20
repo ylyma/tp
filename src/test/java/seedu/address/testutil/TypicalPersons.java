@@ -81,17 +81,20 @@ public class TypicalPersons {
     // Manually added
     public static final Person HOON = new PersonBuilder().withStudentNumber("A0348483G").withName("Hoon Meier")
             .withPhone("8482424").withEmail("stefan@example.com").withGpa(0.1).withComment("").withAttachments().build();
+
     public static final Person IDA = new PersonBuilder().withStudentNumber("A3974743C").withName("Ida Mueller")
             .withPhone("8482131").withEmail("hans@example.com").withGpa(0.5).withComment("").withAttachments().build();
 
     // Manually added - Person's details found in {@code CommandTestUtil}
     public static final Person AMY = new PersonBuilder().withStudentNumber(VALID_STUDENT_NUMBER_AMY)
             .withName(VALID_NAME_AMY).withPhone(VALID_PHONE_AMY).withHidden(false)
-            .withEmail(VALID_EMAIL_AMY).withGpa(VALID_GPA_AMY).withComment(VALID_COMMENT_AMY).withTags(VALID_TAG_FRIEND).withAttachments().build();
+            .withEmail(VALID_EMAIL_AMY).withGpa(VALID_GPA_AMY).withComment(VALID_COMMENT_AMY).withTags(VALID_TAG_FRIEND).withAttachments()
+            .withBookmark(false).build();
+
     public static final Person BOB = new PersonBuilder().withStudentNumber(VALID_STUDENT_NUMBER_BOB)
             .withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB).withHidden(false)
             .withEmail(VALID_EMAIL_BOB).withGpa(VALID_GPA_BOB).withComment(VALID_COMMENT_BOB).withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND)
-            .withHidden(false).withAttachments().build();
+            .withHidden(false).withAttachments().withBookmark(false).build();
 
     public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER
 

@@ -5,7 +5,15 @@ import java.util.List;
 import java.util.Set;
 
 import seedu.address.model.attachment.Attachment;
-import seedu.address.model.person.*;
+import seedu.address.model.person.Bookmark;
+import seedu.address.model.person.Email;
+import seedu.address.model.person.Gpa;
+import seedu.address.model.person.Comment;
+import seedu.address.model.person.IsHidden;
+import seedu.address.model.person.Name;
+import seedu.address.model.person.Person;
+import seedu.address.model.person.Phone;
+import seedu.address.model.person.StudentNumber;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 
@@ -21,6 +29,7 @@ public class PersonBuilder {
     public static final double DEFAULT_GPA = 4.0;
     public static final String DEFAULT_COMMENT = "";
     public static final boolean DEFAULT_IS_HIDDEN = false;
+    public static final boolean DEFAULT_BOOKMARK = false;
 
     private StudentNumber studentNo;
     private Name name;
@@ -31,6 +40,7 @@ public class PersonBuilder {
     private Set<Tag> tags;
     private IsHidden isHidden;
     private List<Attachment> attachments;
+    private Bookmark bookmark;
 
     /**
      * Creates a {@code PersonBuilder} with the default details.
@@ -45,6 +55,7 @@ public class PersonBuilder {
         tags = new HashSet<>();
         isHidden = new IsHidden(DEFAULT_IS_HIDDEN);
         attachments = List.of();
+        bookmark = new Bookmark(DEFAULT_BOOKMARK);
     }
 
     /**
@@ -60,6 +71,7 @@ public class PersonBuilder {
         tags = new HashSet<>(personToCopy.getTags());
         isHidden = personToCopy.getIsHidden();
         attachments = personToCopy.getAttachments();
+        bookmark = personToCopy.getBookmark();
     }
 
     /**
@@ -133,8 +145,17 @@ public class PersonBuilder {
         this.isHidden = new IsHidden(isHidden);
         return this;
     }
+
+    /**
+     * Sets the {@code Bookmark} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withBookmark(boolean bookmark) {
+        this.bookmark = new Bookmark(bookmark);
+        return this;
+    }
+
     public Person build() {
-        return new Person(studentNo, name, phone, email, gpa, comment, tags, isHidden, attachments);
+        return new Person(studentNo, name, phone, email, gpa, comment, tags, isHidden, attachments, bookmark);
     }
 
 }

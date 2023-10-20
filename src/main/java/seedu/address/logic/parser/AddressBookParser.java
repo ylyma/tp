@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.AttachCommand;
+import seedu.address.logic.commands.BookmarkCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.DeleteCommand;
@@ -18,9 +19,11 @@ import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.HideCommand;
+import seedu.address.logic.commands.ListBookmarkedCommand;
 import seedu.address.logic.commands.ListCommand;
 import seedu.address.logic.commands.ListHiddenCommand;
 import seedu.address.logic.commands.SortByGpaCommand;
+import seedu.address.logic.commands.UnbookmarkCommand;
 import seedu.address.logic.commands.UnhideAllCommand;
 import seedu.address.logic.commands.UnhideCommand;
 import seedu.address.logic.commands.ViewCommand;
@@ -97,6 +100,12 @@ public class AddressBookParser {
         case UnhideCommand.COMMAND_WORD:
             return new UnhideCommandParser().parse(arguments);
 
+        case BookmarkCommand.COMMAND_WORD:
+            return new BookmarkCommandParser().parse(arguments);
+
+        case UnbookmarkCommand.COMMAND_WORD:
+            return new UnbookmarkCommandParser().parse(arguments);
+
         case ListHiddenCommand.COMMAND_WORD:
             return new ListHiddenCommand();
 
@@ -108,6 +117,9 @@ public class AddressBookParser {
 
         case CommentCommand.COMMAND_WORD:
             return new CommentCommandParser().parse(arguments);
+
+        case ListBookmarkedCommand.COMMAND_WORD:
+            return new ListBookmarkedCommand();
 
         default:
             logger.finer("This user input caused a ParseException: " + userInput);

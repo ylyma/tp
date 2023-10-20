@@ -72,8 +72,10 @@ public class HideCommand extends Command {
                 personToHide.getComment(),
                 personToHide.getTags(),
                 new IsHidden(true),
-                personToHide.getAttachments());
+                personToHide.getAttachments(),
+                personToHide.getBookmark());
     }
+
     @Override
     public boolean equals(Object other) {
         if (other == this) {

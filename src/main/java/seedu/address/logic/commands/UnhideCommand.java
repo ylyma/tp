@@ -62,6 +62,7 @@ public class UnhideCommand extends Command {
      */
     private static Person createUnhiddenPerson(Person personToUnhide) {
         assert personToUnhide != null;
+
         return new Person(
                 personToUnhide.getStudentNumber(),
                 personToUnhide.getName(),
@@ -71,8 +72,10 @@ public class UnhideCommand extends Command {
                 personToUnhide.getComment(),
                 personToUnhide.getTags(),
                 new IsHidden(false),
-                personToUnhide.getAttachments());
+                personToUnhide.getAttachments(),
+                personToUnhide.getBookmark());
     }
+
     @Override
     public boolean equals(Object other) {
         if (other == this) {

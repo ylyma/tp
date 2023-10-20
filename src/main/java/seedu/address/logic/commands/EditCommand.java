@@ -22,7 +22,15 @@ import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.attachment.Attachment;
-import seedu.address.model.person.*;
+import seedu.address.model.person.Bookmark;
+import seedu.address.model.person.Email;
+import seedu.address.model.person.Gpa;
+import seedu.address.model.person.Comment;
+import seedu.address.model.person.IsHidden;
+import seedu.address.model.person.Name;
+import seedu.address.model.person.Person;
+import seedu.address.model.person.Phone;
+import seedu.address.model.person.StudentNumber;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -99,12 +107,13 @@ public class EditCommand extends Command {
         Comment updatedComment = editPersonDescriptor.getComment().orElse(personToEdit.getComment());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
         IsHidden isHidden = editPersonDescriptor.getIsHidden().orElse(personToEdit.getIsHidden());
+        Bookmark bookmark = editPersonDescriptor.getBookmark().orElse(personToEdit.getBookmark());
 
         StudentNumber studentNo = personToEdit.getStudentNumber();
         List<Attachment> attachments = personToEdit.getAttachments();
 
         return new Person(studentNo, updatedName, updatedPhone, updatedEmail,
-                updatedGpa, updatedComment, updatedTags, isHidden, attachments);
+                updatedGpa, updatedComment, updatedTags, isHidden, attachments, bookmark);
     }
 
     @Override
@@ -143,6 +152,7 @@ public class EditCommand extends Command {
         private Comment comment;
         private Set<Tag> tags;
         private IsHidden isHidden;
+        private Bookmark bookmark;
         public EditPersonDescriptor() {}
 
         /**
@@ -157,6 +167,8 @@ public class EditCommand extends Command {
             setComment(toCopy.comment);
             setTags(toCopy.tags);
             setIsHidden(toCopy.isHidden);
+            setBookmark(toCopy.bookmark);
+
         }
 
         /**
@@ -230,6 +242,15 @@ public class EditCommand extends Command {
         public Optional<IsHidden> getIsHidden() {
             return Optional.ofNullable(isHidden);
         }
+
+        public void setBookmark(Bookmark bookmark) {
+            this.bookmark = bookmark;
+        }
+
+        public Optional<Bookmark> getBookmark() {
+            return Optional.ofNullable(bookmark);
+        }
+
         @Override
         public boolean equals(Object other) {
             if (other == this) {
@@ -259,6 +280,7 @@ public class EditCommand extends Command {
                     .add("gpa", gpa)
                     .add("comment", comment)
                     .add("tags", tags)
+                    .add("bookmark", bookmark)
                     .toString();
         }
     }

@@ -8,7 +8,16 @@ import java.util.stream.Collectors;
 import seedu.address.model.AddressBook;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.attachment.Attachment;
-import seedu.address.model.person.*;
+
+import seedu.address.model.person.Bookmark;
+import seedu.address.model.person.Email;
+import seedu.address.model.person.Gpa;
+import seedu.address.model.person.Comment;
+import seedu.address.model.person.IsHidden;
+import seedu.address.model.person.Name;
+import seedu.address.model.person.Person;
+import seedu.address.model.person.Phone;
+import seedu.address.model.person.StudentNumber;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -29,7 +38,8 @@ public class SampleDataUtil {
                 EMPTY_COMMENT,
                 getTagSet("pastTA"),
                 new IsHidden(false),
-                getAttachments("resume.pdf")
+                getAttachments(),
+                new Bookmark(false)
             ),
             new Person(
                 new StudentNumber("A0321654B"),
@@ -40,7 +50,8 @@ public class SampleDataUtil {
                 EMPTY_COMMENT,
                 getTagSet("pastTA", "deansList"),
                 new IsHidden(false),
-                getAttachments("cv.pdf")
+                getAttachments(),
+                new Bookmark(true)
             ),
             new Person(
                 new StudentNumber("A0654123C"),
@@ -51,7 +62,8 @@ public class SampleDataUtil {
                 EMPTY_COMMENT,
                 getTagSet("pastTA"),
                 new IsHidden(false),
-                getAttachments("resume-v2.pdf")
+                getAttachments(),
+                new Bookmark(false)
             ),
             new Person(
                 new StudentNumber("A0654321D"),
@@ -62,7 +74,8 @@ public class SampleDataUtil {
                 EMPTY_COMMENT,
                 getTagSet("pastTA"),
                 new IsHidden(false),
-                getAttachments("resume.pdf")
+                getAttachments(),
+                new Bookmark(false)
             ),
             new Person(
                 new StudentNumber("A0321456E"),
@@ -73,10 +86,11 @@ public class SampleDataUtil {
                 EMPTY_COMMENT,
                 getTagSet("topInModule"),
                 new IsHidden(false),
-                getAttachments("courses.xlsx")
+                getAttachments(),
+                new Bookmark(true)
             ),
             new Person(
-                new StudentNumber("A03784384F"),
+                new StudentNumber("A0374384F"),
                 new Name("Roy Balakrishnan"),
                 new Phone("92624417"),
                 new Email("royb@example.com"),
@@ -84,7 +98,8 @@ public class SampleDataUtil {
                 EMPTY_COMMENT,
                 getTagSet("pastTA"),
                 new IsHidden(false),
-                getAttachments("data.json", "todo.txt")
+                getAttachments(),
+                new Bookmark(false)
             )
         };
     }
