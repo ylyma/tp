@@ -9,30 +9,30 @@ import java.nio.file.Paths;
 
 /**
  * Represents an attachment in the address book.
- * Guarantees: immutable; name is valid as declared in {@link #isValidPath(String)}
+ * Guarantees: immutable; name is valid as declared in {@link #isValidAttachment(String)}
  */
 public class Attachment {
 
-    public static final String MESSAGE_CONSTRAINTS = "Attachments should be valid file paths";
+    public static final String MESSAGE_CONSTRAINTS = "Attachments should be valid paths to files";
 
-    public final File path;
+    public final File file;
 
     /**
      * Constructs an {@code Attachment}.
      *
-     * @param tagName A valid tag name.
+     * @param tagName A valid file path to the attachment contents.
      */
-    public Attachment(String pathString) {
-        requireNonNull(pathString);
-        checkArgument(isValidPath(pathString), MESSAGE_CONSTRAINTS);
-        File path = new File(pathString);
-        this.path = path;
+    public Attachment(String path) {
+        requireNonNull(path);
+        checkArgument(isValidAttachment(path), MESSAGE_CONSTRAINTS);
+        File file = new File(path);
+        this.file = file;
     }
 
     /**
-     * Returns true if a given string is a valid file path.
+     * Returns true if a given string is a valid path for an attachment.
      */
-    public static boolean isValidPath(String test) {
+    public static boolean isValidAttachment(String test) {
         try {
             Paths.get(test);
             return new File(test).exists();
@@ -55,19 +55,19 @@ public class Attachment {
         }
 
         Attachment otherFile = (Attachment) other;
-        return path.equals(otherFile.path);
+        return file.equals(otherFile.file);
     }
 
     @Override
     public int hashCode() {
-        return path.getAbsolutePath().hashCode();
+        return file.getAbsolutePath().hashCode();
     }
 
     /**
      * Format state as text for viewing.
      */
     public String toString() {
-        return '[' + path.getAbsolutePath() + ']';
+        return '[' + file.getAbsolutePath() + ']';
     }
 
 }

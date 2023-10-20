@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.attachment.Attachment;
+import seedu.address.model.person.Bookmark;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gpa;
 import seedu.address.model.person.IsHidden;
@@ -35,6 +36,7 @@ class JsonAdaptedPerson {
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
     private final boolean isHidden;
     private final List<JsonAdaptedAttachment> attachments = new ArrayList<>();
+    private final boolean bookmark;
 
     /**
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
@@ -49,7 +51,8 @@ class JsonAdaptedPerson {
         @JsonProperty("gpa") Double gpa,
         @JsonProperty("tags") List<JsonAdaptedTag> tags,
         @JsonProperty("isHidden") boolean isHidden,
-        @JsonProperty("attachments") List<JsonAdaptedAttachment> attachments
+        @JsonProperty("attachments") List<JsonAdaptedAttachment> attachments,
+        @JsonProperty("bookmark") boolean bookmark
     ) {
         this.studentNo = studentNo;
         this.name = name;
@@ -63,6 +66,7 @@ class JsonAdaptedPerson {
         if (attachments != null) {
             this.attachments.addAll(attachments);
         }
+        this.bookmark = bookmark;
     }
 
     /**
@@ -81,6 +85,7 @@ class JsonAdaptedPerson {
         attachments.addAll(source.getAttachments().stream()
                 .map(JsonAdaptedAttachment::new)
                 .collect(Collectors.toList()));
+        bookmark = source.getBookmark().value;
     }
 
     /**
@@ -147,9 +152,10 @@ class JsonAdaptedPerson {
         final Set<Tag> modelTags = new HashSet<>(personTags);
 
         final IsHidden modelIsHidden = new IsHidden(isHidden);
+        final Bookmark modelBookmark = new Bookmark(bookmark);
 
         return new Person(modelStudentNo, modelName, modelPhone, modelEmail,
-            modelGpa, modelTags, modelIsHidden, personAttachments);
+            modelGpa, modelTags, modelIsHidden, personAttachments, modelBookmark);
     }
 
 }
