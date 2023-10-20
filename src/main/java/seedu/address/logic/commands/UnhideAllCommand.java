@@ -3,10 +3,10 @@ package seedu.address.logic.commands;
 import static java.util.Objects.requireNonNull;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.ModelManager;
 import seedu.address.model.person.IsHidden;
 import seedu.address.model.person.Person;
 
@@ -28,10 +28,11 @@ public class UnhideAllCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-        List<Person> hiddenList = model.getFilteredPersonList().filtered(p -> p.getIsHidden().value);
+        Model modelCopy = new ModelManager(model.getAddressBook(), model.getUserPrefs());
+        modelCopy.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_HIDDEN_PERSONS);
+        List<Person> hiddenList = modelCopy.getFilteredPersonList();
         hiddenList.forEach(p -> model.setPerson(p, createUnhiddenPerson(p)));
-        System.out.println(hiddenList);
-        model.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_PERSONS);
+        model.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_UNHIDDEN_PERSONS);
         return new CommandResult(String.format(MESSAGE_SUCCESS));
     }
     /**
