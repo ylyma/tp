@@ -49,7 +49,7 @@ public class CommandTestUtil {
     public static final String GPA_DESC_AMY = " " + PREFIX_GPA + VALID_GPA_AMY;
     public static final String GPA_DESC_BOB = " " + PREFIX_GPA + VALID_GPA_BOB;
     public static final String COMMENT_DESC_AMY = " " + PREFIX_COMMENT + VALID_COMMENT_AMY;
-    public static final String COMMENT_DESC_BOB =" " + PREFIX_COMMENT + VALID_COMMENT_BOB;
+    public static final String COMMENT_DESC_BOB = " " + PREFIX_COMMENT + VALID_COMMENT_BOB;
     public static final String TAG_DESC_FRIEND = " " + PREFIX_TAG + VALID_TAG_FRIEND;
     public static final String TAG_DESC_HUSBAND = " " + PREFIX_TAG + VALID_TAG_HUSBAND;
 
