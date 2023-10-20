@@ -121,5 +121,4 @@ class CommentCommandTest {
         assertFalse(standardCommand.equals(new CommentCommand(INDEX_FIRST_PERSON,
                 new Comment(VALID_COMMENT_BOB))));
     }
-
 }
