@@ -26,8 +26,6 @@ public class CompareCommand extends Command {
     private final Index index1;
     private final Index index2;
 
-    private String compareMessage;
-
     /**
      * Constructs a `CompareCommand` with the given indices.
      *
@@ -44,6 +42,7 @@ public class CompareCommand extends Command {
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
+        String compareMessage;
         requireNonNull(model);
         List<Person> lastShownList = model.getFilteredPersonList();
 
@@ -62,9 +61,9 @@ public class CompareCommand extends Command {
             Gpa gpa1 = personToCompare1.getGpa();
             Gpa gpa2 = personToCompare2.getGpa();
 
-            if (gpa1.equals(gpa2)) {
+            if (gpa1.compareTo(gpa2) == 0) {
                 compareMessage = "They have the same GPA, do look out for other criteria!";
-            } else if (gpa1.isGreaterThan(gpa2)) {
+            } else if (gpa1.compareTo(gpa2) > 0) {
                 compareMessage = personToCompare1.getName() + " has a higher GPA!";
             } else {
                 compareMessage = personToCompare2.getName() + " has a higher GPA!";
