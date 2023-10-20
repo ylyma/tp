@@ -9,7 +9,8 @@ import java.nio.file.Paths;
 
 /**
  * Represents an attachment in the address book.
- * Guarantees: immutable; name is valid as declared in {@link #isValidAttachment(String)}
+ * Guarantees: immutable; name is valid as declared in
+ * {@link #isValidAttachment(String)}
  */
 public class Attachment {
 
@@ -35,7 +36,7 @@ public class Attachment {
     public static boolean isValidAttachment(String test) {
         try {
             Paths.get(test);
-            return new File(test).exists();
+            return true;
         } catch (InvalidPathException e) {
             return false;
         } catch (SecurityException e) {
