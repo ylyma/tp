@@ -50,9 +50,16 @@ public class UnbookmarkCommand extends Command {
         }
 
         Person personToUnbookmark = lastShownList.get(targetIndex.getZeroBased());
-        Person unbookmarkedPerson = new Person(personToUnbookmark.getStudentNumber(), personToUnbookmark.getName(),
-                personToUnbookmark.getPhone(), personToUnbookmark.getEmail(), personToUnbookmark.getGpa(),
-                personToUnbookmark.getTags(), personToUnbookmark.getIsHidden(), personToUnbookmark.getAttachments(),
+        Person unbookmarkedPerson = new Person(
+                personToUnbookmark.getStudentNumber(),
+                personToUnbookmark.getName(),
+                personToUnbookmark.getPhone(),
+                personToUnbookmark.getEmail(),
+                personToUnbookmark.getGpa(),
+                personToUnbookmark.getComment(),
+                personToUnbookmark.getTags(),
+                personToUnbookmark.getIsHidden(),
+                personToUnbookmark.getAttachments(),
                 new Bookmark(false));
         model.setPerson(personToUnbookmark, unbookmarkedPerson);
         return new CommandResult(String.format(MESSAGE_UNBOOKMARK_APPLICANT_SUCCESS,
