@@ -12,6 +12,7 @@ import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.AttachCommand;
 import seedu.address.logic.commands.BookmarkCommand;
 import seedu.address.logic.commands.ClearCommand;
+import seedu.address.logic.commands.CommentCommand;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.commands.EditCommand;
@@ -27,7 +28,6 @@ import seedu.address.logic.commands.UnbookmarkCommand;
 import seedu.address.logic.commands.UnhideAllCommand;
 import seedu.address.logic.commands.UnhideCommand;
 import seedu.address.logic.commands.ViewCommand;
-import seedu.address.logic.commands.CommentCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 /**

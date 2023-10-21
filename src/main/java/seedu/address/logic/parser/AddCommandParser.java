@@ -17,9 +17,9 @@ import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.attachment.Attachment;
 import seedu.address.model.person.Bookmark;
+import seedu.address.model.person.Comment;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gpa;
-import seedu.address.model.person.Comment;
 import seedu.address.model.person.IsHidden;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
@@ -43,16 +43,25 @@ public class AddCommandParser implements Parser<AddCommand> {
             PREFIX_PHONE, PREFIX_EMAIL, PREFIX_GPA, PREFIX_COMMENT, PREFIX_TAG
         );
 
-        if (!arePrefixesPresent(argMultimap, PREFIX_STUDENT_NUMBER, PREFIX_NAME, PREFIX_GPA, PREFIX_COMMENT, PREFIX_PHONE, PREFIX_EMAIL)
+        if (!arePrefixesPresent(
+                argMultimap,
+                PREFIX_STUDENT_NUMBER,
+                PREFIX_NAME,
+                PREFIX_GPA,
+                PREFIX_COMMENT,
+                PREFIX_PHONE,
+                PREFIX_EMAIL)
                 || !argMultimap.getPreamble().isEmpty()) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
+            throw new ParseException(String.format(
+                    MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
         }
 
         argMultimap.verifyNoDuplicatePrefixesFor(
             PREFIX_STUDENT_NUMBER, PREFIX_NAME, PREFIX_PHONE,
             PREFIX_EMAIL, PREFIX_GPA, PREFIX_COMMENT
         );
-        StudentNumber studentNo = ParserUtil.parseStudentNumber(argMultimap.getValue(PREFIX_STUDENT_NUMBER).get());
+        StudentNumber studentNo = ParserUtil.parseStudentNumber(
+                argMultimap.getValue(PREFIX_STUDENT_NUMBER).get());
         Name name = ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get());
         Phone phone = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
         Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
@@ -63,7 +72,17 @@ public class AddCommandParser implements Parser<AddCommand> {
         List<Attachment> attachments = List.of();
         Bookmark bookmark = new Bookmark(false);
 
-        Person person = new Person(studentNo, name, phone, email, gpa, comment, tagList, isHidden, attachments, bookmark);
+        Person person = new Person(
+                studentNo,
+                name,
+                phone,
+                email,
+                gpa,
+                comment,
+                tagList,
+                isHidden,
+                attachments,
+                bookmark);
 
         return new AddCommand(person);
     }
