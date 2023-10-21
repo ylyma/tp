@@ -79,7 +79,7 @@ public class PersonCard extends UiPart<Region> {
     private void updateBookmarkImage(Boolean bookmarked) {
         Image img;
         if (bookmarked) {
-            img = BOOKMARKED;
+            img = PersonCard.BOOKMARKED;
         } else {
             img = NOT_BOOKMARKED;
         }
