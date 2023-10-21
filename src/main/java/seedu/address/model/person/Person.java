@@ -46,8 +46,7 @@ public class Person {
         Set<Tag> tags,
         IsHidden isHidden,
         List<Attachment> attachments,
-        Bookmark bookmark)
-    {
+        Bookmark bookmark) {
         requireAllNonNull(studentNo, name, phone, email, gpa, comment, tags, isHidden);
         this.studentNo = studentNo;
         this.name = name;
