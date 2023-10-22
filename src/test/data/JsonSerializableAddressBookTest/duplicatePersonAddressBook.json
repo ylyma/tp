@@ -5,12 +5,14 @@
     "phone": "94351253",
     "email": "alice@example.com",
     "gpa": "3.1",
-    "tags": [ "friends" ]
+    "tags": [ "friends" ],
+    "comment": ""
   }, {
     "studentNo": "A0222222A",
     "name": "Alice Pauline",
     "phone": "94351253",
     "email": "pauline@example.com",
-    "gpa": "4.0"
+    "gpa": "4.0",
+    "comment": ""
   } ]
 }

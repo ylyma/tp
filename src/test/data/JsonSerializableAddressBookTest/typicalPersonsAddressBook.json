@@ -6,48 +6,55 @@
     "phone" : "94351253",
     "email" : "alice@example.com",
     "gpa" : "2.9",
-    "tags" : [ "friends" ]
+    "tags" : [ "friends" ],
+    "comment": ""
   }, {
     "studentNo": "A9473847C",
     "name" : "Benson Meier",
     "phone" : "98765432",
     "email" : "johnd@example.com",
     "gpa" : "4.9",
-    "tags" : [ "owesMoney", "friends" ]
+    "tags" : [ "owesMoney", "friends" ],
+    "comment": ""
   }, {
     "studentNo": "A0437563D",
     "name" : "Carl Kurz",
     "phone" : "95352563",
     "email" : "heinz@example.com",
     "gpa" : "4.0",
-    "tags" : [ ]
+    "tags" : [ ],
+    "comment": ""
   }, {
     "studentNo": "A0453552G",
     "name" : "Daniel Meier",
     "phone" : "87652533",
     "email" : "cornelia@example.com",
     "gpa" : "3.0",
-    "tags" : [ "friends" ]
+    "tags" : [ "friends" ],
+    "comment": ""
   }, {
     "studentNo": "A0348574E",
     "name" : "Elle Meyer",
     "phone" : "9482224",
     "email" : "werner@example.com",
     "gpa" : "1.0",
-    "tags" : [ ]
+    "tags" : [ ],
+    "comment": ""
   }, {
     "studentNo": "A0434534C",
     "name" : "Fiona Kunz",
     "phone" : "9482427",
     "email" : "lydia@example.com",
     "gpa" : "2.0",
-    "tags" : [ ]
+    "tags" : [ ],
+    "comment": ""
   }, {
     "studentNo": "A0483728F",
     "name" : "George Best",
     "phone" : "9482442",
     "email" : "anna@example.com",
     "gpa" : "4.0",
-    "tags" : [ ]
+    "tags" : [ ],
+    "comment": ""
   } ]
 }

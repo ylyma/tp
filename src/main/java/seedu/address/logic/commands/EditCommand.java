@@ -62,7 +62,8 @@ public class EditCommand extends Command {
     private final EditPersonDescriptor editPersonDescriptor;
 
     /**
-     * @param index of the applicant in the filtered applicant list to edit
+     * @param index                of the applicant in the filtered applicant list
+     *                             to edit
      * @param editPersonDescriptor details to edit the applicant with
      */
     public EditCommand(Index index, EditPersonDescriptor editPersonDescriptor) {
@@ -142,7 +143,8 @@ public class EditCommand extends Command {
     }
 
     /**
-     * Stores the details to edit the applicant with. Each non-empty field value will replace the
+     * Stores the details to edit the applicant with. Each non-empty field value
+     * will replace the
      * corresponding field value of the applicant.
      */
     public static class EditPersonDescriptor {
@@ -154,7 +156,9 @@ public class EditCommand extends Command {
         private Set<Tag> tags;
         private IsHidden isHidden;
         private Bookmark bookmark;
-        public EditPersonDescriptor() {}
+
+        public EditPersonDescriptor() {
+        }
 
         /**
          * Copy constructor.
@@ -228,7 +232,8 @@ public class EditCommand extends Command {
         }
 
         /**
-         * Returns an unmodifiable tag set, which throws {@code UnsupportedOperationException}
+         * Returns an unmodifiable tag set, which throws
+         * {@code UnsupportedOperationException}
          * if modification is attempted.
          * Returns {@code Optional#empty()} if {@code tags} is null.
          */
@@ -279,9 +284,9 @@ public class EditCommand extends Command {
                     .add("phone", phone)
                     .add("email", email)
                     .add("gpa", gpa)
-                    .add("comment", comment)
                     .add("tags", tags)
                     .add("bookmark", bookmark)
+                    .add("comment", comment)
                     .toString();
         }
     }

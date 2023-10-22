@@ -66,7 +66,8 @@ public class EditPersonDescriptorTest {
                 + editPersonDescriptor.getEmail().orElse(null) + ", address="
                 + editPersonDescriptor.getGpa().orElse(null) + ", tags="
                 + editPersonDescriptor.getTags().orElse(null) + ", bookmark="
-                + editPersonDescriptor.getBookmark().orElse(null) + "}";
+                + editPersonDescriptor.getBookmark().orElse(null) + ", comment="
+                + editPersonDescriptor.getComment().orElse(null) + "}";
         assertEquals(expected, editPersonDescriptor.toString());
     }
 }
