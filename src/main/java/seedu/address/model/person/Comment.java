@@ -5,7 +5,8 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
  * Represents a comment for an applicant in the applicant list.
- * Guarantees: immutable; is valid as declared in {@link #isValidComment(String)}
+ * Guarantees: immutable; is valid as declared in
+ * {@link #isValidComment(String)}
  */
 public class Comment {
     public static final String MESSAGE_CONSTRAINTS = "Comment takes in any string. Comment can be blank";
@@ -52,7 +53,7 @@ public class Comment {
         }
 
         Comment otherComment = (Comment) other;
-        return comment == otherComment.comment;
+        return comment.equals(otherComment.comment);
     }
 
     @Override

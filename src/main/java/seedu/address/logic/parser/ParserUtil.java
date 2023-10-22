@@ -21,7 +21,8 @@ import seedu.address.model.person.StudentNumber;
 import seedu.address.model.tag.Tag;
 
 /**
- * Contains utility methods used for parsing strings in the various *Parser classes.
+ * Contains utility methods used for parsing strings in the various *Parser
+ * classes.
  */
 public class ParserUtil {
 
@@ -29,9 +30,12 @@ public class ParserUtil {
     public static final String MESSAGE_INVALID_PATH = "Please provide a valid file path.";
 
     /**
-     * Parses {@code oneBasedIndex} into an {@code Index} and returns it. Leading and trailing whitespaces will be
+     * Parses {@code oneBasedIndex} into an {@code Index} and returns it. Leading
+     * and trailing whitespaces will be
      * trimmed.
-     * @throws ParseException if the specified index is invalid (not non-zero unsigned integer).
+     *
+     * @throws ParseException if the specified index is invalid (not non-zero
+     *                        unsigned integer).
      */
     public static Index parseIndex(String oneBasedIndex) throws ParseException {
         String trimmedIndex = oneBasedIndex.trim();
@@ -116,7 +120,7 @@ public class ParserUtil {
     public static Comment parseComment(String name) throws ParseException {
         requireNonNull(name);
         String trimmedComment = name.trim();
-        if (!Name.isValidName(trimmedComment)) {
+        if (!Comment.isValidComment(trimmedComment)) {
             throw new ParseException(Name.MESSAGE_CONSTRAINTS);
         }
         return new Comment(trimmedComment);
@@ -180,7 +184,8 @@ public class ParserUtil {
     }
 
     /**
-     * Parses {@code Collection<String> pathStrings} into a {@code List<Attachment>}.
+     * Parses {@code Collection<String> pathStrings} into a
+     * {@code List<Attachment>}.
      */
     public static List<Attachment> parseAttachments(Collection<String> pathStrings) throws ParseException {
         requireNonNull(pathStrings);

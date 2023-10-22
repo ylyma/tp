@@ -65,7 +65,7 @@ public class AddCommandParserTest {
 
         // whitespace only preamble
         assertParseSuccess(parser, PREAMBLE_WHITESPACE + STUDENT_NUMBER_DESC_BOB
-                + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
+                + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + COMMENT_DESC_BOB
                 + GPA_DESC_BOB + TAG_DESC_FRIEND, new AddCommand(expectedPerson));
 
         // multiple tags - all accepted
@@ -73,7 +73,7 @@ public class AddCommandParserTest {
                 .build();
         assertParseSuccess(parser,
                 STUDENT_NUMBER_DESC_BOB + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
-                + GPA_DESC_BOB + TAG_DESC_HUSBAND + TAG_DESC_FRIEND,
+                + GPA_DESC_BOB + COMMENT_DESC_BOB + TAG_DESC_HUSBAND + TAG_DESC_FRIEND,
                 new AddCommand(expectedPersonMultipleTags));
     }
 
@@ -155,7 +155,7 @@ public class AddCommandParserTest {
         // zero tags
         Person expectedPerson = new PersonBuilder(AMY).withTags().build();
         assertParseSuccess(parser, STUDENT_NUMBER_DESC_AMY + NAME_DESC_AMY + PHONE_DESC_AMY
-                + EMAIL_DESC_AMY + GPA_DESC_AMY,
+                + EMAIL_DESC_AMY + GPA_DESC_AMY + COMMENT_DESC_AMY,
                 new AddCommand(expectedPerson));
     }
 

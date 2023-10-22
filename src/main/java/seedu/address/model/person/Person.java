@@ -15,7 +15,8 @@ import seedu.address.model.tag.Tag;
 
 /**
  * Represents an applicant in the TA applicant list.
- * Guarantees: details are present and not null, field values are validated, immutable.
+ * Guarantees: details are present and not null, field values are validated,
+ * immutable.
  */
 public class Person {
 
@@ -37,16 +38,16 @@ public class Person {
      * Every field must be present and not null.
      */
     public Person(
-        StudentNumber studentNo,
-        Name name,
-        Phone phone,
-        Email email,
-        Gpa gpa,
-        Comment comment,
-        Set<Tag> tags,
-        IsHidden isHidden,
-        List<Attachment> attachments,
-        Bookmark bookmark) {
+            StudentNumber studentNo,
+            Name name,
+            Phone phone,
+            Email email,
+            Gpa gpa,
+            Comment comment,
+            Set<Tag> tags,
+            IsHidden isHidden,
+            List<Attachment> attachments,
+            Bookmark bookmark) {
         requireAllNonNull(studentNo, name, phone, email, gpa, comment, tags, isHidden);
         this.studentNo = studentNo;
         this.name = name;
@@ -89,7 +90,8 @@ public class Person {
     }
 
     /**
-     * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
+     * Returns an immutable tag set, which throws
+     * {@code UnsupportedOperationException}
      * if modification is attempted.
      */
     public Set<Tag> getTags() {
@@ -97,7 +99,8 @@ public class Person {
     }
 
     /**
-     * Returns an immutable isHidden value, which throws {@code UnsupportedOperationException}
+     * Returns an immutable isHidden value, which throws
+     * {@code UnsupportedOperationException}
      * if modification is attempted.
      */
     public IsHidden getIsHidden() {
@@ -105,7 +108,8 @@ public class Person {
     }
 
     /**
-     * Returns an immutable attachment list, which throws {@code UnsupportedOperationException}
+     * Returns an immutable attachment list, which throws
+     * {@code UnsupportedOperationException}
      * if modification is attempted.
      */
     public List<Attachment> getAttachments() {
@@ -148,9 +152,9 @@ public class Person {
                 && gpa.equals(otherPerson.gpa)
                 && comment.equals(otherPerson.comment)
                 && tags.equals(otherPerson.tags)
-                && isHidden.equals(getIsHidden())
+                && isHidden.equals(otherPerson.isHidden)
                 && attachments.equals(otherPerson.attachments)
-                && bookmark.equals(getBookmark());
+                && bookmark.equals(otherPerson.bookmark);
 
     }
 

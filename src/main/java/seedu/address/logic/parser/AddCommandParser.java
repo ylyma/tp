@@ -49,8 +49,7 @@ public class AddCommandParser implements Parser<AddCommand> {
                 PREFIX_GPA,
                 PREFIX_COMMENT,
                 PREFIX_PHONE,
-                PREFIX_EMAIL,
-                PREFIX_TAG)
+                PREFIX_EMAIL)
                 || !argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
