@@ -38,8 +38,8 @@ public class CommandTestUtil {
     public static final String VALID_EMAIL_BOB = "bob@example.com";
     public static final double VALID_GPA_AMY = 5.0;
     public static final double VALID_GPA_BOB = 3.6;
-    public static final String VALID_COMMENT_AMY = "";
-    public static final String VALID_COMMENT_BOB = "";
+    public static final String VALID_COMMENT_AMY = "studious";
+    public static final String VALID_COMMENT_BOB = "hardworking";
     public static final String VALID_TAG_HUSBAND = "husband";
     public static final String VALID_TAG_FRIEND = "friend";
     public static final boolean VALID_IS_HIDDEN = false;

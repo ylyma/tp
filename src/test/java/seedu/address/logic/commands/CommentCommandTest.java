@@ -118,7 +118,7 @@ class CommentCommandTest {
         // different index -> returns false
         assertFalse(standardCommand.equals(new CommentCommand(INDEX_SECOND_PERSON,
                 new Comment(VALID_COMMENT_AMY))));
-        // different remark -> returns false
+        // different comment -> returns false
         assertFalse(standardCommand.equals(new CommentCommand(INDEX_FIRST_PERSON,
                 new Comment(VALID_COMMENT_BOB))));
     }
