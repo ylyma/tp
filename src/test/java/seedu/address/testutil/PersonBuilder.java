@@ -6,9 +6,9 @@ import java.util.Set;
 
 import seedu.address.model.attachment.Attachment;
 import seedu.address.model.person.Bookmark;
+import seedu.address.model.person.Comment;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gpa;
-import seedu.address.model.person.Comment;
 import seedu.address.model.person.IsHidden;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
@@ -91,17 +91,19 @@ public class PersonBuilder {
     }
 
     /**
-     * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code Person} that we are building.
+     * Parses the {@code tags} into a {@code Set<Tag>} and set it to the
+     * {@code Person} that we are building.
      */
-    public PersonBuilder withTags(String ... tags) {
+    public PersonBuilder withTags(String... tags) {
         this.tags = SampleDataUtil.getTagSet(tags);
         return this;
     }
 
     /**
-     * Parses the {@code pathStrings} into a {@code List<File>} and set it to the {@code Person} that we are building.
+     * Parses the {@code pathStrings} into a {@code List<File>} and set it to the
+     * {@code Person} that we are building.
      */
-    public PersonBuilder withAttachments(String ... pathStrings) {
+    public PersonBuilder withAttachments(String... pathStrings) {
         this.attachments = SampleDataUtil.getAttachments(pathStrings);
         return this;
     }

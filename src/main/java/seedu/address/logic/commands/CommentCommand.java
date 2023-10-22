@@ -1,16 +1,16 @@
 package seedu.address.logic.commands;
 
-import java.util.List;
-
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
-import seedu.address.model.person.Comment;
-import seedu.address.model.person.Person;
+
+import java.util.List;
+
+import seedu.address.commons.core.index.Index;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.commons.core.index.Index;
 import seedu.address.model.Model;
-
+import seedu.address.model.person.Comment;
+import seedu.address.model.person.Person;
 
 /**
  * Changes the comment of an existing person in the address book.
@@ -33,7 +33,7 @@ public class CommentCommand extends Command {
     private final Comment comment;
 
     /**
-     * @param index of the person in the filtered person list to edit the comment
+     * @param index   of the person in the filtered person list to edit the comment
      * @param comment of the person to be updated to
      */
     public CommentCommand(Index index, Comment comment) {
@@ -53,16 +53,16 @@ public class CommentCommand extends Command {
 
         Person personToEdit = lastShownList.get(index.getZeroBased());
         Person editedPerson = new Person(
-                                    personToEdit.getStudentNumber(),
-                                    personToEdit.getName(),
-                                    personToEdit.getPhone(),
-                                    personToEdit.getEmail(),
-                                    personToEdit.getGpa(),
-                                    comment,
-                                    personToEdit.getTags(),
-                                    personToEdit.getIsHidden(),
-                                    personToEdit.getAttachments(),
-                                    personToEdit.getBookmark());
+                personToEdit.getStudentNumber(),
+                personToEdit.getName(),
+                personToEdit.getPhone(),
+                personToEdit.getEmail(),
+                personToEdit.getGpa(),
+                comment,
+                personToEdit.getTags(),
+                personToEdit.getIsHidden(),
+                personToEdit.getAttachments(),
+                personToEdit.getBookmark());
         model.setPerson(personToEdit, editedPerson);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
 
