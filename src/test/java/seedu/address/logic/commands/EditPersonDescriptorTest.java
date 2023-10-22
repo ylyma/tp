@@ -63,7 +63,7 @@ public class EditPersonDescriptorTest {
         String expected = EditPersonDescriptor.class.getCanonicalName() + "{name="
                 + editPersonDescriptor.getName().orElse(null) + ", phone="
                 + editPersonDescriptor.getPhone().orElse(null) + ", email="
-                + editPersonDescriptor.getEmail().orElse(null) + ", address="
+                + editPersonDescriptor.getEmail().orElse(null) + ", gpa="
                 + editPersonDescriptor.getGpa().orElse(null) + ", tags="
                 + editPersonDescriptor.getTags().orElse(null) + ", bookmark="
                 + editPersonDescriptor.getBookmark().orElse(null) + ", comment="
