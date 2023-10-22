@@ -62,10 +62,20 @@ public class UnhideCommand extends Command {
      */
     private static Person createUnhiddenPerson(Person personToUnhide) {
         assert personToUnhide != null;
-        return new Person(personToUnhide.getStudentNumber(), personToUnhide.getName(), personToUnhide.getPhone(),
-                personToUnhide.getEmail(), personToUnhide.getGpa(), personToUnhide.getTags(), new IsHidden(false),
-                personToUnhide.getAttachments(), personToUnhide.getBookmark());
+
+        return new Person(
+                personToUnhide.getStudentNumber(),
+                personToUnhide.getName(),
+                personToUnhide.getPhone(),
+                personToUnhide.getEmail(),
+                personToUnhide.getGpa(),
+                personToUnhide.getComment(),
+                personToUnhide.getTags(),
+                new IsHidden(false),
+                personToUnhide.getAttachments(),
+                personToUnhide.getBookmark());
     }
+
     @Override
     public boolean equals(Object other) {
         if (other == this) {

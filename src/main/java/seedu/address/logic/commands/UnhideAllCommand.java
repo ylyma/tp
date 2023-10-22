@@ -11,7 +11,6 @@ import seedu.address.model.person.IsHidden;
 import seedu.address.model.person.Person;
 
 
-
 /**
  * Unhides all applicants from the list of all applicants.
  */
@@ -35,6 +34,7 @@ public class UnhideAllCommand extends Command {
         model.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_UNHIDDEN_PERSONS);
         return new CommandResult(String.format(MESSAGE_SUCCESS));
     }
+
     /**
      * Creates and returns an unhidden {@code Person} with the details of {@code personToUnhide}
      * @param personToUnhide {@code Person} to unhide
@@ -42,8 +42,17 @@ public class UnhideAllCommand extends Command {
      */
     private static Person createUnhiddenPerson(Person personToUnhide) {
         assert personToUnhide != null;
-        return new Person(personToUnhide.getStudentNumber(), personToUnhide.getName(), personToUnhide.getPhone(),
-                personToUnhide.getEmail(), personToUnhide.getGpa(), personToUnhide.getTags(), new IsHidden(false),
-                personToUnhide.getAttachments(), personToUnhide.getBookmark());
+
+        return new Person(
+                personToUnhide.getStudentNumber(),
+                personToUnhide.getName(),
+                personToUnhide.getPhone(),
+                personToUnhide.getEmail(),
+                personToUnhide.getGpa(),
+                personToUnhide.getComment(),
+                personToUnhide.getTags(),
+                new IsHidden(false),
+                personToUnhide.getAttachments(),
+                personToUnhide.getBookmark());
     }
 }

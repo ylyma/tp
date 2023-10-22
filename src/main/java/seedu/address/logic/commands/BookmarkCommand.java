@@ -50,9 +50,16 @@ public class BookmarkCommand extends Command {
         }
 
         Person personToBookmark = lastShownList.get(targetIndex.getZeroBased());
-        Person bookmarkedPerson = new Person(personToBookmark.getStudentNumber(), personToBookmark.getName(),
-                personToBookmark.getPhone(), personToBookmark.getEmail(), personToBookmark.getGpa(),
-                personToBookmark.getTags(), personToBookmark.getIsHidden(), personToBookmark.getAttachments(),
+        Person bookmarkedPerson = new Person(
+                personToBookmark.getStudentNumber(),
+                personToBookmark.getName(),
+                personToBookmark.getPhone(),
+                personToBookmark.getEmail(),
+                personToBookmark.getGpa(),
+                personToBookmark.getComment(),
+                personToBookmark.getTags(),
+                personToBookmark.getIsHidden(),
+                personToBookmark.getAttachments(),
                 new Bookmark(true));
         model.setPerson(personToBookmark, bookmarkedPerson);
         return new CommandResult(String.format(MESSAGE_BOOKMARK_APPLICANT_SUCCESS, Messages.format(bookmarkedPerson)));

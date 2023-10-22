@@ -44,6 +44,8 @@ public class Messages {
                 .append(person.getEmail())
                 .append("; GPA: ")
                 .append(person.getGpa())
+                .append("; Comment: ")
+                .append(person.getComment())
                 .append("; Tags: ");
         person.getTags().forEach(builder::append);
         return builder.toString();

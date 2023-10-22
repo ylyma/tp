@@ -13,5 +13,6 @@ public class CliSyntax {
     public static final Prefix PREFIX_GPA = new Prefix("g/");
     public static final Prefix PREFIX_TAG = new Prefix("t/");
     public static final Prefix PREFIX_FILE = new Prefix("f/");
+    public static final Prefix PREFIX_COMMENT = new Prefix("c/");
 
 }

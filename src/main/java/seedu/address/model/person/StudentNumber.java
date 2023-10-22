@@ -18,7 +18,7 @@ public class StudentNumber {
     /**
      * Constructs a {@code StudentNumber}.
      *
-     * @param phone A valid student number.
+     * @param studentNo A valid student number.
      */
     public StudentNumber(String studentNo) {
         requireNonNull(studentNo);

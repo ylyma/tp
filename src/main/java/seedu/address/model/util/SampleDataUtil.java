@@ -9,6 +9,7 @@ import seedu.address.model.AddressBook;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.attachment.Attachment;
 import seedu.address.model.person.Bookmark;
+import seedu.address.model.person.Comment;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gpa;
 import seedu.address.model.person.IsHidden;
@@ -22,6 +23,9 @@ import seedu.address.model.tag.Tag;
  * Contains utility methods for populating {@code AddressBook} with sample data.
  */
 public class SampleDataUtil {
+
+    public static final Comment EMPTY_COMMENT = new Comment("");
+
     public static Person[] getSamplePersons() {
         return new Person[] {
             new Person(
@@ -30,6 +34,7 @@ public class SampleDataUtil {
                 new Phone("87438807"),
                 new Email("alexyeoh@example.com"),
                 new Gpa(4.2),
+                EMPTY_COMMENT,
                 getTagSet("pastTA"),
                 new IsHidden(false),
                 getAttachments(),
@@ -41,6 +46,7 @@ public class SampleDataUtil {
                 new Phone("99272758"),
                 new Email("berniceyu@example.com"),
                 new Gpa(5.0),
+                EMPTY_COMMENT,
                 getTagSet("pastTA", "deansList"),
                 new IsHidden(false),
                 getAttachments(),
@@ -52,6 +58,7 @@ public class SampleDataUtil {
                 new Phone("93210283"),
                 new Email("charlotte@example.com"),
                 new Gpa(3.6),
+                EMPTY_COMMENT,
                 getTagSet("pastTA"),
                 new IsHidden(false),
                 getAttachments(),
@@ -63,6 +70,7 @@ public class SampleDataUtil {
                 new Phone("91031282"),
                 new Email("lidavid@example.com"),
                 new Gpa(4.71),
+                EMPTY_COMMENT,
                 getTagSet("pastTA"),
                 new IsHidden(false),
                 getAttachments(),
@@ -74,6 +82,7 @@ public class SampleDataUtil {
                 new Phone("92492021"),
                 new Email("irfan@example.com"),
                 new Gpa(3.67),
+                EMPTY_COMMENT,
                 getTagSet("topInModule"),
                 new IsHidden(false),
                 getAttachments(),
@@ -85,6 +94,7 @@ public class SampleDataUtil {
                 new Phone("92624417"),
                 new Email("royb@example.com"),
                 new Gpa(4.3),
+                EMPTY_COMMENT,
                 getTagSet("pastTA"),
                 new IsHidden(false),
                 getAttachments(),

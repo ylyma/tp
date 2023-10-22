@@ -6,6 +6,7 @@ import java.util.Set;
 
 import seedu.address.model.attachment.Attachment;
 import seedu.address.model.person.Bookmark;
+import seedu.address.model.person.Comment;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gpa;
 import seedu.address.model.person.IsHidden;
@@ -26,6 +27,7 @@ public class PersonBuilder {
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final double DEFAULT_GPA = 4.0;
+    public static final String DEFAULT_COMMENT = "";
     public static final boolean DEFAULT_IS_HIDDEN = false;
     public static final boolean DEFAULT_BOOKMARK = false;
 
@@ -34,6 +36,7 @@ public class PersonBuilder {
     private Phone phone;
     private Email email;
     private Gpa gpa;
+    private Comment comment;
     private Set<Tag> tags;
     private IsHidden isHidden;
     private List<Attachment> attachments;
@@ -48,6 +51,7 @@ public class PersonBuilder {
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
         gpa = new Gpa(DEFAULT_GPA);
+        comment = new Comment(DEFAULT_COMMENT);
         tags = new HashSet<>();
         isHidden = new IsHidden(DEFAULT_IS_HIDDEN);
         attachments = List.of();
@@ -63,6 +67,7 @@ public class PersonBuilder {
         phone = personToCopy.getPhone();
         email = personToCopy.getEmail();
         gpa = personToCopy.getGpa();
+        comment = personToCopy.getComment();
         tags = new HashSet<>(personToCopy.getTags());
         isHidden = personToCopy.getIsHidden();
         attachments = personToCopy.getAttachments();
@@ -86,17 +91,19 @@ public class PersonBuilder {
     }
 
     /**
-     * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code Person} that we are building.
+     * Parses the {@code tags} into a {@code Set<Tag>} and set it to the
+     * {@code Person} that we are building.
      */
-    public PersonBuilder withTags(String ... tags) {
+    public PersonBuilder withTags(String... tags) {
         this.tags = SampleDataUtil.getTagSet(tags);
         return this;
     }
 
     /**
-     * Parses the {@code pathStrings} into a {@code List<File>} and set it to the {@code Person} that we are building.
+     * Parses the {@code pathStrings} into a {@code List<File>} and set it to the
+     * {@code Person} that we are building.
      */
-    public PersonBuilder withAttachments(String ... pathStrings) {
+    public PersonBuilder withAttachments(String... pathStrings) {
         this.attachments = SampleDataUtil.getAttachments(pathStrings);
         return this;
     }
@@ -106,6 +113,14 @@ public class PersonBuilder {
      */
     public PersonBuilder withGpa(double gpa) {
         this.gpa = new Gpa(gpa);
+        return this;
+    }
+
+    /**
+     * Sets the {@code Comment} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withComment(String comment) {
+        this.comment = new Comment(comment);
         return this;
     }
 
@@ -142,7 +157,7 @@ public class PersonBuilder {
     }
 
     public Person build() {
-        return new Person(studentNo, name, phone, email, gpa, tags, isHidden, attachments, bookmark);
+        return new Person(studentNo, name, phone, email, gpa, comment, tags, isHidden, attachments, bookmark);
     }
 
 }

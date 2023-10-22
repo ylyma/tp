@@ -31,6 +31,7 @@ public class JsonAdaptedPersonTest {
     private static final String VALID_PHONE = BENSON.getPhone().toString();
     private static final String VALID_EMAIL = BENSON.getEmail().toString();
     private static final double VALID_GPA = BENSON.getGpa().value;
+    private static final String VALID_COMMENT = BENSON.getComment().comment;
     private static final List<JsonAdaptedTag> VALID_TAGS = BENSON.getTags().stream()
             .map(JsonAdaptedTag::new)
             .collect(Collectors.toList());
@@ -54,6 +55,7 @@ public class JsonAdaptedPersonTest {
             VALID_PHONE,
             VALID_EMAIL,
             VALID_GPA,
+            VALID_COMMENT,
             VALID_TAGS,
             VALID_IS_HIDDEN,
             VALID_ATTACHMENTS,
@@ -71,6 +73,7 @@ public class JsonAdaptedPersonTest {
             VALID_PHONE,
             VALID_EMAIL,
             VALID_GPA,
+            VALID_COMMENT,
             VALID_TAGS,
             VALID_IS_HIDDEN,
             VALID_ATTACHMENTS,
@@ -89,6 +92,7 @@ public class JsonAdaptedPersonTest {
             VALID_PHONE,
             VALID_EMAIL,
             VALID_GPA,
+            VALID_COMMENT,
             VALID_TAGS,
             VALID_IS_HIDDEN,
             VALID_ATTACHMENTS,
@@ -106,6 +110,7 @@ public class JsonAdaptedPersonTest {
             VALID_PHONE,
             VALID_EMAIL,
             VALID_GPA,
+            VALID_COMMENT,
             VALID_TAGS,
             VALID_IS_HIDDEN,
             VALID_ATTACHMENTS,
@@ -123,6 +128,7 @@ public class JsonAdaptedPersonTest {
             INVALID_PHONE,
             VALID_EMAIL,
             VALID_GPA,
+            VALID_COMMENT,
             VALID_TAGS,
             VALID_IS_HIDDEN,
             VALID_ATTACHMENTS,
@@ -140,6 +146,7 @@ public class JsonAdaptedPersonTest {
             null,
             VALID_EMAIL,
             VALID_GPA,
+            VALID_COMMENT,
             VALID_TAGS,
             VALID_IS_HIDDEN,
             VALID_ATTACHMENTS,
@@ -157,6 +164,7 @@ public class JsonAdaptedPersonTest {
             VALID_PHONE,
             INVALID_EMAIL,
             VALID_GPA,
+            VALID_COMMENT,
             VALID_TAGS,
             VALID_IS_HIDDEN,
             VALID_ATTACHMENTS,
@@ -174,6 +182,7 @@ public class JsonAdaptedPersonTest {
             VALID_PHONE,
             null,
             VALID_GPA,
+            VALID_COMMENT,
             VALID_TAGS,
             VALID_IS_HIDDEN,
             VALID_ATTACHMENTS,
@@ -191,6 +200,7 @@ public class JsonAdaptedPersonTest {
             VALID_PHONE,
             VALID_EMAIL,
             INVALID_GPA,
+            VALID_COMMENT,
             VALID_TAGS,
             VALID_IS_HIDDEN,
             VALID_ATTACHMENTS,
@@ -208,6 +218,7 @@ public class JsonAdaptedPersonTest {
             VALID_PHONE,
             VALID_EMAIL,
             null,
+            VALID_COMMENT,
             VALID_TAGS,
             VALID_IS_HIDDEN,
             VALID_ATTACHMENTS,
@@ -227,6 +238,7 @@ public class JsonAdaptedPersonTest {
             VALID_PHONE,
             VALID_EMAIL,
             VALID_GPA,
+            VALID_COMMENT,
             invalidTags,
             VALID_IS_HIDDEN,
             VALID_ATTACHMENTS,

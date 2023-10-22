@@ -12,6 +12,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.attachment.Attachment;
+import seedu.address.model.person.Comment;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gpa;
 import seedu.address.model.person.Name;
@@ -20,7 +21,8 @@ import seedu.address.model.person.StudentNumber;
 import seedu.address.model.tag.Tag;
 
 /**
- * Contains utility methods used for parsing strings in the various *Parser classes.
+ * Contains utility methods used for parsing strings in the various *Parser
+ * classes.
  */
 public class ParserUtil {
 
@@ -28,9 +30,12 @@ public class ParserUtil {
     public static final String MESSAGE_INVALID_PATH = "Please provide a valid file path.";
 
     /**
-     * Parses {@code oneBasedIndex} into an {@code Index} and returns it. Leading and trailing whitespaces will be
+     * Parses {@code oneBasedIndex} into an {@code Index} and returns it. Leading
+     * and trailing whitespaces will be
      * trimmed.
-     * @throws ParseException if the specified index is invalid (not non-zero unsigned integer).
+     *
+     * @throws ParseException if the specified index is invalid (not non-zero
+     *                        unsigned integer).
      */
     public static Index parseIndex(String oneBasedIndex) throws ParseException {
         String trimmedIndex = oneBasedIndex.trim();
@@ -107,6 +112,21 @@ public class ParserUtil {
     }
 
     /**
+     * Parses a {@code String name} into a {@code Name}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code name} is invalid.
+     */
+    public static Comment parseComment(String name) throws ParseException {
+        requireNonNull(name);
+        String trimmedComment = name.trim();
+        if (!Comment.isValidComment(trimmedComment)) {
+            throw new ParseException(Name.MESSAGE_CONSTRAINTS);
+        }
+        return new Comment(trimmedComment);
+    }
+
+    /**
      * Parses a {@code String email} into an {@code Email}.
      * Leading and trailing whitespaces will be trimmed.
      *
@@ -164,7 +184,8 @@ public class ParserUtil {
     }
 
     /**
-     * Parses {@code Collection<String> pathStrings} into a {@code List<Attachment>}.
+     * Parses {@code Collection<String> pathStrings} into a
+     * {@code List<Attachment>}.
      */
     public static List<Attachment> parseAttachments(Collection<String> pathStrings) throws ParseException {
         requireNonNull(pathStrings);

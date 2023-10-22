@@ -63,10 +63,19 @@ public class HideCommand extends Command {
     private static Person createHiddenPerson(Person personToHide) {
         assert personToHide != null;
 
-        return new Person(personToHide.getStudentNumber(), personToHide.getName(), personToHide.getPhone(),
-                personToHide.getEmail(), personToHide.getGpa(), personToHide.getTags(), new IsHidden(true),
-                personToHide.getAttachments(), personToHide.getBookmark());
+        return new Person(
+                personToHide.getStudentNumber(),
+                personToHide.getName(),
+                personToHide.getPhone(),
+                personToHide.getEmail(),
+                personToHide.getGpa(),
+                personToHide.getComment(),
+                personToHide.getTags(),
+                new IsHidden(true),
+                personToHide.getAttachments(),
+                personToHide.getBookmark());
     }
+
     @Override
     public boolean equals(Object other) {
         if (other == this) {
