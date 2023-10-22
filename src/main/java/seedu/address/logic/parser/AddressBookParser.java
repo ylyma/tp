@@ -118,7 +118,7 @@ public class AddressBookParser {
 
         case CommentCommand.COMMAND_WORD:
             return new CommentCommandParser().parse(arguments);
-            
+
         case CompareCommand.COMMAND_WORD:
             return new CompareCommandParser().parse(arguments);
 
