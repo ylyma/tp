@@ -7,7 +7,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  * Represents a Person's Grade Point Average (Gpa) in the applicant list.
  * Guarantees: immutable; is valid as declared in {@link #isValidGpa(double)}
  */
-public class Gpa {
+public class Gpa implements Comparable<Gpa> {
 
     public static final String MESSAGE_CONSTRAINTS = "Gpa can take values from 0.00 to 5.00, and cannot be blank";
 
@@ -34,6 +34,18 @@ public class Gpa {
      */
     public static boolean isValidGpa(double test) {
         return test >= 0.0 && test <= 5.0;
+    }
+
+    /**
+     * Compares this GPA with another GPA and returns an integer representing the comparison.
+     *
+     * @param other The other Gpa object to compare with.
+     * @return A negative value if this GPA is less than the other GPA, zero if they are equal,
+     *         and a positive value if this GPA is greater than the other GPA.
+     */
+    @Override
+    public int compareTo(Gpa other) {
+        return Double.compare(this.value, other.value);
     }
 
     @Override
