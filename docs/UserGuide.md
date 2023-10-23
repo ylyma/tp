@@ -1,75 +1,151 @@
 ---
 layout: page
-title: User Guide
+title: TAfinder User Guide
 ---
+# TAfinder User Guide
+## Overview
 
-**TAFinder** is a powerful and user-friendly **desktop application designed to simplify the complex task of managing Teaching Assistant (TA) applicants**. Tailored for the needs of NUS SOC professors, TAFinder provides a comprehensive solution to streamline the TA selection process, ensuring that educators can efficiently evaluate, compare, and interact with potential TAs. With a range of essential features and the ability to customize the TA applicant list, TAFinder empowers NUS SOC professors to make well-informed decisions, save valuable time, and enhance the overall efficiency of their academic endeavors.
+Introducing **TAfinder - the one-stop solution for all your TA selection needs**.
 
-* Table of Contents
-{:toc}
+With TAfinder, you can easily:
+1. **Manage** troves of TA applicants.
+2. Make more **informed decisions** with the help of our **compare** and **sort** functions.
+3. **Import** and **export** data to and from the TAfinder application.
+
+TAfinder utilises a Command Line Interface (CLI), while still enjoying the benefits of a Graphical User Interface (GUI), 
+for a more efficient user experience.
+
+So say goodbye to the days of manually sifting through hundreds of TA applications. Enrich your TA selection process with
+the power of TAfinder today!
+
+## About This Guide
+This guide shows you the relevant information for setting up and using TAfinder to manage your TA applications.
+
+You can click on any of the links below to navigate to the respective sections for more information.
+
+
+## Table of Contents
+- [1 Quick Start](#1-quick-start)
+    - [1.1 Prerequisites](#11-prerequisites)
+        - [1.1.1 Java](#111-java)
+        - [1.1.2 Glossary](#112-glossary)
+    - [1.2 Installation](#12-installation)
+    - [1.3 Utilisation](#13-utilisation)
+    - [1.4 Navigating the User Interface](#14-navigating-the-user-interface)
+- [2 Features](#2-features)
+    - [2.1 Basic applicant management](#21-basic-applicant-management) 
+      - [2.1.1 Adding an applicant: `add`](#211-adding-an-applicant-add)
+      - [2.1.2 Editing all applicants: `edit`](#212-editing-an-applicant-edit)
+      - [2.1.3 Deleting an applicant: `delete`](#213-deleting-an-applicant-delete)
+      - [2.1.4 Listing all applicants: `list`](#214-listing-all-applicant-list)
+      - [2.1.5 Viewing an applicant: `view`](#215-viewing-the-details-of-a-single-applicant-view)
+      - [2.1.6 Hiding/unhiding an applicant: `hide/unhide`](#216-hiding-an-applicant-from-list-hideunhide)
+    - [2.2 Applicant evaluation & comparison](#22-applicant-evaluation--comparison)
+      - [2.2.1 Sorting applicants by grades: `sort-gpa`](#221-sorting-applicants-by-gpa-sort-gpa)
+      - [2.2.2 Comparing 2 applicants: `compare`](#222-comparing-2-applicants-compare)
+      - [2.2.3 Bookmarking/Unbookmarking applicants: `bookmark/unbookmark`](#223-bookmarkingunbookmarking-applicants-bookmarkunbookmark)
+      - [2.2.4 Commenting on TA applicant: `comment`](#224-commenting-on-ta-applicant-comment)
+    - [2.3 Data management & export](#23-data-management--export)
+      - [2.3.1 Exporting applicants into spreadsheet: `export`](#231-exporting-applicants-into-spreadsheet)
+      - [2.3.2 Attaching file to applicant profiles: `attach`](#232-attaching-file-to-applicant-profiles)
+- [3 Data management](#3-data-management)
+    - [3.1 Saving the data](#31-saving-the-data)
+    - [3.2 Editing the data file](#32-editing-the-data-file)
+- [4 Upcoming Features](#4-upcoming-features-coming-in-v13)
+    - [4.1 Importing from spreadsheet: `import`](#41-importing-from-spreadsheet)
+    - [4.2 Sorting by module grade: `sort-grade`](#42-sorting-by-module-grade)
+    - [4.3 Sorting by interview score: `sort-interview`](#43-sorting-by-interview-score)
+- [5 FAQ](#5-faq)
+- [6 Known Issues](#6-known-issues)
+- [7 Summary](#7-summary)
+    - [7.1 Prefix Summary](#71-prefix-summary)
+    - [7.2 Command Summary](#72-command-summary)
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Quick start
+## 1 Quick start
 
-1. Ensure you have Java `11` or above installed in your Computer.
+### 1.1 Prerequisites
 
-1. Download the latest `tafinder.jar` from [here]().
+#### 1.1.1 Java
+Ensure you have [Java `11`](https://www.oracle.com/sg/java/technologies/javase/jdk11-archive-downloads.html) 
+or above installed. Java is the language that your computer uses to understand TAfinder.
 
-1. Copy the file to the folder you want to use as the _home folder_ for your TAFinder.
+#### 1.1.2 Glossary
 
-1. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar tafinder.jar` command to run the application.<br>
-   A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
-   ![Ui](images/Ui.png)
+### 1.2 Installation
 
-1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
-   Some example commands you can try:
+**Step 1.** Download the latest `tafinder.jar` from [here]().
 
-   * `list` : Lists all contacts.
+**Step 2.** Copy the file to the folder you want to use as the _home folder_ for your TAfinder.
 
-   * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the Address Book.
+**Step 3.** Double-click on the `tafinder.jar` file to start the app. 
+The GUI similar to the below should appear in a few seconds. ![Ui](images/Ui.png)
 
-   * `delete 3` : Deletes the 3rd contact shown in the current list.
+### 1.3 Utilisation
 
-   * `clear` : Deletes all contacts.
+**Step 1.** Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and
+pressing Enter will open the help window.<br>
+Some example commands you can try:
 
-   * `exit` : Exits the app.
+- `list` : Lists all contacts.
 
-1. Refer to the [Features](#features) below for details of each command.
+- `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the Address Book.
+
+- `delete 3` : Deletes the 3rd contact shown in the current list.
+
+- `clear` : Deletes all contacts.
+
+- `exit` : Exits the app.
+
+Refer to the [Features](#features) below for details of each command.
+
+Step 2. Observe the changes to the application.<br>
+
+### 1.4 Navigating the User Interface
+   
 
 --------------------------------------------------------------------------------------------------------------------
 
-# Features
+## 2 Features
 
 <div markdown="block" class="alert alert-info">
 
-**:information_source: Notes about the command format:**<br>
+**Notes about the command format:**<br>
 
 * Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
-  e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
+  e.g. in `add n/NAME`,<br>
+`NAME` is a parameter which can be used as `add n/John Doe`.
+
 
 * Items in square brackets are optional.<br>
-  e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
+  e.g `n/NAME [t/TAG]` ,<br>
+can be used as `n/John Doe t/friend` or as `n/John Doe`
+
 
 * Items with `…`​ after them can be used multiple times including zero times.<br>
-  e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
+  e.g. `[t/TAG]…​`,<br>
+can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
+
 
 * Parameters can be in any order.<br>
-  e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
+  e.g. if the command specifies `n/NAME p/PHONE_NUMBER`,<br>
+`p/PHONE_NUMBER n/NAME` is also acceptable.
 
-* Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
+
+* Extraneous parameters will be ignored.<br>
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
-* If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
+
+* If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple 
+lines as space characters surrounding line-breaks may be omitted when copied over to the application.
 </div>
 
 ---
 
-## **1. Basic applicant management**
+### **2.1 Basic applicant management**
 
-### **a. Listing all applicants: `list`**
-
-### d. Adding an applicant: `add`
+#### 2.1.1 Adding an applicant: `add`
 
 ![add.jpg](images/add.jpg)
 
@@ -119,41 +195,7 @@ title: User Guide
 
 ---
 
-### b. Hiding an applicant from list: `hide`/`unhide`
-
-![hide function UI](images/hideUI.png)
-<aside>
-⭐ Hides/unhides an applicant from the list of applicants.
-
-</aside>
-
-**Format:** `hide INDEX` / `unhide INDEX`
-
-- Hides/unhides the applicant at the specified INDEX from all future lists. The index refers to the number shown in the displayed person list.
-  - The index must be a positive integer 1, 2, 3...
-- `unhide-all` unhides all applicants that were previously hidden.
-
-**Examples:**
-
-- **`hide 2`**
-  - Hides the applicant at index 2
-- **`unhide 2`**
-  - Unhides the applicant at index 2
-- **`unhide-all`**
-  - Unhides all applicants
-
-**Expected Outputs:**
-
-- Confirmation message: `APPLICANT_NAME hidden successfully.`
-
-**Errors:**
-
-- Missing index: **`"Error: Missing index. Please follow the format: hide INDEX"`**
-- Index out of range: **`“Error: Invalid index. Please enter an index within range”`**
-
----
-
-### c. Editing an applicant: `edit`
+#### 2.1.2 Editing an applicant: `edit`
 
 ![edit function UI](images/editUI.png)
 
@@ -180,68 +222,28 @@ title: User Guide
 - **`edit 2 n/Betsy Crower t/`**
     - Edits the name of the 2nd person to be **`Betsy Crower`** and clears all existing tags.
 
-### d. Adding an applicant: `add`
+---
 
-![add.jpg](images/add.jpg)
+#### 2.1.3 Deleting an applicant: `delete` 
 
+---
+
+#### 2.1.4 Listing all applicant: `list`
+![listUI-1](images/listUI-1.png)
+![listUI-2](images/listUI-2.png)
 <aside>
-⭐ Adds a new applicant to the list of applicants.
+⭐ Shows a list of all applicants.
 
 </aside>
 
-**Format:** `add [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…`
+**Format:** `list`
 
-- **`n/NAME`**: Name of the applicant.
-- **`p/PHONE`**: Phone number of the applicant.
-- **`e/EMAIL`**: Email address of the applicant.
-- **`g/GPA`**: GPA of the applicant.
-- **`t/TAG`**: Tags of the applicant. Note that editing tags will replace existing tags; it is not cumulative.
-
-**Examples:**
-
-- **`add n/john doe p/91234567 e/johndoe@example.com g/5.0 t/past TA, dean's list`**
-    - Adds a person with the following information
-        - Name: John Doe
-        - Phone number: 91234567
-        - Email address: johndoe@example.com
-        - GPA: 5.0
-        - Tags: past TA, dean’s list
-- **`add n/amanda p/89064678 e/amanda@example.com g/4.3`**
-    - Adds a person with the following information
-        - Name: Amanda
-        - Phone number: 89064678
-        - Email address: amanda@example.com
-        - GPA: 4.3
-
-**Expected Outputs:**
-
-- The applicant and applicant’s information has been successfully added
-- Confirmation message: **`"Applicant added successfully with the following details: Name: <name>, Phone Number: <phone number>, Email: <email>, GPA: <gpa>, tags: <tags>"`**
-
-**Errors:**
-
-- Missing fields: **`"Error: Missing fields. Please follow the format: add [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…"`**
-- Repeated applicant: **`"Error: Repeated applicant. Applicant has already been added to the list`**
-
-**Expected Outputs:**
-
-- The applicant's information is updated with the provided values.
-- Confirmation message: **`"Applicant at INDEX edited successfully."`**
-
-**Errors:**
-
-- Missing index: **`"Error: Missing index. Please follow the format: edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…"`**
-- Invalid index: **`"Error: Invalid index. Please enter an index within the valid range."`**
-- Missing fields: **`"Error: No fields provided for editing. Please provide at least one of the following fields: [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…"`**
-- Invalid fields: **`"Error: Invalid field format. Please follow the format: [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…"`**
+- `list-hidden` Shows a list of all hidden applicants.
+- `list-bookmarked` Shows a list of all bookmarked applicants.
 
 ---
 
-### d.
-
----
-
-### e. Viewing the details of a single applicant: `view`
+#### 2.1.5 Viewing the details of a single applicant: `view`
 
 ![edit function UI](images/viewUI.png)
 
@@ -279,10 +281,43 @@ title: User Guide
 - Index out of range: **`"Error: Invalid index. Please enter an index within range."`**
 
 ---
+#### 2.1.6 Hiding an applicant from list: `hide`/`unhide`
 
-## **2. Applicant evaluation & comparison**
+![hide function UI](images/hideUI.png)
+<aside>
+⭐ Hides/unhides an applicant from the list of applicants.
 
-### a. Sorting applicants by grades: `sort-gpa`
+</aside>
+
+**Format:** `hide INDEX` / `unhide INDEX`
+
+- Hides/unhides the applicant at the specified INDEX from all future lists. The index refers to the number shown in the displayed person list.
+    - The index must be a positive integer 1, 2, 3...
+- `unhide-all` unhides all applicants that were previously hidden.
+
+**Examples:**
+
+- **`hide 2`**
+    - Hides the applicant at index 2
+- **`unhide 2`**
+    - Unhides the applicant at index 2
+- **`unhide-all`**
+    - Unhides all applicants
+
+**Expected Outputs:**
+
+- Confirmation message: `APPLICANT_NAME hidden successfully.`
+
+**Errors:**
+
+- Missing index: **`"Error: Missing index. Please follow the format: hide INDEX"`**
+- Index out of range: **`“Error: Invalid index. Please enter an index within range”`**
+
+---
+
+### **2.2 Applicant evaluation & comparison**
+
+#### 2.2.1 Sorting applicants by GPA: `sort-gpa`
 
 ![sort function UI](images/sortUI.png)
 
@@ -303,7 +338,7 @@ title: User Guide
 
 ---
 
-### **b. Compare 2 applicants: `compare`**
+#### 2.2.2 Comparing 2 applicants: `compare`
 
 ![compare function UI](images/compareUI.png)
 
@@ -336,7 +371,7 @@ title: User Guide
 
 ---
 
-### **c. Bookmarking/Unbookmarking applicants: `bookmark/unbookmark`**
+#### 2.2.3 Bookmarking/Unbookmarking applicants: `bookmark/unbookmark`
 
 ![bookmark function UI](images/bookmarkUI.png)
 
@@ -368,7 +403,7 @@ title: User Guide
 
 ---
 
-### d. Add comments on TA applicant: **`comment`**
+#### 2.2.4 Commenting on TA applicant: **`comment`**
 
 ![comments.jpg](images/comment.jpg)
 <aside>
@@ -398,9 +433,9 @@ title: User Guide
 
 ---
 
-## **3. Data management & export**
+### 2.3 Data management & export
 
-### a. Export applicants into spreadsheet
+#### 2.3.1 Exporting applicants into spreadsheet
 
 ![export function UI](images/exportUI.png)
 
@@ -430,7 +465,7 @@ title: User Guide
 
 ---
 
-### b. Attach file to applicant profiles
+#### 2.3.2 Attaching file to applicant profiles
 
 ![attach function UI](images/attachUI.png)
 
@@ -462,11 +497,12 @@ title: User Guide
 - Any other unexpected error: **`"Error: Unknown error. Please contact the app developer at contact@email.com"`**
 
 ---
-### Saving the data
+## 3 Data Management
+### 3.1 Saving the data
 
 TAFinder data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
-### Editing the data file
+### 3.2 Editing the data file
 
 TAFinder data are saved automatically as a JSON file `[JAR file location]/data/tafinder.json`. Advanced users are welcome to update data directly by editing that data file.
 
@@ -474,26 +510,32 @@ TAFinder data are saved automatically as a JSON file `[JAR file location]/data/t
 If your changes to the data file makes its format invalid, TAFinder will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.
 </div>
 
-### Archiving data files `[coming in v2.0]`
+--------------------------------------------------------------------------------------------------------------------
+## 4 Upcoming Features [coming in v1.3]
+### 4.1 Importing from spreadsheet
 
-_Details coming soon ..._
+### 4.2 Sorting by module grade
+
+### 4.3 Sorting by interview score
 
 --------------------------------------------------------------------------------------------------------------------
 
-## FAQ
+## 5 FAQ
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous AddressBook home folder.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Known issues
+## 6 Known Issues
 
 1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
 
 --------------------------------------------------------------------------------------------------------------------
+## 7 Summary
+### 7.1 Prefix Summary
 
-## Command summary
+### 7.2 Command Summary
 
 | Action     | Format, Examples                                                                                                                                                      |
 |------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
