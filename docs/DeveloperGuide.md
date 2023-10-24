@@ -219,20 +219,37 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 <img src="images/CommitActivityDiagram.png" width="250" />
 
-#### Design considerations:
+### \[Proposed\] Hide/unhide feature
 
-**Aspect: How undo & redo executes:**
+#### Proposed Implementation
 
-* **Alternative 1 (current choice):** Saves the entire address book.
-  * Pros: Easy to implement.
-  * Cons: May have performance issues in terms of memory usage.
+The proposed undo/redo mechanism introduces the capability to selectively hide certain applicants from view, improving user experience and providing greater control over the displayed information. This also includes a way to view all hidden applicants in a list. This feature implements the following operations:
+* `HideCommand#execute()` — Hides the specified applicant from the list.
+* `UnhideCommand#execute()` — Unhides the specified applicant from the list.
+* `UnhideAllCommand#execute()` — Unhides all hidden applicants.
+* `ListHiddenCommand#execute()` — Displays a list of all hidden applicants.
 
-* **Alternative 2:** Individual command knows how to undo/redo by
-  itself.
-  * Pros: Will use less memory (e.g. for `delete`, just save the person being deleted).
-  * Cons: We must ensure that the implementation of each individual command are correct.
+Given below is an example usage scenario and how the hide/unhide mechanism behaves at each step.
 
-_{more aspects and alternatives to be added}_
+Step 1. The user launches the application for the first time. The applicant list displays all applicants without any hidden applicants.
+
+Step 2. The user decides to hide the 3rd applicant in the applicant list by executing hide 3. The `hide` command calls `Model#setPerson()` to replace the applicant with a hidden version.  `Model#updateFilteredPersonList()` to update the list of applicants displayed in the UI to exclude the hidden applicant.
+
+Step 3. The user executes `list hidden` to view all hidden applicants. The `list hidden` command calls `Model#updateFilteredPersonList()` to update the list of applicants displayed in the UI to include only hidden applicants.
+
+Step 4. The user decides to unhide the 1st applicant in the hidden applicant list by executing unhide 1. The `hide` command calls `Model#setPerson()` to replace the hidden applicant with a non-hidden version. The `unhide` command calls `Model#updateFilteredPersonList()` to update the list of applicants displayed in the UI to include the unhidden applicant.
+
+Step 5. Alternatively, the user can choose to unhide all hidden applicants by executing unhide all. The `unhide all` command creates a copy of the model and calls `Model#updateFilteredPersonList()` and `Model#getFilteredPersonList()` on that model to receive a list of hidden applicants. It then replaces every hidden person in the original model with a non-hidden version by calling `Model#setPerson()`. The `unhide all` command calls `Model#updateFilteredPersonList()` to update the list of applicants displayed in the UI to include all unhidden applicants.
+
+The following sequence diagram shows how the undo operation works:
+
+![HideSequenceDiagram](images/HideSequenceDiagram.png)
+
+
+The following activity diagram summarizes what happens when a user executes a new command:
+
+<img src="images/HIdeActivityDiagram.png" width="250" />
+
 
 ### \[Proposed\] Data archiving
 
