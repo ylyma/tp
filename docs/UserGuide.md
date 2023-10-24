@@ -25,6 +25,7 @@ You can click on any of the links below to navigate to the respective sections f
 
 
 ## Table of Contents
+<!-- TOC -->
 - [1 Quick Start](#1-quick-start)
     - [1.1 Prerequisites](#11-prerequisites)
         - [1.1.1 Java](#111-java)
@@ -71,7 +72,38 @@ You can click on any of the links below to navigate to the respective sections f
 Ensure you have [Java `11`](https://www.oracle.com/sg/java/technologies/javase/jdk11-archive-downloads.html) 
 or above installed. Java is the language that your computer uses to understand TAfinder.
 
+<div markdown="block" class="alert alert-tip">
+
+:bulb: **Tip**
+
+**How to check your current Java version:**
+
+**Step 1.** Open up **Command Prompt** (Windows) or **Terminal** (Mac and Linux).
+
+**Step 2.** Type and run the command `java -version`.
+
+**Step 3.** Check the version number provided (`xxx`) is at least `11`.
+
+An example is shown below.
+
+  ```
+  > java -version
+  java version "xxx" <Other information>
+  ```
+
+</div>
+
+<div style="page-break-after: always;"></div>
+
 #### 1.1.2 Glossary
+| Words/Abbreviations | Explanation                                                                                                                         |
+|---------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| **TA**              | Teaching Assistant                                                                                                                  |
+| **Applicant**       | Applicant refers to a student who has applied as a TA                                                                               |
+| **Mainstream OS**   | Windows, Linux or Mac                                                                                                               |
+| **CLI**             | Command-Line Interface                                                                                                              |
+| **GUI**             | Graphical User Interface                                                                                                            |
+| **Tag**             | Tags are associated with applicants, users can tag applicants with any keyword they want,<br/>the number of tags are not restricted |
 
 ### 1.2 Installation
 
@@ -80,6 +112,28 @@ or above installed. Java is the language that your computer uses to understand T
 **Step 2.** Copy the file to the folder you want to use as the _home folder_ for your TAfinder.
 
 **Step 3.** Double-click on the `tafinder.jar` file to start the app. 
+<div markdown="block" class="alert alert-tip">
+
+:bulb: **Tip**
+
+**TAfinder does not open?**
+
+**Step 1.** Open a command terminal.
+
+**Step 2.** Type in `java -jar ` (Keep in mind of the space at the end).
+
+**Step 3.** Drag and drop `tafinder.jar` into the command terminal.
+
+**Step 4.** Press enter and execute the command.
+
+An example of the final command is displayed below.
+
+  ```
+  > java -jar xxxx/xxxx/tafinder.jar
+  ```
+
+</div>
+
 The GUI similar to the below should appear in a few seconds. ![Ui](images/Ui.png)
 
 ### 1.3 Utilisation
