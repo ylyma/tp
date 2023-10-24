@@ -248,7 +248,7 @@ The following sequence diagram shows how the undo operation works:
 
 The following activity diagram summarizes what happens when a user executes a new command:
 
-<img src="images/HIdeActivityDiagram.png" width="250" />
+<img src="images/HideActivityDiagram.png" width="250" />
 
 
 ### \[Proposed\] Data archiving
