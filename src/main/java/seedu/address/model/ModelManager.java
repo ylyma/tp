@@ -127,6 +127,10 @@ public class ModelManager implements Model {
         requireAllNonNull(target, editedPerson);
 
         addressBook.setPerson(target, editedPerson);
+
+        if (currentPerson.get().isPresent() && target.isSamePerson(currentPerson.get().get())) {
+            currentPerson.setValue(Optional.of(editedPerson));
+        }
     }
 
     //=========== Filtered Person List Accessors =============================================================
