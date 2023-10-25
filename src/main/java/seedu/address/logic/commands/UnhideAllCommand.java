@@ -22,7 +22,7 @@ public class UnhideAllCommand extends Command {
             + ": Unhides all applicants in all future lists of applicants.\n"
             + "Example: " + COMMAND_WORD;
 
-    public static final String MESSAGE_SUCCESS = "All applicants unhidden from lists";
+    public static final String MESSAGE_SUCCESS = "All applicants unhidden from lists.";
 
     @Override
     public CommandResult execute(Model model) throws CommandException {

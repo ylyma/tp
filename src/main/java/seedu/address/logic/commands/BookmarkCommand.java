@@ -27,7 +27,8 @@ public class BookmarkCommand extends Command {
             + "Parameter: INDEX (must be a positive integer) \n"
             + "Example: " + COMMAND_WORD + " 1 ";
 
-    public static final String MESSAGE_BOOKMARK_APPLICANT_SUCCESS = "Applicant %1$s bookmarked";
+    public static final String MESSAGE_BOOKMARK_APPLICANT_SUCCESS = "Applicant at index %1$s has been "
+            + "successfully bookmarked.";
 
     public final Index targetIndex;
 
@@ -62,7 +63,7 @@ public class BookmarkCommand extends Command {
                 personToBookmark.getAttachments(),
                 new Bookmark(true));
         model.setPerson(personToBookmark, bookmarkedPerson);
-        return new CommandResult(String.format(MESSAGE_BOOKMARK_APPLICANT_SUCCESS, Messages.format(bookmarkedPerson)));
+        return new CommandResult(String.format(MESSAGE_BOOKMARK_APPLICANT_SUCCESS, targetIndex.getOneBased()));
     }
 
     @Override

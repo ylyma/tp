@@ -28,7 +28,7 @@ public class CommentCommand extends Command {
             + "c/ Hardworking student";
 
     public static final String MESSAGE_ADD_COMMENT_SUCCESS = "Added comment to Person: %1$s";
-    public static final String MESSAGE_DELETE_COMMENT_SUCCESS = "Removed comment from Person: %1$s";
+    public static final String MESSAGE_DELETE_COMMENT_SUCCESS = "Removed comment from Person: %1$s.";
 
     private final Index index;
     private final Comment comment;

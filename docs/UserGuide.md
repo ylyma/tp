@@ -25,6 +25,7 @@ You can click on any of the links below to navigate to the respective sections f
 
 
 ## Table of Contents
+<!-- TOC -->
 - [1 Quick Start](#1-quick-start)
     - [1.1 Prerequisites](#11-prerequisites)
         - [1.1.1 Java](#111-java)
@@ -60,6 +61,9 @@ You can click on any of the links below to navigate to the respective sections f
 - [7 Summary](#7-summary)
     - [7.1 Prefix Summary](#71-prefix-summary)
     - [7.2 Command Summary](#72-command-summary)
+      - [7.2.1 Basic applicant management commands](#721-basic-applicant-management-commands)
+      - [7.2.2 Applicant comparison and evaluation commands](#722-applicant-comparison-and-evaluation-commands)
+      - [7.2.3 Data management and export commands](#723-data-management-and-export-commands)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -71,7 +75,38 @@ You can click on any of the links below to navigate to the respective sections f
 Ensure you have [Java `11`](https://www.oracle.com/sg/java/technologies/javase/jdk11-archive-downloads.html) 
 or above installed. Java is the language that your computer uses to understand TAfinder.
 
+<div markdown="block" class="alert alert-tip">
+
+:bulb: **Tip**
+
+**How to check your current Java version:**
+
+**Step 1.** Open up **Command Prompt** (Windows) or **Terminal** (Mac and Linux).
+
+**Step 2.** Type and run the command `java -version`.
+
+**Step 3.** Check the version number provided (`xxx`) is at least `11`.
+
+An example is shown below.
+
+  ```
+  > java -version
+  java version "xxx" <Other information>
+  ```
+
+</div>
+
+<div style="page-break-after: always;"></div>
+
 #### 1.1.2 Glossary
+| Words/Abbreviations | Explanation                                                                                                                         |
+|---------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| **TA**              | Teaching Assistant                                                                                                                  |
+| **Applicant**       | Applicant refers to a student who has applied as a TA                                                                               |
+| **Mainstream OS**   | Windows, Linux or Mac                                                                                                               |
+| **CLI**             | Command-Line Interface                                                                                                              |
+| **GUI**             | Graphical User Interface                                                                                                            |
+| **Tag**             | Tags are associated with applicants, users can tag applicants with any keyword they want,<br/>the number of tags are not restricted |
 
 ### 1.2 Installation
 
@@ -80,6 +115,28 @@ or above installed. Java is the language that your computer uses to understand T
 **Step 2.** Copy the file to the folder you want to use as the _home folder_ for your TAfinder.
 
 **Step 3.** Double-click on the `tafinder.jar` file to start the app. 
+<div markdown="block" class="alert alert-tip">
+
+:bulb: **Tip**
+
+**TAfinder does not open?**
+
+**Step 1.** Open a command terminal.
+
+**Step 2.** Type in `java -jar ` (Keep in mind of the space at the end).
+
+**Step 3.** Drag and drop `tafinder.jar` into the command terminal.
+
+**Step 4.** Press enter and execute the command.
+
+An example of the final command is displayed below.
+
+  ```
+  > java -jar xxxx/xxxx/tafinder.jar
+  ```
+
+</div>
+
 The GUI similar to the below should appear in a few seconds. ![Ui](images/Ui.png)
 
 ### 1.3 Utilisation
@@ -154,8 +211,9 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 </aside>
 
-**Format:** `add [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…`
+**Format:** `add [s/STUDENT_NUMBER] [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…`
 
+- **`s/STUDENT_NUMBER`**: Student number of the applicant
 - **`n/NAME`**: Name of the applicant.
 - **`p/PHONE`**: Phone number of the applicant.
 - **`e/EMAIL`**: Email address of the applicant.
@@ -164,15 +222,17 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 **Examples:**
 
-- **`add n/john doe p/91234567 e/johndoe@example.com g/5.0 t/past TA, dean's list`**
+- **`add s/A0269357C n/john doe p/91234567 e/johndoe@example.com g/5.0 t/pastTA t/deanslist`**
     - Adds a person with the following information
+        - Student number: A0269357C
         - Name: John Doe
         - Phone number: 91234567
         - Email address: johndoe@example.com
         - GPA: 5.0
         - Tags: past TA, dean’s list
-- **`add n/amanda p/89064678 e/amanda@example.com g/4.3`**
+- **`add s/A0251647W n/amanda p/89064678 e/amanda@example.com g/4.3`**
     - Adds a person with the following information
+        - Student number: 
         - Name: Amanda
         - Phone number: 89064678
         - Email address: amanda@example.com
@@ -180,18 +240,20 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 **Expected Outputs:**
 
-- The applicant and applicant’s information has been successfully added
-- Confirmation message: **`"Applicant added successfully with the following details: Name: <name>, Phone Number: <phone number>, Email: <email>, GPA: <gpa>, tags: <tags>"`**
+- Confirmation Message for successfully adding applicant and applicant's information:<br>
+**`New applicant added: Student number: <student number>; Name: <name>; Phone: <phone>; Email: <email>; GPA: <gpa>; Comment: <comment>; Tags: <tags>`**
 
 **Errors:**
 
+- Invalid command format:<br> 
+`Invalid command format!`<br>
+`add: Adds an applicant to the list. Parameters: s/STUDENT NUMBER n/NAME p/PHONE e/EMAIL g/GPA c/comment [t/TAG]...`<br>
+`Example: add s/A0343434C n/John Doe p/98765432 e/johnd@example.com g/4.9 c/Hardworking and diligent t/pastTA`
+- Repeated applicant:<br>
+**`This applicant already exists in the applicant list.`**
+=======
 - Missing fields: **`"Error: Missing fields. Please follow the format: add [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…"`**
 - Repeated applicant: **`"Error: Repeated applicant. Applicant has already been added to the list`**
-
-**Format:** **`list`**
-
-- **`list-hidden`** Shows a list of all hidden applicants.
-- **`list-bookmarked`** Shows a list of all bookmarked applicants.
 
 ---
 
@@ -261,23 +323,31 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 - **`view 3`**
     - Displays the following details about the third applicant.
       - Name
+      - Student number
       - Phone number
       - Email Address
       - GPA
+      - Comments
       - Tags
 
 **Expected Outputs:**
 
 - All details of an applicant in the following format:\
     `Name: John Doe`\
+    `Student number: A0358289S`\
     `Phone Number: 91234567`\
     `Email Address: johndoe@example.come`\
-    `GPA: 5.0`\
+    `GPA: 5.0`\ 
+    `Comments: Good fit, has teaching experience`\
     `Tags: pastTA, deansList`
+- Confirmation message: `"Displaying: APPLICANT_NAME"`
 
 **Errors:**
 
-- Missing index: **`"Error: Missing index. Please follow the format: 'view INDEX'."`**
+- Missing index: **`"Invalid command format!
+  view: Displays the applicant identified by the index number used in the displayed applicant list.
+  Parameters: INDEX (must be a positive integer)
+  Example: view 1"`**
 - Index out of range: **`"Error: Invalid index. Please enter an index within range."`**
 
 ---
@@ -310,8 +380,11 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 **Errors:**
 
-- Missing index: **`"Error: Missing index. Please follow the format: hide INDEX"`**
-- Index out of range: **`“Error: Invalid index. Please enter an index within range”`**
+- Missing index: **`"Invalid command format!
+  hide: Hides an applicant, identified by the index number used in the last list, from all future lists of applicants.
+  Parameter: INDEX (must be a positive integer)
+  Example: hide 1 "`**
+- Index out of range: **`“Error: Invalid index. Please enter an index within range.”`**
 
 ---
 
@@ -334,7 +407,7 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 **Errors:**
 
-- Empty list: `"Error: Empty list. No applicants to sort."`
+- Empty list: `"No applicants to sort."`
 
 ---
 
@@ -360,12 +433,11 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 **Expected Output:**
 
-- A side-by-side comparison of the two applicants is displayed in a user-friendly format. This comparison will include various TA selection criteria such as name, GPA, CCA count, Interview Performance Rating (IPR), tags, etc.
+- A side-by-side comparison of the two applicants is displayed in a user-friendly format. This comparison window will include student number, name, and various TA selection criteria such as GPA, CCA count, Interview Performance Rating (IPR), tags, etc.
 - The system highlights the differences between the two applicants, making it easy to see variations in their profiles.
 
 **Errors:**
 
-- Missing or invalid indices: **`"Error: Please provide valid indices for both applicants. Follow the format: compare INDEX1 INDEX2."`**
 - Applicant not found: **`"Error: One or both of the specified applicants were not found in the list."`**
 - Comparing the same applicant: **`"Error: Please provide distinct indices. You cannot compare the same applicant."`**
 
@@ -398,7 +470,11 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 **Errors:**
 
-- Missing index: **`"Error: Missing index. Please follow the format: 'view INDEX'."`**
+- Missing index: **`"Invalid command format!
+  bookmark: Bookmarks an applicant, identified by the index number used in the last list, 
+  from all future lists of applicants.
+  Parameter: INDEX (must be a positive integer)
+  Example: bookmark 1"`**
 - Index out of range: **`"Error: Invalid index. Please enter an index within range."`**
 
 ---
@@ -418,18 +494,20 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 **Examples:**
 
-- `comment 3 This applicant has an OHS disciplinary record`
-    - Comments on the third applicant.
+- `comment 3 Hardworking and studious`
+    - Comments on the third applicant with the comment: "Hardworking and studious"
 
 **Expected outputs:**
 
-- Applicant corresponding to the given index is commented.
-- Confirmation message: `"Applicant at index INDEX has been successfully commented on."`
+- Successfully commenting on the applicant at the corresponding index:<br> 
+`"Applicant at index INDEX has been successfully commented on."`
 
 **Errors:**
 
-- Missing index: `**“Error: Missing index. Please follow the format: 'view INDEX'.”**`
-- Index out of range: `**“Error: Invalid index. Please enter an index within range.”**`
+- Missing index:<br>
+`“Error: Missing index. Please follow the format: 'view INDEX'.”`
+- Index out of range:<br>
+`“Error: Invalid index. Please enter an index within range.”`
 
 ---
 
@@ -534,15 +612,39 @@ If your changes to the data file makes its format invalid, TAFinder will discard
 --------------------------------------------------------------------------------------------------------------------
 ## 7 Summary
 ### 7.1 Prefix Summary
+| Parameter      | Prefix | Rules                                                                                                                                                                                                              |
+|----------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Student number | s/     | - Should be in the format `AdddddddL`, <br/>where `d` represents digit and `L` represents capital letters.                                                                                                         |
+| Name           | n/     | - Should only contains alphanumeric characters and spaces.                                                                                                                                                         |
+| Phone          | p/     | - Should only contain digits<br/>- Should have at least 3 digits.                                                                                                                                                  |
+| Email          | e/     | - Should only be of the form `local@domain` and only accept alphanumeric characters<br/>- `local` allows for special characters `+`, `_`, `.` and `-` as well.<br/>- `domain` must be at least 2 letters long<br/> |
+| GPA            | g/     | - Should be in the range of 0.00 to 5.00 inclusive.<br/>- Can be given in 0, 1 or 2 decimal places.                                                                                                                |
+| Comment        | c/     | - Can be any character.                                                                                                                                                                                            |
+| Tag            | t/     | - Should only contain alphanumeric characters.<br/>- Should not contain spaces.                                                                                                                                    |
+
 
 ### 7.2 Command Summary
+#### 7.2.1 Basic applicant management commands
+| Action          | Format, Examples                                                                                                                                                               |
+|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Add**         | - `add [s/STUDENT_NUMBER] [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…` <br> - e.g., `add s/A0269357C n/john doe p/91234567 e/johndoe@example.com g/5.0 t/pastTA t/deanslist` |
+| **Edit**        | - `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> - e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                                |
+| **Delete**      | - `delete INDEX`<br> - e.g., `delete 3`                                                                                                                                        |
+| **List**        | - `list`                                                                                                                                                                       |
+| **View**        | - `view INDEX`<br> - e.g., `view 3`                                                                                                                                            |
+| **Hide/Unhide** | - `hide INDEX` / `unhide INDEX`<br/> - e.g., `hide 3` / `unhide 3`                                                                                                             |
+                                                                                                                                                       |
+#### 7.2.2 Applicant comparison and evaluation commands
+| Action                  | Format, Examples                                                                  |
+|-------------------------|-----------------------------------------------------------------------------------|
+| **Sort GPA**            | - `sort-gpa`                                                                      |
+| **Compare**             | - `compare INDEX1 INDEX2`<br> - e.g.,`compare 1 2`                                |
+| **Bookmark/Unbookmark** | - `bookmark INDEX` / `unbookmark INDEX`<br> - e.g., `bookmark 3` / `unbookmark 3` |
+| **Comment**             | - `comment INDEX COMMENT`<br/> - e.g., `comment 3 Hardworking`                    |
 
-| Action     | Format, Examples                                                                                                                                                      |
-|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague` |
-| **Clear**  | `clear`                                                                                                                                                               |
-| **Delete** | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                   |
-| **Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                           |
-| **Find**   | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                            |
-| **List**   | `list`                                                                                                                                                                |
-| **Help**   | `help`                                                                                                                                                                |
+
+#### 7.2.3 Data management and export commands
+| Action                  | Format, Examples                                                |
+|-------------------------|-----------------------------------------------------------------|
+| **Export**              | - `export FILENAME`<br/> - e.g., `export ta-applicants.csv`     |
+| **Attach**              | - `attach INDEX FILEPATH`<br> - e.g.,`attach 2 john-resume.pdf` |
