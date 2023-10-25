@@ -27,7 +27,7 @@ public class UnhideCommand extends Command {
             + "Parameter: INDEX (must be a positive integer) \n"
             + "Example: " + COMMAND_WORD + " 1 ";
 
-    public static final String MESSAGE_UNHIDE_APPLICANT_SUCCESS = "Applicant %1$s unhidden from lists";
+    public static final String MESSAGE_UNHIDE_APPLICANT_SUCCESS = "Applicant %1$s unhidden from lists.";
 
     public final Index targetIndex;
 
