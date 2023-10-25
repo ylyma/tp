@@ -39,8 +39,8 @@ public class AddCommand extends Command {
             + PREFIX_COMMENT + "Hardworking and diligent "
             + PREFIX_TAG + "pastTA ";
 
-    public static final String MESSAGE_SUCCESS = "New applicant added: %1$s";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This applicant already exists in the applicant list";
+    public static final String MESSAGE_SUCCESS = "New applicant added: %1$s.";
+    public static final String MESSAGE_DUPLICATE_PERSON = "This applicant already exists in the applicant list.";
 
     private final Person toAdd;
 
