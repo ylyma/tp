@@ -34,10 +34,6 @@ public interface Model {
     Predicate<Person> PREDICATE_SHOW_ALL_BOOKMARKED_PERSONS = new BookmarkPredicate(true);
 
     /**
-     * {@code Comparator} that sorts by GPA
-     */
-    Comparator<Person> COMPARATOR_SORT_BY_GPA = new GpaComparator();
-    /**
      * Replaces user prefs data with the data in {@code userPrefs}.
      */
     void setUserPrefs(ReadOnlyUserPrefs userPrefs);
