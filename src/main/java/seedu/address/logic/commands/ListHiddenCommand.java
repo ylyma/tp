@@ -11,7 +11,7 @@ public class ListHiddenCommand extends Command {
 
     public static final String COMMAND_WORD = "list-hidden";
 
-    public static final String MESSAGE_SUCCESS = "Listed all hidden applicants";
+    public static final String MESSAGE_SUCCESS = "Listed all hidden applicants.";
 
     @Override
     public CommandResult execute(Model model) {

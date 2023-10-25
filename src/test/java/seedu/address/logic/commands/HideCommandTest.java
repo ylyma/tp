@@ -30,7 +30,6 @@ public class HideCommandTest {
 
         String expectedMessage = String.format(HideCommand.MESSAGE_HIDE_APPLICANT_SUCCESS,
                 Messages.format(hiddenPerson));
-
         assertEquals(expectedMessage, commandResult.getFeedbackToUser());
         assertEquals(model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased()), secondPerson);
     }

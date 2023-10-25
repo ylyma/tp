@@ -317,8 +317,11 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 **Errors:**
 
-- Missing index: **`"Error: Missing index. Please follow the format: hide INDEX"`**
-- Index out of range: **`“Error: Invalid index. Please enter an index within range”`**
+- Missing index: **`"Invalid command format!
+  hide: Hides an applicant, identified by the index number used in the last list, from all future lists of applicants.
+  Parameter: INDEX (must be a positive integer)
+  Example: hide 1 "`**
+- Index out of range: **`“Error: Invalid index. Please enter an index within range.”`**
 
 ---
 
@@ -341,7 +344,7 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 **Errors:**
 
-- Empty list: `"Error: Empty list. No applicants to sort."`
+- Empty list: `"No applicants to sort."`
 
 ---
 
