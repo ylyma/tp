@@ -371,12 +371,11 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 **Expected Output:**
 
-- A side-by-side comparison of the two applicants is displayed in a user-friendly format. This comparison will include various TA selection criteria such as name, GPA, CCA count, Interview Performance Rating (IPR), tags, etc.
+- A side-by-side comparison of the two applicants is displayed in a user-friendly format. This comparison window will include student number, name, and various TA selection criteria such as GPA, CCA count, Interview Performance Rating (IPR), tags, etc.
 - The system highlights the differences between the two applicants, making it easy to see variations in their profiles.
 
 **Errors:**
 
-- Missing or invalid indices: **`"Error: Please provide valid indices for both applicants. Follow the format: compare INDEX1 INDEX2."`**
 - Applicant not found: **`"Error: One or both of the specified applicants were not found in the list."`**
 - Comparing the same applicant: **`"Error: Please provide distinct indices. You cannot compare the same applicant."`**
 
