@@ -29,7 +29,7 @@ public class UnbookmarkCommandTest {
         CommandResult commandResult = new UnbookmarkCommand(INDEX_SECOND_PERSON).execute(model);
 
         String expectedMessage = String.format(UnbookmarkCommand.MESSAGE_UNBOOKMARK_APPLICANT_SUCCESS,
-                Messages.format(unbookmarkedPerson));
+                INDEX_SECOND_PERSON.getOneBased());
 
         assertEquals(expectedMessage, commandResult.getFeedbackToUser());
         assertEquals(model.getFilteredPersonList().get(INDEX_SECOND_PERSON.getZeroBased()).getBookmark(),
