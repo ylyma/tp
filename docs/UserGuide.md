@@ -308,6 +308,38 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 ---
 
 #### 2.1.3 Deleting an applicant: `delete` 
+![delete function UI](images/delete-UI.png)
+
+<aside>
+⭐ Delete an existing applicant in the list of applicants.
+
+</aside>
+
+**Format:** `delete INDEX`
+
+- `INDEX`: The index corresponding to the applicant to be deleted. The index must be a positive integer (e.g., 1, 2, 3…).
+
+**Examples:**
+
+- **`delete 3`**
+    - Deletes the third applicant in the list.
+
+**Expected Outputs:**
+
+- Successfully delete applicant and applicant's information at the given index.
+- Confirmation message:<br>
+  `"Deleted applicant: Student number: <student number>; Name: <name>; Phone: <phone>; Email: <email>; GPA: <gpa>; Comment: <comment> ; Tags: <tags>"`
+
+**Errors:**
+
+- Missing index: <br>
+  **`"Invalid command format!`<br>
+  `delete: Displays the applicant identified by the index number used in the displayed applicant list.`<br>
+  `Parameters: INDEX (must be a positive integer)`<br>
+  `Example: delete 1"`**
+- Index out of range:<br>
+  **`"Error: Invalid index. Please enter an index within range."`**
+
 
 ---
 
@@ -372,8 +404,7 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 - Missing index: <br>
 **`"Invalid command format!`<br>
-  `view:`<br> 
-  `Displays the applicant identified by the index number used in the displayed applicant list.`<br>
+  `view: Displays the applicant identified by the index number used in the displayed applicant list.`<br>
   `Parameters: INDEX (must be a positive integer)`<br>
   `Example: view 1"`**
 - Index out of range:<br> 
