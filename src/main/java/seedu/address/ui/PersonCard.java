@@ -4,6 +4,8 @@ import java.util.Comparator;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
@@ -15,6 +17,10 @@ import seedu.address.model.person.Person;
 public class PersonCard extends UiPart<Region> {
 
     private static final String FXML = "PersonListCard.fxml";
+    private static final Image BOOKMARKED = new Image(
+            PersonCard.class.getResourceAsStream("/images/bookmarked.png"));
+    private static final Image NOT_BOOKMARKED = new Image(
+            PersonCard.class.getResourceAsStream("/images/unbookmarked.png"));
 
     /**
      * Note: Certain keywords such as "location" and "resources" are reserved keywords in JavaFX.
@@ -35,14 +41,21 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label phone;
     @FXML
-    private Label address;
+    private Label gpa;
     @FXML
     private Label email;
     @FXML
     private FlowPane tags;
+    @FXML
+    private Label comment;
+    @FXML
+    private FlowPane attachments;
+    @FXML
+    private ImageView bookmarkImageView;
 
     /**
-     * Creates a {@code PersonCode} with the given {@code Person} and index to display.
+     * Creates a {@code PersonCode} with the given {@code Person} and index to
+     * display.
      */
     public PersonCard(Person person, int displayedIndex) {
         super(FXML);
@@ -50,10 +63,29 @@ public class PersonCard extends UiPart<Region> {
         id.setText(displayedIndex + ". ");
         name.setText(person.getName().fullName);
         phone.setText(person.getPhone().value);
-        address.setText(person.getAddress().value);
+        gpa.setText(person.getGpa().toString());
+        comment.setText(person.getComment().toString());
         email.setText(person.getEmail().value);
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+        person.getAttachments().stream()
+                .sorted(Comparator.comparing(attachment -> attachment.toString()))
+                .forEach(attachment -> attachments.getChildren()
+                        .add(new Label(attachment.file.toPath().getFileName().toString())));
+        updateBookmarkImage(person.getBookmark().value);
+    }
+
+    /**
+     * Updates the bookmark image view based on the provided bookmark value.
+     */
+    private void updateBookmarkImage(Boolean bookmarked) {
+        Image img;
+        if (bookmarked) {
+            img = PersonCard.BOOKMARKED;
+        } else {
+            img = NOT_BOOKMARKED;
+        }
+        bookmarkImageView.setImage(img);
     }
 }

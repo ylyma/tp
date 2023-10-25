@@ -10,11 +10,16 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.person.Address;
+import seedu.address.model.attachment.Attachment;
+import seedu.address.model.person.Bookmark;
+import seedu.address.model.person.Comment;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Gpa;
+import seedu.address.model.person.IsHidden;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.StudentNumber;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -24,39 +29,68 @@ class JsonAdaptedPerson {
 
     public static final String MISSING_FIELD_MESSAGE_FORMAT = "Person's %s field is missing!";
 
+    private final String studentNo;
     private final String name;
     private final String phone;
     private final String email;
-    private final String address;
+    private final Double gpa;
+    private final String comment;
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
+    private final boolean isHidden;
+    private final List<JsonAdaptedAttachment> attachments = new ArrayList<>();
+    private final boolean bookmark;
 
     /**
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
      */
     @JsonCreator
-    public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
-            @JsonProperty("email") String email, @JsonProperty("address") String address,
-            @JsonProperty("tags") List<JsonAdaptedTag> tags) {
+
+    public JsonAdaptedPerson(
+        @JsonProperty("studentNo") String studentNo,
+        @JsonProperty("name") String name,
+        @JsonProperty("phone") String phone,
+        @JsonProperty("email") String email,
+        @JsonProperty("gpa") Double gpa,
+        @JsonProperty("comment") String comment,
+        @JsonProperty("tags") List<JsonAdaptedTag> tags,
+        @JsonProperty("isHidden") boolean isHidden,
+        @JsonProperty("attachments") List<JsonAdaptedAttachment> attachments,
+        @JsonProperty("bookmark") boolean bookmark
+    ) {
+        this.studentNo = studentNo;
         this.name = name;
         this.phone = phone;
         this.email = email;
-        this.address = address;
+        this.gpa = gpa;
+        this.comment = comment;
         if (tags != null) {
             this.tags.addAll(tags);
         }
+        this.isHidden = isHidden;
+        if (attachments != null) {
+            this.attachments.addAll(attachments);
+        }
+        this.bookmark = bookmark;
     }
 
     /**
      * Converts a given {@code Person} into this class for Jackson use.
      */
     public JsonAdaptedPerson(Person source) {
+        studentNo = source.getStudentNumber().value;
         name = source.getName().fullName;
         phone = source.getPhone().value;
         email = source.getEmail().value;
-        address = source.getAddress().value;
+        gpa = source.getGpa().value;
+        comment = source.getComment().comment;
         tags.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
+        isHidden = source.getIsHidden().value;
+        attachments.addAll(source.getAttachments().stream()
+                .map(JsonAdaptedAttachment::new)
+                .collect(Collectors.toList()));
+        bookmark = source.getBookmark().value;
     }
 
     /**
@@ -69,6 +103,24 @@ class JsonAdaptedPerson {
         for (JsonAdaptedTag tag : tags) {
             personTags.add(tag.toModelType());
         }
+
+        final List<Attachment> personAttachments = new ArrayList<>();
+        for (JsonAdaptedAttachment attachment : attachments) {
+            personAttachments.add(attachment.toModelType());
+        }
+
+        if (studentNo == null) {
+            throw new IllegalValueException(
+                String.format(
+                    MISSING_FIELD_MESSAGE_FORMAT,
+                    StudentNumber.class.getSimpleName()
+                )
+            );
+        }
+        if (!StudentNumber.isValidStudentNumber(studentNo)) {
+            throw new IllegalValueException(StudentNumber.MESSAGE_CONSTRAINTS);
+        }
+        final StudentNumber modelStudentNo = new StudentNumber(studentNo);
 
         if (name == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName()));
@@ -94,16 +146,40 @@ class JsonAdaptedPerson {
         }
         final Email modelEmail = new Email(email);
 
-        if (address == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Address.class.getSimpleName()));
+        if (gpa == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Gpa.class.getSimpleName()));
         }
-        if (!Address.isValidAddress(address)) {
-            throw new IllegalValueException(Address.MESSAGE_CONSTRAINTS);
+        if (!Gpa.isValidGpa(gpa)) {
+            throw new IllegalValueException(Gpa.MESSAGE_CONSTRAINTS);
         }
-        final Address modelAddress = new Address(address);
+
+        if (comment == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Comment.class.getSimpleName()));
+        }
+        if (!Comment.isValidComment(comment)) {
+            throw new IllegalValueException(Comment.MESSAGE_CONSTRAINTS);
+        }
+
+        final Gpa modelGpa = new Gpa(gpa);
+
+        final Comment modelComment = new Comment(comment);
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
-        return new Person(modelName, modelPhone, modelEmail, modelAddress, modelTags);
+
+        final IsHidden modelIsHidden = new IsHidden(isHidden);
+        final Bookmark modelBookmark = new Bookmark(bookmark);
+
+        return new Person(
+                modelStudentNo,
+                modelName,
+                modelPhone,
+                modelEmail,
+                modelGpa,
+                modelComment,
+                modelTags,
+                modelIsHidden,
+                personAttachments,
+                modelBookmark);
     }
 
 }

@@ -1,10 +1,15 @@
 package seedu.address.model;
 
 import java.nio.file.Path;
+import java.util.Comparator;
 import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
+import seedu.address.commons.core.index.Index;
+import seedu.address.model.person.BookmarkPredicate;
+import seedu.address.model.person.GpaComparator;
+import seedu.address.model.person.IsHiddenPredicate;
 import seedu.address.model.person.Person;
 
 /**
@@ -14,6 +19,24 @@ public interface Model {
     /** {@code Predicate} that always evaluate to true */
     Predicate<Person> PREDICATE_SHOW_ALL_PERSONS = unused -> true;
 
+    /**
+     * {@code Predicate} that filters for all hidden persons
+     */
+    Predicate<Person> PREDICATE_SHOW_ALL_HIDDEN_PERSONS = new IsHiddenPredicate(true);
+    /**
+     * {@code Predicate} that filters for all unhidden persons
+     */
+    Predicate<Person> PREDICATE_SHOW_ALL_UNHIDDEN_PERSONS = new IsHiddenPredicate(false);
+
+    /**
+     * {@code Predicate} that filters for all bookmarked applicants
+     */
+    Predicate<Person> PREDICATE_SHOW_ALL_BOOKMARKED_PERSONS = new BookmarkPredicate(true);
+
+    /**
+     * {@code Comparator} that sorts by GPA
+     */
+    Comparator<Person> COMPARATOR_SORT_BY_GPA = new GpaComparator();
     /**
      * Replaces user prefs data with the data in {@code userPrefs}.
      */
@@ -76,6 +99,12 @@ public interface Model {
      */
     void setPerson(Person target, Person editedPerson);
 
+    /**
+     * Displays the given person.
+     * The person must exist in the address book.
+     */
+    void showPersonAtIndex(Index index);
+
     /** Returns an unmodifiable view of the filtered person list */
     ObservableList<Person> getFilteredPersonList();
 
@@ -84,4 +113,11 @@ public interface Model {
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredPersonList(Predicate<Person> predicate);
+
+    /**
+     * Updates the sorted person list to sort by the given {@code comparator}.
+     *  @throws NullPointerException if {@code predicate} is null.
+     */
+    void sortFilteredPersonList(Comparator<Person> comparator);
+
 }
