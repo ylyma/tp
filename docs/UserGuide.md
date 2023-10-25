@@ -261,23 +261,30 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 - **`view 3`**
     - Displays the following details about the third applicant.
       - Name
+      - Student number
       - Phone number
       - Email Address
       - GPA
+      - Comments
       - Tags
 
 **Expected Outputs:**
 
 - All details of an applicant in the following format:\
     `Name: John Doe`\
+    `Student number: A0358289S`\
     `Phone Number: 91234567`\
     `Email Address: johndoe@example.come`\
-    `GPA: 5.0`\
+    `GPA: 5.0`\ 
+    `Comments: Good fit, has teaching experience`\
     `Tags: pastTA, deansList`
 
 **Errors:**
 
-- Missing index: **`"Error: Missing index. Please follow the format: 'view INDEX'."`**
+- Missing index: **`"Invalid command format!
+  view: Displays the applicant identified by the index number used in the displayed applicant list.
+  Parameters: INDEX (must be a positive integer)
+  Example: view 1"`**
 - Index out of range: **`"Error: Invalid index. Please enter an index within range."`**
 
 ---
@@ -398,7 +405,11 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 **Errors:**
 
-- Missing index: **`"Error: Missing index. Please follow the format: 'view INDEX'."`**
+- Missing index: **`"Invalid command format!
+  bookmark: Bookmarks an applicant, identified by the index number used in the last list, 
+  from all future lists of applicants.
+  Parameter: INDEX (must be a positive integer)
+  Example: bookmark 1"`**
 - Index out of range: **`"Error: Invalid index. Please enter an index within range."`**
 
 ---
