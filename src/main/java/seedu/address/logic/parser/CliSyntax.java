@@ -20,7 +20,7 @@ public class CliSyntax {
     public static final String FIELD_PHONE = "phone";
     public static final String FIELD_EMAIL = "email";
     public static final String FIELD_COMMENT = "comment";
-    public static final String FIELD_TAG = "tag";
+    public static final String FIELD_TAGS = "tags";
     public static final String FIELD_HIDDEN = "hidden";
     public static final String FIELD_BOOKMARKED = "bookmarked";
 }
