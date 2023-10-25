@@ -61,6 +61,9 @@ You can click on any of the links below to navigate to the respective sections f
 - [7 Summary](#7-summary)
     - [7.1 Prefix Summary](#71-prefix-summary)
     - [7.2 Command Summary](#72-command-summary)
+      - [7.2.1 Basic applicant management commands](#721-basic-applicant-management-commands)
+      - [7.2.2 Applicant comparison and evaluation commands](#722-applicant-comparison-and-evaluation-commands)
+      - [7.2.3 Data management and export commands](#723-data-management-and-export-commands)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -219,7 +222,7 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 **Examples:**
 
-- **`add s/A0269357C n/john doe p/91234567 e/johndoe@example.com g/5.0 t/past TA t/dean's list`**
+- **`add s/A0269357C n/john doe p/91234567 e/johndoe@example.com g/5.0 t/pastTA t/deanslist`**
     - Adds a person with the following information
         - Student number: A0269357C
         - Name: John Doe
@@ -592,15 +595,39 @@ If your changes to the data file makes its format invalid, TAFinder will discard
 --------------------------------------------------------------------------------------------------------------------
 ## 7 Summary
 ### 7.1 Prefix Summary
+| Parameter      | Prefix | Rules                                                                                                                                                                                                              |
+|----------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Student number | s/     | - Should be in the format `AdddddddL`, <br/>where `d` represents digit and `L` represents capital letters.                                                                                                         |
+| Name           | n/     | - Should only contains alphanumeric characters and spaces.                                                                                                                                                         |
+| Phone          | p/     | - Should only contain digits<br/>- Should have at least 3 digits.                                                                                                                                                  |
+| Email          | e/     | - Should only be of the form `local@domain` and only accept alphanumeric characters<br/>- `local` allows for special characters `+`, `_`, `.` and `-` as well.<br/>- `domain` must be at least 2 letters long<br/> |
+| GPA            | g/     | - Should be in the range of 0.00 to 5.00 inclusive.<br/>- Can be given in 0, 1 or 2 decimal places.                                                                                                                |
+| Comment        | c/     | - Can be any character.                                                                                                                                                                                            |
+| Tag            | t/     | - Should only contain alphanumeric characters.<br/>- Should not contain spaces.                                                                                                                                    |
+
 
 ### 7.2 Command Summary
+#### 7.2.1 Basic applicant management commands
+| Action          | Format, Examples                                                                                                                                                               |
+|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Add**         | - `add [s/STUDENT_NUMBER] [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…` <br> - e.g., `add s/A0269357C n/john doe p/91234567 e/johndoe@example.com g/5.0 t/pastTA t/deanslist` |
+| **Edit**        | - `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> - e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                                |
+| **Delete**      | - `delete INDEX`<br> - e.g., `delete 3`                                                                                                                                        |
+| **List**        | - `list`                                                                                                                                                                       |
+| **View**        | - `view INDEX`<br> - e.g., `view 3`                                                                                                                                            |
+| **Hide/Unhide** | - `hide INDEX` / `unhide INDEX`<br/> - e.g., `hide 3` / `unhide 3`                                                                                                             |
+                                                                                                                                                       |
+#### 7.2.2 Applicant comparison and evaluation commands
+| Action                  | Format, Examples                                                                  |
+|-------------------------|-----------------------------------------------------------------------------------|
+| **Sort GPA**            | - `sort-gpa`                                                                      |
+| **Compare**             | - `compare INDEX1 INDEX2`<br> - e.g.,`compare 1 2`                                |
+| **Bookmark/Unbookmark** | - `bookmark INDEX` / `unbookmark INDEX`<br> - e.g., `bookmark 3` / `unbookmark 3` |
+| **Comment**             | - `comment INDEX COMMENT`<br/> - e.g., `comment 3 Hardworking`                    |
 
-| Action     | Format, Examples                                                                                                                                                      |
-|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague` |
-| **Clear**  | `clear`                                                                                                                                                               |
-| **Delete** | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                   |
-| **Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                           |
-| **Find**   | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                            |
-| **List**   | `list`                                                                                                                                                                |
-| **Help**   | `help`                                                                                                                                                                |
+
+#### 7.2.3 Data management and export commands
+| Action                  | Format, Examples                                                |
+|-------------------------|-----------------------------------------------------------------|
+| **Export**              | - `export FILENAME`<br/> - e.g., `export ta-applicants.csv`     |
+| **Attach**              | - `attach INDEX FILEPATH`<br> - e.g.,`attach 2 john-resume.pdf` |
