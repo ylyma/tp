@@ -474,18 +474,20 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 **Examples:**
 
-- `comment 3 This applicant has an OHS disciplinary record`
-    - Comments on the third applicant.
+- `comment 3 Hardworking and studious`
+    - Comments on the third applicant with the comment: "Hardworking and studious"
 
 **Expected outputs:**
 
-- Applicant corresponding to the given index is commented.
-- Confirmation message: `"Applicant at index INDEX has been successfully commented on."`
+- Successfully commenting on the applicant at the corresponding index:<br> 
+`"Applicant at index INDEX has been successfully commented on."`
 
 **Errors:**
 
-- Missing index: `**“Error: Missing index. Please follow the format: 'view INDEX'.”**`
-- Index out of range: `**“Error: Invalid index. Please enter an index within range.”**`
+- Missing index:<br>
+`“Error: Missing index. Please follow the format: 'view INDEX'.”`
+- Index out of range:<br>
+`“Error: Invalid index. Please enter an index within range.”`
 
 ---
 
