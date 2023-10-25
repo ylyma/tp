@@ -106,6 +106,7 @@ An example is shown below.
 | **Mainstream OS**   | Windows, Linux or Mac                                                                                                               |
 | **CLI**             | Command-Line Interface                                                                                                              |
 | **GUI**             | Graphical User Interface                                                                                                            |
+| **Toast**           | A popup alert to inform users about certain information                                                                             |
 | **Tag**             | Tags are associated with applicants, users can tag applicants with any keyword they want,<br/>the number of tags are not restricted |
 
 ### 1.2 Installation
@@ -160,6 +161,18 @@ Refer to the [Features](#features) below for details of each command.
 Step 2. Observe the changes to the application.<br>
 
 ### 1.4 Navigating the User Interface
+![UI with shaded areas](images/tafinder-UI.png)
+
+The UI has the following areas:
+- <span style="background-color:rgba(126, 217, 87, 1)">Navigation bar</span>
+  - This is where you can navigate to the `File` and `Help` menus.
+- <span style="background-color:rgba(255, 222, 89, 1)">Command Input Box</span>
+  - This where commands are typed
+  - press `Enter` to execute it.
+- <span style="background-color:rgba(255, 112, 112, 1)">Command Result Screen</span>
+  - This is where the result of the command is displayed.
+- <span style="background-color:rgba(170, 210, 232, 1)">Applicant list</span>
+  - This is where the list of applicants is displayed.
    
 
 --------------------------------------------------------------------------------------------------------------------
