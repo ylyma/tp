@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.text.Font?>
+
+<GridPane hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml/1">
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10" />
+    </padding>
+    <Label fx:id="person1Name" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+    <Label fx:id="nameLabel" text="Name" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.halignment="CENTER" />
+    <Label fx:id="person2Name" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+    <Label fx:id="person1Gpa" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+    <Label fx:id="gpaLabel" text="GPA" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.halignment="CENTER" />
+    <Label fx:id="person2Gpa" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+    <Label fx:id="compareMessageLabel" GridPane.columnIndex="1" GridPane.rowIndex="2">
+        <font>
+            <Font size="40.0" />
+        </font>
+    </Label>
+</GridPane>
