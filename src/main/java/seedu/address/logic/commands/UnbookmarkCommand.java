@@ -27,7 +27,8 @@ public class UnbookmarkCommand extends Command {
             + "Parameter: INDEX (must be a positive integer) \n"
             + "Example: " + COMMAND_WORD + " 1 ";
 
-    public static final String MESSAGE_UNBOOKMARK_APPLICANT_SUCCESS = "Applicant %1$s unbookmarked";
+    public static final String MESSAGE_UNBOOKMARK_APPLICANT_SUCCESS = "Applicant at index %1$s has been " +
+            "successfully unbookmarked.";
 
     public final Index targetIndex;
 
@@ -62,8 +63,7 @@ public class UnbookmarkCommand extends Command {
                 personToUnbookmark.getAttachments(),
                 new Bookmark(false));
         model.setPerson(personToUnbookmark, unbookmarkedPerson);
-        return new CommandResult(String.format(MESSAGE_UNBOOKMARK_APPLICANT_SUCCESS,
-                Messages.format(unbookmarkedPerson)));
+        return new CommandResult(String.format(MESSAGE_UNBOOKMARK_APPLICANT_SUCCESS, targetIndex.getOneBased()));
     }
 
     @Override

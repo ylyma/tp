@@ -278,6 +278,7 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
     `GPA: 5.0`\ 
     `Comments: Good fit, has teaching experience`\
     `Tags: pastTA, deansList`
+- Confirmation message: `"Displaying: APPLICANT_NAME"`
 
 **Errors:**
 
