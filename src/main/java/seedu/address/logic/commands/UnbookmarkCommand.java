@@ -27,7 +27,7 @@ public class UnbookmarkCommand extends Command {
             + "Parameter: INDEX (must be a positive integer) \n"
             + "Example: " + COMMAND_WORD + " 1 ";
 
-    public static final String MESSAGE_UNBOOKMARK_APPLICANT_SUCCESS = "Applicant %1$s unbookmarked";
+    public static final String MESSAGE_UNBOOKMARK_APPLICANT_SUCCESS = "Applicant %1$s unbookmarked.";
 
     public final Index targetIndex;
 

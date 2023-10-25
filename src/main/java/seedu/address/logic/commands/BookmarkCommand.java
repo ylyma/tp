@@ -27,7 +27,7 @@ public class BookmarkCommand extends Command {
             + "Parameter: INDEX (must be a positive integer) \n"
             + "Example: " + COMMAND_WORD + " 1 ";
 
-    public static final String MESSAGE_BOOKMARK_APPLICANT_SUCCESS = "Applicant %1$s bookmarked";
+    public static final String MESSAGE_BOOKMARK_APPLICANT_SUCCESS = "Applicant %1$s bookmarked.";
 
     public final Index targetIndex;
 

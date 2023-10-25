@@ -11,9 +11,9 @@ public class SortByGpaCommand extends Command {
 
     public static final String COMMAND_WORD = "sort-gpa";
 
-    public static final String MESSAGE_SUCCESS = "Sorted all applicants by GPA";
+    public static final String MESSAGE_SUCCESS = "Sorted all applicants by GPA.";
 
-    public static final String MESSAGE_EMPTY_LIST = "No applicants to sort";
+    public static final String MESSAGE_EMPTY_LIST = "No applicants to sort.";
 
     @Override
     public CommandResult execute(Model model) {

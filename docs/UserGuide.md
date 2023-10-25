@@ -314,7 +314,7 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
   hide: Hides an applicant, identified by the index number used in the last list, from all future lists of applicants.
   Parameter: INDEX (must be a positive integer)
   Example: hide 1 "`**
-- Index out of range: **`“Error: Invalid index. Please enter an index within range”`**
+- Index out of range: **`“Error: Invalid index. Please enter an index within range.”`**
 
 ---
 
