@@ -208,8 +208,9 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 </aside>
 
-**Format:** `add [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…`
+**Format:** `add [s/STUDENT_NUMBER] [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…`
 
+- **`s/STUDENT_NUMBER`**: Student number of the applicant
 - **`n/NAME`**: Name of the applicant.
 - **`p/PHONE`**: Phone number of the applicant.
 - **`e/EMAIL`**: Email address of the applicant.
@@ -218,15 +219,17 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 **Examples:**
 
-- **`add n/john doe p/91234567 e/johndoe@example.com g/5.0 t/past TA, dean's list`**
+- **`add s/A0269357C n/john doe p/91234567 e/johndoe@example.com g/5.0 t/past TA t/dean's list`**
     - Adds a person with the following information
+        - Student number: A0269357C
         - Name: John Doe
         - Phone number: 91234567
         - Email address: johndoe@example.com
         - GPA: 5.0
         - Tags: past TA, dean’s list
-- **`add n/amanda p/89064678 e/amanda@example.com g/4.3`**
+- **`add s/A0251647W n/amanda p/89064678 e/amanda@example.com g/4.3`**
     - Adds a person with the following information
+        - Student number: 
         - Name: Amanda
         - Phone number: 89064678
         - Email address: amanda@example.com
@@ -234,18 +237,17 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 **Expected Outputs:**
 
-- The applicant and applicant’s information has been successfully added
-- Confirmation message: **`"Applicant added successfully with the following details: Name: <name>, Phone Number: <phone number>, Email: <email>, GPA: <gpa>, tags: <tags>"`**
+- Confirmation Message for successfully adding applicant and applicant's information:<br>
+**`New applicant added: Student number: <student number>; Name: <name>; Phone: <phone>; Email: <email>; GPA: <gpa>; Comment: <comment>; Tags: <tags>`**
 
 **Errors:**
 
-- Missing fields: **`"Error: Missing fields. Please follow the format: add [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…"`**
-- Repeated applicant: **`"Error: Repeated applicant. Applicant has already been added to the list`**
-
-**Format:** **`list`**
-
-- **`list-hidden`** Shows a list of all hidden applicants.
-- **`list-bookmarked`** Shows a list of all bookmarked applicants.
+- Invalid command format:<br> 
+`Invalid command format!`<br>
+`add: Adds an applicant to the list. Parameters: s/STUDENT NUMBER n/NAME p/PHONE e/EMAIL g/GPA c/comment [t/TAG]...`<br>
+`Example: add s/A0343434C n/John Doe p/98765432 e/johnd@example.com g/4.9 c/Hardworking and diligent t/pastTA`
+- Repeated applicant:<br>
+**`This applicant already exists in the applicant list.`**
 
 ---
 
