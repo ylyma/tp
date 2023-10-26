@@ -251,10 +251,56 @@ The following activity diagram summarizes what happens when a user executes a ne
 <img src="images/HideActivityDiagram.png" width="250" />
 
 
-### \[Proposed\] Data archiving
+### Compare feature
 
-_{Explain here how the data archiving feature will be implemented}_
+#### Implementation
 
+The compare mechanism allows users to compare two distinct TA applicants in the address book. The compare mechanism is mainly facilitated by the `CompareCommand`, `CompareCommandParser`, and `CompareWindow` classes. It extends the abstract class `Command` with an `execute` functionality, to facilitate the execution of the command. Specifically, the compare feature is implemented through the following components and operations:
+
+- `CompareCommand` — Core component responsible for executing the comparison of two TA applicants in the list. 
+- `Person` — Represents the TA applicants with their respective fields, such as `Gpa`, to be used for comparison. 
+- `CompareCommandParser` — Contains the functionalities for user input parsing. It ensures that user input is valid as a compare command by meeting specific requirements.
+- `CompareWindow` — Main User Interface (UI) for after a compare command is successfully executed. It will display the content of the two TA applicants side by side. 
+
+
+Given below is an example usage scenario and how the compare mechanism behaves at each step.
+
+Step 0. Assume that there is an existing list of applicants in the application after launch.
+
+Step 1. The user enters the compare command `compare 1 2` to compare the first and second applicants in the existing list. The `CompareCommandParser` is invoked to parse the user's input.
+
+Step 2. `CompareCommandParser` will then invoke `ParserUtil` for parsing of the indices and check for index errors. If indices are invalid, the system will generate an error message. The error message will be displayed to the user, providing clear feedback about the issue and the specific constraints that are not met.
+
+Step 3. If indices are valid, `CompareCommand#execute()` fetches the two intended applicants from the currently visible list and ensures that both indexes do not point to the same applicant.
+
+Step 4. Then, `CompareCommand#execute()` creates a new `CompareWindow` instance which is immediately shown, with the two applicants' information passed to `CompareWindow`, in the form of the `Person` model.
+
+Step 5. `CompareWindow` handles the GUI presentation aspects, in the form of a pop-up window. It uses the JavaFX `GridPane` layout to display the respective `Person` attributes side-by-side.
+
+Step 6. A success message is displayed to the user to confirm that the comparison of applicants is successful.
+
+The following activity diagram summarizes what happens when a user executes a `compare` command:
+
+#### Design considerations
+
+**Aspect: `compare` GUI:**
+
+* **Alternative 1 (current choice):** Compare two applicants in one pop-up window.
+    * Pros: 
+      1. Easier to implement the pop-up window
+      2. Able to avoid over-dependencies within the `UI` component.
+    * Cons: Design may not be uniform with main window.
+
+* **Alternative 2:** Compare two applicants in the main window.
+    * Pros: 
+      1. Easy view of information.
+    * Cons: 
+      1. Difficult to implement the UI change when a `compare` command is inputted, as whole window needs to be modified.
+      2. Inconvenient to refer back to list of applicants if needed. 
+
+* **Alternative 3:** Compare multiple (two or more) applicants.
+    * Pros: More convenient to choose between applicants.
+    * Cons: Harder to implement the UI.
 
 --------------------------------------------------------------------------------------------------------------------
 
