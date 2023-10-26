@@ -250,6 +250,25 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 <img src="images/HideActivityDiagram.png" width="250" />
 
+### Bookmark/Unbookmark feature
+
+#### Implementation
+
+The bookmark/unbookmark mechanism gives users the ability to bookmark or unbookmark certain applicants they want to take note of, as well as list these bookmarked applicants. This allows users to better differentiate between a long list of applicants, improving the ease of usage of this application and user experience. This feature implements the following operations:
+* `BookmarkCommand#execute()` — Bookmarks a specified applicant.
+* `UnbookmarkCommand#execute()` — Unbookmarks a specified applicant.
+* `ListBookmarkedCommand#execute()` — Displays a list of all bookmarked applicants.
+
+Given below is an example usage scenario and how the bookmark/unbookmark mechanism behaves at each step.
+
+Step 1. The user launches the application for the first time. TAfinder will be initialized with imported data, wherein all applicants will begin as unbookmarked.
+
+Step 2. The user executes `bookmark 5` command to bookmark the 5th applicant in TAfinder. The `bookmark` command calls `Model#setPerson()`, resulting in a copy of the original applicant, now modified to be bookmarked, being stored in the list of applicants after the `bookmark 5` command executes. Additionally, the UI is updated to indicate that the applicant is now bookmarked via the bookmark flag.
+
+Step 3. After bookmarking a number of applicants, the user now decides that bookmarking the 2nd applicant was a mistake, and decides to unbookmark them by executing the `unbookmark 2` command. The unbookmark command will call `Model#setPerson()`, resulting in a copy of the original applicant, now modified to be unbookmarked, being stored in the list of applicants after the `unbookmark 2` command executes. Once again, the UI is updated to indicate that the applicant is now unbookmarked via the bookmark flag.
+
+Step 4. The user then decides to view all bookmarked applicants by executing the `list-bookmarked` command. The `list-bookmarked` command calls `Model#updateFilteredPersonList()`, which updates the list of applicants presented in the UI to only include bookmarked applicants.
+
 
 ### \[Proposed\] Data archiving
 
