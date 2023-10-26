@@ -275,27 +275,33 @@ Step 3. If indices are valid, `CompareCommand#execute()` fetches the two intende
 
 Step 4. Then, `CompareCommand#execute()` creates a new `CompareWindow` instance which is immediately shown, with the two applicants' information passed to `CompareWindow`, in the form of the `Person` model.
 
+The following sequence diagram displays how the compare function works until Step 4:
+
+![CompareSequenceDiagram](images/CompareSequenceDiagram.png)
+
 Step 5. `CompareWindow` handles the GUI presentation aspects, in the form of a pop-up window. It uses the JavaFX `GridPane` layout to display the respective `Person` attributes side-by-side.
 
 Step 6. A success message is displayed to the user to confirm that the comparison of applicants is successful.
 
 The following activity diagram summarizes what happens when a user executes a `compare` command:
 
+![CompareActivityDiagram](images/CompareActivityDiagram.png)
+
 #### Design considerations
 
-**Aspect: `compare` GUI:**
+**Aspect: Comparison GUI:**
 
 * **Alternative 1 (current choice):** Compare two applicants in one pop-up window.
     * Pros: 
       1. Easier to implement the pop-up window
-      2. Able to avoid over-dependencies within the `UI` component.
+      2. Able to avoid over-dependencies within the UI component.
     * Cons: Design may not be uniform with main window.
 
 * **Alternative 2:** Compare two applicants in the main window.
     * Pros: 
       1. Easy view of information.
     * Cons: 
-      1. Difficult to implement the UI change when a `compare` command is inputted, as whole window needs to be modified.
+      1. Difficult to implement the UI change when a compare command is inputted, as whole window needs to be modified.
       2. Inconvenient to refer back to list of applicants if needed. 
 
 * **Alternative 3:** Compare multiple (two or more) applicants.
