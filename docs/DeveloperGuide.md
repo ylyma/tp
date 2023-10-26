@@ -257,10 +257,10 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 The compare mechanism allows users to compare two distinct TA applicants in the address book. The compare mechanism is mainly facilitated by the `CompareCommand`, `CompareCommandParser`, and `CompareWindow` classes. It extends the abstract class `Command` with an `execute` functionality, to facilitate the execution of the command. Specifically, the compare feature is implemented through the following components and operations:
 
-- `CompareCommand` — Core component responsible for executing the comparison of two TA applicants in the list. 
-- `Person` — Represents the TA applicants with their respective fields, such as `Gpa`, to be used for comparison. 
+- `CompareCommand` — Core component responsible for executing the comparison of two TA applicants in the list.
+- `Person` — Represents the TA applicants with their respective fields, such as `Gpa`, to be used for comparison.
 - `CompareCommandParser` — Contains the functionalities for user input parsing. It ensures that user input is valid as a compare command by meeting specific requirements.
-- `CompareWindow` — Main User Interface (UI) for after a compare command is successfully executed. It will display the content of the two TA applicants side by side. 
+- `CompareWindow` — Main User Interface (UI) for after a compare command is successfully executed. It will display the content of the two TA applicants side by side.
 
 
 Given below is an example usage scenario and how the compare mechanism behaves at each step.
@@ -298,11 +298,11 @@ The following activity diagram summarizes what happens when a user executes a `c
     * Cons: Design may not be uniform with main window.
 
 * **Alternative 2:** Compare two applicants in the main window.
-    * Pros: 
+    * Pros:
       1. Easy view of information.
-    * Cons: 
+    * Cons:
       1. Difficult to implement the UI change when a compare command is inputted, as whole window needs to be modified.
-      2. Inconvenient to refer back to list of applicants if needed. 
+      2. Inconvenient to refer back to list of applicants if needed.
 
 * **Alternative 3:** Compare multiple (two or more) applicants.
     * Pros: More convenient to choose between applicants.
