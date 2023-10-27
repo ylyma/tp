@@ -2,8 +2,10 @@ package seedu.address.model;
 
 import java.nio.file.Path;
 import java.util.Comparator;
+import java.util.Optional;
 import java.util.function.Predicate;
 
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.index.Index;
@@ -115,4 +117,6 @@ public interface Model {
      */
     void sortFilteredPersonList(Comparator<Person> comparator);
 
+    /** Returns the current person being viewed in detail */
+    ObservableValue<Optional<Person>> getCurrentPerson();
 }

@@ -7,8 +7,8 @@ import java.util.List;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.person.Gpa;
 import seedu.address.model.person.Person;
+import seedu.address.ui.CompareWindow;
 
 
 /**
@@ -42,7 +42,6 @@ public class CompareCommand extends Command {
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
-        String compareMessage;
         requireNonNull(model);
         List<Person> lastShownList = model.getFilteredPersonList();
 
@@ -55,21 +54,10 @@ public class CompareCommand extends Command {
             Person personToCompare1 = lastShownList.get(index1.getZeroBased());
             Person personToCompare2 = lastShownList.get(index2.getZeroBased());
 
-            model.updateFilteredPersonList(person -> person.equals(personToCompare1)
-                    || person.equals(personToCompare2));
+            new CompareWindow(personToCompare1, personToCompare2).show();
 
-            Gpa gpa1 = personToCompare1.getGpa();
-            Gpa gpa2 = personToCompare2.getGpa();
+            return new CommandResult("Comparison successful! ");
 
-            if (gpa1.compareTo(gpa2) == 0) {
-                compareMessage = "They have the same GPA, do look out for other criteria!";
-            } else if (gpa1.compareTo(gpa2) > 0) {
-                compareMessage = personToCompare1.getName() + " has a higher GPA!";
-            } else {
-                compareMessage = personToCompare2.getName() + " has a higher GPA!";
-            }
-
-            return new CommandResult("Comparison successful! " + compareMessage);
         } catch (IndexOutOfBoundsException e) {
             throw new CommandException("Error: One or both of the specified applicants"
                     + " were not found in the list.");
