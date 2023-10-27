@@ -61,9 +61,9 @@ public class CommentCommand extends Command {
                 personToEdit.getGpa(),
                 comment,
                 personToEdit.getTags(),
-                personToEdit.getIsHidden(),
                 personToEdit.getAttachments(),
-                personToEdit.getBookmark());
+                personToEdit.getIsHidden(),
+                personToEdit.getIsBookmarked());
         model.setPerson(personToEdit, editedPerson);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
 

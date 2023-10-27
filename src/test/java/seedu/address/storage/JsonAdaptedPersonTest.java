@@ -39,7 +39,7 @@ public class JsonAdaptedPersonTest {
     private static final List<JsonAdaptedAttachment> VALID_ATTACHMENTS = BENSON.getAttachments().stream()
             .map(JsonAdaptedAttachment::new)
             .collect(Collectors.toList());
-    private static final boolean VALID_BOOKMARK = BENSON.getBookmark().value;
+    private static final boolean VALID_BOOKMARK = BENSON.getIsBookmarked().value;
 
     @Test
     public void toModelType_validPersonDetails_returnsPerson() throws Exception {

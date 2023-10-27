@@ -8,10 +8,10 @@ import java.util.stream.Collectors;
 import seedu.address.model.AddressBook;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.attachment.Attachment;
-import seedu.address.model.person.Bookmark;
 import seedu.address.model.person.Comment;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gpa;
+import seedu.address.model.person.IsBookmarked;
 import seedu.address.model.person.IsHidden;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
@@ -36,9 +36,9 @@ public class SampleDataUtil {
                 new Gpa(4.2),
                 EMPTY_COMMENT,
                 getTagSet("pastTA"),
-                new IsHidden(false),
                 getAttachments(),
-                new Bookmark(false)
+                new IsHidden(false),
+                new IsBookmarked(false)
             ),
             new Person(
                 new StudentNumber("A0321654B"),
@@ -48,9 +48,9 @@ public class SampleDataUtil {
                 new Gpa(5.0),
                 EMPTY_COMMENT,
                 getTagSet("pastTA", "deansList"),
-                new IsHidden(false),
                 getAttachments(),
-                new Bookmark(true)
+                new IsHidden(false),
+                new IsBookmarked(true)
             ),
             new Person(
                 new StudentNumber("A0654123C"),
@@ -60,9 +60,9 @@ public class SampleDataUtil {
                 new Gpa(3.6),
                 EMPTY_COMMENT,
                 getTagSet("pastTA"),
-                new IsHidden(false),
                 getAttachments(),
-                new Bookmark(false)
+                new IsHidden(false),
+                new IsBookmarked(false)
             ),
             new Person(
                 new StudentNumber("A0654321D"),
@@ -72,9 +72,9 @@ public class SampleDataUtil {
                 new Gpa(4.71),
                 EMPTY_COMMENT,
                 getTagSet("pastTA"),
-                new IsHidden(false),
                 getAttachments(),
-                new Bookmark(false)
+                new IsHidden(false),
+                new IsBookmarked(false)
             ),
             new Person(
                 new StudentNumber("A0321456E"),
@@ -84,9 +84,9 @@ public class SampleDataUtil {
                 new Gpa(3.67),
                 EMPTY_COMMENT,
                 getTagSet("topInModule"),
-                new IsHidden(false),
                 getAttachments(),
-                new Bookmark(true)
+                new IsHidden(false),
+                new IsBookmarked(true)
             ),
             new Person(
                 new StudentNumber("A0374384F"),
@@ -96,9 +96,9 @@ public class SampleDataUtil {
                 new Gpa(4.3),
                 EMPTY_COMMENT,
                 getTagSet("pastTA"),
-                new IsHidden(false),
                 getAttachments(),
-                new Bookmark(false)
+                new IsHidden(false),
+                new IsBookmarked(false)
             )
         };
     }

@@ -22,11 +22,9 @@ import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.attachment.Attachment;
-import seedu.address.model.person.Bookmark;
 import seedu.address.model.person.Comment;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gpa;
-import seedu.address.model.person.IsHidden;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -108,14 +106,13 @@ public class EditCommand extends Command {
         Gpa updatedGpa = editPersonDescriptor.getGpa().orElse(personToEdit.getGpa());
         Comment updatedComment = editPersonDescriptor.getComment().orElse(personToEdit.getComment());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
-        IsHidden isHidden = editPersonDescriptor.getIsHidden().orElse(personToEdit.getIsHidden());
-        Bookmark bookmark = editPersonDescriptor.getBookmark().orElse(personToEdit.getBookmark());
 
         StudentNumber studentNo = personToEdit.getStudentNumber();
         List<Attachment> attachments = personToEdit.getAttachments();
 
         return new Person(studentNo, updatedName, updatedPhone, updatedEmail,
-                updatedGpa, updatedComment, updatedTags, isHidden, attachments, bookmark);
+                updatedGpa, updatedComment, updatedTags, attachments, personToEdit.getIsHidden(),
+                personToEdit.getIsBookmarked());
     }
 
     @Override
@@ -154,8 +151,6 @@ public class EditCommand extends Command {
         private Gpa gpa;
         private Comment comment;
         private Set<Tag> tags;
-        private IsHidden isHidden;
-        private Bookmark bookmark;
 
         public EditPersonDescriptor() {
         }
@@ -171,8 +166,6 @@ public class EditCommand extends Command {
             setGpa(toCopy.gpa);
             setComment(toCopy.comment);
             setTags(toCopy.tags);
-            setIsHidden(toCopy.isHidden);
-            setBookmark(toCopy.bookmark);
 
         }
 
@@ -180,7 +173,7 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, gpa, comment, tags, bookmark);
+            return CollectionUtil.isAnyNonNull(name, phone, email, gpa, comment, tags);
         }
 
         public void setName(Name name) {
@@ -241,22 +234,6 @@ public class EditCommand extends Command {
             return (tags != null) ? Optional.of(Collections.unmodifiableSet(tags)) : Optional.empty();
         }
 
-        public void setIsHidden(IsHidden isHidden) {
-            this.isHidden = isHidden;
-        }
-
-        public Optional<IsHidden> getIsHidden() {
-            return Optional.ofNullable(isHidden);
-        }
-
-        public void setBookmark(Bookmark bookmark) {
-            this.bookmark = bookmark;
-        }
-
-        public Optional<Bookmark> getBookmark() {
-            return Optional.ofNullable(bookmark);
-        }
-
         @Override
         public boolean equals(Object other) {
             if (other == this) {
@@ -285,7 +262,6 @@ public class EditCommand extends Command {
                     .add("email", email)
                     .add("gpa", gpa)
                     .add("tags", tags)
-                    .add("bookmark", bookmark)
                     .add("comment", comment)
                     .toString();
         }

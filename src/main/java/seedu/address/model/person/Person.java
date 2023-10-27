@@ -26,7 +26,7 @@ public class Person {
     private final Phone phone;
     private final Email email;
     private final IsHidden isHidden;
-    private final Bookmark bookmark;
+    private final IsBookmarked isBookmarked;
 
     // Data fields
     private final Gpa gpa;
@@ -45,9 +45,9 @@ public class Person {
             Gpa gpa,
             Comment comment,
             Set<Tag> tags,
-            IsHidden isHidden,
             List<Attachment> attachments,
-            Bookmark bookmark) {
+            IsHidden isHidden,
+            IsBookmarked isBookmarked) {
         requireAllNonNull(studentNo, name, phone, email, gpa, comment, tags, isHidden);
         this.studentNo = studentNo;
         this.name = name;
@@ -56,9 +56,9 @@ public class Person {
         this.gpa = gpa;
         this.comment = comment;
         this.tags.addAll(tags);
-        this.isHidden = isHidden;
         this.attachments.addAll(attachments);
-        this.bookmark = bookmark;
+        this.isHidden = isHidden;
+        this.isBookmarked = isBookmarked;
     }
 
     public StudentNumber getStudentNumber() {
@@ -81,10 +81,6 @@ public class Person {
         return this.gpa;
     }
 
-    public Bookmark getBookmark() {
-        return this.bookmark;
-    }
-
     public Comment getComment() {
         return this.comment;
     }
@@ -99,6 +95,15 @@ public class Person {
     }
 
     /**
+     * Returns an immutable attachment list, which throws
+     * {@code UnsupportedOperationException}
+     * if modification is attempted.
+     */
+    public List<Attachment> getAttachments() {
+        return Collections.unmodifiableList(attachments);
+    }
+
+    /**
      * Returns an immutable isHidden value, which throws
      * {@code UnsupportedOperationException}
      * if modification is attempted.
@@ -107,13 +112,8 @@ public class Person {
         return this.isHidden;
     }
 
-    /**
-     * Returns an immutable attachment list, which throws
-     * {@code UnsupportedOperationException}
-     * if modification is attempted.
-     */
-    public List<Attachment> getAttachments() {
-        return Collections.unmodifiableList(attachments);
+    public IsBookmarked getIsBookmarked() {
+        return this.isBookmarked;
     }
 
     /**
@@ -152,9 +152,9 @@ public class Person {
                 && gpa.equals(otherPerson.gpa)
                 && comment.equals(otherPerson.comment)
                 && tags.equals(otherPerson.tags)
-                && isHidden.equals(otherPerson.isHidden)
                 && attachments.equals(otherPerson.attachments)
-                && bookmark.equals(otherPerson.bookmark);
+                && isHidden.equals(otherPerson.isHidden)
+                && isBookmarked.equals(otherPerson.isBookmarked);
 
     }
 
@@ -174,10 +174,9 @@ public class Person {
                 .add("gpa", gpa)
                 .add("comment", comment)
                 .add("tags", tags)
-                .add("hidden", isHidden)
                 .add("attachments", attachments)
-                .add("bookmark", bookmark)
+                .add("isHidden", isHidden)
+                .add("isBookmarked", isBookmarked)
                 .toString();
     }
-
 }

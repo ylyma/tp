@@ -5,10 +5,10 @@ import java.util.List;
 import java.util.Set;
 
 import seedu.address.model.attachment.Attachment;
-import seedu.address.model.person.Bookmark;
 import seedu.address.model.person.Comment;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gpa;
+import seedu.address.model.person.IsBookmarked;
 import seedu.address.model.person.IsHidden;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
@@ -40,7 +40,7 @@ public class PersonBuilder {
     private Set<Tag> tags;
     private IsHidden isHidden;
     private List<Attachment> attachments;
-    private Bookmark bookmark;
+    private IsBookmarked isBookmarked;
 
     /**
      * Creates a {@code PersonBuilder} with the default details.
@@ -55,7 +55,7 @@ public class PersonBuilder {
         tags = new HashSet<>();
         isHidden = new IsHidden(DEFAULT_IS_HIDDEN);
         attachments = List.of();
-        bookmark = new Bookmark(DEFAULT_BOOKMARK);
+        isBookmarked = new IsBookmarked(DEFAULT_BOOKMARK);
     }
 
     /**
@@ -71,7 +71,7 @@ public class PersonBuilder {
         tags = new HashSet<>(personToCopy.getTags());
         isHidden = personToCopy.getIsHidden();
         attachments = personToCopy.getAttachments();
-        bookmark = personToCopy.getBookmark();
+        isBookmarked = personToCopy.getIsBookmarked();
     }
 
     /**
@@ -151,13 +151,13 @@ public class PersonBuilder {
     /**
      * Sets the {@code Bookmark} of the {@code Person} that we are building.
      */
-    public PersonBuilder withBookmark(boolean bookmark) {
-        this.bookmark = new Bookmark(bookmark);
+    public PersonBuilder withBookmark(boolean isBookmarked) {
+        this.isBookmarked = new IsBookmarked(isBookmarked);
         return this;
     }
 
     public Person build() {
-        return new Person(studentNo, name, phone, email, gpa, comment, tags, isHidden, attachments, bookmark);
+        return new Person(studentNo, name, phone, email, gpa, comment, tags, attachments, isHidden, isBookmarked);
     }
 
 }

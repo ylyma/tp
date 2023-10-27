@@ -71,9 +71,9 @@ public class UnhideCommand extends Command {
                 personToUnhide.getGpa(),
                 personToUnhide.getComment(),
                 personToUnhide.getTags(),
-                new IsHidden(false),
                 personToUnhide.getAttachments(),
-                personToUnhide.getBookmark());
+                new IsHidden(false),
+                personToUnhide.getIsBookmarked());
     }
 
     @Override

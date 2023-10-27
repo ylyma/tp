@@ -91,9 +91,9 @@ public class AttachCommand extends Command {
             personToAttachTo.getGpa(),
             personToAttachTo.getComment(),
             personToAttachTo.getTags(),
-            personToAttachTo.getIsHidden(),
             updatedAttachments,
-            personToAttachTo.getBookmark()
+            personToAttachTo.getIsHidden(),
+            personToAttachTo.getIsBookmarked()
         );
         model.setPerson(personToAttachTo, attachedPerson);
 

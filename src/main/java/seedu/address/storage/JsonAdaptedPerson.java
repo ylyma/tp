@@ -11,10 +11,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.attachment.Attachment;
-import seedu.address.model.person.Bookmark;
 import seedu.address.model.person.Comment;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gpa;
+import seedu.address.model.person.IsBookmarked;
 import seedu.address.model.person.IsHidden;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
@@ -38,7 +38,7 @@ class JsonAdaptedPerson {
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
     private final boolean isHidden;
     private final List<JsonAdaptedAttachment> attachments = new ArrayList<>();
-    private final boolean bookmark;
+    private final boolean isBookmarked;
 
     /**
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
@@ -55,7 +55,7 @@ class JsonAdaptedPerson {
         @JsonProperty("tags") List<JsonAdaptedTag> tags,
         @JsonProperty("isHidden") boolean isHidden,
         @JsonProperty("attachments") List<JsonAdaptedAttachment> attachments,
-        @JsonProperty("bookmark") boolean bookmark
+        @JsonProperty("isBookmarked") boolean isBookmarked
     ) {
         this.studentNo = studentNo;
         this.name = name;
@@ -70,7 +70,7 @@ class JsonAdaptedPerson {
         if (attachments != null) {
             this.attachments.addAll(attachments);
         }
-        this.bookmark = bookmark;
+        this.isBookmarked = isBookmarked;
     }
 
     /**
@@ -90,7 +90,7 @@ class JsonAdaptedPerson {
         attachments.addAll(source.getAttachments().stream()
                 .map(JsonAdaptedAttachment::new)
                 .collect(Collectors.toList()));
-        bookmark = source.getBookmark().value;
+        isBookmarked = source.getIsBookmarked().value;
     }
 
     /**
@@ -167,7 +167,7 @@ class JsonAdaptedPerson {
         final Set<Tag> modelTags = new HashSet<>(personTags);
 
         final IsHidden modelIsHidden = new IsHidden(isHidden);
-        final Bookmark modelBookmark = new Bookmark(bookmark);
+        final IsBookmarked modelBookmark = new IsBookmarked(isBookmarked);
 
         return new Person(
                 modelStudentNo,
@@ -177,8 +177,8 @@ class JsonAdaptedPerson {
                 modelGpa,
                 modelComment,
                 modelTags,
-                modelIsHidden,
                 personAttachments,
+                modelIsHidden,
                 modelBookmark);
     }
 

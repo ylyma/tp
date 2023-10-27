@@ -3,13 +3,13 @@ package seedu.address.model.person;
 /**
  * Represents whether a Person is bookmarked in the address book.
  */
-public class Bookmark {
+public class IsBookmarked {
     public final boolean value;
 
     /**
      * Constructs a {@code Bookmark}.
      */
-    public Bookmark(boolean value) {
+    public IsBookmarked(boolean value) {
         this.value = value;
     }
 
@@ -25,11 +25,11 @@ public class Bookmark {
         }
 
         // instanceof handles nulls
-        if (!(other instanceof Bookmark)) {
+        if (!(other instanceof IsBookmarked)) {
             return false;
         }
 
-        Bookmark otherBookmark = (Bookmark) other;
+        IsBookmarked otherBookmark = (IsBookmarked) other;
         return value == otherBookmark.value;
     }
 

@@ -9,7 +9,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.index.Index;
-import seedu.address.model.person.BookmarkPredicate;
+import seedu.address.model.person.IsBookmarkedPredicate;
 import seedu.address.model.person.IsHiddenPredicate;
 import seedu.address.model.person.Person;
 
@@ -32,7 +32,7 @@ public interface Model {
     /**
      * {@code Predicate} that filters for all bookmarked applicants
      */
-    Predicate<Person> PREDICATE_SHOW_ALL_BOOKMARKED_PERSONS = new BookmarkPredicate(true);
+    Predicate<Person> PREDICATE_SHOW_ALL_BOOKMARKED_PERSONS = new IsBookmarkedPredicate(true);
 
     /**
      * Replaces user prefs data with the data in {@code userPrefs}.
