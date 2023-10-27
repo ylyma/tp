@@ -59,6 +59,8 @@ public class CommentCommand extends Command {
                 personToEdit.getPhone(),
                 personToEdit.getEmail(),
                 personToEdit.getGpa(),
+                personToEdit.getPreviousGrade(),
+                personToEdit.getInterviewScore(),
                 comment,
                 personToEdit.getTags(),
                 personToEdit.getAttachments(),

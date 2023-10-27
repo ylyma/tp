@@ -4,8 +4,10 @@ import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COMMENT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_GPA;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_INTERVIEW_SCORE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PREVIOUS_GRADE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STUDENT_NUMBER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
@@ -19,11 +21,13 @@ import seedu.address.model.attachment.Attachment;
 import seedu.address.model.person.Comment;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gpa;
+import seedu.address.model.person.InterviewScore;
 import seedu.address.model.person.IsBookmarked;
 import seedu.address.model.person.IsHidden;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.PreviousGrade;
 import seedu.address.model.person.StudentNumber;
 import seedu.address.model.tag.Tag;
 
@@ -40,7 +44,8 @@ public class AddCommandParser implements Parser<AddCommand> {
     public AddCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(
                 args, PREFIX_STUDENT_NUMBER, PREFIX_NAME, PREFIX_PHONE,
-                PREFIX_EMAIL, PREFIX_GPA, PREFIX_COMMENT, PREFIX_TAG);
+                PREFIX_EMAIL, PREFIX_GPA, PREFIX_PREVIOUS_GRADE, PREFIX_INTERVIEW_SCORE,
+                PREFIX_COMMENT, PREFIX_TAG);
 
         if (!arePrefixesPresent(
                 argMultimap,
@@ -65,6 +70,10 @@ public class AddCommandParser implements Parser<AddCommand> {
         Phone phone = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
         Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
         Gpa gpa = ParserUtil.parseGpa(argMultimap.getValue(PREFIX_GPA).get());
+        PreviousGrade previousGrade = ParserUtil.parsePreviousGrade(
+                argMultimap.getValue(PREFIX_PREVIOUS_GRADE).get());
+        InterviewScore interviewScore = ParserUtil.parseInterviewScore(
+                argMultimap.getValue(PREFIX_INTERVIEW_SCORE).get());
         Comment comment = ParserUtil.parseComment(argMultimap.getValue(PREFIX_COMMENT).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
         IsHidden isHidden = new IsHidden(false);
@@ -77,6 +86,8 @@ public class AddCommandParser implements Parser<AddCommand> {
                 phone,
                 email,
                 gpa,
+                previousGrade,
+                interviewScore,
                 comment,
                 tagList,
                 attachments,

@@ -8,9 +8,11 @@ import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.address.model.person.Comment;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gpa;
+import seedu.address.model.person.InterviewScore;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.PreviousGrade;
 import seedu.address.model.tag.Tag;
 
 
@@ -38,6 +40,8 @@ public class EditPersonDescriptorBuilder {
         descriptor.setPhone(person.getPhone());
         descriptor.setEmail(person.getEmail());
         descriptor.setGpa(person.getGpa());
+        descriptor.setPreviousGrade(person.getPreviousGrade());
+        descriptor.setInterviewScore(person.getInterviewScore());
         descriptor.setComment(person.getComment());
         descriptor.setTags(person.getTags());
     }
@@ -71,6 +75,22 @@ public class EditPersonDescriptorBuilder {
      */
     public EditPersonDescriptorBuilder withGpa(double gpa) {
         descriptor.setGpa(new Gpa(gpa));
+        return this;
+    }
+
+    /**
+     * Sets the {@code PreviousGrade} of the {@code EditPersonDescriptor} that we are building.
+     */
+    public EditPersonDescriptorBuilder withPreviousGrade(String grade) {
+        descriptor.setPreviousGrade(new PreviousGrade(grade));
+        return this;
+    }
+
+    /**
+     * Sets the {@code InterviewScore} of the {@code EditPersonDescriptor} that we are building.
+     */
+    public EditPersonDescriptorBuilder withInterviewScore(double score) {
+        descriptor.setInterviewScore(new InterviewScore(score));
         return this;
     }
 

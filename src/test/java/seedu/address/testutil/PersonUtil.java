@@ -3,8 +3,10 @@ package seedu.address.testutil;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COMMENT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_GPA;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_INTERVIEW_SCORE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PREVIOUS_GRADE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STUDENT_NUMBER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
@@ -37,15 +39,17 @@ public class PersonUtil {
         sb.append(PREFIX_PHONE + person.getPhone().value + " ");
         sb.append(PREFIX_EMAIL + person.getEmail().value + " ");
         sb.append(PREFIX_GPA + "" + person.getGpa().value + " ");
+        sb.append(PREFIX_PREVIOUS_GRADE + "" + person.getPreviousGrade().toString() + " ");
+        sb.append(PREFIX_INTERVIEW_SCORE + "" + person.getInterviewScore().value + " ");
         sb.append(PREFIX_COMMENT + person.getComment().comment + " ");
         person.getTags().stream().forEach(
-            s -> sb.append(PREFIX_TAG + s.tagName + " ")
-        );
+                s -> sb.append(PREFIX_TAG + s.tagName + " "));
         return sb.toString();
     }
 
     /**
-     * Returns the part of command string for the given {@code EditPersonDescriptor}'s details.
+     * Returns the part of command string for the given
+     * {@code EditPersonDescriptor}'s details.
      */
     public static String getEditPersonDescriptorDetails(EditPersonDescriptor descriptor) {
         StringBuilder sb = new StringBuilder();
@@ -53,6 +57,10 @@ public class PersonUtil {
         descriptor.getPhone().ifPresent(phone -> sb.append(PREFIX_PHONE).append(phone.value).append(" "));
         descriptor.getEmail().ifPresent(email -> sb.append(PREFIX_EMAIL).append(email.value).append(" "));
         descriptor.getGpa().ifPresent(gpa -> sb.append(PREFIX_GPA).append(gpa.value).append(" "));
+        descriptor.getPreviousGrade()
+                .ifPresent(grade -> sb.append(PREFIX_PREVIOUS_GRADE).append(grade.toString()).append(" "));
+        descriptor.getInterviewScore()
+                .ifPresent(score -> sb.append(PREFIX_INTERVIEW_SCORE).append(score.value).append(" "));
         descriptor.getComment().ifPresent(comment -> sb.append(PREFIX_COMMENT).append(comment.comment).append(" "));
         if (descriptor.getTags().isPresent()) {
             Set<Tag> tags = descriptor.getTags().get();

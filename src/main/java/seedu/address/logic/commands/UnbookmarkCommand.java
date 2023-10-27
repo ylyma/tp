@@ -57,6 +57,8 @@ public class UnbookmarkCommand extends Command {
                 personToUnbookmark.getPhone(),
                 personToUnbookmark.getEmail(),
                 personToUnbookmark.getGpa(),
+                personToUnbookmark.getPreviousGrade(),
+                personToUnbookmark.getInterviewScore(),
                 personToUnbookmark.getComment(),
                 personToUnbookmark.getTags(),
                 personToUnbookmark.getAttachments(),

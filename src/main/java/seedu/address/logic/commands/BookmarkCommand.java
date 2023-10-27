@@ -57,6 +57,8 @@ public class BookmarkCommand extends Command {
                 personToBookmark.getPhone(),
                 personToBookmark.getEmail(),
                 personToBookmark.getGpa(),
+                personToBookmark.getPreviousGrade(),
+                personToBookmark.getInterviewScore(),
                 personToBookmark.getComment(),
                 personToBookmark.getTags(),
                 personToBookmark.getAttachments(),

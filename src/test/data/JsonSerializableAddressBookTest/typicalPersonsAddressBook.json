@@ -7,6 +7,8 @@
     "email" : "alice@example.com",
     "gpa" : "2.9",
     "tags" : [ "friends" ],
+    "previousGrade": "A+",
+    "interviewScore": "3.2",
     "comment": ""
   }, {
     "studentNo": "A9473847C",
@@ -14,6 +16,8 @@
     "phone" : "98765432",
     "email" : "johnd@example.com",
     "gpa" : "4.9",
+    "previousGrade": "A+",
+    "interviewScore": "3.2",
     "tags" : [ "owesMoney", "friends" ],
     "comment": ""
   }, {
@@ -22,6 +26,8 @@
     "phone" : "95352563",
     "email" : "heinz@example.com",
     "gpa" : "4.0",
+    "previousGrade": "A+",
+    "interviewScore": "3.2",
     "tags" : [ ],
     "comment": ""
   }, {
@@ -30,6 +36,8 @@
     "phone" : "87652533",
     "email" : "cornelia@example.com",
     "gpa" : "3.0",
+    "previousGrade": "A+",
+    "interviewScore": "3.2",
     "tags" : [ "friends" ],
     "comment": ""
   }, {
@@ -38,6 +46,8 @@
     "phone" : "9482224",
     "email" : "werner@example.com",
     "gpa" : "1.0",
+    "previousGrade": "A+",
+    "interviewScore": "3.2",
     "tags" : [ ],
     "comment": ""
   }, {
@@ -46,6 +56,8 @@
     "phone" : "9482427",
     "email" : "lydia@example.com",
     "gpa" : "2.0",
+    "previousGrade": "A+",
+    "interviewScore": "3.2",
     "tags" : [ ],
     "comment": ""
   }, {
@@ -54,6 +66,8 @@
     "phone" : "9482442",
     "email" : "anna@example.com",
     "gpa" : "4.0",
+    "previousGrade": "A+",
+    "interviewScore": "3.2",
     "tags" : [ ],
     "comment": ""
   } ]

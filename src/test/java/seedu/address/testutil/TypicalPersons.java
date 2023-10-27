@@ -6,10 +6,14 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_GPA_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_GPA_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_INTERVIEW_SCORE_AMY;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_INTERVIEW_SCORE_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_PREVIOUS_GRADE_AMY;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_PREVIOUS_GRADE_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_STUDENT_NUMBER_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_STUDENT_NUMBER_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
@@ -32,6 +36,8 @@ public class TypicalPersons {
             .withStudentNumber("A0343345A")
             .withName("Alice Pauline")
             .withGpa(2.9)
+            .withPreviousGrade("A+")
+            .withInterviewScore(3.2)
             .withComment("")
             .withEmail("alice@example.com")
             .withPhone("94351253")
@@ -41,6 +47,8 @@ public class TypicalPersons {
             .withStudentNumber("A9473847C")
             .withName("Benson Meier")
             .withGpa(4.9)
+            .withPreviousGrade("A+")
+            .withInterviewScore(3.2)
             .withComment("")
             .withEmail("johnd@example.com")
             .withPhone("98765432")
@@ -52,6 +60,8 @@ public class TypicalPersons {
             .withPhone("95352563")
             .withEmail("heinz@example.com")
             .withGpa(4.0)
+            .withPreviousGrade("A+")
+            .withInterviewScore(3.2)
             .withComment("")
             .withAttachments()
             .build();
@@ -61,6 +71,8 @@ public class TypicalPersons {
             .withPhone("87652533")
             .withEmail("cornelia@example.com")
             .withGpa(3.0)
+            .withPreviousGrade("A+")
+            .withInterviewScore(3.2)
             .withComment("")
             .withTags("friends")
             .withAttachments()
@@ -71,6 +83,8 @@ public class TypicalPersons {
             .withPhone("9482224")
             .withEmail("werner@example.com")
             .withGpa(1.0)
+            .withPreviousGrade("A+")
+            .withInterviewScore(3.2)
             .withComment("")
             .withAttachments()
             .build();
@@ -80,6 +94,8 @@ public class TypicalPersons {
             .withPhone("9482427")
             .withEmail("lydia@example.com")
             .withGpa(2.0)
+            .withPreviousGrade("A+")
+            .withInterviewScore(3.2)
             .withComment("")
             .withAttachments()
             .build();
@@ -89,6 +105,8 @@ public class TypicalPersons {
             .withPhone("9482442")
             .withEmail("anna@example.com")
             .withGpa(4.0)
+            .withPreviousGrade("A+")
+            .withInterviewScore(3.2)
             .withAttachments()
             .build();
 
@@ -104,15 +122,16 @@ public class TypicalPersons {
     // Manually added - Person's details found in {@code CommandTestUtil}
     public static final Person AMY = new PersonBuilder().withStudentNumber(VALID_STUDENT_NUMBER_AMY)
             .withName(VALID_NAME_AMY).withPhone(VALID_PHONE_AMY).withHidden(false)
-            .withEmail(VALID_EMAIL_AMY).withGpa(VALID_GPA_AMY).withComment(VALID_COMMENT_AMY)
-            .withTags(VALID_TAG_FRIEND).withAttachments()
-            .withBookmark(false).build();
+            .withEmail(VALID_EMAIL_AMY).withGpa(VALID_GPA_AMY).withPreviousGrade(VALID_PREVIOUS_GRADE_AMY)
+            .withInterviewScore(VALID_INTERVIEW_SCORE_AMY).withComment(VALID_COMMENT_AMY)
+            .withTags(VALID_TAG_FRIEND).withAttachments().withBookmark(false).build();
 
     public static final Person BOB = new PersonBuilder().withStudentNumber(VALID_STUDENT_NUMBER_BOB)
             .withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB).withHidden(false)
-            .withEmail(VALID_EMAIL_BOB).withGpa(VALID_GPA_BOB).withComment(VALID_COMMENT_BOB)
-            .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND)
-            .withHidden(false).withAttachments().withBookmark(false).build();
+            .withEmail(VALID_EMAIL_BOB).withGpa(VALID_GPA_BOB).withPreviousGrade(VALID_PREVIOUS_GRADE_BOB)
+            .withInterviewScore(VALID_INTERVIEW_SCORE_BOB).withComment(VALID_COMMENT_BOB)
+            .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).withHidden(false)
+            .withAttachments().withBookmark(false).build();
 
     public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER
 

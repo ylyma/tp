@@ -25,9 +25,11 @@ import seedu.address.model.attachment.Attachment;
 import seedu.address.model.person.Comment;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gpa;
+import seedu.address.model.person.InterviewScore;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.PreviousGrade;
 import seedu.address.model.person.StudentNumber;
 import seedu.address.model.tag.Tag;
 
@@ -104,6 +106,10 @@ public class EditCommand extends Command {
         Phone updatedPhone = editPersonDescriptor.getPhone().orElse(personToEdit.getPhone());
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
         Gpa updatedGpa = editPersonDescriptor.getGpa().orElse(personToEdit.getGpa());
+        PreviousGrade updatedPreviousGrade = editPersonDescriptor.getPreviousGrade()
+                .orElse(personToEdit.getPreviousGrade());
+        InterviewScore updatedInterviewScore = editPersonDescriptor.getInterviewScore()
+                .orElse(personToEdit.getInterviewScore());
         Comment updatedComment = editPersonDescriptor.getComment().orElse(personToEdit.getComment());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
@@ -111,8 +117,8 @@ public class EditCommand extends Command {
         List<Attachment> attachments = personToEdit.getAttachments();
 
         return new Person(studentNo, updatedName, updatedPhone, updatedEmail,
-                updatedGpa, updatedComment, updatedTags, attachments, personToEdit.getIsHidden(),
-                personToEdit.getIsBookmarked());
+                updatedGpa, updatedPreviousGrade, updatedInterviewScore, updatedComment,
+                updatedTags, attachments, personToEdit.getIsHidden(), personToEdit.getIsBookmarked());
     }
 
     @Override
@@ -149,6 +155,8 @@ public class EditCommand extends Command {
         private Phone phone;
         private Email email;
         private Gpa gpa;
+        private PreviousGrade previousGrade;
+        private InterviewScore interviewScore;
         private Comment comment;
         private Set<Tag> tags;
 
@@ -164,16 +172,18 @@ public class EditCommand extends Command {
             setPhone(toCopy.phone);
             setEmail(toCopy.email);
             setGpa(toCopy.gpa);
+            setPreviousGrade(toCopy.previousGrade);
+            setInterviewScore(toCopy.interviewScore);
             setComment(toCopy.comment);
             setTags(toCopy.tags);
-
         }
 
         /**
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, gpa, comment, tags);
+            return CollectionUtil.isAnyNonNull(
+                    name, phone, email, gpa, previousGrade, interviewScore, comment, tags);
         }
 
         public void setName(Name name) {
@@ -206,6 +216,22 @@ public class EditCommand extends Command {
 
         public Optional<Gpa> getGpa() {
             return Optional.ofNullable(gpa);
+        }
+
+        public void setPreviousGrade(PreviousGrade previousGrade) {
+            this.previousGrade = previousGrade;
+        }
+
+        public Optional<PreviousGrade> getPreviousGrade() {
+            return Optional.ofNullable(previousGrade);
+        }
+
+        public void setInterviewScore(InterviewScore interviewScore) {
+            this.interviewScore = interviewScore;
+        }
+
+        public Optional<InterviewScore> getInterviewScore() {
+            return Optional.ofNullable(interviewScore);
         }
 
         public void setComment(Comment comment) {
@@ -250,6 +276,8 @@ public class EditCommand extends Command {
                     && Objects.equals(phone, otherEditPersonDescriptor.phone)
                     && Objects.equals(email, otherEditPersonDescriptor.email)
                     && Objects.equals(gpa, otherEditPersonDescriptor.gpa)
+                    && Objects.equals(previousGrade, otherEditPersonDescriptor.previousGrade)
+                    && Objects.equals(interviewScore, otherEditPersonDescriptor.interviewScore)
                     && Objects.equals(comment, otherEditPersonDescriptor.comment)
                     && Objects.equals(tags, otherEditPersonDescriptor.tags);
         }
@@ -261,6 +289,8 @@ public class EditCommand extends Command {
                     .add("phone", phone)
                     .add("email", email)
                     .add("gpa", gpa)
+                    .add("previousGrade", previousGrade)
+                    .add("interviewScore", interviewScore)
                     .add("tags", tags)
                     .add("comment", comment)
                     .toString();

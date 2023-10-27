@@ -14,11 +14,13 @@ import seedu.address.model.attachment.Attachment;
 import seedu.address.model.person.Comment;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gpa;
+import seedu.address.model.person.InterviewScore;
 import seedu.address.model.person.IsBookmarked;
 import seedu.address.model.person.IsHidden;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.PreviousGrade;
 import seedu.address.model.person.StudentNumber;
 import seedu.address.model.tag.Tag;
 
@@ -34,11 +36,13 @@ class JsonAdaptedPerson {
     private final String phone;
     private final String email;
     private final Double gpa;
+    private final String previousGrade;
+    private final Double interviewScore; // this is uppercase Double because it can be null
     private final String comment;
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
-    private final boolean isHidden;
     private final List<JsonAdaptedAttachment> attachments = new ArrayList<>();
-    private final boolean isBookmarked;
+    private final Boolean isHidden;
+    private final Boolean isBookmarked;
 
     /**
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
@@ -46,22 +50,25 @@ class JsonAdaptedPerson {
     @JsonCreator
 
     public JsonAdaptedPerson(
-        @JsonProperty("studentNo") String studentNo,
-        @JsonProperty("name") String name,
-        @JsonProperty("phone") String phone,
-        @JsonProperty("email") String email,
-        @JsonProperty("gpa") Double gpa,
-        @JsonProperty("comment") String comment,
-        @JsonProperty("tags") List<JsonAdaptedTag> tags,
-        @JsonProperty("isHidden") boolean isHidden,
-        @JsonProperty("attachments") List<JsonAdaptedAttachment> attachments,
-        @JsonProperty("isBookmarked") boolean isBookmarked
-    ) {
+            @JsonProperty("studentNo") String studentNo,
+            @JsonProperty("name") String name,
+            @JsonProperty("phone") String phone,
+            @JsonProperty("email") String email,
+            @JsonProperty("gpa") Double gpa,
+            @JsonProperty("previousGrade") String previousGrade,
+            @JsonProperty("interviewScore") Double interviewScore,
+            @JsonProperty("comment") String comment,
+            @JsonProperty("tags") List<JsonAdaptedTag> tags,
+            @JsonProperty("attachments") List<JsonAdaptedAttachment> attachments,
+            @JsonProperty("isHidden") boolean isHidden,
+            @JsonProperty("isBookmarked") boolean isBookmarked) {
         this.studentNo = studentNo;
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.gpa = gpa;
+        this.previousGrade = previousGrade;
+        this.interviewScore = interviewScore;
         this.comment = comment;
         if (tags != null) {
             this.tags.addAll(tags);
@@ -82,6 +89,8 @@ class JsonAdaptedPerson {
         phone = source.getPhone().value;
         email = source.getEmail().value;
         gpa = source.getGpa().value;
+        previousGrade = source.getPreviousGrade().toString();
+        interviewScore = source.getInterviewScore().value;
         comment = source.getComment().comment;
         tags.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
@@ -94,9 +103,11 @@ class JsonAdaptedPerson {
     }
 
     /**
-     * Converts this Jackson-friendly adapted person object into the model's {@code Person} object.
+     * Converts this Jackson-friendly adapted person object into the model's
+     * {@code Person} object.
      *
-     * @throws IllegalValueException if there were any data constraints violated in the adapted person.
+     * @throws IllegalValueException if there were any data constraints violated in
+     *                               the adapted person.
      */
     public Person toModelType() throws IllegalValueException {
         final List<Tag> personTags = new ArrayList<>();
@@ -111,11 +122,9 @@ class JsonAdaptedPerson {
 
         if (studentNo == null) {
             throw new IllegalValueException(
-                String.format(
-                    MISSING_FIELD_MESSAGE_FORMAT,
-                    StudentNumber.class.getSimpleName()
-                )
-            );
+                    String.format(
+                            MISSING_FIELD_MESSAGE_FORMAT,
+                            StudentNumber.class.getSimpleName()));
         }
         if (!StudentNumber.isValidStudentNumber(studentNo)) {
             throw new IllegalValueException(StudentNumber.MESSAGE_CONSTRAINTS);
@@ -152,6 +161,25 @@ class JsonAdaptedPerson {
         if (!Gpa.isValidGpa(gpa)) {
             throw new IllegalValueException(Gpa.MESSAGE_CONSTRAINTS);
         }
+        final Gpa modelGpa = new Gpa(gpa);
+
+        if (previousGrade == null) {
+            throw new IllegalValueException(
+                    String.format(MISSING_FIELD_MESSAGE_FORMAT, PreviousGrade.class.getSimpleName()));
+        }
+        if (!PreviousGrade.isValidGrade(previousGrade)) {
+            throw new IllegalValueException(PreviousGrade.MESSAGE_CONSTRAINTS);
+        }
+        final PreviousGrade modelPreviousGrade = new PreviousGrade(previousGrade);
+
+        if (interviewScore == null) {
+            throw new IllegalValueException(
+                    String.format(MISSING_FIELD_MESSAGE_FORMAT, InterviewScore.class.getSimpleName()));
+        }
+        if (!InterviewScore.isValidInterviewScore(interviewScore)) {
+            throw new IllegalValueException(InterviewScore.MESSAGE_CONSTRAINTS);
+        }
+        final InterviewScore modelInterviewScore = new InterviewScore(interviewScore);
 
         if (comment == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Comment.class.getSimpleName()));
@@ -160,13 +188,20 @@ class JsonAdaptedPerson {
             throw new IllegalValueException(Comment.MESSAGE_CONSTRAINTS);
         }
 
-        final Gpa modelGpa = new Gpa(gpa);
-
         final Comment modelComment = new Comment(comment);
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
 
+        if (isHidden == null) {
+            throw new IllegalValueException(
+                    String.format(MISSING_FIELD_MESSAGE_FORMAT, IsHidden.class.getSimpleName()));
+        }
         final IsHidden modelIsHidden = new IsHidden(isHidden);
+
+        if (isBookmarked == null) {
+            throw new IllegalValueException(
+                    String.format(MISSING_FIELD_MESSAGE_FORMAT, IsBookmarked.class.getSimpleName()));
+        }
         final IsBookmarked modelBookmark = new IsBookmarked(isBookmarked);
 
         return new Person(
@@ -175,6 +210,8 @@ class JsonAdaptedPerson {
                 modelPhone,
                 modelEmail,
                 modelGpa,
+                modelPreviousGrade,
+                modelInterviewScore,
                 modelComment,
                 modelTags,
                 personAttachments,

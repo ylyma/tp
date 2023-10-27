@@ -8,11 +8,13 @@ import seedu.address.model.attachment.Attachment;
 import seedu.address.model.person.Comment;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gpa;
+import seedu.address.model.person.InterviewScore;
 import seedu.address.model.person.IsBookmarked;
 import seedu.address.model.person.IsHidden;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.PreviousGrade;
 import seedu.address.model.person.StudentNumber;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
@@ -27,6 +29,8 @@ public class PersonBuilder {
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final double DEFAULT_GPA = 4.0;
+    public static final String DEFAULT_PREVIOUS_GRADE = "A-";
+    public static final double DEFAULT_INTERVIEW_SCORE = 0.0;
     public static final String DEFAULT_COMMENT = "";
     public static final boolean DEFAULT_IS_HIDDEN = false;
     public static final boolean DEFAULT_BOOKMARK = false;
@@ -36,10 +40,12 @@ public class PersonBuilder {
     private Phone phone;
     private Email email;
     private Gpa gpa;
+    private PreviousGrade previousGrade;
+    private InterviewScore interviewScore;
     private Comment comment;
     private Set<Tag> tags;
-    private IsHidden isHidden;
     private List<Attachment> attachments;
+    private IsHidden isHidden;
     private IsBookmarked isBookmarked;
 
     /**
@@ -51,6 +57,8 @@ public class PersonBuilder {
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
         gpa = new Gpa(DEFAULT_GPA);
+        previousGrade = new PreviousGrade(DEFAULT_PREVIOUS_GRADE);
+        interviewScore = new InterviewScore(DEFAULT_INTERVIEW_SCORE);
         comment = new Comment(DEFAULT_COMMENT);
         tags = new HashSet<>();
         isHidden = new IsHidden(DEFAULT_IS_HIDDEN);
@@ -67,6 +75,8 @@ public class PersonBuilder {
         phone = personToCopy.getPhone();
         email = personToCopy.getEmail();
         gpa = personToCopy.getGpa();
+        previousGrade = personToCopy.getPreviousGrade();
+        interviewScore = personToCopy.getInterviewScore();
         comment = personToCopy.getComment();
         tags = new HashSet<>(personToCopy.getTags());
         isHidden = personToCopy.getIsHidden();
@@ -117,6 +127,22 @@ public class PersonBuilder {
     }
 
     /**
+     * Sets the {@code PreviousGrade} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withPreviousGrade(String grade) {
+        this.previousGrade = new PreviousGrade(grade);
+        return this;
+    }
+
+    /**
+     * Sets the {@code InterviewScore} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withInterviewScore(double interviewScore) {
+        this.interviewScore = new InterviewScore(interviewScore);
+        return this;
+    }
+
+    /**
      * Sets the {@code Comment} of the {@code Person} that we are building.
      */
     public PersonBuilder withComment(String comment) {
@@ -156,8 +182,14 @@ public class PersonBuilder {
         return this;
     }
 
+    /**
+     * Builds a person from the attributes configured before this.
+     *
+     * @return The person.
+     */
     public Person build() {
-        return new Person(studentNo, name, phone, email, gpa, comment, tags, attachments, isHidden, isBookmarked);
+        return new Person(studentNo, name, phone, email, gpa, previousGrade, interviewScore, comment, tags, attachments,
+                isHidden, isBookmarked);
     }
 
 }

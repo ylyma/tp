@@ -15,8 +15,10 @@ import seedu.address.model.attachment.Attachment;
 import seedu.address.model.person.Comment;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gpa;
+import seedu.address.model.person.InterviewScore;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.PreviousGrade;
 import seedu.address.model.person.StudentNumber;
 import seedu.address.model.tag.Tag;
 
@@ -91,7 +93,7 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String gpa} into an {@code Gpa}.
+     * Parses a {@code String gpa} into a {@code Gpa}.
      * Leading and trailing whitespaces will be trimmed.
      *
      * @throws ParseException if the given {@code gpa} is invalid.
@@ -101,6 +103,7 @@ public class ParserUtil {
         String trimmedGpaString = gpaString.trim();
         double gpa;
         try {
+            System.out.println("GPA GPA GPA " + trimmedGpaString);
             gpa = Double.parseDouble(trimmedGpaString);
         } catch (NumberFormatException e) {
             throw new ParseException(Gpa.MESSAGE_CONSTRAINTS);
@@ -109,6 +112,39 @@ public class ParserUtil {
             throw new ParseException(Gpa.MESSAGE_CONSTRAINTS);
         }
         return new Gpa(gpa);
+    }
+
+    /**
+     * Parses a {@code String previousGradeString} into a {@code PreviousGradeString}.
+     *
+     * @throws ParseException if the given {@code previousGradeString} is invalid.
+     */
+    public static PreviousGrade parsePreviousGrade(String previousGradeString) throws ParseException {
+        requireNonNull(previousGradeString);
+        if (!PreviousGrade.isValidGrade(previousGradeString)) {
+            throw new ParseException(PreviousGrade.MESSAGE_CONSTRAINTS);
+        }
+        return new PreviousGrade(previousGradeString);
+    }
+
+    /**
+     * Parses a {@code String interviewScoreString} into an {@code InterviewScore}.
+     *
+     * @throws ParseException if the given {@code interviewScoreString} is invalid.
+     */
+    public static InterviewScore parseInterviewScore(String interviewScoreString) throws ParseException {
+        requireNonNull(interviewScoreString);
+        String trimmedInterviewScoreString = interviewScoreString.trim();
+        double interviewScore;
+        try {
+            interviewScore = Double.parseDouble(trimmedInterviewScoreString);
+        } catch (NumberFormatException e) {
+            throw new ParseException(InterviewScore.MESSAGE_CONSTRAINTS);
+        }
+        if (!InterviewScore.isValidInterviewScore(interviewScore)) {
+            throw new ParseException(InterviewScore.MESSAGE_CONSTRAINTS);
+        }
+        return new InterviewScore(interviewScore);
     }
 
     /**

@@ -5,8 +5,10 @@ import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COMMENT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_GPA;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_INTERVIEW_SCORE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PREVIOUS_GRADE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
 import java.util.Collection;
@@ -33,7 +35,8 @@ public class EditCommandParser implements Parser<EditCommand> {
     public EditCommand parse(String args) throws ParseException {
         requireNonNull(args);
         ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(
-                args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_GPA, PREFIX_COMMENT, PREFIX_TAG);
+                args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_GPA, PREFIX_PREVIOUS_GRADE,
+                PREFIX_INTERVIEW_SCORE, PREFIX_COMMENT, PREFIX_TAG);
 
         Index index;
 
@@ -58,6 +61,12 @@ public class EditCommandParser implements Parser<EditCommand> {
         }
         if (argMultimap.getValue(PREFIX_GPA).isPresent()) {
             editPersonDescriptor.setGpa(ParserUtil.parseGpa(argMultimap.getValue(PREFIX_GPA).get()));
+        }
+        if (argMultimap.getValue(PREFIX_PREVIOUS_GRADE).isPresent()) {
+            editPersonDescriptor.setPreviousGrade(ParserUtil.parsePreviousGrade(argMultimap.getValue(PREFIX_PREVIOUS_GRADE).get()));
+        }
+        if (argMultimap.getValue(PREFIX_INTERVIEW_SCORE).isPresent()) {
+            editPersonDescriptor.setInterviewScore(ParserUtil.parseInterviewScore(argMultimap.getValue(PREFIX_INTERVIEW_SCORE).get()));
         }
         if (argMultimap.getValue(PREFIX_COMMENT).isPresent()) {
             editPersonDescriptor.setComment(ParserUtil.parseComment(argMultimap.getValue(PREFIX_COMMENT).get()));

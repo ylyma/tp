@@ -25,14 +25,18 @@ public class Person {
     private final Name name;
     private final Phone phone;
     private final Email email;
-    private final IsHidden isHidden;
-    private final IsBookmarked isBookmarked;
 
     // Data fields
     private final Gpa gpa;
+    private final PreviousGrade previousGrade;
+    private final InterviewScore interviewScore;
     private final Comment comment;
     private final Set<Tag> tags = new HashSet<>();
     private final List<Attachment> attachments = new ArrayList<>();
+
+    // Flag fields
+    private final IsHidden isHidden;
+    private final IsBookmarked isBookmarked;
 
     /**
      * Every field must be present and not null.
@@ -43,17 +47,21 @@ public class Person {
             Phone phone,
             Email email,
             Gpa gpa,
+            PreviousGrade previousGrade,
+            InterviewScore interviewScore,
             Comment comment,
             Set<Tag> tags,
             List<Attachment> attachments,
             IsHidden isHidden,
             IsBookmarked isBookmarked) {
-        requireAllNonNull(studentNo, name, phone, email, gpa, comment, tags, isHidden);
+        requireAllNonNull(studentNo, name, phone, email, gpa, previousGrade, comment, tags, isHidden);
         this.studentNo = studentNo;
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.gpa = gpa;
+        this.previousGrade = previousGrade;
+        this.interviewScore = interviewScore;
         this.comment = comment;
         this.tags.addAll(tags);
         this.attachments.addAll(attachments);
@@ -79,6 +87,14 @@ public class Person {
 
     public Gpa getGpa() {
         return this.gpa;
+    }
+
+    public PreviousGrade getPreviousGrade() {
+        return this.previousGrade;
+    }
+
+    public InterviewScore getInterviewScore() {
+        return this.interviewScore;
     }
 
     public Comment getComment() {
@@ -112,6 +128,11 @@ public class Person {
         return this.isHidden;
     }
 
+    /**
+     * Returns an immutable isBookmarked value, which throws
+     * {@code UnsupportedOperationException}
+     * if modification is attempted.
+     */
     public IsBookmarked getIsBookmarked() {
         return this.isBookmarked;
     }
@@ -150,18 +171,20 @@ public class Person {
                 && phone.equals(otherPerson.phone)
                 && email.equals(otherPerson.email)
                 && gpa.equals(otherPerson.gpa)
+                && previousGrade.equals(otherPerson.previousGrade)
+                && interviewScore.equals(otherPerson.interviewScore)
                 && comment.equals(otherPerson.comment)
                 && tags.equals(otherPerson.tags)
                 && attachments.equals(otherPerson.attachments)
                 && isHidden.equals(otherPerson.isHidden)
                 && isBookmarked.equals(otherPerson.isBookmarked);
-
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(studentNo, name, phone, email, gpa, comment, tags, isHidden, attachments);
+        return Objects.hash(studentNo, name, phone, email, gpa, previousGrade, interviewScore, comment, tags, isHidden,
+                attachments);
     }
 
     @Override
@@ -172,6 +195,8 @@ public class Person {
                 .add("phone", phone)
                 .add("email", email)
                 .add("gpa", gpa)
+                .add("previousGrade", previousGrade)
+                .add("interviewScore", interviewScore)
                 .add("comment", comment)
                 .add("tags", tags)
                 .add("attachments", attachments)

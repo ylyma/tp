@@ -69,6 +69,8 @@ public class UnhideCommand extends Command {
                 personToUnhide.getPhone(),
                 personToUnhide.getEmail(),
                 personToUnhide.getGpa(),
+                personToUnhide.getPreviousGrade(),
+                personToUnhide.getInterviewScore(),
                 personToUnhide.getComment(),
                 personToUnhide.getTags(),
                 personToUnhide.getAttachments(),

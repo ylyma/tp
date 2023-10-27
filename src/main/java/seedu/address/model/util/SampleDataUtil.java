@@ -16,6 +16,7 @@ import seedu.address.model.person.IsHidden;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.PreviousGrade;
 import seedu.address.model.person.StudentNumber;
 import seedu.address.model.tag.Tag;
 
@@ -34,6 +35,8 @@ public class SampleDataUtil {
                 new Phone("87438807"),
                 new Email("alexyeoh@example.com"),
                 new Gpa(4.2),
+                new PreviousGrade("A+"),
+                null,
                 EMPTY_COMMENT,
                 getTagSet("pastTA"),
                 getAttachments(),
@@ -46,6 +49,8 @@ public class SampleDataUtil {
                 new Phone("99272758"),
                 new Email("berniceyu@example.com"),
                 new Gpa(5.0),
+                new PreviousGrade("A+"),
+                null,
                 EMPTY_COMMENT,
                 getTagSet("pastTA", "deansList"),
                 getAttachments(),
@@ -58,6 +63,8 @@ public class SampleDataUtil {
                 new Phone("93210283"),
                 new Email("charlotte@example.com"),
                 new Gpa(3.6),
+                new PreviousGrade("A+"),
+                null,
                 EMPTY_COMMENT,
                 getTagSet("pastTA"),
                 getAttachments(),
@@ -70,6 +77,8 @@ public class SampleDataUtil {
                 new Phone("91031282"),
                 new Email("lidavid@example.com"),
                 new Gpa(4.71),
+                new PreviousGrade("A+"),
+                null,
                 EMPTY_COMMENT,
                 getTagSet("pastTA"),
                 getAttachments(),
@@ -82,6 +91,8 @@ public class SampleDataUtil {
                 new Phone("92492021"),
                 new Email("irfan@example.com"),
                 new Gpa(3.67),
+                new PreviousGrade("A+"),
+                null,
                 EMPTY_COMMENT,
                 getTagSet("topInModule"),
                 getAttachments(),
@@ -94,6 +105,8 @@ public class SampleDataUtil {
                 new Phone("92624417"),
                 new Email("royb@example.com"),
                 new Gpa(4.3),
+                new PreviousGrade("A+"),
+                null,
                 EMPTY_COMMENT,
                 getTagSet("pastTA"),
                 getAttachments(),

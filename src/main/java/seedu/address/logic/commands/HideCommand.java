@@ -69,6 +69,8 @@ public class HideCommand extends Command {
                 personToHide.getPhone(),
                 personToHide.getEmail(),
                 personToHide.getGpa(),
+                personToHide.getPreviousGrade(),
+                personToHide.getInterviewScore(),
                 personToHide.getComment(),
                 personToHide.getTags(),
                 personToHide.getAttachments(),
