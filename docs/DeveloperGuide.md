@@ -348,7 +348,7 @@ _{Explain here how the data archiving feature will be implemented}_
 
 ### Use cases
 
-(For all use cases below, the **System** is `TAFinder` and the **Actor** is `NUS SOC professor`, unless specified otherwise)
+(For all use cases below, the **System** is `TAfinder` and the **Actor** is `NUS SOC professor`, unless specified otherwise)
 
 **UC01 - Edit an applicant**
 

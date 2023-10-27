@@ -3,9 +3,9 @@ layout: page
 title: Amos' Project Portfolio Page
 ---
 
-### Project: TAFinder
+### Project: TAfinder
 
-TAFinder is a desktop address book application used by SOC professors to choose TAs from a large pool of applicants. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.
+TAfinder is a desktop address book application used by SOC professors to choose TAs from a large pool of applicants. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.
 
 Given below are my contributions to the project.
 
