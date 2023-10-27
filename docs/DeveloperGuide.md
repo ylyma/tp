@@ -327,6 +327,36 @@ The following activity diagram summarizes what happens when a user executes a `c
     * Pros: More convenient to choose between applicants.
     * Cons: Harder to implement the UI.
 
+
+
+
+### Attach feature
+
+#### Implementation
+
+The attach feature allows users to attach files to TA applicants in the app. Attaching files *copies* these files into the `data` directory and adds a reference to those files to that `Person` model. This means that even if the original files are deleted, TAfinder would still have access to the copies of those files.
+
+The attachment mechanism is mainly facilitated by the `AttachCommand`, `AttachCommandParser`, and `Attachment` classes. It extends the abstract class `Command` with an `execute` functionality, to facilitate the execution of the command. Specifically, the compare feature is implemented through the following components and operations:
+
+- `AttachCommand` — Core component responsible for executing the comparison of two TA applicants in the list.
+- `AttachCommandParser` — Contains the functionalities for user input parsing. It ensures that user input is valid as an attach command by meeting specific requirements.
+- `Person` — Represents the TA applicants with their respective fields, such as `Attachment`, to attach files to.
+- `Attachment` — Represents a reference to a file. This can be a file that has been "attached" to a `Person`, or just a file within the file system of the computer.
+
+Given below is an example usage scenario and how the attach mechanism behaves at each step.
+
+Step 0. Assume that there is an existing list of applicants in the application after launch.
+
+Step 1. The user enters the compare command `attach 1 f/Downloads/resume.pdf f/Downloads/cv.txt` to attach the files `resume.pdf` and `cv.txt` in the `Downloads` directory to the first user in the visible list.
+
+Step 2. `AttachCommandParser` will then invoke `ParserUtil` for parsing of the index and check for index errors, and then parses the file paths to check for any invalid path characters. If index is invalid or the file path contains invalid path characters, the system will generate an error message. The error message will be displayed to the user, providing clear feedback about the issue and the specific constraints that are not met.
+
+Step 3. If indices are valid, `AttachCommand#execute()` fetches the intended applicant from the currently visible list.
+
+Step 4. Then, `AttachCommand#execute()` copies each attachment into the `data` directory, to the path `data/attachments/{student number}/{filename}`.
+
+Step 5. Finally, a success message is displayed to the user indicating the number of attachments that have been copied.
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Documentation, logging, testing, configuration, dev-ops**
