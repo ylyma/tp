@@ -24,7 +24,7 @@ import seedu.address.logic.commands.HideCommand;
 import seedu.address.logic.commands.ListBookmarkedCommand;
 import seedu.address.logic.commands.ListCommand;
 import seedu.address.logic.commands.ListHiddenCommand;
-import seedu.address.logic.commands.SortByGpaCommand;
+import seedu.address.logic.commands.SortCommand;
 import seedu.address.logic.commands.UnbookmarkCommand;
 import seedu.address.logic.commands.UnhideAllCommand;
 import seedu.address.logic.commands.UnhideCommand;
@@ -114,8 +114,8 @@ public class AddressBookParser {
         case UnhideAllCommand.COMMAND_WORD:
             return new UnhideAllCommand();
 
-        case SortByGpaCommand.COMMAND_WORD:
-            return new SortByGpaCommand();
+        case SortCommand.COMMAND_WORD:
+            return new SortCommandParser().parse(arguments);
 
         case CommentCommand.COMMAND_WORD:
             return new CommentCommandParser().parse(arguments);
