@@ -116,6 +116,7 @@ An example is shown below.
 **Step 2.** Copy the file to the folder you want to use as the _home folder_ for your TAfinder.
 
 **Step 3.** Double-click on the `tafinder.jar` file to start the app. 
+
 <div markdown="block" class="alert alert-tip">
 
 :bulb: **Tip**
@@ -142,7 +143,7 @@ The GUI similar to the below should appear in a few seconds. ![Ui](images/Ui.png
 
 ### 1.3 Utilisation
 
-**Step 1.** Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and
+**Step 1:** Type the command in the Command Input Box and press Enter to execute it. e.g. typing **`help`** and
 pressing Enter will open the help window.<br>
 Some example commands you can try:
 
@@ -158,7 +159,15 @@ Some example commands you can try:
 
 Refer to the [Features](#features) below for details of each command.
 
-Step 2. Observe the changes to the application.<br>
+<div markdown="block" class="alert alert-tip">
+
+:bulb: **Tip**
+
+You can find out all the usable commands [here](#72-command-summary) or return to the [Table of Contents](#table-of-contents) to find your desired command.
+
+</div>
+
+**Step 2:** Observe the changes to the application.<br>
 
 ### 1.4 Navigating the User Interface
 ![UI with shaded areas](images/tafinder-UI.png)
@@ -170,7 +179,7 @@ The UI has the following areas:
   - This where commands are typed
   - press `Enter` to execute it.
 - <span style="background-color:rgba(255, 112, 112, 1)">Command Result Screen</span>
-  - This is where the result of the command is displayed.
+  - This is where the result of the command is displayed. Applicants are displayed in a list format.
 - <span style="background-color:rgba(170, 210, 232, 1)">Applicant list</span>
   - This is where the list of applicants is displayed.
    
