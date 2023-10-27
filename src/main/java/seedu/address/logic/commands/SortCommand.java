@@ -18,7 +18,7 @@ public class SortCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Sorts all applicants by the given field name.\n"
             + "Parameters: FIELD_NAME\n"
-            + "Example: " + COMMAND_WORD + " -gpa";
+            + "Example: " + COMMAND_WORD + " gpa";
 
     public static final String MESSAGE_SUCCESS = "Sorted all applicants";
 
