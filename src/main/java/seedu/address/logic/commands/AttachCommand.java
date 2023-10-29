@@ -58,10 +58,6 @@ public class AttachCommand extends Command {
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
-        // 1. Read the contents of the existing directory
-        // 2. Copy in all the new attachments, failing first if one of them fails
-        // 3. Add the attachments to the model
-
         requireNonNull(model);
         List<Person> lastShownList = model.getFilteredPersonList();
 
