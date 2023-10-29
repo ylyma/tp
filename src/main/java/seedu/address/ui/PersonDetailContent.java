@@ -47,6 +47,10 @@ public class PersonDetailContent extends UiPart<Region> {
     @FXML
     private FlowPane tags;
     @FXML
+    private Label previousGrade;
+    @FXML
+    private Label interviewScore;
+    @FXML
     private Label comment;
     @FXML
     private FlowPane attachments;
@@ -61,6 +65,8 @@ public class PersonDetailContent extends UiPart<Region> {
         name.setText(person.getName().fullName);
         phone.setText(person.getPhone().value);
         gpa.setText(person.getGpa().toString());
+        previousGrade.setText(person.getPreviousGrade().toString());
+        interviewScore.setText(person.getInterviewScore().map(score -> score.toString()).orElse(""));
         comment.setText(person.getComment().map(comment -> comment.comment).orElse(""));
         email.setText(person.getEmail().value);
         person.getTags().stream()
