@@ -82,8 +82,8 @@ public class ImportCommand extends Command {
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
 
-        String message;
-        List<Person> newApplicants;
+        List<Person> applicants = new ArrayList<>();
+        List<Integer> failureLineNos = new ArrayList<>();
 
         Scanner scanner = null;
         try {
@@ -108,8 +108,6 @@ public class ImportCommand extends Command {
                 fieldIndices.put(fields[i], i);
             }
 
-            List<Person> applicants = new ArrayList<>();
-            List<Integer> failureLineNos = new ArrayList<>();
             int lineNo = 1;
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
@@ -194,32 +192,6 @@ public class ImportCommand extends Command {
                         new IsHidden(false), new IsBookmarked(false));
                 applicants.add(applicant);
             }
-
-            String successMessage = null;
-            if (!applicants.isEmpty()) {
-                successMessage = String.format(MESSAGE_IMPORT_SUCCESS, applicants.size());
-            }
-
-            String failureMessage = null;
-            if (!failureLineNos.isEmpty()) {
-                List<String> lineNos = failureLineNos.stream().map(Object::toString).collect(Collectors.toList());
-                failureMessage = String.format(
-                        MESSAGE_IMPORT_FAILURE,
-                        failureLineNos.size(),
-                        String.join(", ", lineNos));
-            }
-
-            if (successMessage != null && failureMessage != null) {
-                message = successMessage + " " + failureMessage;
-            } else if (successMessage != null) {
-                message = successMessage;
-            } else if (failureMessage != null) {
-                message = failureMessage;
-            } else {
-                message = MESSAGE_IMPORT_NONE;
-            }
-
-            newApplicants = applicants;
         } catch (FileNotFoundException e) {
             throw new CommandException(MESSAGE_FAILED_TO_OPEN, e);
         } finally {
@@ -228,8 +200,38 @@ public class ImportCommand extends Command {
             }
         }
 
-        for (Person applicant : newApplicants) {
+        int newApplicantCount = applicants.size();
+        for (Person applicant : applicants) {
+            if (model.hasPerson(applicant)) {
+                newApplicantCount--;
+                continue;
+            }
             model.addPerson(applicant);
+        }
+
+        String successMessage = null;
+        if (!applicants.isEmpty()) {
+            successMessage = String.format(MESSAGE_IMPORT_SUCCESS, newApplicantCount);
+        }
+
+        String failureMessage = null;
+        if (!failureLineNos.isEmpty()) {
+            List<String> lineNos = failureLineNos.stream().map(Object::toString).collect(Collectors.toList());
+            failureMessage = String.format(
+                    MESSAGE_IMPORT_FAILURE,
+                    failureLineNos.size(),
+                    String.join(", ", lineNos));
+        }
+
+        String message;
+        if (successMessage != null && failureMessage != null) {
+            message = successMessage + " " + failureMessage;
+        } else if (successMessage != null) {
+            message = successMessage;
+        } else if (failureMessage != null) {
+            message = failureMessage;
+        } else {
+            message = MESSAGE_IMPORT_NONE;
         }
 
         return new CommandResult(message);
