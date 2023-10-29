@@ -103,7 +103,6 @@ public class ParserUtil {
         String trimmedGpaString = gpaString.trim();
         double gpa;
         try {
-            System.out.println("GPA GPA GPA " + trimmedGpaString);
             gpa = Double.parseDouble(trimmedGpaString);
         } catch (NumberFormatException e) {
             throw new ParseException(Gpa.MESSAGE_CONSTRAINTS);

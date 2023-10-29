@@ -45,7 +45,7 @@ public class SortComparator implements Comparator<Person> {
             }
         case FIELD_COMMENT:
             if (p1.getComment().isPresent() && p2.getComment().isPresent()) {
-                return p1.getComment().get().comment.compareTo(p2.getComment().get().comment);
+                return p2.getComment().get().comment.length() - p1.getComment().get().comment.length();
             } else if (p1.getComment().isPresent()) {
                 return -1;
             } else if (p2.getComment().isPresent()) {
