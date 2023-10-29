@@ -28,8 +28,10 @@ import seedu.address.model.tag.Tag;
 public class EditCommandParser implements Parser<EditCommand> {
 
     /**
-     * Parses the given {@code String} of arguments in the context of the EditCommand
+     * Parses the given {@code String} of arguments in the context of the
+     * EditCommand
      * and returns an EditCommand object for execution.
+     * 
      * @throws ParseException if the user input does not conform the expected format
      */
     public EditCommand parse(String args) throws ParseException {
@@ -63,10 +65,12 @@ public class EditCommandParser implements Parser<EditCommand> {
             editPersonDescriptor.setGpa(ParserUtil.parseGpa(argMultimap.getValue(PREFIX_GPA).get()));
         }
         if (argMultimap.getValue(PREFIX_PREVIOUS_GRADE).isPresent()) {
-            editPersonDescriptor.setPreviousGrade(ParserUtil.parsePreviousGrade(argMultimap.getValue(PREFIX_PREVIOUS_GRADE).get()));
+            editPersonDescriptor.setPreviousGrade(ParserUtil.parsePreviousGrade(
+                    argMultimap.getValue(PREFIX_PREVIOUS_GRADE).get()));
         }
         if (argMultimap.getValue(PREFIX_INTERVIEW_SCORE).isPresent()) {
-            editPersonDescriptor.setInterviewScore(ParserUtil.parseInterviewScore(argMultimap.getValue(PREFIX_INTERVIEW_SCORE).get()));
+            editPersonDescriptor.setInterviewScore(ParserUtil.parseInterviewScore(
+                    argMultimap.getValue(PREFIX_INTERVIEW_SCORE).get()));
         }
         if (argMultimap.getValue(PREFIX_COMMENT).isPresent()) {
             editPersonDescriptor.setComment(ParserUtil.parseComment(argMultimap.getValue(PREFIX_COMMENT).get()));
@@ -81,8 +85,10 @@ public class EditCommandParser implements Parser<EditCommand> {
     }
 
     /**
-     * Parses {@code Collection<String> tags} into a {@code Set<Tag>} if {@code tags} is non-empty.
-     * If {@code tags} contain only one element which is an empty string, it will be parsed into a
+     * Parses {@code Collection<String> tags} into a {@code Set<Tag>} if
+     * {@code tags} is non-empty.
+     * If {@code tags} contain only one element which is an empty string, it will be
+     * parsed into a
      * {@code Set<Tag>} containing zero tags.
      */
     private Optional<Set<Tag>> parseTagsForEdit(Collection<String> tags) throws ParseException {
