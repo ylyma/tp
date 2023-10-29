@@ -117,7 +117,6 @@ public class ImportCommand extends Command {
 
                 String studentNoString = data[fieldIndices.get(FIELD_STUDENT_NUMBER)];
                 if (!StudentNumber.isValidStudentNumber(studentNoString)) {
-                    System.out.println(studentNoString);
                     failureLineNos.add(lineNo);
                     continue;
                 }
@@ -125,7 +124,6 @@ public class ImportCommand extends Command {
 
                 String nameString = data[fieldIndices.get(FIELD_NAME)];
                 if (!Name.isValidName(nameString)) {
-                    System.out.println(nameString);
                     failureLineNos.add(lineNo);
                     continue;
                 }
@@ -133,7 +131,6 @@ public class ImportCommand extends Command {
 
                 String phoneString = data[fieldIndices.get(FIELD_PHONE)];
                 if (!Phone.isValidPhone(phoneString)) {
-                    System.out.println(phoneString);
                     failureLineNos.add(lineNo);
                     continue;
                 }
@@ -141,7 +138,6 @@ public class ImportCommand extends Command {
 
                 String emailString = data[fieldIndices.get(FIELD_EMAIL)];
                 if (!Email.isValidEmail(emailString)) {
-                    System.out.println(emailString);
                     failureLineNos.add(lineNo);
                     continue;
                 }
@@ -156,7 +152,6 @@ public class ImportCommand extends Command {
                     continue;
                 }
                 if (!Gpa.isValidGpa(gpaDouble)) {
-                    System.out.println(gpaDouble);
                     failureLineNos.add(lineNo);
                     continue;
                 }
@@ -164,13 +159,11 @@ public class ImportCommand extends Command {
 
                 String previousGradeString = data[fieldIndices.get(FIELD_PREVIOUS_GRADE)];
                 if (!PreviousGrade.isValidGrade(previousGradeString)) {
-                    System.out.println(previousGradeString);
                     failureLineNos.add(lineNo);
                     continue;
                 }
                 PreviousGrade previousGrade = new PreviousGrade(previousGradeString);
 
-                System.out.println(Arrays.toString(data));
 
                 String tagsString = data[fieldIndices.get(FIELD_TAGS)];
                 String[] tagStrings = tagsString.split(DATA_ARRAY_DELIM);
@@ -178,8 +171,6 @@ public class ImportCommand extends Command {
                 if (tagStrings.length > 1 || tagStrings.length == 0 || !tagStrings[0].trim().equals("")) {
                     boolean isValid = List.of(tagStrings).stream().map(Tag::isValidTagName).allMatch(v -> v);
                     if (!isValid) {
-                        System.out.println(
-                            List.of(tagStrings).stream().map(Tag::isValidTagName).collect(Collectors.toList()));
                         failureLineNos.add(lineNo);
                         continue;
                     }
