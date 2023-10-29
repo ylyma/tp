@@ -58,7 +58,7 @@ public class PersonListCard extends UiPart<Region> {
         id.setText(displayedIndex + ". ");
         name.setText(person.getName().fullName);
         studentNo.setText(person.getStudentNumber().value);
-        updateBookmarkImage(person.getBookmark().value);
+        updateBookmarkImage(person.getIsBookmarked().value);
         person.getTags()
                 .stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))

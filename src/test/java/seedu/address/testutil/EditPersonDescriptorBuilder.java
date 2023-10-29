@@ -5,14 +5,14 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
-import seedu.address.model.person.Bookmark;
 import seedu.address.model.person.Comment;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gpa;
-import seedu.address.model.person.IsHidden;
+import seedu.address.model.person.InterviewScore;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.PreviousGrade;
 import seedu.address.model.tag.Tag;
 
 
@@ -40,10 +40,14 @@ public class EditPersonDescriptorBuilder {
         descriptor.setPhone(person.getPhone());
         descriptor.setEmail(person.getEmail());
         descriptor.setGpa(person.getGpa());
-        descriptor.setComment(person.getComment());
+        descriptor.setPreviousGrade(person.getPreviousGrade());
+        if (person.getInterviewScore().isPresent()) {
+            descriptor.setInterviewScore(person.getInterviewScore().get());
+        }
+        if (person.getComment().isPresent()) {
+            descriptor.setComment(person.getComment().get());
+        }
         descriptor.setTags(person.getTags());
-        descriptor.setIsHidden(person.getIsHidden());
-        descriptor.setBookmark(person.getBookmark());
     }
 
     /**
@@ -79,6 +83,22 @@ public class EditPersonDescriptorBuilder {
     }
 
     /**
+     * Sets the {@code PreviousGrade} of the {@code EditPersonDescriptor} that we are building.
+     */
+    public EditPersonDescriptorBuilder withPreviousGrade(String grade) {
+        descriptor.setPreviousGrade(new PreviousGrade(grade));
+        return this;
+    }
+
+    /**
+     * Sets the {@code InterviewScore} of the {@code EditPersonDescriptor} that we are building.
+     */
+    public EditPersonDescriptorBuilder withInterviewScore(double score) {
+        descriptor.setInterviewScore(new InterviewScore(score));
+        return this;
+    }
+
+    /**
      * Sets the {@code Comment} of the {@code EditPersonDescriptor} that we are building.
      */
     public EditPersonDescriptorBuilder withComment(String comment) {
@@ -93,22 +113,6 @@ public class EditPersonDescriptorBuilder {
     public EditPersonDescriptorBuilder withTags(String... tags) {
         Set<Tag> tagSet = Stream.of(tags).map(Tag::new).collect(Collectors.toSet());
         descriptor.setTags(tagSet);
-        return this;
-    }
-
-    /**
-     * Sets the {@code IsHidden} of the {@code EditPersonDescriptor} that we are building.
-     */
-    public EditPersonDescriptorBuilder withHidden(boolean isHidden) {
-        descriptor.setIsHidden(new IsHidden(isHidden));
-        return this;
-    }
-
-    /**
-     * Sets the {@code IsHidden} of the {@code EditPersonDescriptor} that we are building.
-     */
-    public EditPersonDescriptorBuilder withBookmark(boolean bookmark) {
-        descriptor.setBookmark(new Bookmark(bookmark));
         return this;
     }
 

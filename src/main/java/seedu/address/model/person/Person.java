@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 import seedu.address.commons.util.ToStringBuilder;
@@ -25,14 +26,18 @@ public class Person {
     private final Name name;
     private final Phone phone;
     private final Email email;
-    private final IsHidden isHidden;
-    private final Bookmark bookmark;
 
     // Data fields
     private final Gpa gpa;
-    private final Comment comment;
+    private final PreviousGrade previousGrade;
+    private final Optional<InterviewScore> interviewScore;
+    private final Optional<Comment> comment;
     private final Set<Tag> tags = new HashSet<>();
     private final List<Attachment> attachments = new ArrayList<>();
+
+    // Flag fields
+    private final IsHidden isHidden;
+    private final IsBookmarked isBookmarked;
 
     /**
      * Every field must be present and not null.
@@ -43,22 +48,26 @@ public class Person {
             Phone phone,
             Email email,
             Gpa gpa,
-            Comment comment,
+            PreviousGrade previousGrade,
+            Optional<InterviewScore> interviewScore,
+            Optional<Comment> comment,
             Set<Tag> tags,
-            IsHidden isHidden,
             List<Attachment> attachments,
-            Bookmark bookmark) {
-        requireAllNonNull(studentNo, name, phone, email, gpa, comment, tags, isHidden);
+            IsHidden isHidden,
+            IsBookmarked isBookmarked) {
+        requireAllNonNull(studentNo, name, phone, email, gpa, previousGrade, tags, isHidden);
         this.studentNo = studentNo;
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.gpa = gpa;
+        this.previousGrade = previousGrade;
+        this.interviewScore = interviewScore;
         this.comment = comment;
         this.tags.addAll(tags);
-        this.isHidden = isHidden;
         this.attachments.addAll(attachments);
-        this.bookmark = bookmark;
+        this.isHidden = isHidden;
+        this.isBookmarked = isBookmarked;
     }
 
     public StudentNumber getStudentNumber() {
@@ -81,11 +90,15 @@ public class Person {
         return this.gpa;
     }
 
-    public Bookmark getBookmark() {
-        return this.bookmark;
+    public PreviousGrade getPreviousGrade() {
+        return this.previousGrade;
     }
 
-    public Comment getComment() {
+    public Optional<InterviewScore> getInterviewScore() {
+        return this.interviewScore;
+    }
+
+    public Optional<Comment> getComment() {
         return this.comment;
     }
 
@@ -99,6 +112,15 @@ public class Person {
     }
 
     /**
+     * Returns an immutable attachment list, which throws
+     * {@code UnsupportedOperationException}
+     * if modification is attempted.
+     */
+    public List<Attachment> getAttachments() {
+        return Collections.unmodifiableList(attachments);
+    }
+
+    /**
      * Returns an immutable isHidden value, which throws
      * {@code UnsupportedOperationException}
      * if modification is attempted.
@@ -108,12 +130,12 @@ public class Person {
     }
 
     /**
-     * Returns an immutable attachment list, which throws
+     * Returns an immutable isBookmarked value, which throws
      * {@code UnsupportedOperationException}
      * if modification is attempted.
      */
-    public List<Attachment> getAttachments() {
-        return Collections.unmodifiableList(attachments);
+    public IsBookmarked getIsBookmarked() {
+        return this.isBookmarked;
     }
 
     /**
@@ -150,18 +172,20 @@ public class Person {
                 && phone.equals(otherPerson.phone)
                 && email.equals(otherPerson.email)
                 && gpa.equals(otherPerson.gpa)
+                && previousGrade.equals(otherPerson.previousGrade)
+                && interviewScore.equals(otherPerson.interviewScore)
                 && comment.equals(otherPerson.comment)
                 && tags.equals(otherPerson.tags)
-                && isHidden.equals(otherPerson.isHidden)
                 && attachments.equals(otherPerson.attachments)
-                && bookmark.equals(otherPerson.bookmark);
-
+                && isHidden.equals(otherPerson.isHidden)
+                && isBookmarked.equals(otherPerson.isBookmarked);
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(studentNo, name, phone, email, gpa, comment, tags, isHidden, attachments);
+        return Objects.hash(studentNo, name, phone, email, gpa, previousGrade, interviewScore, comment, tags, isHidden,
+                attachments);
     }
 
     @Override
@@ -172,12 +196,13 @@ public class Person {
                 .add("phone", phone)
                 .add("email", email)
                 .add("gpa", gpa)
+                .add("previousGrade", previousGrade)
+                .add("interviewScore", interviewScore)
                 .add("comment", comment)
                 .add("tags", tags)
-                .add("hidden", isHidden)
                 .add("attachments", attachments)
-                .add("bookmark", bookmark)
+                .add("isHidden", isHidden)
+                .add("isBookmarked", isBookmarked)
                 .toString();
     }
-
 }

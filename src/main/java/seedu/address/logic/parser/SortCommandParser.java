@@ -5,8 +5,10 @@ import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.FIELD_COMMENT;
 import static seedu.address.logic.parser.CliSyntax.FIELD_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.FIELD_GPA;
+import static seedu.address.logic.parser.CliSyntax.FIELD_INTERVIEW_SCORE;
 import static seedu.address.logic.parser.CliSyntax.FIELD_NAME;
 import static seedu.address.logic.parser.CliSyntax.FIELD_PHONE;
+import static seedu.address.logic.parser.CliSyntax.FIELD_PREVIOUS_GRADE;
 import static seedu.address.logic.parser.CliSyntax.FIELD_STUDENT_NUMBER;
 import static seedu.address.logic.parser.CliSyntax.FIELD_TAGS;
 
@@ -29,7 +31,7 @@ public class SortCommandParser implements Parser<SortCommand> {
         requireNonNull(args);
         String fieldName = args.trim();
         if (!isFieldNameValid(fieldName, FIELD_STUDENT_NUMBER, FIELD_NAME, FIELD_PHONE, FIELD_EMAIL, FIELD_GPA,
-                FIELD_COMMENT, FIELD_TAGS)) {
+                FIELD_COMMENT, FIELD_PREVIOUS_GRADE, FIELD_INTERVIEW_SCORE, FIELD_TAGS)) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, SortCommand.MESSAGE_USAGE));
         }
         return new SortCommand(fieldName);

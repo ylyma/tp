@@ -73,6 +73,30 @@
       <padding>
         <Insets bottom="5" top="5" left="0" right="0" />
       </padding>
+      <Label HBox.hgrow="ALWAYS" styleClass="detail-content-label" text="Previous Grade">
+        <maxWidth>
+          <Double fx:constant="MAX_VALUE" />
+        </maxWidth>
+      </Label>
+      <Label fx:id="previousGrade" styleClass="detail-content-value" />
+    </HBox>
+    <Separator GridPane.rowIndex="10" />
+    <HBox GridPane.rowIndex="11">
+      <padding>
+        <Insets bottom="5" top="5" left="0" right="0" />
+      </padding>
+      <Label HBox.hgrow="ALWAYS" styleClass="detail-content-label" text="Interview Score (optional)">
+        <maxWidth>
+          <Double fx:constant="MAX_VALUE" />
+        </maxWidth>
+      </Label>
+      <Label fx:id="interviewScore" styleClass="detail-content-value" />
+    </HBox>
+    <Separator GridPane.rowIndex="12" />
+    <HBox GridPane.rowIndex="13">
+      <padding>
+        <Insets bottom="5" top="5" left="0" right="0" />
+      </padding>
       <Label HBox.hgrow="ALWAYS" styleClass="detail-content-label" text="Comment (optional)">
         <maxWidth>
           <Double fx:constant="MAX_VALUE" />
@@ -80,8 +104,8 @@
       </Label>
       <Label fx:id="comment" styleClass="detail-content-value" />
     </HBox>
-    <Separator GridPane.rowIndex="10" />
-    <HBox GridPane.rowIndex="11">
+    <Separator GridPane.rowIndex="14" />
+    <HBox GridPane.rowIndex="15">
       <padding>
         <Insets bottom="5" top="5" left="0" right="0" />
       </padding>

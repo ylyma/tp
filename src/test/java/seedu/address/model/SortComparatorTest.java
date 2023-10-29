@@ -83,14 +83,6 @@ public class SortComparatorTest {
     }
 
     @Test
-    public void compare_commentIsDifferent_returnsNonZero() {
-        SortComparator comparator = new SortComparator("comment");
-        Person person1 = new PersonBuilder().withComment("hello").build();
-        Person person2 = new PersonBuilder().withComment("bye").build();
-        assertEquals(-2, comparator.compare(person1, person2));
-    }
-
-    @Test
     public void compare_tagsIsSame_returnsZero() {
         SortComparator comparator = new SortComparator("tags");
         Person person1 = new PersonBuilder().withTags("friends").build();

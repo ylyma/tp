@@ -11,10 +11,14 @@ public class CliSyntax {
     public static final Prefix PREFIX_PHONE = new Prefix("p/");
     public static final Prefix PREFIX_EMAIL = new Prefix("e/");
     public static final Prefix PREFIX_GPA = new Prefix("g/");
+    public static final Prefix PREFIX_PREVIOUS_GRADE = new Prefix("pg/");
+    public static final Prefix PREFIX_INTERVIEW_SCORE = new Prefix("is/");
     public static final Prefix PREFIX_TAG = new Prefix("t/");
     public static final Prefix PREFIX_FILE = new Prefix("f/");
     public static final Prefix PREFIX_COMMENT = new Prefix("c/");
     public static final String FIELD_GPA = "gpa";
+    public static final String FIELD_PREVIOUS_GRADE = "previousGrade";
+    public static final String FIELD_INTERVIEW_SCORE = "interviewScore";
     public static final String FIELD_STUDENT_NUMBER = "studentNo";
     public static final String FIELD_NAME = "name";
     public static final String FIELD_PHONE = "phone";
