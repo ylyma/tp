@@ -14,19 +14,20 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.attachment.Attachment;
 
 /**
- * Parses input arguments and creates a new AttachCommand object
+ * Parses input arguments and creates a new {@code AttachCommand} object
  */
 public class AttachCommandParser implements Parser<AttachCommand> {
 
     /**
-     * Parses the given {@code String} of arguments in the context of the DeleteCommand
-     * and returns a DeleteCommand object for execution.
+     * Parses the given {@code String} of arguments in the context of the
+     * {@code AttachCommand} and returns a {@code AttachCommand} object for
+     * execution.
+     *
      * @throws ParseException if the user input does not conform the expected format
      */
     public AttachCommand parse(String args) throws ParseException {
         requireNonNull(args);
-        ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_FILE);
+        ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_FILE);
 
         Index index;
         try {
@@ -44,8 +45,10 @@ public class AttachCommandParser implements Parser<AttachCommand> {
     }
 
     /**
-     * Parses {@code Collection<String> pathStrings} into a {@code List<Path>} if {@code pathStrings} is non-empty.
-     * If {@code pathStrings} contain only one element which is an empty string, it will be parsed into a
+     * Parses {@code Collection<String> pathStrings} into a {@code List<Path>} if
+     * {@code pathStrings} is non-empty.
+     * If {@code pathStrings} contain only one element which is an empty string, it
+     * will be parsed into a
      * {@code List<Path>} containing zero tags.
      */
     private List<Attachment> parseAttachments(Collection<String> pathStrings) throws ParseException {
