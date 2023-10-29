@@ -2,6 +2,7 @@ package seedu.address.testutil;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import seedu.address.model.attachment.Attachment;
@@ -30,8 +31,6 @@ public class PersonBuilder {
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final double DEFAULT_GPA = 4.0;
     public static final String DEFAULT_PREVIOUS_GRADE = "A-";
-    public static final double DEFAULT_INTERVIEW_SCORE = 0.0;
-    public static final String DEFAULT_COMMENT = "";
     public static final boolean DEFAULT_IS_HIDDEN = false;
     public static final boolean DEFAULT_BOOKMARK = false;
 
@@ -41,8 +40,8 @@ public class PersonBuilder {
     private Email email;
     private Gpa gpa;
     private PreviousGrade previousGrade;
-    private InterviewScore interviewScore;
-    private Comment comment;
+    private Optional<InterviewScore> interviewScore;
+    private Optional<Comment> comment;
     private Set<Tag> tags;
     private List<Attachment> attachments;
     private IsHidden isHidden;
@@ -58,8 +57,8 @@ public class PersonBuilder {
         email = new Email(DEFAULT_EMAIL);
         gpa = new Gpa(DEFAULT_GPA);
         previousGrade = new PreviousGrade(DEFAULT_PREVIOUS_GRADE);
-        interviewScore = new InterviewScore(DEFAULT_INTERVIEW_SCORE);
-        comment = new Comment(DEFAULT_COMMENT);
+        interviewScore = Optional.empty();
+        comment = Optional.empty();
         tags = new HashSet<>();
         isHidden = new IsHidden(DEFAULT_IS_HIDDEN);
         attachments = List.of();
@@ -138,7 +137,7 @@ public class PersonBuilder {
      * Sets the {@code InterviewScore} of the {@code Person} that we are building.
      */
     public PersonBuilder withInterviewScore(double interviewScore) {
-        this.interviewScore = new InterviewScore(interviewScore);
+        this.interviewScore = Optional.of(new InterviewScore(interviewScore));
         return this;
     }
 
@@ -146,7 +145,7 @@ public class PersonBuilder {
      * Sets the {@code Comment} of the {@code Person} that we are building.
      */
     public PersonBuilder withComment(String comment) {
-        this.comment = new Comment(comment);
+        this.comment = Optional.of(new Comment(comment));
         return this;
     }
 

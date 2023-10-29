@@ -12,6 +12,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_STUDENT_NUMBER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Stream;
 
@@ -39,6 +40,7 @@ public class AddCommandParser implements Parser<AddCommand> {
     /**
      * Parses the given {@code String} of arguments in the context of the AddCommand
      * and returns an AddCommand object for execution.
+     *
      * @throws ParseException if the user input does not conform the expected format
      */
     public AddCommand parse(String args) throws ParseException {
@@ -52,7 +54,7 @@ public class AddCommandParser implements Parser<AddCommand> {
                 PREFIX_STUDENT_NUMBER,
                 PREFIX_NAME,
                 PREFIX_GPA,
-                PREFIX_COMMENT,
+                PREFIX_PREVIOUS_GRADE,
                 PREFIX_PHONE,
                 PREFIX_EMAIL)
                 || !argMultimap.getPreamble().isEmpty()) {
@@ -61,20 +63,24 @@ public class AddCommandParser implements Parser<AddCommand> {
         }
 
         argMultimap.verifyNoDuplicatePrefixesFor(
-            PREFIX_STUDENT_NUMBER, PREFIX_NAME, PREFIX_PHONE,
-            PREFIX_EMAIL, PREFIX_GPA, PREFIX_COMMENT
-        );
+                PREFIX_STUDENT_NUMBER, PREFIX_NAME, PREFIX_PHONE,
+                PREFIX_EMAIL, PREFIX_GPA, PREFIX_COMMENT, PREFIX_PREVIOUS_GRADE,
+                PREFIX_INTERVIEW_SCORE);
 
         StudentNumber studentNo = ParserUtil.parseStudentNumber(argMultimap.getValue(PREFIX_STUDENT_NUMBER).get());
         Name name = ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get());
         Phone phone = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
         Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
         Gpa gpa = ParserUtil.parseGpa(argMultimap.getValue(PREFIX_GPA).get());
-        PreviousGrade previousGrade = ParserUtil.parsePreviousGrade(
-                argMultimap.getValue(PREFIX_PREVIOUS_GRADE).get());
-        InterviewScore interviewScore = ParserUtil.parseInterviewScore(
-                argMultimap.getValue(PREFIX_INTERVIEW_SCORE).get());
-        Comment comment = ParserUtil.parseComment(argMultimap.getValue(PREFIX_COMMENT).get());
+        PreviousGrade previousGrade = ParserUtil.parsePreviousGrade(argMultimap.getValue(PREFIX_PREVIOUS_GRADE).get());
+        Optional<String> maybeInterviewScore = argMultimap.getValue(PREFIX_INTERVIEW_SCORE);
+        Optional<InterviewScore> interviewScore = maybeInterviewScore.isPresent()
+                ? Optional.of(ParserUtil.parseInterviewScore(maybeInterviewScore.get()))
+                : Optional.empty();
+        Optional<String> maybeComment = argMultimap.getValue(PREFIX_COMMENT);
+        Optional<Comment> comment = maybeComment.isPresent()
+                ? Optional.of(ParserUtil.parseComment(maybeComment.get()))
+                : Optional.empty();
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
         IsHidden isHidden = new IsHidden(false);
         List<Attachment> attachments = List.of();
@@ -98,7 +104,8 @@ public class AddCommandParser implements Parser<AddCommand> {
     }
 
     /**
-     * Returns true if none of the prefixes contains empty {@code Optional} values in the given
+     * Returns true if none of the prefixes contains empty {@code Optional} values
+     * in the given
      * {@code ArgumentMultimap}.
      */
     private static boolean arePrefixesPresent(ArgumentMultimap argumentMultimap, Prefix... prefixes) {

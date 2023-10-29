@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 import seedu.address.commons.util.ToStringBuilder;
@@ -29,8 +30,8 @@ public class Person {
     // Data fields
     private final Gpa gpa;
     private final PreviousGrade previousGrade;
-    private final InterviewScore interviewScore;
-    private final Comment comment;
+    private final Optional<InterviewScore> interviewScore;
+    private final Optional<Comment> comment;
     private final Set<Tag> tags = new HashSet<>();
     private final List<Attachment> attachments = new ArrayList<>();
 
@@ -48,13 +49,13 @@ public class Person {
             Email email,
             Gpa gpa,
             PreviousGrade previousGrade,
-            InterviewScore interviewScore,
-            Comment comment,
+            Optional<InterviewScore> interviewScore,
+            Optional<Comment> comment,
             Set<Tag> tags,
             List<Attachment> attachments,
             IsHidden isHidden,
             IsBookmarked isBookmarked) {
-        requireAllNonNull(studentNo, name, phone, email, gpa, previousGrade, comment, tags, isHidden);
+        requireAllNonNull(studentNo, name, phone, email, gpa, previousGrade, tags, isHidden);
         this.studentNo = studentNo;
         this.name = name;
         this.phone = phone;
@@ -93,11 +94,11 @@ public class Person {
         return this.previousGrade;
     }
 
-    public InterviewScore getInterviewScore() {
+    public Optional<InterviewScore> getInterviewScore() {
         return this.interviewScore;
     }
 
-    public Comment getComment() {
+    public Optional<Comment> getComment() {
         return this.comment;
     }
 

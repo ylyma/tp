@@ -2,7 +2,6 @@ package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.parser.CliSyntax.FIELD_COMMENT;
 import static seedu.address.logic.parser.CliSyntax.FIELD_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.FIELD_GPA;
 import static seedu.address.logic.parser.CliSyntax.FIELD_NAME;
@@ -29,7 +28,7 @@ public class SortCommandParser implements Parser<SortCommand> {
         requireNonNull(args);
         String fieldName = args.trim();
         if (!isFieldNameValid(fieldName, FIELD_STUDENT_NUMBER, FIELD_NAME, FIELD_PHONE, FIELD_EMAIL, FIELD_GPA,
-                FIELD_COMMENT, FIELD_TAGS)) {
+                FIELD_TAGS)) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, SortCommand.MESSAGE_USAGE));
         }
         return new SortCommand(fieldName);

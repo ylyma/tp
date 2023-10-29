@@ -40,8 +40,12 @@ public class PersonUtil {
         sb.append(PREFIX_EMAIL + person.getEmail().value + " ");
         sb.append(PREFIX_GPA + "" + person.getGpa().value + " ");
         sb.append(PREFIX_PREVIOUS_GRADE + "" + person.getPreviousGrade().toString() + " ");
-        sb.append(PREFIX_INTERVIEW_SCORE + "" + person.getInterviewScore().value + " ");
-        sb.append(PREFIX_COMMENT + person.getComment().comment + " ");
+        if (person.getInterviewScore().isPresent()) {
+            sb.append(PREFIX_INTERVIEW_SCORE + "" + person.getInterviewScore().get().value + " ");
+        }
+        if (person.getComment().isPresent()) {
+            sb.append(PREFIX_COMMENT + person.getComment().get().comment + " ");
+        }
         person.getTags().stream().forEach(
                 s -> sb.append(PREFIX_TAG + s.tagName + " "));
         return sb.toString();

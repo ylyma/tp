@@ -3,6 +3,7 @@ package seedu.address.storage;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -90,8 +91,8 @@ class JsonAdaptedPerson {
         email = source.getEmail().value;
         gpa = source.getGpa().value;
         previousGrade = source.getPreviousGrade().toString();
-        interviewScore = source.getInterviewScore().value;
-        comment = source.getComment().comment;
+        interviewScore = source.getInterviewScore().map(score -> score.value).orElse(null);
+        comment = source.getComment().map(comment -> comment.comment).orElse(null);
         tags.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
@@ -121,8 +122,7 @@ class JsonAdaptedPerson {
         }
 
         if (studentNo == null) {
-            throw new IllegalValueException(
-                    String.format(
+            throw new IllegalValueException(String.format(
                             MISSING_FIELD_MESSAGE_FORMAT,
                             StudentNumber.class.getSimpleName()));
         }
@@ -172,23 +172,19 @@ class JsonAdaptedPerson {
         }
         final PreviousGrade modelPreviousGrade = new PreviousGrade(previousGrade);
 
-        if (interviewScore == null) {
-            throw new IllegalValueException(
-                    String.format(MISSING_FIELD_MESSAGE_FORMAT, InterviewScore.class.getSimpleName()));
-        }
-        if (!InterviewScore.isValidInterviewScore(interviewScore)) {
+        if (interviewScore != null && !InterviewScore.isValidInterviewScore(interviewScore)) {
             throw new IllegalValueException(InterviewScore.MESSAGE_CONSTRAINTS);
         }
-        final InterviewScore modelInterviewScore = new InterviewScore(interviewScore);
+        final Optional<InterviewScore> modelInterviewScore = interviewScore != null
+                ? Optional.of(new InterviewScore(interviewScore))
+                : Optional.empty();
 
-        if (comment == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Comment.class.getSimpleName()));
-        }
-        if (!Comment.isValidComment(comment)) {
+        if (comment != null && !Comment.isValidComment(comment)) {
             throw new IllegalValueException(Comment.MESSAGE_CONSTRAINTS);
         }
-
-        final Comment modelComment = new Comment(comment);
+        final Optional<Comment> modelComment = comment != null
+                ? Optional.of(new Comment(comment))
+                : Optional.empty();
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
 

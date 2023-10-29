@@ -37,8 +37,10 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COMMENT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_GPA;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_INTERVIEW_SCORE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PREVIOUS_GRADE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STUDENT_NUMBER;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
@@ -116,7 +118,8 @@ public class AddCommandParserTest {
                 validExpectedPersonString + PHONE_DESC_AMY + EMAIL_DESC_AMY + NAME_DESC_AMY + GPA_DESC_AMY
                         + validExpectedPersonString,
                 Messages.getErrorMessageForDuplicatePrefixes(
-                        PREFIX_STUDENT_NUMBER, PREFIX_NAME, PREFIX_GPA, PREFIX_COMMENT, PREFIX_EMAIL, PREFIX_PHONE));
+                        PREFIX_STUDENT_NUMBER, PREFIX_NAME, PREFIX_GPA, PREFIX_PREVIOUS_GRADE,
+                        PREFIX_INTERVIEW_SCORE, PREFIX_COMMENT, PREFIX_EMAIL, PREFIX_PHONE));
 
         // invalid value followed by valid value
 

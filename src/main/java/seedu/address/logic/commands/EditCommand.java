@@ -108,9 +108,9 @@ public class EditCommand extends Command {
         Gpa updatedGpa = editPersonDescriptor.getGpa().orElse(personToEdit.getGpa());
         PreviousGrade updatedPreviousGrade = editPersonDescriptor.getPreviousGrade()
                 .orElse(personToEdit.getPreviousGrade());
-        InterviewScore updatedInterviewScore = editPersonDescriptor.getInterviewScore()
-                .orElse(personToEdit.getInterviewScore());
-        Comment updatedComment = editPersonDescriptor.getComment().orElse(personToEdit.getComment());
+        Optional<InterviewScore> updatedInterviewScore = editPersonDescriptor.getInterviewScore()
+                .or(() -> personToEdit.getInterviewScore());
+        Optional<Comment> updatedComment = editPersonDescriptor.getComment().or(() -> personToEdit.getComment());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
         StudentNumber studentNo = personToEdit.getStudentNumber();

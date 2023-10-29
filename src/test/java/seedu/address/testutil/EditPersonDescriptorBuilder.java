@@ -41,8 +41,12 @@ public class EditPersonDescriptorBuilder {
         descriptor.setEmail(person.getEmail());
         descriptor.setGpa(person.getGpa());
         descriptor.setPreviousGrade(person.getPreviousGrade());
-        descriptor.setInterviewScore(person.getInterviewScore());
-        descriptor.setComment(person.getComment());
+        if (person.getInterviewScore().isPresent()) {
+            descriptor.setInterviewScore(person.getInterviewScore().get());
+        }
+        if (person.getComment().isPresent()) {
+            descriptor.setComment(person.getComment().get());
+        }
         descriptor.setTags(person.getTags());
     }
 

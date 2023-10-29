@@ -4,6 +4,7 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
 import java.util.List;
+import java.util.Optional;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.Messages;
@@ -61,7 +62,7 @@ public class CommentCommand extends Command {
                 personToEdit.getGpa(),
                 personToEdit.getPreviousGrade(),
                 personToEdit.getInterviewScore(),
-                comment,
+                Optional.of(comment),
                 personToEdit.getTags(),
                 personToEdit.getAttachments(),
                 personToEdit.getIsHidden(),

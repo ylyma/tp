@@ -8,8 +8,7 @@
     "gpa" : "2.9",
     "tags" : [ "friends" ],
     "previousGrade": "A+",
-    "interviewScore": "3.2",
-    "comment": ""
+    "interviewScore": "3.2"
   }, {
     "studentNo": "A9473847C",
     "name" : "Benson Meier",
@@ -19,7 +18,7 @@
     "previousGrade": "A+",
     "interviewScore": "3.2",
     "tags" : [ "owesMoney", "friends" ],
-    "comment": ""
+    "comment": "This is a comment"
   }, {
     "studentNo": "A0437563D",
     "name" : "Carl Kurz",
@@ -28,8 +27,7 @@
     "gpa" : "4.0",
     "previousGrade": "A+",
     "interviewScore": "3.2",
-    "tags" : [ ],
-    "comment": ""
+    "tags" : [ ]
   }, {
     "studentNo": "A0453552G",
     "name" : "Daniel Meier",
@@ -38,8 +36,7 @@
     "gpa" : "3.0",
     "previousGrade": "A+",
     "interviewScore": "3.2",
-    "tags" : [ "friends" ],
-    "comment": ""
+    "tags" : [ "friends" ]
   }, {
     "studentNo": "A0348574E",
     "name" : "Elle Meyer",
@@ -48,8 +45,7 @@
     "gpa" : "1.0",
     "previousGrade": "A+",
     "interviewScore": "3.2",
-    "tags" : [ ],
-    "comment": ""
+    "tags" : [ ]
   }, {
     "studentNo": "A0434534C",
     "name" : "Fiona Kunz",
@@ -58,8 +54,7 @@
     "gpa" : "2.0",
     "previousGrade": "A+",
     "interviewScore": "3.2",
-    "tags" : [ ],
-    "comment": ""
+    "tags" : [ ]
   }, {
     "studentNo": "A0483728F",
     "name" : "George Best",
@@ -68,7 +63,6 @@
     "gpa" : "4.0",
     "previousGrade": "A+",
     "interviewScore": "3.2",
-    "tags" : [ ],
-    "comment": ""
+    "tags" : [ ]
   } ]
 }

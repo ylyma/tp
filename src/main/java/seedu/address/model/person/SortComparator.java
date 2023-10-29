@@ -1,6 +1,5 @@
 package seedu.address.model.person;
 
-import static seedu.address.logic.parser.CliSyntax.FIELD_COMMENT;
 import static seedu.address.logic.parser.CliSyntax.FIELD_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.FIELD_GPA;
 import static seedu.address.logic.parser.CliSyntax.FIELD_NAME;
@@ -15,9 +14,11 @@ import java.util.Comparator;
  */
 public class SortComparator implements Comparator<Person> {
     private final String fieldName;
+
     public SortComparator(String fieldName) {
         this.fieldName = fieldName;
     }
+
     @Override
     public int compare(Person p1, Person p2) {
         switch (fieldName) {
@@ -31,8 +32,6 @@ public class SortComparator implements Comparator<Person> {
             return p1.getPhone().value.compareTo(p2.getPhone().value);
         case FIELD_EMAIL:
             return p1.getEmail().value.compareTo(p2.getEmail().value);
-        case FIELD_COMMENT:
-            return p2.getComment().comment.length() - p1.getComment().comment.length();
         case FIELD_TAGS:
             return p2.getTags().size() - p1.getTags().size();
         default:

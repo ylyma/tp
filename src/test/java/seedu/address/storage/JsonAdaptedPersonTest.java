@@ -32,8 +32,8 @@ public class JsonAdaptedPersonTest {
     private static final String VALID_EMAIL = BENSON.getEmail().toString();
     private static final double VALID_GPA = BENSON.getGpa().value;
     private static final String VALID_PREVIOUS_GRADE = BENSON.getPreviousGrade().toString();
-    private static final double VALID_INTERVIEW_SCORE = BENSON.getInterviewScore().value;
-    private static final String VALID_COMMENT = BENSON.getComment().comment;
+    private static final double VALID_INTERVIEW_SCORE = BENSON.getInterviewScore().get().value;
+    private static final String VALID_COMMENT = BENSON.getComment().get().comment;
     private static final List<JsonAdaptedTag> VALID_TAGS = BENSON.getTags().stream()
             .map(JsonAdaptedTag::new)
             .collect(Collectors.toList());

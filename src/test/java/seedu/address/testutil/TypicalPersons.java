@@ -38,7 +38,6 @@ public class TypicalPersons {
             .withGpa(2.9)
             .withPreviousGrade("A+")
             .withInterviewScore(3.2)
-            .withComment("")
             .withEmail("alice@example.com")
             .withPhone("94351253")
             .withTags("friends")
@@ -49,7 +48,7 @@ public class TypicalPersons {
             .withGpa(4.9)
             .withPreviousGrade("A+")
             .withInterviewScore(3.2)
-            .withComment("")
+            .withComment("This is a comment")
             .withEmail("johnd@example.com")
             .withPhone("98765432")
             .withTags("owesMoney", "friends")
@@ -62,7 +61,6 @@ public class TypicalPersons {
             .withGpa(4.0)
             .withPreviousGrade("A+")
             .withInterviewScore(3.2)
-            .withComment("")
             .withAttachments()
             .build();
     public static final Person DANIEL = new PersonBuilder()
@@ -73,7 +71,6 @@ public class TypicalPersons {
             .withGpa(3.0)
             .withPreviousGrade("A+")
             .withInterviewScore(3.2)
-            .withComment("")
             .withTags("friends")
             .withAttachments()
             .build();
@@ -85,7 +82,6 @@ public class TypicalPersons {
             .withGpa(1.0)
             .withPreviousGrade("A+")
             .withInterviewScore(3.2)
-            .withComment("")
             .withAttachments()
             .build();
     public static final Person FIONA = new PersonBuilder()
@@ -96,7 +92,6 @@ public class TypicalPersons {
             .withGpa(2.0)
             .withPreviousGrade("A+")
             .withInterviewScore(3.2)
-            .withComment("")
             .withAttachments()
             .build();
     public static final Person GEORGE = new PersonBuilder()
@@ -112,11 +107,11 @@ public class TypicalPersons {
 
     // Manually added
     public static final Person HOON = new PersonBuilder().withStudentNumber("A0348483G").withName("Hoon Meier")
-            .withPhone("8482424").withEmail("stefan@example.com").withGpa(0.1).withComment("")
+            .withPhone("8482424").withEmail("stefan@example.com").withGpa(0.1)
             .withAttachments().build();
 
     public static final Person IDA = new PersonBuilder().withStudentNumber("A3974743C").withName("Ida Mueller")
-            .withPhone("8482131").withEmail("hans@example.com").withGpa(0.5).withComment("")
+            .withPhone("8482131").withEmail("hans@example.com").withGpa(0.5)
             .withAttachments().build();
 
     // Manually added - Person's details found in {@code CommandTestUtil}

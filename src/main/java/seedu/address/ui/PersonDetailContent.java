@@ -61,7 +61,7 @@ public class PersonDetailContent extends UiPart<Region> {
         name.setText(person.getName().fullName);
         phone.setText(person.getPhone().value);
         gpa.setText(person.getGpa().toString());
-        comment.setText(person.getComment().toString());
+        comment.setText(person.getComment().map(comment -> comment.comment).orElse(""));
         email.setText(person.getEmail().value);
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
