@@ -1,11 +1,9 @@
-package seedu.address.model;
+package seedu.address.model.person;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.model.person.Person;
-import seedu.address.model.person.SortComparator;
 import seedu.address.testutil.PersonBuilder;
 
 public class SortComparatorTest {
