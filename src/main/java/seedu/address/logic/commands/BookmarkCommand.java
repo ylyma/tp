@@ -10,7 +10,7 @@ import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.person.Bookmark;
+import seedu.address.model.person.IsBookmarked;
 import seedu.address.model.person.Person;
 
 
@@ -57,11 +57,13 @@ public class BookmarkCommand extends Command {
                 personToBookmark.getPhone(),
                 personToBookmark.getEmail(),
                 personToBookmark.getGpa(),
+                personToBookmark.getPreviousGrade(),
+                personToBookmark.getInterviewScore(),
                 personToBookmark.getComment(),
                 personToBookmark.getTags(),
-                personToBookmark.getIsHidden(),
                 personToBookmark.getAttachments(),
-                new Bookmark(true));
+                personToBookmark.getIsHidden(),
+                new IsBookmarked(true));
         model.setPerson(personToBookmark, bookmarkedPerson);
         return new CommandResult(String.format(MESSAGE_BOOKMARK_APPLICANT_SUCCESS, targetIndex.getOneBased()));
     }

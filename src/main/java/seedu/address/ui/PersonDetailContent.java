@@ -5,7 +5,6 @@ import java.util.Comparator;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
@@ -14,30 +13,31 @@ import seedu.address.model.person.Person;
 /**
  * An UI component that displays information of a {@code Person}.
  */
-public class PersonCard extends UiPart<Region> {
+public class PersonDetailContent extends UiPart<Region> {
 
-    private static final String FXML = "PersonListCard.fxml";
+    private static final String FXML = "PersonDetailContent.fxml";
+
     private static final Image BOOKMARKED = new Image(
-            PersonCard.class.getResourceAsStream("/images/bookmarked.png"));
+            PersonDetailContent.class.getResourceAsStream("/images/bookmarked.png"));
     private static final Image NOT_BOOKMARKED = new Image(
-            PersonCard.class.getResourceAsStream("/images/unbookmarked.png"));
+            PersonDetailContent.class.getResourceAsStream("/images/unbookmarked.png"));
 
     /**
-     * Note: Certain keywords such as "location" and "resources" are reserved keywords in JavaFX.
+     * Note: Certain keywords such as "location" and "resources" are reserved
+     * keywords in JavaFX.
      * As a consequence, UI elements' variable names cannot be set to such keywords
      * or an exception will be thrown by JavaFX during runtime.
      *
-     * @see <a href="https://github.com/se-edu/addressbook-level4/issues/336">The issue on AddressBook level 4</a>
+     * @see <a href="https://github.com/se-edu/addressbook-level4/issues/336">The
+     *      issue on AddressBook level 4</a>
      */
 
     public final Person person;
 
     @FXML
-    private HBox cardPane;
+    private HBox detailsPane;
     @FXML
     private Label name;
-    @FXML
-    private Label id;
     @FXML
     private Label phone;
     @FXML
@@ -47,24 +47,27 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private FlowPane tags;
     @FXML
+    private Label previousGrade;
+    @FXML
+    private Label interviewScore;
+    @FXML
     private Label comment;
     @FXML
     private FlowPane attachments;
-    @FXML
-    private ImageView bookmarkImageView;
 
     /**
      * Creates a {@code PersonCode} with the given {@code Person} and index to
      * display.
      */
-    public PersonCard(Person person, int displayedIndex) {
+    public PersonDetailContent(Person person) {
         super(FXML);
         this.person = person;
-        id.setText(displayedIndex + ". ");
         name.setText(person.getName().fullName);
         phone.setText(person.getPhone().value);
         gpa.setText(person.getGpa().toString());
-        comment.setText(person.getComment().toString());
+        previousGrade.setText(person.getPreviousGrade().toString());
+        interviewScore.setText(person.getInterviewScore().map(score -> score.toString()).orElse(""));
+        comment.setText(person.getComment().map(comment -> comment.comment).orElse(""));
         email.setText(person.getEmail().value);
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
@@ -73,19 +76,5 @@ public class PersonCard extends UiPart<Region> {
                 .sorted(Comparator.comparing(attachment -> attachment.toString()))
                 .forEach(attachment -> attachments.getChildren()
                         .add(new Label(attachment.file.toPath().getFileName().toString())));
-        updateBookmarkImage(person.getBookmark().value);
-    }
-
-    /**
-     * Updates the bookmark image view based on the provided bookmark value.
-     */
-    private void updateBookmarkImage(Boolean bookmarked) {
-        Image img;
-        if (bookmarked) {
-            img = PersonCard.BOOKMARKED;
-        } else {
-            img = NOT_BOOKMARKED;
-        }
-        bookmarkImageView.setImage(img);
     }
 }

@@ -14,10 +14,10 @@ public class BookmarkPredicateTest {
     public void equals() {
         boolean firstPredicateBookmark = true;
         boolean secondPredicateBookmark = false;
-        BookmarkPredicate firstPredicate = new BookmarkPredicate(firstPredicateBookmark);
-        BookmarkPredicate secondPredicate = new BookmarkPredicate(secondPredicateBookmark);
+        IsBookmarkedPredicate firstPredicate = new IsBookmarkedPredicate(firstPredicateBookmark);
+        IsBookmarkedPredicate secondPredicate = new IsBookmarkedPredicate(secondPredicateBookmark);
         assertTrue(firstPredicate.equals(firstPredicate));
-        BookmarkPredicate firstPredicateCopy = new BookmarkPredicate(firstPredicateBookmark);
+        IsBookmarkedPredicate firstPredicateCopy = new IsBookmarkedPredicate(firstPredicateBookmark);
         assertTrue(firstPredicate.equals(firstPredicateCopy));
         assertFalse(firstPredicate.equals(1));
         assertFalse(firstPredicate.equals(null));
@@ -27,21 +27,21 @@ public class BookmarkPredicateTest {
 
     @Test
     public void test_isHidden_returnsTrue() {
-        BookmarkPredicate predicate = new BookmarkPredicate(true);
+        IsBookmarkedPredicate predicate = new IsBookmarkedPredicate(true);
         assertTrue(predicate.test(new PersonBuilder().withBookmark(true).build()));
     }
 
     @Test
     public void test_isHidden_returnsFalse() {
-        BookmarkPredicate predicate = new BookmarkPredicate(false);
+        IsBookmarkedPredicate predicate = new IsBookmarkedPredicate(false);
         assertFalse(predicate.test(new PersonBuilder().withBookmark(true).build()));
     }
 
     @Test
     public void toStringMethod() {
-        BookmarkPredicate predicate = new BookmarkPredicate(true);
+        IsBookmarkedPredicate predicate = new IsBookmarkedPredicate(true);
 
-        String expected = BookmarkPredicate.class.getCanonicalName() + "{isBookmarked=" + true + "}";
+        String expected = IsBookmarkedPredicate.class.getCanonicalName() + "{isBookmarked=" + true + "}";
         assertEquals(expected, predicate.toString());
     }
 }

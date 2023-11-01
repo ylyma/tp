@@ -69,11 +69,13 @@ public class HideCommand extends Command {
                 personToHide.getPhone(),
                 personToHide.getEmail(),
                 personToHide.getGpa(),
+                personToHide.getPreviousGrade(),
+                personToHide.getInterviewScore(),
                 personToHide.getComment(),
                 personToHide.getTags(),
-                new IsHidden(true),
                 personToHide.getAttachments(),
-                personToHide.getBookmark());
+                new IsHidden(true),
+                personToHide.getIsBookmarked());
     }
 
     @Override

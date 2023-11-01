@@ -82,9 +82,9 @@ private Label address;
 
 ``` xml
 ...
-<Label fx:id="phone" styleClass="cell_small_label" text="\$phone" />
-<Label fx:id="address" styleClass="cell_small_label" text="\$address" />
-<Label fx:id="email" styleClass="cell_small_label" text="\$email" />
+<Label fx:id="phone" styleClass="cell-small-label" text="\$phone" />
+<Label fx:id="address" styleClass="cell-small-label" text="\$address" />
+<Label fx:id="email" styleClass="cell-small-label" text="\$email" />
 ...
 ```
 

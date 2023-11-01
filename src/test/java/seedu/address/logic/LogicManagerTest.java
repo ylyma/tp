@@ -6,8 +6,10 @@ import static seedu.address.logic.Messages.MESSAGE_UNKNOWN_COMMAND;
 import static seedu.address.logic.commands.CommandTestUtil.COMMENT_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.GPA_DESC_AMY;
+import static seedu.address.logic.commands.CommandTestUtil.INTERVIEW_SCORE_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_AMY;
+import static seedu.address.logic.commands.CommandTestUtil.PREVIOUS_GRADE_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.STUDENT_NUMBER_DESC_AMY;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalPersons.AMY;
@@ -168,7 +170,7 @@ public class LogicManagerTest {
 
         // Triggers the saveAddressBook method by executing an add command
         String addCommand = AddCommand.COMMAND_WORD + STUDENT_NUMBER_DESC_AMY + NAME_DESC_AMY + PHONE_DESC_AMY
-                + EMAIL_DESC_AMY + GPA_DESC_AMY + COMMENT_DESC_AMY;
+                + EMAIL_DESC_AMY + GPA_DESC_AMY + PREVIOUS_GRADE_DESC_AMY + INTERVIEW_SCORE_DESC_AMY + COMMENT_DESC_AMY;
         Person expectedPerson = new PersonBuilder(AMY).withTags().withAttachments().build();
         ModelManager expectedModel = new ModelManager();
         expectedModel.addPerson(expectedPerson);

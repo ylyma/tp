@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
+
+<GridPane alignment="CENTER" gridLinesVisible="true" hgap="10.0" style="-fx-background-color: #616B6f;" vgap="10" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <padding>
+        <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
+    </padding>
+    <Label fx:id="person1Name" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="80.0" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="1" />
+    <Label fx:id="nameLabel" alignment="CENTER" prefWidth="40.0" text="Name" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+    <Label fx:id="person2Name" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="81.0" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+    <Label fx:id="person1Gpa" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="79.0" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="2" />
+    <Label fx:id="gpaLabel" text="GPA" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+    <Label fx:id="person2Gpa" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="79.0" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+   <Label fx:id="stuNumLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" text="Student No." textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" />
+   <Label fx:id="interviewScoreLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="105.0" text="Interview Score" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+   <Label fx:id="moduleGradeLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="105.0" text="Module Grade" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+   <Label fx:id="ccaNumberLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="105.0" text="CCA Number" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+   <Rectangle fx:id="gpa1Highlight" arcHeight="5.0" arcWidth="5.0" fill="#ffe100" height="25.0" opacity="0.0" stroke="WHITE" strokeType="INSIDE" width="80.0" GridPane.rowIndex="2" />
+   <Rectangle fx:id="gpa2Highlight" arcHeight="5.0" arcWidth="5.0" fill="#ffe100" height="25.0" opacity="0.0" stroke="WHITE" strokeType="INSIDE" width="80.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+   <Label fx:id="person1StuNum" alignment="CENTER" prefHeight="17.0" prefWidth="79.0" textAlignment="CENTER" textFill="WHITE" />
+   <Label fx:id="person2StuNum" alignment="CENTER" prefHeight="17.0" prefWidth="79.0" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="2" />
+   <columnConstraints>
+      <ColumnConstraints prefWidth="80.0" />
+      <ColumnConstraints prefWidth="100.0" />
+      <ColumnConstraints prefWidth="80.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints prefHeight="25.0" />
+      <RowConstraints maxHeight="66.00002034505209" minHeight="15.333333333333343" prefHeight="25.0" />
+      <RowConstraints maxHeight="66.00002034505209" minHeight="10.666656494140625" prefHeight="25.0" />
+      <RowConstraints maxHeight="66.00002034505209" minHeight="15.333333333333343" prefHeight="25.0" />
+      <RowConstraints maxHeight="66.00002034505209" minHeight="15.333333333333343" prefHeight="25.0" />
+      <RowConstraints maxHeight="66.00002034505209" minHeight="15.333333333333343" prefHeight="25.0" />
+      <RowConstraints maxHeight="60.0" minHeight="9.33331298828125" prefHeight="50.0" />
+   </rowConstraints>
+</GridPane>

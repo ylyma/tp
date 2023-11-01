@@ -9,21 +9,21 @@ public class BookmarkTest {
 
     @Test
     public void equals() {
-        Bookmark bookmark = new Bookmark(true);
+        IsBookmarked isBookmarked = new IsBookmarked(true);
 
         // same values -> returns true
-        assertTrue(bookmark.equals(new Bookmark(true)));
+        assertTrue(isBookmarked.equals(new IsBookmarked(true)));
 
         // same object -> returns true
-        assertTrue(bookmark.equals(bookmark));
+        assertTrue(isBookmarked.equals(isBookmarked));
 
         // null -> returns false
-        assertFalse(bookmark.equals(null));
+        assertFalse(isBookmarked.equals(null));
 
         // different types -> returns false
-        assertFalse(bookmark.equals("Test"));
+        assertFalse(isBookmarked.equals("Test"));
 
         // different values -> returns false
-        assertFalse(bookmark.equals(new Bookmark(false)));
+        assertFalse(isBookmarked.equals(new IsBookmarked(false)));
     }
 }

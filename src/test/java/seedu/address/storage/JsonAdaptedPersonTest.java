@@ -31,7 +31,9 @@ public class JsonAdaptedPersonTest {
     private static final String VALID_PHONE = BENSON.getPhone().toString();
     private static final String VALID_EMAIL = BENSON.getEmail().toString();
     private static final double VALID_GPA = BENSON.getGpa().value;
-    private static final String VALID_COMMENT = BENSON.getComment().comment;
+    private static final String VALID_PREVIOUS_GRADE = BENSON.getPreviousGrade().toString();
+    private static final double VALID_INTERVIEW_SCORE = BENSON.getInterviewScore().get().value;
+    private static final String VALID_COMMENT = BENSON.getComment().get().comment;
     private static final List<JsonAdaptedTag> VALID_TAGS = BENSON.getTags().stream()
             .map(JsonAdaptedTag::new)
             .collect(Collectors.toList());
@@ -39,7 +41,7 @@ public class JsonAdaptedPersonTest {
     private static final List<JsonAdaptedAttachment> VALID_ATTACHMENTS = BENSON.getAttachments().stream()
             .map(JsonAdaptedAttachment::new)
             .collect(Collectors.toList());
-    private static final boolean VALID_BOOKMARK = BENSON.getBookmark().value;
+    private static final boolean VALID_IS_BOOKMARKED = BENSON.getIsBookmarked().value;
 
     @Test
     public void toModelType_validPersonDetails_returnsPerson() throws Exception {
@@ -55,11 +57,13 @@ public class JsonAdaptedPersonTest {
             VALID_PHONE,
             VALID_EMAIL,
             VALID_GPA,
+            VALID_PREVIOUS_GRADE,
+            VALID_INTERVIEW_SCORE,
             VALID_COMMENT,
             VALID_TAGS,
-            VALID_IS_HIDDEN,
             VALID_ATTACHMENTS,
-            VALID_BOOKMARK
+            VALID_IS_HIDDEN,
+            VALID_IS_BOOKMARKED
         );
         String expectedMessage = StudentNumber.MESSAGE_CONSTRAINTS;
         assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
@@ -73,11 +77,13 @@ public class JsonAdaptedPersonTest {
             VALID_PHONE,
             VALID_EMAIL,
             VALID_GPA,
+            VALID_PREVIOUS_GRADE,
+            VALID_INTERVIEW_SCORE,
             VALID_COMMENT,
             VALID_TAGS,
-            VALID_IS_HIDDEN,
             VALID_ATTACHMENTS,
-            VALID_BOOKMARK
+            VALID_IS_HIDDEN,
+            VALID_IS_BOOKMARKED
         );
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, StudentNumber.class.getSimpleName());
         assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
@@ -92,11 +98,13 @@ public class JsonAdaptedPersonTest {
             VALID_PHONE,
             VALID_EMAIL,
             VALID_GPA,
+            VALID_PREVIOUS_GRADE,
+            VALID_INTERVIEW_SCORE,
             VALID_COMMENT,
             VALID_TAGS,
-            VALID_IS_HIDDEN,
             VALID_ATTACHMENTS,
-            VALID_BOOKMARK
+            VALID_IS_HIDDEN,
+            VALID_IS_BOOKMARKED
         );
         String expectedMessage = Name.MESSAGE_CONSTRAINTS;
         assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
@@ -110,11 +118,13 @@ public class JsonAdaptedPersonTest {
             VALID_PHONE,
             VALID_EMAIL,
             VALID_GPA,
+            VALID_PREVIOUS_GRADE,
+            VALID_INTERVIEW_SCORE,
             VALID_COMMENT,
             VALID_TAGS,
-            VALID_IS_HIDDEN,
             VALID_ATTACHMENTS,
-            VALID_BOOKMARK
+            VALID_IS_HIDDEN,
+            VALID_IS_BOOKMARKED
         );
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName());
         assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
@@ -128,11 +138,13 @@ public class JsonAdaptedPersonTest {
             INVALID_PHONE,
             VALID_EMAIL,
             VALID_GPA,
+            VALID_PREVIOUS_GRADE,
+            VALID_INTERVIEW_SCORE,
             VALID_COMMENT,
             VALID_TAGS,
-            VALID_IS_HIDDEN,
             VALID_ATTACHMENTS,
-            VALID_BOOKMARK
+            VALID_IS_HIDDEN,
+            VALID_IS_BOOKMARKED
         );
         String expectedMessage = Phone.MESSAGE_CONSTRAINTS;
         assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
@@ -146,11 +158,13 @@ public class JsonAdaptedPersonTest {
             null,
             VALID_EMAIL,
             VALID_GPA,
+            VALID_PREVIOUS_GRADE,
+            VALID_INTERVIEW_SCORE,
             VALID_COMMENT,
             VALID_TAGS,
-            VALID_IS_HIDDEN,
             VALID_ATTACHMENTS,
-            VALID_BOOKMARK
+            VALID_IS_HIDDEN,
+            VALID_IS_BOOKMARKED
         );
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Phone.class.getSimpleName());
         assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
@@ -164,11 +178,13 @@ public class JsonAdaptedPersonTest {
             VALID_PHONE,
             INVALID_EMAIL,
             VALID_GPA,
+            VALID_PREVIOUS_GRADE,
+            VALID_INTERVIEW_SCORE,
             VALID_COMMENT,
             VALID_TAGS,
-            VALID_IS_HIDDEN,
             VALID_ATTACHMENTS,
-            VALID_BOOKMARK
+            VALID_IS_HIDDEN,
+            VALID_IS_BOOKMARKED
         );
         String expectedMessage = Email.MESSAGE_CONSTRAINTS;
         assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
@@ -182,11 +198,13 @@ public class JsonAdaptedPersonTest {
             VALID_PHONE,
             null,
             VALID_GPA,
+            VALID_PREVIOUS_GRADE,
+            VALID_INTERVIEW_SCORE,
             VALID_COMMENT,
             VALID_TAGS,
-            VALID_IS_HIDDEN,
             VALID_ATTACHMENTS,
-            VALID_BOOKMARK
+            VALID_IS_HIDDEN,
+            VALID_IS_BOOKMARKED
         );
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Email.class.getSimpleName());
         assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
@@ -200,11 +218,13 @@ public class JsonAdaptedPersonTest {
             VALID_PHONE,
             VALID_EMAIL,
             INVALID_GPA,
+            VALID_PREVIOUS_GRADE,
+            VALID_INTERVIEW_SCORE,
             VALID_COMMENT,
             VALID_TAGS,
-            VALID_IS_HIDDEN,
             VALID_ATTACHMENTS,
-            VALID_BOOKMARK
+            VALID_IS_HIDDEN,
+            VALID_IS_BOOKMARKED
         );
         String expectedMessage = Gpa.MESSAGE_CONSTRAINTS;
         assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
@@ -218,11 +238,13 @@ public class JsonAdaptedPersonTest {
             VALID_PHONE,
             VALID_EMAIL,
             null,
+            VALID_PREVIOUS_GRADE,
+            VALID_INTERVIEW_SCORE,
             VALID_COMMENT,
             VALID_TAGS,
-            VALID_IS_HIDDEN,
             VALID_ATTACHMENTS,
-            VALID_BOOKMARK
+            VALID_IS_HIDDEN,
+            VALID_IS_BOOKMARKED
         );
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Gpa.class.getSimpleName());
         assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
@@ -238,11 +260,13 @@ public class JsonAdaptedPersonTest {
             VALID_PHONE,
             VALID_EMAIL,
             VALID_GPA,
+            VALID_PREVIOUS_GRADE,
+            VALID_INTERVIEW_SCORE,
             VALID_COMMENT,
             invalidTags,
-            VALID_IS_HIDDEN,
             VALID_ATTACHMENTS,
-            VALID_BOOKMARK
+            VALID_IS_HIDDEN,
+            VALID_IS_BOOKMARKED
         );
         assertThrows(IllegalValueException.class, person::toModelType);
     }
