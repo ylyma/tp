@@ -255,12 +255,12 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
         - Tags: pastTA, deanslist
 - **`add s/A0251647W n/amanda p/89064678 e/amanda@example.com g/4.3 c/`**
     - Adds a person with the following information:
-        - Student number: 
+        - Student number: A0251647W
         - Name: Amanda
         - Phone number: 89064678
         - Email address: amanda@example.com
         - GPA: 4.3
-        - Comment: `None`
+        - Comment: -
 
 **Expected Outputs:**
 
