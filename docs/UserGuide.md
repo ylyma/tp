@@ -75,7 +75,7 @@ You can click on any of the links below to navigate to the respective sections f
 Ensure you have [Java `11`](https://www.oracle.com/sg/java/technologies/javase/jdk11-archive-downloads.html)
 or above installed. Java is the language that your computer uses to understand TAfinder.
 
-<div markdown="block" class="alert alert-tip">
+<box type="tip">
 
 :bulb: **Tip**
 
@@ -94,7 +94,7 @@ An example is shown below.
   java version "xxx" <Other information>
   ```
 
-</div>
+</box>
 
 <div style="page-break-after: always;"></div>
 
@@ -115,9 +115,8 @@ An example is shown below.
 **Step 2.** Copy the file to the folder you want to use as the _home folder_ for your TAfinder.
 
 **Step 3.** Double-click on the `tafinder.jar` file to start the app.
-<div markdown="block" class="alert alert-tip">
 
-:bulb: **Tip**
+<box type="tip">
 
 **TAfinder does not open?**
 
@@ -135,7 +134,7 @@ An example of the final command is displayed below.
   > java -jar xxxx/xxxx/tafinder.jar
   ```
 
-</div>
+</box>
 
 The GUI similar to the below should appear in a few seconds. ![Ui](images/Ui.png)
 
@@ -202,7 +201,7 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 ### **2.1 Basic applicant management**
 
-#### 2.1.1 Adding an applicant: `add`
+#### 2.1.1 Adding an applicant: `add` <span class="badge rounded-pill bg-primary">Basic</span>
 
 ![add.jpg](images/add.jpg)
 
@@ -257,7 +256,7 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 ---
 
-#### 2.1.2 Editing an applicant: `edit`
+#### 2.1.2 Editing an applicant: `edit` <span class="badge rounded-pill bg-primary">Basic</span>
 
 ![edit function UI](images/editUI.png)
 
@@ -286,11 +285,11 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 ---
 
-#### 2.1.3 Deleting an applicant: `delete`
+#### 2.1.3 Deleting an applicant: `delete` <span class="badge rounded-pill bg-primary">Basic</span>
 
 ---
 
-#### 2.1.4 Listing all applicant: `list`
+#### 2.1.4 Listing all applicant: `list` <span class="badge rounded-pill bg-primary">Basic</span>
 ![listUI-1](images/listUI-1.png)
 ![listUI-2](images/listUI-2.png)
 <aside>
@@ -305,7 +304,7 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 ---
 
-#### 2.1.5 Viewing the details of a single applicant: `view`
+#### 2.1.5 Viewing the details of a single applicant: `view` <span class="badge rounded-pill bg-primary">Basic</span>
 
 ![edit function UI](images/viewUI.png)
 
@@ -351,7 +350,7 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 - Index out of range: **`"Error: Invalid index. Please enter an index within range."`**
 
 ---
-#### 2.1.6 Hiding an applicant from list: `hide`/`unhide`
+#### 2.1.6 Hiding an applicant from list: `hide`/`unhide` <span class="badge rounded-pill bg-primary">Basic</span>
 
 ![hide function UI](images/hideUI.png)
 <aside>
