@@ -2,17 +2,20 @@ package seedu.address.testutil;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import seedu.address.model.attachment.Attachment;
-import seedu.address.model.person.Bookmark;
 import seedu.address.model.person.Comment;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Gpa;
+import seedu.address.model.person.InterviewScore;
+import seedu.address.model.person.IsBookmarked;
 import seedu.address.model.person.IsHidden;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.PreviousGrade;
 import seedu.address.model.person.StudentNumber;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
@@ -27,7 +30,7 @@ public class PersonBuilder {
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final double DEFAULT_GPA = 4.0;
-    public static final String DEFAULT_COMMENT = "";
+    public static final String DEFAULT_PREVIOUS_GRADE = "A-";
     public static final boolean DEFAULT_IS_HIDDEN = false;
     public static final boolean DEFAULT_BOOKMARK = false;
 
@@ -36,11 +39,13 @@ public class PersonBuilder {
     private Phone phone;
     private Email email;
     private Gpa gpa;
-    private Comment comment;
+    private PreviousGrade previousGrade;
+    private Optional<InterviewScore> interviewScore;
+    private Optional<Comment> comment;
     private Set<Tag> tags;
-    private IsHidden isHidden;
     private List<Attachment> attachments;
-    private Bookmark bookmark;
+    private IsHidden isHidden;
+    private IsBookmarked isBookmarked;
 
     /**
      * Creates a {@code PersonBuilder} with the default details.
@@ -51,11 +56,13 @@ public class PersonBuilder {
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
         gpa = new Gpa(DEFAULT_GPA);
-        comment = new Comment(DEFAULT_COMMENT);
+        previousGrade = new PreviousGrade(DEFAULT_PREVIOUS_GRADE);
+        interviewScore = Optional.empty();
+        comment = Optional.empty();
         tags = new HashSet<>();
         isHidden = new IsHidden(DEFAULT_IS_HIDDEN);
         attachments = List.of();
-        bookmark = new Bookmark(DEFAULT_BOOKMARK);
+        isBookmarked = new IsBookmarked(DEFAULT_BOOKMARK);
     }
 
     /**
@@ -67,11 +74,13 @@ public class PersonBuilder {
         phone = personToCopy.getPhone();
         email = personToCopy.getEmail();
         gpa = personToCopy.getGpa();
+        previousGrade = personToCopy.getPreviousGrade();
+        interviewScore = personToCopy.getInterviewScore();
         comment = personToCopy.getComment();
         tags = new HashSet<>(personToCopy.getTags());
         isHidden = personToCopy.getIsHidden();
         attachments = personToCopy.getAttachments();
-        bookmark = personToCopy.getBookmark();
+        isBookmarked = personToCopy.getIsBookmarked();
     }
 
     /**
@@ -117,10 +126,26 @@ public class PersonBuilder {
     }
 
     /**
+     * Sets the {@code PreviousGrade} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withPreviousGrade(String grade) {
+        this.previousGrade = new PreviousGrade(grade);
+        return this;
+    }
+
+    /**
+     * Sets the {@code InterviewScore} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withInterviewScore(double interviewScore) {
+        this.interviewScore = Optional.of(new InterviewScore(interviewScore));
+        return this;
+    }
+
+    /**
      * Sets the {@code Comment} of the {@code Person} that we are building.
      */
     public PersonBuilder withComment(String comment) {
-        this.comment = new Comment(comment);
+        this.comment = Optional.of(new Comment(comment));
         return this;
     }
 
@@ -151,13 +176,19 @@ public class PersonBuilder {
     /**
      * Sets the {@code Bookmark} of the {@code Person} that we are building.
      */
-    public PersonBuilder withBookmark(boolean bookmark) {
-        this.bookmark = new Bookmark(bookmark);
+    public PersonBuilder withBookmark(boolean isBookmarked) {
+        this.isBookmarked = new IsBookmarked(isBookmarked);
         return this;
     }
 
+    /**
+     * Builds a person from the attributes configured before this.
+     *
+     * @return The person.
+     */
     public Person build() {
-        return new Person(studentNo, name, phone, email, gpa, comment, tags, isHidden, attachments, bookmark);
+        return new Person(studentNo, name, phone, email, gpa, previousGrade, interviewScore, comment, tags, attachments,
+                isHidden, isBookmarked);
     }
 
 }

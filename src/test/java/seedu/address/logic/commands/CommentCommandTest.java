@@ -33,7 +33,7 @@ class CommentCommandTest {
         Person editedPerson = new PersonBuilder(firstPerson).withComment(COMMENT_STUB).build();
 
         CommentCommand commentCommand = new CommentCommand(INDEX_FIRST_PERSON,
-                new Comment(editedPerson.getComment().comment));
+                new Comment(editedPerson.getComment().get().comment));
 
         String expectedMessage = String.format(CommentCommand.MESSAGE_ADD_COMMENT_SUCCESS, editedPerson);
 
@@ -49,7 +49,7 @@ class CommentCommandTest {
         Person editedPerson = new PersonBuilder(firstPerson).withComment("").build();
 
         CommentCommand remarkCommand = new CommentCommand(INDEX_FIRST_PERSON,
-                new Comment(editedPerson.getComment().toString()));
+                new Comment(editedPerson.getComment().get().toString()));
 
         String expectedMessage = String.format(CommentCommand.MESSAGE_DELETE_COMMENT_SUCCESS, editedPerson);
 
@@ -68,7 +68,7 @@ class CommentCommandTest {
                 .withComment(COMMENT_STUB).build();
 
         CommentCommand remarkCommand = new CommentCommand(INDEX_FIRST_PERSON,
-                new Comment(editedPerson.getComment().comment));
+                new Comment(editedPerson.getComment().get().comment));
 
         String expectedMessage = String.format(CommentCommand.MESSAGE_ADD_COMMENT_SUCCESS, editedPerson);
 

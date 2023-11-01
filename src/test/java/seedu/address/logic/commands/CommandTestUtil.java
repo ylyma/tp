@@ -5,8 +5,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COMMENT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_GPA;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_INTERVIEW_SCORE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PREVIOUS_GRADE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STUDENT_NUMBER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.testutil.Assert.assertThrows;
@@ -34,10 +36,14 @@ public class CommandTestUtil {
     public static final String VALID_NAME_BOB = "Bob Choo";
     public static final String VALID_PHONE_AMY = "11111111";
     public static final String VALID_PHONE_BOB = "22222222";
+    public static final String VALID_PREVIOUS_GRADE_AMY = "A+";
+    public static final String VALID_PREVIOUS_GRADE_BOB = "B-";
     public static final String VALID_EMAIL_AMY = "amy@example.com";
     public static final String VALID_EMAIL_BOB = "bob@example.com";
     public static final double VALID_GPA_AMY = 5.0;
     public static final double VALID_GPA_BOB = 3.6;
+    public static final double VALID_INTERVIEW_SCORE_AMY = 9.99;
+    public static final double VALID_INTERVIEW_SCORE_BOB = 9.99;
     public static final String VALID_COMMENT_AMY = "studious";
     public static final String VALID_COMMENT_BOB = "hardworking";
     public static final String VALID_TAG_HUSBAND = "husband";
@@ -46,10 +52,14 @@ public class CommandTestUtil {
 
     public static final String STUDENT_NUMBER_DESC_AMY = " " + PREFIX_STUDENT_NUMBER + VALID_STUDENT_NUMBER_AMY;
     public static final String STUDENT_NUMBER_DESC_BOB = " " + PREFIX_STUDENT_NUMBER + VALID_STUDENT_NUMBER_BOB;
+    public static final String INTERVIEW_SCORE_DESC_AMY = " " + PREFIX_INTERVIEW_SCORE + VALID_INTERVIEW_SCORE_AMY;
+    public static final String INTERVIEW_SCORE_DESC_BOB = " " + PREFIX_INTERVIEW_SCORE + VALID_INTERVIEW_SCORE_BOB;
     public static final String NAME_DESC_AMY = " " + PREFIX_NAME + VALID_NAME_AMY;
     public static final String NAME_DESC_BOB = " " + PREFIX_NAME + VALID_NAME_BOB;
     public static final String PHONE_DESC_AMY = " " + PREFIX_PHONE + VALID_PHONE_AMY;
     public static final String PHONE_DESC_BOB = " " + PREFIX_PHONE + VALID_PHONE_BOB;
+    public static final String PREVIOUS_GRADE_DESC_AMY = " " + PREFIX_PREVIOUS_GRADE + VALID_PREVIOUS_GRADE_AMY;
+    public static final String PREVIOUS_GRADE_DESC_BOB = " " + PREFIX_PREVIOUS_GRADE + VALID_PREVIOUS_GRADE_BOB;
     public static final String EMAIL_DESC_AMY = " " + PREFIX_EMAIL + VALID_EMAIL_AMY;
     public static final String EMAIL_DESC_BOB = " " + PREFIX_EMAIL + VALID_EMAIL_BOB;
     public static final String GPA_DESC_AMY = " " + PREFIX_GPA + VALID_GPA_AMY;
@@ -75,11 +85,10 @@ public class CommandTestUtil {
     static {
         DESC_AMY = new EditPersonDescriptorBuilder().withName(VALID_NAME_AMY)
                 .withPhone(VALID_PHONE_AMY).withEmail(VALID_EMAIL_AMY).withGpa(VALID_GPA_AMY)
-                .withTags(VALID_TAG_FRIEND).withHidden(false).withBookmark(false).build();
+                .withTags(VALID_TAG_FRIEND).build();
         DESC_BOB = new EditPersonDescriptorBuilder().withName(VALID_NAME_BOB)
                 .withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB).withGpa(VALID_GPA_BOB)
-                .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).withHidden(false)
-                .withBookmark(false).build();
+                .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
     }
 
     /**

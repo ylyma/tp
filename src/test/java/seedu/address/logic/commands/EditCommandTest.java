@@ -39,8 +39,13 @@ public class EditCommandTest {
     public void execute_allFieldsSpecifiedUnfilteredList_success() {
         Person currentPerson = model.getFilteredPersonList().get(0);
         Person editedPerson = new PersonBuilder()
+            .withInterviewScore(4.4)
             .withStudentNumber(currentPerson.getStudentNumber().toString())
             .build();
+
+
+        System.out.println(currentPerson);
+        System.out.println(editedPerson);
 
         EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder(editedPerson).build();
         EditCommand editCommand = new EditCommand(INDEX_FIRST_PERSON, descriptor);
