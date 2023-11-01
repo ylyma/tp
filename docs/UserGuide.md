@@ -243,6 +243,7 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 - **`p/PHONE`**: Phone number of the applicant.
 - **`e/EMAIL`**: Email address of the applicant.
 - **`g/GPA`**: GPA of the applicant.
+- **`c/COMMENT`**: Comments for the applicant.
 - **`t/TAG`**: Tags of the applicant. Note that editing tags will replace existing tags; it is not cumulative.
 
 **Examples:**
