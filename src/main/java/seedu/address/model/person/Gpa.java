@@ -11,15 +11,10 @@ public class Gpa implements Comparable<Gpa> {
 
     public static final String MESSAGE_CONSTRAINTS = "Gpa can take values from 0.00 to 5.00, and cannot be blank";
 
-    /*
-     * Single digit, followed by a period, followed by one to two digits.
-     */
-    public static final String VALIDATION_REGEX = "[0-5]\\.[0-9][0-9]?$";
-
     public final double value;
 
     /**
-     * Constructs an {@code Gpa}.
+     * Constructs a {@code Gpa}.
      *
      * @param gpa A possible gpa of a person.
      */

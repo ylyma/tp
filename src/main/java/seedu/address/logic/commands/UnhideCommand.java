@@ -69,11 +69,13 @@ public class UnhideCommand extends Command {
                 personToUnhide.getPhone(),
                 personToUnhide.getEmail(),
                 personToUnhide.getGpa(),
+                personToUnhide.getPreviousGrade(),
+                personToUnhide.getInterviewScore(),
                 personToUnhide.getComment(),
                 personToUnhide.getTags(),
-                new IsHidden(false),
                 personToUnhide.getAttachments(),
-                personToUnhide.getBookmark());
+                new IsHidden(false),
+                personToUnhide.getIsBookmarked());
     }
 
     @Override

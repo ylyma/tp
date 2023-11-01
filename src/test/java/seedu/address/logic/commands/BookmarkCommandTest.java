@@ -16,7 +16,7 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
-import seedu.address.model.person.Bookmark;
+import seedu.address.model.person.IsBookmarked;
 import seedu.address.model.person.Person;
 
 public class BookmarkCommandTest {
@@ -32,8 +32,8 @@ public class BookmarkCommandTest {
                 INDEX_FIRST_PERSON.getOneBased());
 
         assertEquals(expectedMessage, commandResult.getFeedbackToUser());
-        assertEquals(model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased()).getBookmark(),
-                new Bookmark(true));
+        assertEquals(model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased()).getIsBookmarked(),
+                new IsBookmarked(true));
     }
 
     @Test

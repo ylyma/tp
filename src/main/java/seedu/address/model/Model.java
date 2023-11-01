@@ -2,13 +2,14 @@ package seedu.address.model;
 
 import java.nio.file.Path;
 import java.util.Comparator;
+import java.util.Optional;
 import java.util.function.Predicate;
 
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.index.Index;
-import seedu.address.model.person.BookmarkPredicate;
-import seedu.address.model.person.GpaComparator;
+import seedu.address.model.person.IsBookmarkedPredicate;
 import seedu.address.model.person.IsHiddenPredicate;
 import seedu.address.model.person.Person;
 
@@ -31,12 +32,8 @@ public interface Model {
     /**
      * {@code Predicate} that filters for all bookmarked applicants
      */
-    Predicate<Person> PREDICATE_SHOW_ALL_BOOKMARKED_PERSONS = new BookmarkPredicate(true);
+    Predicate<Person> PREDICATE_SHOW_ALL_BOOKMARKED_PERSONS = new IsBookmarkedPredicate(true);
 
-    /**
-     * {@code Comparator} that sorts by GPA
-     */
-    Comparator<Person> COMPARATOR_SORT_BY_GPA = new GpaComparator();
     /**
      * Replaces user prefs data with the data in {@code userPrefs}.
      */
@@ -120,4 +117,6 @@ public interface Model {
      */
     void sortFilteredPersonList(Comparator<Person> comparator);
 
+    /** Returns the current person being viewed in detail */
+    ObservableValue<Optional<Person>> getCurrentPerson();
 }

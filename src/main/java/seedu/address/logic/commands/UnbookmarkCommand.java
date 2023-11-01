@@ -10,7 +10,7 @@ import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.person.Bookmark;
+import seedu.address.model.person.IsBookmarked;
 import seedu.address.model.person.Person;
 
 
@@ -57,11 +57,13 @@ public class UnbookmarkCommand extends Command {
                 personToUnbookmark.getPhone(),
                 personToUnbookmark.getEmail(),
                 personToUnbookmark.getGpa(),
+                personToUnbookmark.getPreviousGrade(),
+                personToUnbookmark.getInterviewScore(),
                 personToUnbookmark.getComment(),
                 personToUnbookmark.getTags(),
-                personToUnbookmark.getIsHidden(),
                 personToUnbookmark.getAttachments(),
-                new Bookmark(false));
+                personToUnbookmark.getIsHidden(),
+                new IsBookmarked(false));
         model.setPerson(personToUnbookmark, unbookmarkedPerson);
         return new CommandResult(String.format(MESSAGE_UNBOOKMARK_APPLICANT_SUCCESS, targetIndex.getOneBased()));
     }

@@ -7,16 +7,16 @@ import seedu.address.commons.util.ToStringBuilder;
 /**
  * Tests that a {@code Person}'s isBookmarked matches the boolean given.
  */
-public class BookmarkPredicate implements Predicate<Person> {
+public class IsBookmarkedPredicate implements Predicate<Person> {
     private final boolean isBookmarked;
 
-    public BookmarkPredicate(boolean isBookmarked) {
+    public IsBookmarkedPredicate(boolean isBookmarked) {
         this.isBookmarked = isBookmarked;
     }
 
     @Override
     public boolean test(Person person) {
-        return person.getBookmark().value == isBookmarked;
+        return person.getIsBookmarked().value == isBookmarked;
     }
 
     @Override
@@ -25,11 +25,11 @@ public class BookmarkPredicate implements Predicate<Person> {
             return true;
         }
 
-        if (!(other instanceof BookmarkPredicate)) {
+        if (!(other instanceof IsBookmarkedPredicate)) {
             return false;
         }
 
-        BookmarkPredicate otherBookmarkPredicate = (BookmarkPredicate) other;
+        IsBookmarkedPredicate otherBookmarkPredicate = (IsBookmarkedPredicate) other;
         return isBookmarked == otherBookmarkPredicate.isBookmarked;
     }
 

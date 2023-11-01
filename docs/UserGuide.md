@@ -12,7 +12,7 @@ With TAfinder, you can easily:
 2. Make more **informed decisions** with the help of our **compare** and **sort** functions.
 3. **Import** and **export** data to and from the TAfinder application.
 
-TAfinder utilises a Command Line Interface (CLI), while still enjoying the benefits of a Graphical User Interface (GUI), 
+TAfinder utilises a Command Line Interface (CLI), while still enjoying the benefits of a Graphical User Interface (GUI),
 for a more efficient user experience.
 
 So say goodbye to the days of manually sifting through hundreds of TA applications. Enrich your TA selection process with
@@ -34,7 +34,7 @@ You can click on any of the links below to navigate to the respective sections f
     - [1.3 Utilisation](#13-utilisation)
     - [1.4 Navigating the User Interface](#14-navigating-the-user-interface)
 - [2 Features](#2-features)
-    - [2.1 Basic applicant management](#21-basic-applicant-management) 
+    - [2.1 Basic applicant management](#21-basic-applicant-management)
       - [2.1.1 Adding an applicant: `add`](#211-adding-an-applicant-add)
       - [2.1.2 Editing all applicants: `edit`](#212-editing-an-applicant-edit)
       - [2.1.3 Deleting an applicant: `delete`](#213-deleting-an-applicant-delete)
@@ -72,7 +72,7 @@ You can click on any of the links below to navigate to the respective sections f
 ### 1.1 Prerequisites
 
 #### 1.1.1 Java
-Ensure you have [Java `11`](https://www.oracle.com/sg/java/technologies/javase/jdk11-archive-downloads.html) 
+Ensure you have [Java `11`](https://www.oracle.com/sg/java/technologies/javase/jdk11-archive-downloads.html)
 or above installed. Java is the language that your computer uses to understand TAfinder.
 
 <div markdown="block" class="alert alert-tip">
@@ -115,7 +115,7 @@ An example is shown below.
 
 **Step 2.** Copy the file to the folder you want to use as the _home folder_ for your TAfinder.
 
-**Step 3.** Double-click on the `tafinder.jar` file to start the app. 
+**Step 3.** Double-click on the `tafinder.jar` file to start the app.
 <div markdown="block" class="alert alert-tip">
 
 :bulb: **Tip**
@@ -173,7 +173,6 @@ The UI has the following areas:
   - This is where the result of the command is displayed.
 - <span style="background-color:rgba(170, 210, 232, 1)">Applicant list</span>
   - This is where the list of applicants is displayed.
-   
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -207,7 +206,7 @@ can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
 
-* If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple 
+* If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple
 lines as space characters surrounding line-breaks may be omitted when copied over to the application.
 </div>
 
@@ -261,8 +260,8 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 **Errors:**
 
-- Invalid command format:<br> 
-`"Invalid command format!`<br>
+- Invalid command format:<br>
+`Invalid command format!`<br>
 `add: Adds an applicant to the list. Parameters: s/STUDENT NUMBER n/NAME p/PHONE e/EMAIL g/GPA c/comment [t/TAG]...`<br>
 `Example: add s/A0343434C n/John Doe p/98765432 e/johnd@example.com g/4.9 c/Hardworking and diligent t/pastTA"`
 - Repeated applicant:<br>
@@ -352,7 +351,6 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
   `Example: delete 1"`**
 - Index out of range:<br>
   **`"Error: Invalid index. Please enter an index within range."`**
-
 
 ---
 
@@ -678,14 +676,14 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 ## 3 Data Management
 ### 3.1 Saving the data
 
-TAFinder data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+TAfinder data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
 ### 3.2 Editing the data file
 
-TAFinder data are saved automatically as a JSON file `[JAR file location]/data/tafinder.json`. Advanced users are welcome to update data directly by editing that data file.
+TAfinder data are saved automatically as a JSON file `[JAR file location]/data/tafinder.json`. Advanced users are welcome to update data directly by editing that data file.
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
-If your changes to the data file makes its format invalid, TAFinder will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.
+If your changes to the data file makes its format invalid, TAfinder will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.
 </div>
 
 --------------------------------------------------------------------------------------------------------------------
