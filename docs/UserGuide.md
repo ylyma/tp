@@ -507,19 +507,41 @@ Index out of range:<br>
 #### 2.1.4 Listing all applicant: `list`
 ![listUI-1](images/listUI-1.png)
 ![listUI-2](images/listUI-2.png)
-<aside>
-⭐ Shows a list of all applicants.
 
-</aside>
+<box type="definition">
 
-**Format:** `list` / `list-hidden` / `list-bookmarked`
+Shows a list of all applicants.
 
-- `list` 
-  - Shows a list of all applicants.
-- `list-hidden` 
-  - Shows a list of all hidden applicants.
-- `list-bookmarked` 
-  - Shows a list of all bookmarked applicants.
+</box>
+
+<box type="info">
+
+**Format:** 
+
+**`list`** / **`list-hidden`** / **`list-bookmarked`**
+
+<box no-icon type="info" light>
+
+**`list`** 
+- Shows a list of all applicants.
+
+</box>
+
+<box no-icon type="info" light>
+
+**`list-hidden`** 
+- Shows a list of all hidden applicants.
+
+</box>
+
+<box no-icon type="info" light>
+
+**`list-bookmarked`** 
+- Shows a list of all bookmarked applicants.
+
+</box>
+
+</box>
 
 ---
 
@@ -527,92 +549,199 @@ Index out of range:<br>
 
 ![edit function UI](images/viewUI.png)
 
-<aside>
-⭐ Displays a single applicant.
+<box type="definition">
 
-</aside>
+Displays a single applicant.
 
-**Format:** `view INDEX`
+</box>
 
-- `INDEX`: The index corresponding to the applicant to be displayed. The index must be a positive integer (e.g., 1, 2, 3…).
+<box type="info">
+
+**Format:**
+
+**`view INDEX`**
+
+<box no-icon type="info" light>
+
+**`INDEX`**: The index corresponding to the applicant to be displayed. The index must be a positive integer (e.g., 1, 2, 3…).
+
+</box>
+
+</box>
+
+<box type="default" theme="dark">
 
 **Examples:**
 
-- **`view 3`**
-    - Displays the following details about the third applicant.
-      - Name
-      - Student number
-      - Phone number
-      - Email Address
-      - GPA
-      - Comments
-      - Tags
+<box type="default" light>
+
+**`view 3`**
+- Displays the following details about the third applicant.
+  - Name
+  - Student number
+  - Phone number
+  - Email Address
+  - GPA
+  - Comments
+  - Tags
+
+</box>
+
+</box>
+
+<box type="success">
 
 **Expected Outputs:**
 
-- Successfully displaying all details of an applicant in the following format:\
-    `Name: John Doe`\
-    `Student number: A0358289S`\
-    `Phone Number: 91234567`\
-    `Email Address: johndoe@example.come`\
-    `GPA: 5.0`\
-    `Comments: Good fit, has teaching experience`\
-    `Tags: pastTA, deansList`
-- Confirmation message:<br>
-`"Displaying: APPLICANT_NAME"`
+<box type="success" light>
+
+Successfully displaying all details of an applicant in the following format:\
+- **`Name: John Doe`**
+- **`Student number: A0358289S`**
+- **`Phone Number: 91234567`**
+- **`Email Address: johndoe@example.come`**
+- **`GPA: 5.0`**
+- **`Comments: Good fit, has teaching experience`**
+- **`Tags: pastTA, deansList`**
+
+</box>
+
+<box type="success" light>
+
+Confirmation message:<br>
+**`"Displaying: APPLICANT_NAME"`**
+
+</box>
+
+</box>
+
+
+<box type="wrong">
 
 **Errors:**
 
-- Missing index: <br>
+<box type="wrong" light>
+
+Missing index: <br>
 **`"Invalid command format!`<br>
   `view: Displays the applicant identified by the index number used in the displayed applicant list.`<br>
   `Parameters: INDEX (must be a positive integer)`<br>
   `Example: view 1"`**
-- Index out of range:<br> 
+
+</box>
+
+<box type="wrong" light>
+
+Index out of range:<br> 
 **`"Error: Invalid index. Please enter an index within range."`**
+
+</box>
+
+</box>
 
 ---
 #### 2.1.6 Hiding an applicant from list: `hide`/`unhide`
 
 ![hide function UI](images/hideUI.png)
-<aside>
-⭐ Hides/unhides an applicant from the list of applicants.
 
-</aside>
+<box type="definition">
 
-**Format:** `hide INDEX` / `unhide INDEX` / `unhide-all`
+Hides/unhides an applicant from the list of applicants.
 
-- `hide INDEX`
-  - Hides the applicant at the specified INDEX from all future lists. The index refers to the number shown in the displayed person list.
-- `unhide INDEX`
-  - Unhides the applicant at the specified INDEX from all future lists. The index refers to the number shown in the displayed person list.
-- `unhide-all`
-  - Unhides all applicants that were previously hidden.
+</box>
+
+<box type="info">
+
+**Format:** 
+
+`hide INDEX` / `unhide INDEX` / `unhide-all`
+
+<box no-icon type="info" light>
+
+`hide INDEX`
+- Hides the applicant at the specified INDEX from all future lists. The index refers to the number shown in the displayed person list.
+
+</box>
+
+<box no-icon type="info" light>
+
+`unhide INDEX`
+- Unhides the applicant at the specified INDEX from all future lists. The index refers to the number shown in the displayed person list.
+
+</box>
+
+<box no-icon type="info" light>
+
+`unhide-all`
+- Unhides all applicants that were previously hidden.
+
+</box>
+
+</box>
+
+<box type="info" theme="dark">
 
 **Examples:**
 
-- **`hide 2`**
-    - Hides the applicant at index 2
-- **`unhide 2`**
-    - Unhides the applicant at index 2
-- **`unhide-all`**
-    - Unhides all applicants
+<box type="default" light>
+
+**`hide 2`**
+- Hides the applicant at index 2
+
+</box>
+
+<box type="default" light>
+
+**`unhide 2`**
+- Unhides the applicant at index 2
+
+</box>
+
+<box type="default" light>
+
+**`unhide-all`**
+- Unhides all applicants
+
+</box>
+
+</box>
+
+<box type="success">
 
 **Expected Outputs:**
 
-- Successfully hiding/unhiding applicant(s).
-- Confirmation message:<br> 
+<box type="success" light>
+
+Successfully hiding/unhiding applicant(s).<br>
+Confirmation message:<br> 
 **`APPLICANT_NAME hidden successfully.`**
+
+</box>
+
+</box>
+
+<box type="wrong">
 
 **Errors:**
 
-- Missing index:<br> 
+<box type="wrong" light>
+
+Missing index:<br> 
 **`"Invalid command format!`<br>
   `hide: Hides an applicant, identified by the index number used in the last list, from all future lists of applicants.`<br>
   `Parameter: INDEX (must be a positive integer)`<br>
   `Example: hide 1"`**
-- Index out of range:<br> 
+
+</box>
+
+<box type="wrong" light>
+
+Index out of range:<br> 
 **`“Error: Invalid index. Please enter an index within range.”`**
+
+</box>
+
+</box>
 
 ---
 
