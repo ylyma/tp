@@ -233,47 +233,52 @@ Adds a new applicant to the list of applicants.
 
 <box type="info">
 
-**Format:** 
+**Format:**
 
-- `add [s/STUDENT_NUMBER] [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [c/comment] [t/TAG]…`
-  - **`s/STUDENT_NUMBER`**: Student number of the applicant
-  - **`n/NAME`**: Name of the applicant.
-  - **`p/PHONE`**: Phone number of the applicant.
-  - **`e/EMAIL`**: Email address of the applicant.
-  - **`g/GPA`**: GPA of the applicant.
-  - **`c/COMMENT`**: Comments for the applicant.
-  - **`t/TAG`**: Tags of the applicant. Note that editing tags will replace existing tags; it is not cumulative.
+**`add [s/STUDENT_NUMBER] [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [c/comment] [t/TAG]…`**
+
+<box no-icon type="info" light>
+
+- **`s/STUDENT_NUMBER`**: Student number of the applicant
+- **`n/NAME`**: Name of the applicant.
+- **`p/PHONE`**: Phone number of the applicant.
+- **`e/EMAIL`**: Email address of the applicant.
+- **`g/GPA`**: GPA of the applicant.
+- **`c/COMMENT`**: Comments for the applicant.
+- **`t/TAG`**: Tags of the applicant. Note that editing tags will replace existing tags; it is not cumulative.
 
 </box>
 
-<box type="default">
+</box>
+
+<box type="info" theme="dark">
 
 **Examples:**
 
 <box type="default" light>
 
-- **`add s/A0269357C n/john doe p/91234567 e/johndoe@example.com g/5.0 c/Hardworking t/pastTA t/deanslist`**
-    - Adds a person with the following information:
-        - **Student number**: A0269357C
-        - **Name**: John Doe
-        - **Phone number**: 91234567
-        - **Email address**: johndoe@example.com
-        - **GPA**: 5.0
-        - **Comment**: Hardworking
-        - **Tags**: pastTA, deanslist
+**`add s/A0269357C n/john doe p/91234567 e/johndoe@example.com g/5.0 c/ t/pastTA t/deanslist`**
+- Adds a person with the following information:
+  - **Student number**: A0269357C
+  - **Name**: John Doe
+  - **Phone number**: 91234567
+  - **Email address**: johndoe@example.com
+  - **GPA**: 5.0
+  - **Comment**: -
+  - **Tags**: pastTA, deanslist
 
 </box>
 
 <box type="default" light>
 
-- **`add s/A0251647W n/amanda p/89064678 e/amanda@example.com g/4.3 c/`**
-    - Adds a person with the following information:
-        - **Student number**: A0251647W
-        - **Name**: Amanda
-        - **Phone number**: 89064678
-        - **Email address**: amanda@example.com
-        - **GPA**: 4.3
-        - **Comment**: -
+**`add s/A0251647W n/amanda p/89064678 e/amanda@example.com g/4.3 c/Hardworking`**
+- Adds a person with the following information:
+  - **Student number**: A0251647W
+  - **Name**: Amanda
+  - **Phone number**: 89064678
+  - **Email address**: amanda@example.com
+  - **GPA**: 4.3
+  - **Comment**: Hardworking
 
 </box>
 
@@ -285,8 +290,8 @@ Adds a new applicant to the list of applicants.
 
 <box type="success" light>
 
-- Successfully adding applicant and applicant's information.
-- Confirmation message:<br>
+Successfully adding applicant and applicant's information.<br>
+Confirmation message:<br>
 **`"New applicant added: Student number: <student number>; Name: <name>; Phone: <phone>; Email: <email>; GPA: <gpa>; Comment: <comment>; Tags: <tags>"`**
 
 </box>
@@ -299,7 +304,7 @@ Adds a new applicant to the list of applicants.
 
 <box type="wrong" light>
 
-- Invalid command format:<br>
+Invalid command format:<br>
 **`"Invalid command format!"`<br>
 `"add: Adds an applicant to the list. Parameters: s/STUDENT NUMBER n/NAME p/PHONE e/EMAIL g/GPA c/comment [t/TAG]..."`<br>
 `"Example: add s/A0343434C n/John Doe p/98765432 e/johnd@example.com g/4.9 c/Hardworking and diligent t/pastTA"`**
@@ -308,15 +313,14 @@ Adds a new applicant to the list of applicants.
 
 <box type="wrong" light>
 
-- Repeated applicant:<br>
+Repeated applicant:<br>
 **`"This applicant already exists in the applicant list."`**
-
 
 </box>
 
 <box type="wrong" light>
 
-- Missing fields:<br>
+Missing fields:<br>
 **`"Error: Missing fields. Please follow the format: add [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…"`**
 
 </box>
@@ -329,14 +333,26 @@ Adds a new applicant to the list of applicants.
 
 ![edit function UI](images/editUI.png)
 
-<aside>
-⭐ Edits an existing applicant in the list of applicants.
+<box type="definition">
 
-</aside>
+Edits an existing applicant in the list of applicants.
 
-**Format:** `edit INDEX [s/STUDENT NUMBER] [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [c/comment] [t/TAG]…`
+</box>
 
-- `INDEX`: The index of the applicant to edit. The index must be a positive integer (e.g., 1, 2, 3…).
+<box type="info">
+
+**Format:**
+
+**`edit INDEX [s/STUDENT NUMBER] [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [c/comment] [t/TAG]…`**
+
+<box no-icon type="info" light>
+
+- **`INDEX`**: The index of the applicant to edit. The index must be a positive integer (e.g., 1, 2, 3…).
+
+</box>
+
+<box no-icon type="info" light>
+
 - `[optional fields]`: **At least one** of the following optional fields must be provided for editing:
     - **`s/STUDENT NUMBER`**: Student number of the applicant.
     - **`n/NAME`**: Name of the applicant.
@@ -347,66 +363,144 @@ Adds a new applicant to the list of applicants.
     - **`t/TAG`**: Tags of the applicant. Note that editing tags will replace existing tags; it is not cumulative.
     - To remove all existing tags, use **`t/`** without specifying any tags after it.
 
+</box>
+
+</box>
+
+<box type="info" theme="dark">
+
 **Examples:**
 
-- **`edit 1 p/91234567 e/johndoe@example.com`**
-    - Edits the following fields of the first person in the list:
-      - Phone number: **`91234567`**
-      - Email address: **`johndoe@example.com`**
-- **`edit 2 n/Betsy Crower t/`**
-    - Edits the following fields of the second person in the list:
-      - Name: **`Betsy Crower`**
-      - Clears all existing tags
+<box type="default" light>
+
+**`edit 1 p/91234567 e/johndoe@example.com`**
+- Edits the following fields of the first person in the list:
+  - **Phone number**: **`91234567`**
+  - **Email address**: **`johndoe@example.com`**
+
+</box>
+
+<box type="default" light>
+
+**`edit 2 n/Betsy Crower t/`**
+- Edits the following fields of the second person in the list:
+  - **Name**: **`Betsy Crower`**
+  - Clears all existing tags
+
+</box>
+
+</box>
+
+<box type="success">
 
 **Expected Outputs:**
 
-- Successfully editing applicant and applicant's information.
-- Confirmation message:<br>
+<box type="success" light>
+
+Successfully editing applicant and applicant's information.<br>
+Confirmation message:<br>
   **`"Edited applicant: Student number: <student number>; Name: <name>; Phone: <phone>; Email: <email>; GPA: <gpa>; Comment: <comment>; Tags: <tags>"`**
+
+</box>
+
+</box>
+
+<box type="wrong">
 
 **Errors:**
 
-- Invalid command format:<br>
+<box type="wrong" light>
+
+Invalid command format:<br>
   `"Invalid command format!`<br>
   `edit: Edits the details of the applicant identified by the index number used in the displayed applicant list. Existing values will be overwritten by the input values.`<br>
   `Parameters: INDEX (must be a positive integer) [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [c/COMMENT] [t/TAG]..."`
-- Index out of range:<br>
+
+</box>
+
+<box type="wrong" light>
+
+Index out of range:<br>
 **`"Error: Invalid index. Please enter an index within range."`**
+
+</box>
+
+</box>
 
 ---
 
 #### 2.1.3 Deleting an applicant: `delete`
 ![delete function UI](images/delete-UI.png)
 
-<aside>
-⭐ Delete an existing applicant in the list of applicants.
+<box type="definition">
 
-</aside>
+Delete an existing applicant in the list of applicants.
 
-**Format:** `delete INDEX`
+</box>
 
-- `INDEX`: The index corresponding to the applicant to be deleted. The index must be a positive integer (e.g., 1, 2, 3…).
+<box type="info">
+
+**Format:**
+
+**`delete INDEX`**
+
+<box no-icon type="info" light>
+
+**`INDEX`**: The index corresponding to the applicant to be deleted. The index must be a positive integer (e.g., 1, 2, 3…).
+
+</box>
+
+</box>
+
+<box type="info" theme="dark">
 
 **Examples:**
 
-- **`delete 3`**
-    - Deletes the third applicant in the list.
+<box type="default" light>
+
+**`delete 3`**
+- Deletes the third applicant in the list.
+
+</box>
+
+</box>
+
+<box type="success">
 
 **Expected Outputs:**
 
-- Successfully delete applicant and applicant's information at the given index.
-- Confirmation message:<br>
-  `"Deleted applicant: Student number: <student number>; Name: <name>; Phone: <phone>; Email: <email>; GPA: <gpa>; Comment: <comment> ; Tags: <tags>"`
+<box type="success" light>
+
+Successfully delete applicant and applicant's information at the given index.<br>
+Confirmation message:<br>
+**`"Deleted applicant: Student number: <student number>; Name: <name>; Phone: <phone>; Email: <email>; GPA: <gpa>; Comment: <comment> ; Tags: <tags>"`**
+
+</box>
+
+</box>
+
+<box type="wrong">
 
 **Errors:**
 
-- Missing index: <br>
+<box type="wrong" light>
+
+Missing index: <br>
   **`"Invalid command format!`<br>
   `delete: Displays the applicant identified by the index number used in the displayed applicant list.`<br>
   `Parameters: INDEX (must be a positive integer)`<br>
   `Example: delete 1"`**
-- Index out of range:<br>
+
+</box>
+
+<box type="wrong" light>
+
+Index out of range:<br>
   **`"Error: Invalid index. Please enter an index within range."`**
+
+</box>
+
+</box>
 
 ---
 
