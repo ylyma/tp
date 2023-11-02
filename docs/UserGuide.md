@@ -36,12 +36,12 @@ You can click on any of the links below to navigate to the respective sections f
     - [1.4 Navigating the User Interface](#14-navigating-the-user-interface)
 - [2 Features](#2-features)
     - [2.1 Basic applicant management](#21-basic-applicant-management)
-      - [2.1.1 Adding an applicant: `add`](#211-adding-an-applicant-add-span-classbadge-rounded-pill-bg-primarybasicspan)
-      - [2.1.2 Editing all applicants: `edit`](#212-editing-an-applicant-edit-span-classbadge-rounded-pill-bg-primarybasicspan)
-      - [2.1.3 Deleting an applicant: `delete`](#213-deleting-an-applicant-delete-span-classbadge-rounded-pill-bg-primarybasicspan)
-      - [2.1.4 Listing all applicants: `list`](#214-listing-all-applicant-list-span-classbadge-rounded-pill-bg-primarybasicspan)
-      - [2.1.5 Viewing an applicant: `view`](#215-viewing-the-details-of-a-single-applicant-view-span-classbadge-rounded-pill-bg-primarybasicspan)
-      - [2.1.6 Hiding/unhiding an applicant: `hide/unhide`](#216-hiding-an-applicant-from-list-hideunhide-span-classbadge-rounded-pill-bg-primarybasicspan)
+      - [2.1.1 Adding an applicant: `add`](#211-adding-an-applicant-add)
+      - [2.1.2 Editing all applicants: `edit`](#212-editing-an-applicant-edit)
+      - [2.1.3 Deleting an applicant: `delete`](#213-deleting-an-applicant-delete)
+      - [2.1.4 Listing all applicants: `list`](#214-listing-all-applicant-list)
+      - [2.1.5 Viewing an applicant: `view`](#215-viewing-the-details-of-a-single-applicant-view)
+      - [2.1.6 Hiding/unhiding an applicant: `hide/unhide`](#216-hiding-an-applicant-from-list-hideunhide)
     - [2.2 Applicant evaluation & comparison](#22-applicant-evaluation--comparison)
       - [2.2.1 Sorting applicants by grades: `sort-gpa`](#221-sorting-applicants-by-gpa-sort-gpa)
       - [2.2.2 Comparing 2 applicants: `compare`](#222-comparing-2-applicants-compare)
@@ -78,9 +78,7 @@ or above installed. Java is the language that your computer uses to understand T
 
 <box type="tip">
 
-:bulb: **Tip**
-
-**How to check your current Java version:**
+**Not sure how to check your Java version?**
 
 **Step 1.** Open up **Command Prompt** (Windows) or **Terminal** (Mac and Linux).
 
@@ -156,15 +154,15 @@ Some example commands you can try:
 
 - `exit` : Exits the app.
 
-Refer to the [Features](#2-features) below for details of each command.
-
 **Step 2:** Observe the changes to the application.<br>
 
 <box type="tip">
 
+**Not sure what the commands above does?**
+
 You can find all about the usable commands [here](#2-features),<br>
 look at a summary of all the usable commands [here](#72-command-summary),<br>
-or return to the [Table of Contents](#table-of-contents) to find your desired command. 
+OR return to the [Table of Contents](#table-of-contents) to find your desired command. 
 
 </box>
 
@@ -223,7 +221,7 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 ### **2.1 Basic applicant management**
 
-#### 2.1.1 Adding an applicant: `add` <span class="badge rounded-pill bg-primary">Basic</span>
+#### 2.1.1 Adding an applicant: `add`
 
 ![add.jpg](images/add.jpg)
 
@@ -252,23 +250,32 @@ Adds a new applicant to the list of applicants.
 
 **Examples:**
 
+<box type="default" light>
+
 - **`add s/A0269357C n/john doe p/91234567 e/johndoe@example.com g/5.0 c/Hardworking t/pastTA t/deanslist`**
     - Adds a person with the following information:
-        - Student number: A0269357C
-        - Name: John Doe
-        - Phone number: 91234567
-        - Email address: johndoe@example.com
-        - GPA: 5.0
-        - Comment: Hardworking
-        - Tags: pastTA, deanslist
+        - **Student number**: A0269357C
+        - **Name**: John Doe
+        - **Phone number**: 91234567
+        - **Email address**: johndoe@example.com
+        - **GPA**: 5.0
+        - **Comment**: Hardworking
+        - **Tags**: pastTA, deanslist
+
+</box>
+
+<box type="default" light>
+
 - **`add s/A0251647W n/amanda p/89064678 e/amanda@example.com g/4.3 c/`**
     - Adds a person with the following information:
-        - Student number: A0251647W
-        - Name: Amanda
-        - Phone number: 89064678
-        - Email address: amanda@example.com
-        - GPA: 4.3
-        - Comment: -
+        - **Student number**: A0251647W
+        - **Name**: Amanda
+        - **Phone number**: 89064678
+        - **Email address**: amanda@example.com
+        - **GPA**: 4.3
+        - **Comment**: -
+
+</box>
 
 </box>
 
@@ -276,9 +283,13 @@ Adds a new applicant to the list of applicants.
 
 **Expected Outputs:**
 
+<box type="success" light>
+
 - Successfully adding applicant and applicant's information.
 - Confirmation message:<br>
 **`"New applicant added: Student number: <student number>; Name: <name>; Phone: <phone>; Email: <email>; GPA: <gpa>; Comment: <comment>; Tags: <tags>"`**
+
+</box>
 
 </box>
 
@@ -289,16 +300,17 @@ Adds a new applicant to the list of applicants.
 <box type="wrong" light>
 
 - Invalid command format:<br>
-`Invalid command format!`<br>
-`add: Adds an applicant to the list. Parameters: s/STUDENT NUMBER n/NAME p/PHONE e/EMAIL g/GPA c/comment [t/TAG]...`<br>
-`Example: add s/A0343434C n/John Doe p/98765432 e/johnd@example.com g/4.9 c/Hardworking and diligent t/pastTA`
+**`"Invalid command format!"`<br>
+`"add: Adds an applicant to the list. Parameters: s/STUDENT NUMBER n/NAME p/PHONE e/EMAIL g/GPA c/comment [t/TAG]..."`<br>
+`"Example: add s/A0343434C n/John Doe p/98765432 e/johnd@example.com g/4.9 c/Hardworking and diligent t/pastTA"`**
 
 </box>
 
 <box type="wrong" light>
 
 - Repeated applicant:<br>
-**`This applicant already exists in the applicant list.`**
+**`"This applicant already exists in the applicant list."`**
+
 
 </box>
 
@@ -313,7 +325,7 @@ Adds a new applicant to the list of applicants.
 
 ---
 
-#### 2.1.2 Editing an applicant: `edit` <span class="badge rounded-pill bg-primary">Basic</span>
+#### 2.1.2 Editing an applicant: `edit`
 
 ![edit function UI](images/editUI.png)
 
@@ -363,7 +375,7 @@ Adds a new applicant to the list of applicants.
 
 ---
 
-#### 2.1.3 Deleting an applicant: `delete` <span class="badge rounded-pill bg-primary">Basic</span>
+#### 2.1.3 Deleting an applicant: `delete`
 ![delete function UI](images/delete-UI.png)
 
 <aside>
@@ -398,7 +410,7 @@ Adds a new applicant to the list of applicants.
 
 ---
 
-#### 2.1.4 Listing all applicant: `list` <span class="badge rounded-pill bg-primary">Basic</span>
+#### 2.1.4 Listing all applicant: `list`
 ![listUI-1](images/listUI-1.png)
 ![listUI-2](images/listUI-2.png)
 <aside>
@@ -417,7 +429,7 @@ Adds a new applicant to the list of applicants.
 
 ---
 
-#### 2.1.5 Viewing the details of a single applicant: `view` <span class="badge rounded-pill bg-primary">Basic</span>
+#### 2.1.5 Viewing the details of a single applicant: `view`
 
 ![edit function UI](images/viewUI.png)
 
@@ -466,7 +478,7 @@ Adds a new applicant to the list of applicants.
 **`"Error: Invalid index. Please enter an index within range."`**
 
 ---
-#### 2.1.6 Hiding an applicant from list: `hide`/`unhide` <span class="badge rounded-pill bg-primary">Basic</span>
+#### 2.1.6 Hiding an applicant from list: `hide`/`unhide`
 
 ![hide function UI](images/hideUI.png)
 <aside>
