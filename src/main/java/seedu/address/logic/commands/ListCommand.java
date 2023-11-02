@@ -2,11 +2,9 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
-import java.util.Objects;
 import java.util.function.Predicate;
 
 import seedu.address.commons.util.ToStringBuilder;
-import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.ListPredicate;
 import seedu.address.model.person.Person;
@@ -34,7 +32,7 @@ public class ListCommand extends Command {
     }
 
     @Override
-    public CommandResult execute(Model model) throws CommandException {
+    public CommandResult execute(Model model) {
         requireNonNull(model);
 
         if (fieldName.isEmpty()) {
@@ -44,7 +42,7 @@ public class ListCommand extends Command {
             model.updateFilteredPersonList(predicate);
         }
         if (model.getFilteredPersonList().isEmpty()) {
-            throw new CommandException(MESSAGE_EMPTY_LIST);
+            return new CommandResult(MESSAGE_EMPTY_LIST);
         }
 
 

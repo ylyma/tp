@@ -5,7 +5,6 @@ import static seedu.address.logic.parser.CliSyntax.FIELD_HIDDEN;
 
 import java.util.function.Predicate;
 
-import seedu.address.logic.commands.ListCommand;
 
 /**
  * Tests that a {@code Person}'s specified field matches the boolean given.
@@ -13,6 +12,12 @@ import seedu.address.logic.commands.ListCommand;
 public class ListPredicate implements Predicate<Person> {
     private final String fieldName;
     private final boolean filter;
+
+    /**
+     * Constructor for ListPredicate.
+     * @param fieldName
+     * @param filter
+     */
     public ListPredicate(String fieldName, boolean filter) {
         this.fieldName = fieldName;
         this.filter = filter;

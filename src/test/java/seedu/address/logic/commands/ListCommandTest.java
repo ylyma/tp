@@ -11,7 +11,6 @@ import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
@@ -43,7 +42,7 @@ public class ListCommandTest {
     }
 
     @Test
-    public void execute_listHiddenPersons_listHiddenSuccessful() throws CommandException {
+    public void execute_listHiddenPersons_listHiddenSuccessful() {
         Person hiddenPerson = new PersonBuilder().withHidden(true).build();
         model.setPerson(model.getFilteredPersonList().get(0), hiddenPerson);
         CommandResult commandResult = new ListCommand(FIELD_HIDDEN).execute(model);
@@ -53,7 +52,7 @@ public class ListCommandTest {
     }
 
     @Test
-    public void execute_listBookmarkedPersons_listBookmarkedSuccessful() throws CommandException {
+    public void execute_listBookmarkedPersons_listBookmarkedSuccessful() {
         Person bookmarkedPerson = new PersonBuilder().withBookmark(true).build();
         model.setPerson(model.getFilteredPersonList().get(0), bookmarkedPerson);
         CommandResult commandResult = new ListCommand(FIELD_BOOKMARKED).execute(model);

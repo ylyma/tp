@@ -1,5 +1,6 @@
 package seedu.address.model.person;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
@@ -11,8 +12,8 @@ public class IsHiddenTest {
         IsHidden isHidden = new IsHidden(true);
         assertTrue(isHidden.equals(new IsHidden(true)));
         assertTrue(isHidden.equals(isHidden));
-        assertTrue(isHidden.equals(null));
-        assertTrue(isHidden.equals("Test"));
-        assertTrue(isHidden.equals(new IsHidden(false)));
+        assertFalse(isHidden.equals(null));
+        assertFalse(isHidden.equals("Test"));
+        assertFalse(isHidden.equals(new IsHidden(false)));
     }
 }

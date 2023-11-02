@@ -1,7 +1,6 @@
 package seedu.address.logic.parser;
 
 
-import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.FIELD_BOOKMARKED;
 import static seedu.address.logic.parser.CliSyntax.FIELD_HIDDEN;
@@ -11,6 +10,9 @@ import java.util.Arrays;
 import seedu.address.logic.commands.ListCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
+/**
+ * Parses input arguments and creates a new ListCommand object.
+ */
 public class ListCommandParser implements Parser<ListCommand> {
     /**
      * Parses the given {@code String} of arguments in the context of the ListCommand
