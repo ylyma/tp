@@ -106,6 +106,7 @@ An example is shown below.
 | **Mainstream OS**   | Windows, Linux or Mac                                                                                                               |
 | **CLI**             | Command-Line Interface                                                                                                              |
 | **GUI**             | Graphical User Interface                                                                                                            |
+| **Toast**           | A popup alert to inform users about certain information                                                                             |
 | **Tag**             | Tags are associated with applicants, users can tag applicants with any keyword they want,<br/>the number of tags are not restricted |
 
 ### 1.2 Installation
@@ -114,7 +115,8 @@ An example is shown below.
 
 **Step 2.** Copy the file to the folder you want to use as the _home folder_ for your TAfinder.
 
-**Step 3.** Double-click on the `tafinder.jar` file to start the app.
+**Step 3.** Double-click on the `tafinder.jar` file to start the app. 
+
 <div markdown="block" class="alert alert-tip">
 
 :bulb: **Tip**
@@ -141,7 +143,7 @@ The GUI similar to the below should appear in a few seconds. ![Ui](images/Ui.png
 
 ### 1.3 Utilisation
 
-**Step 1.** Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and
+**Step 1:** Type the command in the Command Input Box and press Enter to execute it. e.g. typing **`help`** and
 pressing Enter will open the help window.<br>
 Some example commands you can try:
 
@@ -157,10 +159,29 @@ Some example commands you can try:
 
 Refer to the [Features](#features) below for details of each command.
 
-Step 2. Observe the changes to the application.<br>
+<div markdown="block" class="alert alert-tip">
+
+:bulb: **Tip**
+
+You can find out all the usable commands [here](#72-command-summary) or return to the [Table of Contents](#table-of-contents) to find your desired command.
+
+</div>
+
+**Step 2:** Observe the changes to the application.<br>
 
 ### 1.4 Navigating the User Interface
+![UI with shaded areas](images/tafinder-UI.png)
 
+The UI has the following areas:
+- <span style="background-color:rgba(126, 217, 87, 1)">Navigation bar</span>
+  - This is where you can navigate to the `File` and `Help` menus.
+- <span style="background-color:rgba(255, 222, 89, 1)">Command Input Box</span>
+  - This where commands are typed
+  - press `Enter` to execute it.
+- <span style="background-color:rgba(255, 112, 112, 1)">Command Result Screen</span>
+  - This is where the result of the command is displayed. Applicants are displayed in a list format.
+- <span style="background-color:rgba(170, 210, 232, 1)">Applicant list</span>
+  - This is where the list of applicants is displayed.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -211,49 +232,50 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 </aside>
 
-**Format:** `add [s/STUDENT_NUMBER] [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…`
+**Format:** `add [s/STUDENT NUMBER] [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [c/comment] [t/TAG]…`
 
-- **`s/STUDENT_NUMBER`**: Student number of the applicant
+- **`s/STUDENT NUMBER`**: Student number of the applicant
 - **`n/NAME`**: Name of the applicant.
 - **`p/PHONE`**: Phone number of the applicant.
 - **`e/EMAIL`**: Email address of the applicant.
 - **`g/GPA`**: GPA of the applicant.
+- **`c/COMMENT`**: Comments for the applicant.
 - **`t/TAG`**: Tags of the applicant. Note that editing tags will replace existing tags; it is not cumulative.
 
 **Examples:**
 
-- **`add s/A0269357C n/john doe p/91234567 e/johndoe@example.com g/5.0 t/pastTA t/deanslist`**
-    - Adds a person with the following information
+- **`add s/A0269357C n/john doe p/91234567 e/johndoe@example.com g/5.0 c/Hardworking t/pastTA t/deanslist`**
+    - Adds a person with the following information:
         - Student number: A0269357C
         - Name: John Doe
         - Phone number: 91234567
         - Email address: johndoe@example.com
         - GPA: 5.0
-        - Tags: past TA, dean’s list
-- **`add s/A0251647W n/amanda p/89064678 e/amanda@example.com g/4.3`**
-    - Adds a person with the following information
-        - Student number:
+        - Comment: Hardworking
+        - Tags: pastTA, deanslist
+- **`add s/A0251647W n/amanda p/89064678 e/amanda@example.com g/4.3 c/`**
+    - Adds a person with the following information:
+        - Student number: A0251647W
         - Name: Amanda
         - Phone number: 89064678
         - Email address: amanda@example.com
         - GPA: 4.3
+        - Comment: -
 
 **Expected Outputs:**
 
-- Confirmation Message for successfully adding applicant and applicant's information:<br>
-**`New applicant added: Student number: <student number>; Name: <name>; Phone: <phone>; Email: <email>; GPA: <gpa>; Comment: <comment>; Tags: <tags>`**
+- Successfully adding applicant and applicant's information.
+- Confirmation message:<br>
+**`"New applicant added: Student number: <student number>; Name: <name>; Phone: <phone>; Email: <email>; GPA: <gpa>; Comment: <comment>; Tags: <tags>"`**
 
 **Errors:**
 
 - Invalid command format:<br>
 `Invalid command format!`<br>
 `add: Adds an applicant to the list. Parameters: s/STUDENT NUMBER n/NAME p/PHONE e/EMAIL g/GPA c/comment [t/TAG]...`<br>
-`Example: add s/A0343434C n/John Doe p/98765432 e/johnd@example.com g/4.9 c/Hardworking and diligent t/pastTA`
+`Example: add s/A0343434C n/John Doe p/98765432 e/johnd@example.com g/4.9 c/Hardworking and diligent t/pastTA"`
 - Repeated applicant:<br>
-**`This applicant already exists in the applicant list.`**
-=======
-- Missing fields: **`"Error: Missing fields. Please follow the format: add [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…"`**
-- Repeated applicant: **`"Error: Repeated applicant. Applicant has already been added to the list`**
+**`"This applicant already exists in the applicant list."`**
 
 ---
 
@@ -266,27 +288,79 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 </aside>
 
-**Format:** `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…`
+**Format:** `edit INDEX [s/STUDENT NUMBER] [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [c/comment] [t/TAG]…`
 
 - `INDEX`: The index of the applicant to edit. The index must be a positive integer (e.g., 1, 2, 3…).
 - `[optional fields]`: **At least one** of the following optional fields must be provided for editing:
+    - **`s/STUDENT NUMBER`**: Student number of the applicant.
     - **`n/NAME`**: Name of the applicant.
     - **`p/PHONE`**: Phone number of the applicant.
     - **`e/EMAIL`**: Email address of the applicant.
     - **`g/GPA`**: GPA of the applicant.
+    - **`c/comment`**: Comment of the applicant.
     - **`t/TAG`**: Tags of the applicant. Note that editing tags will replace existing tags; it is not cumulative.
     - To remove all existing tags, use **`t/`** without specifying any tags after it.
 
 **Examples:**
 
 - **`edit 1 p/91234567 e/johndoe@example.com`**
-    - Edits the phone number and email address of the 1st person to be **`91234567`** and **`johndoe@example.com`**, respectively.
+    - Edits the following fields of the first person in the list:
+      - Phone number: **`91234567`**
+      - Email address: **`johndoe@example.com`**
 - **`edit 2 n/Betsy Crower t/`**
-    - Edits the name of the 2nd person to be **`Betsy Crower`** and clears all existing tags.
+    - Edits the following fields of the second person in the list:
+      - Name: **`Betsy Crower`**
+      - Clears all existing tags
+
+**Expected Outputs:**
+
+- Successfully editing applicant and applicant's information.
+- Confirmation message:<br>
+  **`"Edited applicant: Student number: <student number>; Name: <name>; Phone: <phone>; Email: <email>; GPA: <gpa>; Comment: <comment>; Tags: <tags>"`**
+
+**Errors:**
+
+- Invalid command format:<br>
+  `"Invalid command format!`<br>
+  `edit: Edits the details of the applicant identified by the index number used in the displayed applicant list. Existing values will be overwritten by the input values.`<br>
+  `Parameters: INDEX (must be a positive integer) [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [c/COMMENT] [t/TAG]..."`
+- Index out of range:<br>
+**`"Error: Invalid index. Please enter an index within range."`**
 
 ---
 
-#### 2.1.3 Deleting an applicant: `delete`
+#### 2.1.3 Deleting an applicant: `delete` 
+![delete function UI](images/delete-UI.png)
+
+<aside>
+⭐ Delete an existing applicant in the list of applicants.
+
+</aside>
+
+**Format:** `delete INDEX`
+
+- `INDEX`: The index corresponding to the applicant to be deleted. The index must be a positive integer (e.g., 1, 2, 3…).
+
+**Examples:**
+
+- **`delete 3`**
+    - Deletes the third applicant in the list.
+
+**Expected Outputs:**
+
+- Successfully delete applicant and applicant's information at the given index.
+- Confirmation message:<br>
+  `"Deleted applicant: Student number: <student number>; Name: <name>; Phone: <phone>; Email: <email>; GPA: <gpa>; Comment: <comment> ; Tags: <tags>"`
+
+**Errors:**
+
+- Missing index: <br>
+  **`"Invalid command format!`<br>
+  `delete: Displays the applicant identified by the index number used in the displayed applicant list.`<br>
+  `Parameters: INDEX (must be a positive integer)`<br>
+  `Example: delete 1"`**
+- Index out of range:<br>
+  **`"Error: Invalid index. Please enter an index within range."`**
 
 ---
 
@@ -298,10 +372,14 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 </aside>
 
-**Format:** `list`
+**Format:** `list` / `list-hidden` / `list-bookmarked`
 
-- `list-hidden` Shows a list of all hidden applicants.
-- `list-bookmarked` Shows a list of all bookmarked applicants.
+- `list` 
+  - Shows a list of all applicants.
+- `list-hidden` 
+  - Shows a list of all hidden applicants.
+- `list-bookmarked` 
+  - Shows a list of all bookmarked applicants.
 
 ---
 
@@ -332,7 +410,7 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 **Expected Outputs:**
 
-- All details of an applicant in the following format:\
+- Successfully displaying all details of an applicant in the following format:\
     `Name: John Doe`\
     `Student number: A0358289S`\
     `Phone Number: 91234567`\
@@ -340,15 +418,18 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
     `GPA: 5.0`\
     `Comments: Good fit, has teaching experience`\
     `Tags: pastTA, deansList`
-- Confirmation message: `"Displaying: APPLICANT_NAME"`
+- Confirmation message:<br>
+`"Displaying: APPLICANT_NAME"`
 
 **Errors:**
 
-- Missing index: **`"Invalid command format!
-  view: Displays the applicant identified by the index number used in the displayed applicant list.
-  Parameters: INDEX (must be a positive integer)
-  Example: view 1"`**
-- Index out of range: **`"Error: Invalid index. Please enter an index within range."`**
+- Missing index: <br>
+**`"Invalid command format!`<br>
+  `view: Displays the applicant identified by the index number used in the displayed applicant list.`<br>
+  `Parameters: INDEX (must be a positive integer)`<br>
+  `Example: view 1"`**
+- Index out of range:<br> 
+**`"Error: Invalid index. Please enter an index within range."`**
 
 ---
 #### 2.1.6 Hiding an applicant from list: `hide`/`unhide`
@@ -359,11 +440,14 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 </aside>
 
-**Format:** `hide INDEX` / `unhide INDEX`
+**Format:** `hide INDEX` / `unhide INDEX` / `unhide-all`
 
-- Hides/unhides the applicant at the specified INDEX from all future lists. The index refers to the number shown in the displayed person list.
-    - The index must be a positive integer 1, 2, 3...
-- `unhide-all` unhides all applicants that were previously hidden.
+- `hide INDEX`
+  - Hides the applicant at the specified INDEX from all future lists. The index refers to the number shown in the displayed person list.
+- `unhide INDEX`
+  - Unhides the applicant at the specified INDEX from all future lists. The index refers to the number shown in the displayed person list.
+- `unhide-all`
+  - Unhides all applicants that were previously hidden.
 
 **Examples:**
 
@@ -376,15 +460,19 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 **Expected Outputs:**
 
-- Confirmation message: `APPLICANT_NAME hidden successfully.`
+- Successfully hiding/unhiding applicant(s).
+- Confirmation message:<br> 
+**`APPLICANT_NAME hidden successfully.`**
 
 **Errors:**
 
-- Missing index: **`"Invalid command format!
-  hide: Hides an applicant, identified by the index number used in the last list, from all future lists of applicants.
-  Parameter: INDEX (must be a positive integer)
-  Example: hide 1 "`**
-- Index out of range: **`“Error: Invalid index. Please enter an index within range.”`**
+- Missing index:<br> 
+**`"Invalid command format!`<br>
+  `hide: Hides an applicant, identified by the index number used in the last list, from all future lists of applicants.`<br>
+  `Parameter: INDEX (must be a positive integer)`<br>
+  `Example: hide 1"`**
+- Index out of range:<br> 
+**`“Error: Invalid index. Please enter an index within range.”`**
 
 ---
 
@@ -407,7 +495,8 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 **Errors:**
 
-- Empty list: `"No applicants to sort."`
+- Empty list:<br>
+`"No applicants to sort."`
 
 ---
 
@@ -433,13 +522,23 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 **Expected Output:**
 
-- A side-by-side comparison of the two applicants is displayed in a user-friendly format. This comparison window will include student number, name, and various TA selection criteria such as GPA, CCA count, Interview Performance Rating (IPR), tags, etc.
+- A side-by-side comparison of the two applicants is displayed in a user-friendly format. 
+- This comparison window will include:
+  - Student number
+  - Name
+  - Various TA selection criteria such as:
+    - GPA
+    - CCA count
+    - Interview Performance Rating (IPR)
+    - tags
 - The system highlights the differences between the two applicants, making it easy to see variations in their profiles.
 
 **Errors:**
 
-- Applicant not found: **`"Error: One or both of the specified applicants were not found in the list."`**
-- Comparing the same applicant: **`"Error: Please provide distinct indices. You cannot compare the same applicant."`**
+- Applicant not found:<br> 
+**`"Error: One or both of the specified applicants were not found in the list."`**
+- Comparing the same applicant:<br>
+**`"Error: Please provide distinct indices. You cannot compare the same applicant."`**
 
 ---
 
@@ -465,17 +564,19 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 **Expected Output:**
 
-- Applicant corresponding to the given index is bookmarked/unbookmarked.
-- Confirmation message: `"Applicant at index INDEX has been successfully bookmarked/unbookmarked."`
+- Successfully bookmark/unbookmark applicant at the given index.
+- Confirmation message: 
+`"Applicant at index INDEX has been successfully bookmarked/unbookmarked."`
 
 **Errors:**
 
-- Missing index: **`"Invalid command format!
-  bookmark: Bookmarks an applicant, identified by the index number used in the last list,
-  from all future lists of applicants.
-  Parameter: INDEX (must be a positive integer)
-  Example: bookmark 1"`**
-- Index out of range: **`"Error: Invalid index. Please enter an index within range."`**
+- Missing index:<br> 
+**`"Invalid command format!`<br>
+  `bookmark: Bookmarks an applicant, identified by the index number used in the last list, from all future lists of applicants.`<br>
+  `Parameter: INDEX (must be a positive integer)`<br>
+  `Example: bookmark 1"`**
+- Index out of range:<br> 
+**`"Error: Invalid index. Please enter an index within range."`**
 
 ---
 
@@ -499,7 +600,8 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 **Expected outputs:**
 
-- Successfully commenting on the applicant at the corresponding index:<br>
+- Successfully commenting on the applicant at the corresponding index. 
+- Confirmation message:<br>
 `"Applicant at index INDEX has been successfully commented on."`
 
 **Errors:**
@@ -532,14 +634,17 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 **Expected Output:**
 
-- A toast indicating whether the export was successful.
-- If the export wasn’t successful, the reason why it wasn’t successful should be included in the toast.
+- A toast indicating whether the export is successful.
+- If the export is unsuccessful, the reason it is unsuccessful will be included in the toast.
 
 **Errors:**
 
-- Missing file permissions: **`"Error: No permission to write to file FILENAME."`**
-- Corrupted data: **`"Error: Data is corrupted, failed to write to file FILENAME."`**
-- Any other unexpected error: **`"Error: Unknown error. Please contact the app developer at contact@email.com"`**
+- Missing file permissions:<br> 
+**`"Error: No permission to write to file FILENAME."`**
+- Corrupted data:<br>
+**`"Error: Data is corrupted, failed to write to file FILENAME."`**
+- Any other unexpected error:<br> 
+**`"Error: Unknown error. Please contact the app developer at contact@email.com"`**
 
 ---
 
@@ -559,20 +664,23 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 **Examples:**
 
 - `attach 2 john-resume.pdf`
-    - Attaches the file called `john-resume.pdf` in the same directory as the JAR file to the second applicant in the applicant list
+    - Attaches the file called `john-resume.pdf` in the same directory as the `tafinder.jar` file to the second applicant in the applicant list
 - `attach 78 /home/jennifer/resumes/benson-resume.pdf`
     - Attaches the file called `benson-resume.pdf` in the directory `/home/jennifer/resumes` to the 78th applicant in the applicant list
 
 **Expected Output:**
 
-- A toast indicating whether the export was successful.
-- If the export wasn’t successful, the reason why it wasn’t successful should be included in the toast.
+- A toast indicating whether the export is successful.
+- If the export is unsuccessful, the reason it is unsuccessful will be included in the toast.
 
 **Errors:**
 
-- Missing file permissions: **`"Error: No permission to read from file FILEPATH."`**
-- Corrupted data: **`"Error: Data is corrupted, failed to attach file FILEPATH."`**
-- Any other unexpected error: **`"Error: Unknown error. Please contact the app developer at contact@email.com"`**
+- Missing file permissions:<br>
+**`"Error: No permission to read from file FILEPATH."`**
+- Corrupted data:<br>
+**`"Error: Data is corrupted, failed to attach file FILEPATH."`**
+- Any other unexpected error:<br>
+**`"Error: Unknown error. Please contact the app developer at contact@email.com"`**
 
 ---
 ## 3 Data Management
