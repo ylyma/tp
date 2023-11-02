@@ -115,12 +115,8 @@ An example is shown below.
 
 **Step 2.** Copy the file to the folder you want to use as the _home folder_ for your TAfinder.
 
-<<<<<<< HEAD
 **Step 3.** Double-click on the `tafinder.jar` file to start the app. 
 
-=======
-**Step 3.** Double-click on the `tafinder.jar` file to start the app.
->>>>>>> 7ae7963ee74c8b190ecb6d659807beed8c4955cd
 <div markdown="block" class="alert alert-tip">
 
 :bulb: **Tip**
