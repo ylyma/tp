@@ -155,9 +155,17 @@ Some example commands you can try:
 
 - `exit` : Exits the app.
 
-Refer to the [Features](#features) below for details of each command.
+Refer to the [Features](#2-features) below for details of each command.
 
 Step 2. Observe the changes to the application.<br>
+
+<box type="tip">
+
+You can find all about the usable commands [here](#2-features),<br>
+look at a summary of all the usable commands [here](#72-command-summary),<br>
+or return to the [Table of Contents](#table-of-contents) to find your desired command. 
+
+</box>
 
 ### 1.4 Navigating the User Interface
 
@@ -166,7 +174,7 @@ Step 2. Observe the changes to the application.<br>
 
 ## 2 Features
 
-<div markdown="block" class="alert alert-info">
+<box type="info">
 
 **Notes about the command format:**<br>
 
@@ -196,7 +204,7 @@ can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
 
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple
 lines as space characters surrounding line-breaks may be omitted when copied over to the application.
-</div>
+</box>
 
 ---
 
@@ -206,19 +214,27 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 ![add.jpg](images/add.jpg)
 
-<aside>
-⭐ Adds a new applicant to the list of applicants.
+<box type="definition">
 
-</aside>
+Adds a new applicant to the list of applicants.
 
-**Format:** `add [s/STUDENT_NUMBER] [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…`
+</box>
 
-- **`s/STUDENT_NUMBER`**: Student number of the applicant
-- **`n/NAME`**: Name of the applicant.
-- **`p/PHONE`**: Phone number of the applicant.
-- **`e/EMAIL`**: Email address of the applicant.
-- **`g/GPA`**: GPA of the applicant.
-- **`t/TAG`**: Tags of the applicant. Note that editing tags will replace existing tags; it is not cumulative.
+<box type="info">
+
+**Format:** 
+
+- `add [s/STUDENT_NUMBER] [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…`
+  - **`s/STUDENT_NUMBER`**: Student number of the applicant
+  - **`n/NAME`**: Name of the applicant.
+  - **`p/PHONE`**: Phone number of the applicant.
+  - **`e/EMAIL`**: Email address of the applicant.
+  - **`g/GPA`**: GPA of the applicant.
+  - **`t/TAG`**: Tags of the applicant. Note that editing tags will replace existing tags; it is not cumulative.
+
+</box>
+
+<box type="default">
 
 **Examples:**
 
@@ -238,22 +254,52 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
         - Email address: amanda@example.com
         - GPA: 4.3
 
+</box>
+
+<box type="success">
+
 **Expected Outputs:**
 
 - Confirmation Message for successfully adding applicant and applicant's information:<br>
 **`New applicant added: Student number: <student number>; Name: <name>; Phone: <phone>; Email: <email>; GPA: <gpa>; Comment: <comment>; Tags: <tags>`**
 
+</box>
+
+<box type="wrong">
+
 **Errors:**
+
+<box type="wrong" light>
 
 - Invalid command format:<br>
 `Invalid command format!`<br>
 `add: Adds an applicant to the list. Parameters: s/STUDENT NUMBER n/NAME p/PHONE e/EMAIL g/GPA c/comment [t/TAG]...`<br>
 `Example: add s/A0343434C n/John Doe p/98765432 e/johnd@example.com g/4.9 c/Hardworking and diligent t/pastTA`
+
+</box>
+
+<box type="wrong" light>
+
 - Repeated applicant:<br>
 **`This applicant already exists in the applicant list.`**
-=======
-- Missing fields: **`"Error: Missing fields. Please follow the format: add [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…"`**
-- Repeated applicant: **`"Error: Repeated applicant. Applicant has already been added to the list`**
+
+</box>
+
+<box type="wrong" light>
+
+- Missing fields:<br>
+**`"Error: Missing fields. Please follow the format: add [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…"`**
+
+</box>
+
+<box type="wrong" light>
+
+- Repeated applicant:<br>
+**`"Error: Repeated applicant. Applicant has already been added to the list`**
+
+</box>
+
+</box>
 
 ---
 
