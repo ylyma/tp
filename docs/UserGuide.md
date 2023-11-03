@@ -45,7 +45,7 @@ You can click on any of the links below to navigate to the respective sections f
     - [2.2 Applicant evaluation & comparison](#22-applicant-evaluation--comparison)
       - [2.2.1 Sorting applicants by grades: `sort-gpa`](#221-sorting-applicants-by-gpa-sort-gpa)
       - [2.2.2 Sorting applicants by grades: `sort-grade`](#222-sorting-by-module-grade-sort-grade)
-      - [2.2.3 Sorting applicants by grades: `sort-interview`](#223-sorting-by-interview-score-sort-interview)
+      - [2.2.3 Sorting applicants by interview score: `sort-interview`](#223-sorting-by-interview-score-sort-interview)
       - [2.2.4 Comparing 2 applicants: `compare`](#224-comparing-2-applicants-compare)
       - [2.2.5 Bookmarking/Unbookmarking applicants: `bookmark/unbookmark`](#225-bookmarkingunbookmarking-applicants-bookmarkunbookmark)
       - [2.2.6 Commenting on TA applicant: `comment`](#226-commenting-on-ta-applicant-comment)
@@ -1222,7 +1222,7 @@ Any other unexpected error:<br>
 
 ---
 
-### 2.3.3 Importing from spreadsheet: `import`
+#### 2.3.3 Importing from spreadsheet: `import`
 
 ---
 ## 3 Data Management
