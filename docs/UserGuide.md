@@ -751,21 +751,44 @@ Index out of range:<br>
 
 ![sort function UI](images/sortUI.png)
 
-<aside>
-⭐  Sorts applicants by grades in descending order
+<box type="definition">
 
-</aside>
+Sorts applicants by grades in descending order
 
-**Format:** **`sort-gpa`**
+</box>
+
+<box type="info">
+
+**Format:** 
+
+**`sort-gpa`**
+
+</box>
+
+<box type="success">
 
 **Expected Output:**
 
+<box type="success" light>
+
 - A list of applicants sorted by grades in descending order.
+
+</box>
+
+</box>
+
+<box type="wrong">
 
 **Errors:**
 
-- Empty list:<br>
-`"No applicants to sort."`
+<box type="wrong" light>
+
+Empty list:<br>
+**`"No applicants to sort."`**
+
+</box>
+
+</box>
 
 ---
 
@@ -773,23 +796,51 @@ Index out of range:<br>
 
 ![compare function UI](images/compareUI.png)
 
-<aside>
-⭐  Compares two applicants side by side to make informed decisions.
+<box type="definition">
 
-</aside>
+Compares two applicants side by side to make informed decisions.
 
-**Format:** **`compare INDEX1 INDEX2`**
+</box>
 
-- **`INDEX1`**: The index of the first applicant to compare.
-- **`INDEX2`**: The index of the second applicant to compare.
-- Both indices must be a positive integer (e.g., 1, 2, 3…), and should not be the same.
+<box type="info">
+
+**Format:** 
+
+**`compare INDEX1 INDEX2`**
+
+<box no-icon type="info" light>
+
+**`INDEX1`**: The index of the first applicant to compare.
+
+</box>
+
+<box no-icon type="info" light>
+
+**`INDEX2`**: The index of the second applicant to compare.<br>
+Both indices must be a positive integer (e.g., 1, 2, 3…), and should not be the same.
+
+</box>
+
+</box>
+
+<box type="info" theme="dark">
 
 **Examples:**
 
-- **`compare 1 2`**
-    - Compares the first and second applicants.
+<box type="default" light>
+
+**`compare 1 2`**
+- Compares the first and second applicants.
+
+</box>
+
+</box>
+
+<box type="success">
 
 **Expected Output:**
+
+<box type="success" light>
 
 - A side-by-side comparison of the two applicants is displayed in a user-friendly format. 
 - This comparison window will include:
@@ -802,12 +853,29 @@ Index out of range:<br>
     - tags
 - The system highlights the differences between the two applicants, making it easy to see variations in their profiles.
 
+</box>
+
+</box>
+
+<box type="wrong">
+
 **Errors:**
 
-- Applicant not found:<br> 
+<box type="wrong" light>
+
+Applicant not found:<br> 
 **`"Error: One or both of the specified applicants were not found in the list."`**
-- Comparing the same applicant:<br>
+
+</box>
+
+<box type="wrong" light>
+
+Comparing the same applicant:<br>
 **`"Error: Please provide distinct indices. You cannot compare the same applicant."`**
+
+</box>
+
+</box>
 
 ---
 
@@ -815,70 +883,161 @@ Index out of range:<br>
 
 ![bookmark function UI](images/bookmarkUI.png)
 
-<aside>
-⭐  Bookmarks/Unbookmarks a specific applicant.
+<box type="definition">
 
-</aside>
+Bookmarks/Unbookmarks a specific applicant.
 
-**Format:** **`bookmark INDEX` / `unbookmark INDEX`**
+</box>
 
-- **`INDEX`**: The index corresponding to the applicant to be bookmarked/unbookmarked. The index must be a positive integer (e.g., 1, 2, 3…).
+<box type="info">
+
+**Format:** 
+
+**`bookmark INDEX` / `unbookmark INDEX`**
+
+<box no-icon type="info" light>
+
+**`INDEX`**: The index corresponding to the applicant to be bookmarked/unbookmarked. The index must be a positive integer (e.g., 1, 2, 3…).
+
+</box>
+
+</box>
+
+<box type="info" theme="dark">
 
 **Examples:**
 
-- **`bookmark 3`**
-    - Bookmarks the third applicant.
-- **`unbookmark 3`**
-    - Unbookmarks the third applicant.
+<box type="default" light>
+
+**`bookmark 3`**
+- Bookmarks the third applicant.
+
+</box>
+
+<box type="default" light>
+
+**`unbookmark 3`**
+- Unbookmarks the third applicant.
+
+</box>
+
+</box>
+
+<box type="success">
 
 **Expected Output:**
 
+<box type="success" light>
+
 - Successfully bookmark/unbookmark applicant at the given index.
-- Confirmation message: 
-`"Applicant at index INDEX has been successfully bookmarked/unbookmarked."`
+- Confirmation message:<br>
+**`"Applicant at index INDEX has been successfully bookmarked/unbookmarked."`**
+
+</box>
+
+</box>
+
+<box type="wrong">
 
 **Errors:**
 
-- Missing index:<br> 
+<box type="wrong" light>
+
+Missing index:<br> 
 **`"Invalid command format!`<br>
   `bookmark: Bookmarks an applicant, identified by the index number used in the last list, from all future lists of applicants.`<br>
   `Parameter: INDEX (must be a positive integer)`<br>
   `Example: bookmark 1"`**
-- Index out of range:<br> 
+
+</box>
+
+<box type="wrong" light>
+
+Index out of range:<br> 
 **`"Error: Invalid index. Please enter an index within range."`**
+
+</box>
+
+</box>
 
 ---
 
 #### 2.2.4 Commenting on TA applicant: **`comment`**
 
 ![comments.jpg](images/comment.jpg)
-<aside>
-⭐ Add comments on a specific applicant
 
-</aside>
+<box type="definition">
 
-**Format: `comment INDEX COMMENT`**
+Add comments on a specific applicant
 
-- `INDEX`: The index corresponding to the applicant to be commented. The index must be a positive integer (e.g., 1, 2, 3…).
-- **`COMMENT`:** The comment to be made about the applicant.
+</box>
+
+<box type="info">
+
+**Format:** 
+
+**`comment INDEX COMMENT`**
+
+<box no-icon type="info" light>
+
+**`INDEX`**: The index corresponding to the applicant to be commented. The index must be a positive integer (e.g., 1, 2, 3…).
+
+</box>
+
+<box no-icon type="info" light>
+
+**`COMMENT`:** The comment to be made about the applicant.
+
+</box>
+
+</box>
+
+<box type="info" theme="dark">
 
 **Examples:**
 
-- `comment 3 Hardworking and studious`
-    - Comments on the third applicant with the comment: "Hardworking and studious"
+<box type="default" light>
+
+**`comment 3 Hardworking and studious`**
+- Comments on the third applicant with the comment: "Hardworking and studious"
+
+</box>
+
+</box>
+
+<box type="success">
 
 **Expected outputs:**
 
+<box type="success" light>
+
 - Successfully commenting on the applicant at the corresponding index. 
 - Confirmation message:<br>
-`"Applicant at index INDEX has been successfully commented on."`
+**`"Applicant at index INDEX has been successfully commented on."`**
+
+</box>
+
+</box>
+
+<box type="wrong">
 
 **Errors:**
 
-- Missing index:<br>
-`“Error: Missing index. Please follow the format: 'view INDEX'.”`
-- Index out of range:<br>
-`“Error: Invalid index. Please enter an index within range.”`
+<box type="wrong" light>
+
+Missing index:<br>
+**`“Error: Missing index. Please follow the format: 'view INDEX'.”`**
+
+</box>
+
+<box type="wrong" light>
+
+Index out of range:<br>
+**`“Error: Invalid index. Please enter an index within range.”`**
+
+</box>
+
+</box>
 
 ---
 
