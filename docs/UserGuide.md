@@ -888,32 +888,78 @@ Index out of range:<br>
 
 ![export function UI](images/exportUI.png)
 
-<aside>
-⭐  Exports the entire list of applicants along with their details into a spreadsheet
-</aside>
+<box type="definition">
 
-**Format:** **`export FILENAME`**
+Exports the entire list of applicants along with their details into a spreadsheet
 
-- `FILENAME`: The desired filename of the spreadsheet (including the file extension)
+</box>
+
+<box type="info">
+
+**Format:** 
+
+**`export FILENAME`**
+
+<box no-icon type="info" light>
+
+**`FILENAME`**: The desired filename of the spreadsheet (including the file extension)
+
+</box>
+
+</box>
+
+<box type="info" theme="dark">
 
 **Examples:**
 
-- `export ta-applicants.csv`
-    - Exports the entire list of applicants in the CSV format to a file called `ta-applicants.csv` in the same directory as the JAR file
+<box type="default" light>
+
+**`export ta-applicants.csv`**
+- Exports the entire list of applicants in the CSV format to a file called `ta-applicants.csv` in the same directory as the JAR file
+
+</box>
+
+</box>
+
+<box type="success">
 
 **Expected Output:**
+
+<box type="success" light>
 
 - A toast indicating whether the export is successful.
 - If the export is unsuccessful, the reason it is unsuccessful will be included in the toast.
 
+</box>
+
+</box>
+
+<box type="wrong">
+
 **Errors:**
 
-- Missing file permissions:<br> 
+<box type="wrong" light>
+
+Missing file permissions:<br> 
 **`"Error: No permission to write to file FILENAME."`**
-- Corrupted data:<br>
+
+</box>
+
+<box type="wrong" light>
+
+Corrupted data:<br>
 **`"Error: Data is corrupted, failed to write to file FILENAME."`**
-- Any other unexpected error:<br> 
+
+</box>
+
+<box type="wrong" light>
+
+Any other unexpected error:<br> 
 **`"Error: Unknown error. Please contact the app developer at contact@email.com"`**
+
+</box>
+
+</box>
 
 ---
 
@@ -921,35 +967,91 @@ Index out of range:<br>
 
 ![attach function UI](images/attachUI.png)
 
-<aside>
-⭐  Attaches local files to the profiles of applicants to provide even more richness and insight into their applications
-</aside>
+<box type="definition">
 
-**Format:** **`attach INDEX FILEPATH`**
+Attaches local files to the profiles of applicants to provide even more richness and insight into their applications
 
-- `INDEX`: The index of the applicant to edit. The index must be a positive integer (e.g., 1, 2, 3…).
-- `FILEPATH`: The desired path of the file to attach to the applicant’s profile. This is relative to the path of the JAR file unless either `/` or `C:\` is at the start of the path, then the path will be treated as an absolute path.
+</box>
+
+<box type="info">
+
+**Format:** 
+
+**`attach INDEX FILEPATH`**
+
+<box no-icon type="info" light>
+
+**`INDEX`**: The index of the applicant to edit. The index must be a positive integer (e.g., 1, 2, 3…).
+
+</box>
+
+<box no-icon type="info" light>
+
+**`FILEPATH`**: The desired path of the file to attach to the applicant’s profile. This is relative to the path of the JAR file unless either `/` or `C:\` is at the start of the path, then the path will be treated as an absolute path.
+
+</box>
+
+</box>
+
+<box type="info" theme="dark">
 
 **Examples:**
 
-- `attach 2 john-resume.pdf`
-    - Attaches the file called `john-resume.pdf` in the same directory as the `tafinder.jar` file to the second applicant in the applicant list
-- `attach 78 /home/jennifer/resumes/benson-resume.pdf`
-    - Attaches the file called `benson-resume.pdf` in the directory `/home/jennifer/resumes` to the 78th applicant in the applicant list
+<box type="default" light>
+
+**`attach 2 john-resume.pdf`**
+- Attaches the file called `john-resume.pdf` in the same directory as the `tafinder.jar` file to the second applicant in the applicant list
+
+</box>
+
+<box type="default" light>
+
+**`attach 78 /home/jennifer/resumes/benson-resume.pdf`**
+- Attaches the file called `benson-resume.pdf` in the directory `/home/jennifer/resumes` to the 78th applicant in the applicant list
+
+</box>
+
+</box>
+
+<box type="success">
 
 **Expected Output:**
 
-- A toast indicating whether the export is successful.
-- If the export is unsuccessful, the reason it is unsuccessful will be included in the toast.
+<box type="success" light>
+
+A toast indicating whether the export is successful.<br>
+If the export is unsuccessful, the reason it is unsuccessful will be included in the toast.
+
+</box>
+
+</box>
+
+<box type="wrong">
 
 **Errors:**
 
-- Missing file permissions:<br>
+<box type="wrong" light>
+
+Missing file permissions:<br>
 **`"Error: No permission to read from file FILEPATH."`**
-- Corrupted data:<br>
+
+</box>
+
+<box type="wrong" light>
+
+Corrupted data:<br>
 **`"Error: Data is corrupted, failed to attach file FILEPATH."`**
-- Any other unexpected error:<br>
+
+</box>
+
+<box type="wrong" light>
+
+Any other unexpected error:<br>
 **`"Error: Unknown error. Please contact the app developer at contact@email.com"`**
+
+</box>
+
+</box>
 
 ---
 ## 3 Data Management
@@ -961,9 +1063,13 @@ TAfinder data are saved in the hard disk automatically after any command that ch
 
 TAfinder data are saved automatically as a JSON file `[JAR file location]/data/tafinder.json`. Advanced users are welcome to update data directly by editing that data file.
 
-<div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
+<box type="warning">
+
+**Warning:**
+
 If your changes to the data file makes its format invalid, TAfinder will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.
-</div>
+
+</box>
 
 --------------------------------------------------------------------------------------------------------------------
 ## 4 Upcoming Features [coming in v1.3]
