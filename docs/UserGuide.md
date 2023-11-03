@@ -1103,7 +1103,7 @@ Imports an entire list of applicants along with their details from a CSV file.
 
 <box type="wrong" light>
 
-Missing file permissions or invalid file path:<br> 
+Missing file permissions or invalid file path:<br>
 **`"Failed to open and load applicant file."`**
 
 </box>
