@@ -1,7 +1,6 @@
 package seedu.address.ui;
 
 import java.io.IOException;
-import java.util.Optional;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,11 +31,11 @@ public class CompareWindow extends Stage {
     @FXML
     private Label person1IScore;
     @FXML
-    private Rectangle IScore1Highlight;
+    private Rectangle iScore1Highlight;
     @FXML
     private Label person1MGrade;
     @FXML
-    private Rectangle MGrade1Highlight;
+    private Rectangle mGrade1Highlight;
     @FXML
     private Label person1Comment;
     @FXML
@@ -50,11 +49,11 @@ public class CompareWindow extends Stage {
     @FXML
     private Label person2IScore;
     @FXML
-    private Rectangle IScore2Highlight;
+    private Rectangle iScore2Highlight;
     @FXML
     private Label person2MGrade;
     @FXML
-    private Rectangle MGrade2Highlight;
+    private Rectangle mGrade2Highlight;
     @FXML
     private Label person2Comment;
 
@@ -138,15 +137,15 @@ public class CompareWindow extends Stage {
         }
 
         if (interviewScore1.compareTo(interviewScore2) > 0) {
-            IScore1Highlight.setOpacity(0.33);
+            iScore1Highlight.setOpacity(0.33);
         } else if (interviewScore1.compareTo(interviewScore2) < 0) {
-            IScore2Highlight.setOpacity(0.33);
+            iScore2Highlight.setOpacity(0.33);
         }
 
         if (mGrade1.compareTo(mGrade2) < 0) {
-            MGrade1Highlight.setOpacity(0.33);
+            mGrade1Highlight.setOpacity(0.33);
         } else if (mGrade1.compareTo(mGrade2) > 0) {
-            MGrade2Highlight.setOpacity(0.33);
+            mGrade2Highlight.setOpacity(0.33);
         }
 
         Scene scene = new Scene(fxmlLoader.getRoot());
