@@ -162,7 +162,7 @@ Some example commands you can try:
 
 You can find all about the usable commands [here](#2-features),<br>
 look at a summary of all the usable commands [here](#72-command-summary),<br>
-OR return to the [Table of Contents](#table-of-contents) to find your desired command. 
+OR return to the [Table of Contents](#table-of-contents) to find your desired command.
 
 </box>
 
@@ -516,27 +516,27 @@ Shows a list of all applicants.
 
 <box type="info">
 
-**Format:** 
+**Format:**
 
 **`list`** / **`list-hidden`** / **`list-bookmarked`**
 
 <box no-icon type="info" light>
 
-**`list`** 
+**`list`**
 - Shows a list of all applicants.
 
 </box>
 
 <box no-icon type="info" light>
 
-**`list-hidden`** 
+**`list-hidden`**
 - Shows a list of all hidden applicants.
 
 </box>
 
 <box no-icon type="info" light>
 
-**`list-bookmarked`** 
+**`list-bookmarked`**
 - Shows a list of all bookmarked applicants.
 
 </box>
@@ -632,7 +632,7 @@ Missing index: <br>
 
 <box type="wrong" light>
 
-Index out of range:<br> 
+Index out of range:<br>
 **`"Error: Invalid index. Please enter an index within range."`**
 
 </box>
@@ -713,7 +713,7 @@ Hides/unhides an applicant from the list of applicants.
 <box type="success" light>
 
 Successfully hiding/unhiding applicant(s).<br>
-Confirmation message:<br> 
+Confirmation message:<br>
 **`APPLICANT_NAME hidden successfully.`**
 
 </box>
@@ -726,7 +726,7 @@ Confirmation message:<br>
 
 <box type="wrong" light>
 
-Missing index:<br> 
+Missing index:<br>
 **`"Invalid command format!`<br>
   `hide: Hides an applicant, identified by the index number used in the last list, from all future lists of applicants.`<br>
   `Parameter: INDEX (must be a positive integer)`<br>
@@ -736,7 +736,7 @@ Missing index:<br>
 
 <box type="wrong" light>
 
-Index out of range:<br> 
+Index out of range:<br>
 **`“Error: Invalid index. Please enter an index within range.”`**
 
 </box>
@@ -759,7 +759,7 @@ Sorts applicants by grades in descending order
 
 <box type="info">
 
-**Format:** 
+**Format:**
 
 **`sort-gpa`**
 
@@ -812,7 +812,7 @@ Compares two applicants side by side to make informed decisions.
 
 <box type="info">
 
-**Format:** 
+**Format:**
 
 **`compare INDEX1 INDEX2`**
 
@@ -850,7 +850,7 @@ Both indices must be a positive integer (e.g., 1, 2, 3…), and should not be th
 
 <box type="success" light>
 
-- A side-by-side comparison of the two applicants is displayed in a user-friendly format. 
+- A side-by-side comparison of the two applicants is displayed in a user-friendly format.
 - This comparison window will include:
   - Student number
   - Name
@@ -871,7 +871,7 @@ Both indices must be a positive integer (e.g., 1, 2, 3…), and should not be th
 
 <box type="wrong" light>
 
-Applicant not found:<br> 
+Applicant not found:<br>
 **`"Error: One or both of the specified applicants were not found in the list."`**
 
 </box>
@@ -899,7 +899,7 @@ Bookmarks/Unbookmarks a specific applicant.
 
 <box type="info">
 
-**Format:** 
+**Format:**
 
 **`bookmark INDEX` / `unbookmark INDEX`**
 
@@ -951,7 +951,7 @@ Bookmarks/Unbookmarks a specific applicant.
 
 <box type="wrong" light>
 
-Missing index:<br> 
+Missing index:<br>
 **`"Invalid command format!`<br>
   `bookmark: Bookmarks an applicant, identified by the index number used in the last list, from all future lists of applicants.`<br>
   `Parameter: INDEX (must be a positive integer)`<br>
@@ -961,7 +961,7 @@ Missing index:<br>
 
 <box type="wrong" light>
 
-Index out of range:<br> 
+Index out of range:<br>
 **`"Error: Invalid index. Please enter an index within range."`**
 
 </box>
@@ -982,7 +982,7 @@ Add comments on a specific applicant
 
 <box type="info">
 
-**Format:** 
+**Format:**
 
 **`comment INDEX COMMENT`**
 
@@ -1019,7 +1019,7 @@ Add comments on a specific applicant
 
 <box type="success" light>
 
-- Successfully commenting on the applicant at the corresponding index. 
+- Successfully commenting on the applicant at the corresponding index.
 - Confirmation message:<br>
 **`"Applicant at index INDEX has been successfully commented on."`**
 
@@ -1063,7 +1063,7 @@ Exports the entire list of applicants along with their details into a spreadshee
 
 <box type="info">
 
-**Format:** 
+**Format:**
 
 **`export FILENAME`**
 
@@ -1107,7 +1107,7 @@ Exports the entire list of applicants along with their details into a spreadshee
 
 <box type="wrong" light>
 
-Missing file permissions:<br> 
+Missing file permissions:<br>
 **`"Error: No permission to write to file FILENAME."`**
 
 </box>
@@ -1121,7 +1121,7 @@ Corrupted data:<br>
 
 <box type="wrong" light>
 
-Any other unexpected error:<br> 
+Any other unexpected error:<br>
 **`"Error: Unknown error. Please contact the app developer at contact@email.com"`**
 
 </box>
@@ -1142,7 +1142,7 @@ Attaches local files to the profiles of applicants to provide even more richness
 
 <box type="info">
 
-**Format:** 
+**Format:**
 
 **`attach INDEX FILEPATH`**
 
