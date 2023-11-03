@@ -1,7 +1,5 @@
 ---
-layout: default.md
 title: TAfinder User Guide
-pageNav: 3
 ---
 # TAfinder User Guide
 ## Overview
