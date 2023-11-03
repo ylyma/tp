@@ -44,19 +44,19 @@ You can click on any of the links below to navigate to the respective sections f
       - [2.1.6 Hiding/unhiding an applicant: `hide/unhide`](#216-hiding-an-applicant-from-list-hideunhide)
     - [2.2 Applicant evaluation & comparison](#22-applicant-evaluation--comparison)
       - [2.2.1 Sorting applicants by grades: `sort-gpa`](#221-sorting-applicants-by-gpa-sort-gpa)
-      - [2.2.2 Comparing 2 applicants: `compare`](#222-comparing-2-applicants-compare)
-      - [2.2.3 Bookmarking/Unbookmarking applicants: `bookmark/unbookmark`](#223-bookmarkingunbookmarking-applicants-bookmarkunbookmark)
-      - [2.2.4 Commenting on TA applicant: `comment`](#224-commenting-on-ta-applicant-comment)
+      - [2.2.2 Sorting applicants by grades: `sort-grade`](#222-sorting-by-module-grade-sort-grade)
+      - [2.2.3 Sorting applicants by grades: `sort-interview`](#223-sorting-by-interview-score-sort-interview)
+      - [2.2.2 Comparing 2 applicants: `compare`](#224-comparing-2-applicants-compare)
+      - [2.2.3 Bookmarking/Unbookmarking applicants: `bookmark/unbookmark`](#225-bookmarkingunbookmarking-applicants-bookmarkunbookmark)
+      - [2.2.4 Commenting on TA applicant: `comment`](#226-commenting-on-ta-applicant-comment)
     - [2.3 Data management & export](#23-data-management--export)
-      - [2.3.1 Exporting applicants into spreadsheet: `export`](#231-exporting-applicants-into-spreadsheet)
-      - [2.3.2 Attaching file to applicant profiles: `attach`](#232-attaching-file-to-applicant-profiles)
+      - [2.3.1 Exporting applicants into spreadsheet: `export`](#231-exporting-applicants-into-spreadsheet-export)
+      - [2.3.2 Attaching file to applicant profiles: `attach`](#232-attaching-file-to-applicant-profiles-attach)
+      - [2.3.3 Attaching file to applicant profiles: `import`](#233-importing-from-spreadsheet-import)
 - [3 Data management](#3-data-management)
     - [3.1 Saving the data](#31-saving-the-data)
     - [3.2 Editing the data file](#32-editing-the-data-file)
-- [4 Upcoming Features](#4-upcoming-features-coming-in-v13)
-    - [4.1 Importing from spreadsheet: `import`](#41-importing-from-spreadsheet)
-    - [4.2 Sorting by module grade: `sort-grade`](#42-sorting-by-module-grade)
-    - [4.3 Sorting by interview score: `sort-interview`](#43-sorting-by-interview-score)
+- [4 Upcoming Features](#4-upcoming-features-coming-in-a-future-update)
 - [5 FAQ](#5-faq)
 - [6 Known Issues](#6-known-issues)
 - [7 Summary](#7-summary)
@@ -792,7 +792,15 @@ Empty list:<br>
 
 ---
 
-#### 2.2.2 Comparing 2 applicants: `compare`
+#### 2.2.2 Sorting by module grade: `sort-grade`
+
+---
+
+#### 2.2.3 Sorting by interview score: `sort-interview`
+
+---
+
+#### 2.2.4 Comparing 2 applicants: `compare`
 
 ![compare function UI](images/compareUI.png)
 
@@ -879,7 +887,7 @@ Comparing the same applicant:<br>
 
 ---
 
-#### 2.2.3 Bookmarking/Unbookmarking applicants: `bookmark/unbookmark`
+#### 2.2.5 Bookmarking/Unbookmarking applicants: `bookmark/unbookmark`
 
 ![bookmark function UI](images/bookmarkUI.png)
 
@@ -962,7 +970,7 @@ Index out of range:<br>
 
 ---
 
-#### 2.2.4 Commenting on TA applicant: **`comment`**
+#### 2.2.6 Commenting on TA applicant: **`comment`**
 
 ![comments.jpg](images/comment.jpg)
 
@@ -1043,7 +1051,7 @@ Index out of range:<br>
 
 ### 2.3 Data management & export
 
-#### 2.3.1 Exporting applicants into spreadsheet
+#### 2.3.1 Exporting applicants into spreadsheet: `export`
 
 ![export function UI](images/exportUI.png)
 
@@ -1122,7 +1130,7 @@ Any other unexpected error:<br>
 
 ---
 
-#### 2.3.2 Attaching file to applicant profiles
+#### 2.3.2 Attaching file to applicant profiles: `attach`
 
 ![attach function UI](images/attachUI.png)
 
@@ -1213,6 +1221,10 @@ Any other unexpected error:<br>
 </box>
 
 ---
+
+### 2.3.3 Importing from spreadsheet: `import`
+
+---
 ## 3 Data Management
 ### 3.1 Saving the data
 
@@ -1231,12 +1243,7 @@ If your changes to the data file makes its format invalid, TAfinder will discard
 </box>
 
 --------------------------------------------------------------------------------------------------------------------
-## 4 Upcoming Features [coming in v1.3]
-### 4.1 Importing from spreadsheet
-
-### 4.2 Sorting by module grade
-
-### 4.3 Sorting by interview score
+## 4 Upcoming Features [coming in a future update!]
 
 --------------------------------------------------------------------------------------------------------------------
 
