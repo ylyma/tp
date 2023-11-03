@@ -43,7 +43,7 @@ You can click on any of the links below to navigate to the respective sections f
       - [2.1.5 Viewing an applicant: `view`](#215-viewing-the-details-of-a-single-applicant-view)
       - [2.1.6 Hiding/unhiding an applicant: `hide/unhide`](#216-hiding-an-applicant-from-list-hideunhide)
     - [2.2 Applicant evaluation & comparison](#22-applicant-evaluation--comparison)
-      - [2.2.1 Sorting applicants by grades: `sort-gpa`](#221-sorting-applicants-by-gpa-sort-gpa)
+      - [2.2.1 Sorting applicants by gpa: `sort-gpa`](#221-sorting-applicants-by-gpa-sort-gpa)
       - [2.2.2 Sorting applicants by grades: `sort-grade`](#222-sorting-by-module-grade-sort-grade)
       - [2.2.3 Sorting applicants by interview score: `sort-interview`](#223-sorting-by-interview-score-sort-interview)
       - [2.2.4 Comparing 2 applicants: `compare`](#224-comparing-2-applicants-compare)
