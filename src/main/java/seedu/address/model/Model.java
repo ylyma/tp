@@ -1,5 +1,7 @@
 package seedu.address.model;
 
+import static seedu.address.logic.parser.CliSyntax.FIELD_HIDDEN;
+
 import java.nio.file.Path;
 import java.util.Comparator;
 import java.util.Optional;
@@ -9,8 +11,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.index.Index;
-import seedu.address.model.person.IsBookmarkedPredicate;
-import seedu.address.model.person.IsHiddenPredicate;
+import seedu.address.model.person.ListPredicate;
 import seedu.address.model.person.Person;
 
 /**
@@ -23,16 +24,16 @@ public interface Model {
     /**
      * {@code Predicate} that filters for all hidden persons
      */
-    Predicate<Person> PREDICATE_SHOW_ALL_HIDDEN_PERSONS = new IsHiddenPredicate(true);
+    Predicate<Person> PREDICATE_SHOW_ALL_HIDDEN_PERSONS = new ListPredicate(FIELD_HIDDEN, true);
     /**
      * {@code Predicate} that filters for all unhidden persons
      */
-    Predicate<Person> PREDICATE_SHOW_ALL_UNHIDDEN_PERSONS = new IsHiddenPredicate(false);
+    Predicate<Person> PREDICATE_SHOW_ALL_UNHIDDEN_PERSONS = new ListPredicate(FIELD_HIDDEN, false);
 
     /**
      * {@code Predicate} that filters for all bookmarked applicants
      */
-    Predicate<Person> PREDICATE_SHOW_ALL_BOOKMARKED_PERSONS = new IsBookmarkedPredicate(true);
+    Predicate<Person> PREDICATE_SHOW_ALL_BOOKMARKED_PERSONS = new ListPredicate(FIELD_HIDDEN, true);
 
     /**
      * Replaces user prefs data with the data in {@code userPrefs}.
