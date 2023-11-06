@@ -1,0 +1,231 @@
+{
+  "enableSearch": true,
+  "pages": [
+    {
+      "src": "AboutUs.md",
+      "title": "About Us",
+      "headings": {
+        "project-team": "Project team",
+        "ravern-koh": "Ravern Koh",
+        "amos-ting": "Amos Ting",
+        "heng-yi": "Heng Yi",
+        "nabonita-sen": "Nabonita Sen",
+        "amy-ling": "Amy Ling"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "Configuration.md",
+      "title": "Configuration guide",
+      "headings": {},
+      "headingKeywords": {}
+    },
+    {
+      "src": "DevOps.md",
+      "title": "DevOps guide",
+      "headings": {
+        "devops-guide": "DevOps guide",
+        "build-automation": "Build automation",
+        "continuous-integration-ci": "Continuous integration (CI)",
+        "code-coverage": "Code coverage",
+        "repository-wide-checks": "Repository-wide checks",
+        "making-a-release": "Making a release"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "DeveloperGuide.md",
+      "title": "Developer Guide",
+      "headings": {
+        "acknowledgements": "Acknowledgements",
+        "setting-up-getting-started": "Setting up, getting started",
+        "design": "Design",
+        "architecture": "Architecture",
+        "ui-component": "UI component",
+        "logic-component": "Logic component",
+        "model-component": "Model component",
+        "storage-component": "Storage component",
+        "common-classes": "Common classes",
+        "implementation": "Implementation",
+        "proposed-undo-redo-feature": "[Proposed] Undo/redo feature",
+        "proposed-hide-unhide-feature": "[Proposed] Hide/unhide feature",
+        "bookmark-unbookmark-feature": "Bookmark/Unbookmark feature",
+        "compare-feature": "Compare feature",
+        "proposed-comment-feature": "[Proposed] Comment feature",
+        "attach-feature": "Attach feature",
+        "documentation-logging-testing-configuration-dev-ops": "Documentation, logging, testing, configuration, dev-ops",
+        "appendix-requirements": "Appendix: Requirements",
+        "product-scope": "Product scope",
+        "user-stories": "User Stories",
+        "use-cases": "Use cases",
+        "non-functional-requirements": "Non-Functional Requirements",
+        "glossary": "Glossary",
+        "appendix-instructions-for-manual-testing": "Appendix: Instructions for manual testing",
+        "launch-and-shutdown": "Launch and shutdown",
+        "deleting-a-person": "Deleting a person",
+        "saving-data": "Saving data"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "Documentation.md",
+      "title": "Documentation guide",
+      "headings": {},
+      "headingKeywords": {}
+    },
+    {
+      "src": "Logging.md",
+      "title": "Logging guide",
+      "headings": {},
+      "headingKeywords": {}
+    },
+    {
+      "src": "SettingUp.md",
+      "title": "Setting up and getting started",
+      "headings": {
+        "setting-up-and-getting-started": "Setting up and getting started",
+        "setting-up-the-project-in-your-computer": "Setting up the project in your computer",
+        "before-writing-code": "Before writing code"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "Testing.md",
+      "title": "Testing guide",
+      "headings": {
+        "testing": "Testing",
+        "running-tests": "Running tests",
+        "types-of-tests": "Types of tests"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "UserGuide.md",
+      "title": "TAfinder User Guide",
+      "headings": {
+        "tafinder-user-guide": "TAfinder User Guide",
+        "overview": "Overview",
+        "about-this-guide": "About This Guide",
+        "table-of-contents": "Table of Contents",
+        "1-quick-start": "1 Quick start",
+        "1-1-prerequisites": "1.1 Prerequisites",
+        "1-2-installation": "1.2 Installation",
+        "1-3-utilisation": "1.3 Utilisation",
+        "1-4-navigating-the-user-interface": "1.4 Navigating the User Interface",
+        "2-features": "2 Features",
+        "2-1-basic-applicant-management": "2.1 Basic applicant management",
+        "2-2-applicant-evaluation-and-amp-comparison": "2.2 Applicant evaluation &amp; comparison",
+        "2-3-files-and-data-management": "2.3 Files and data management",
+        "3-data-management": "3 Data Management",
+        "3-1-saving-the-data": "3.1 Saving the data",
+        "3-2-editing-the-data-file": "3.2 Editing the data file",
+        "4-upcoming-features-coming-in-a-future-update": "4 Upcoming Features [coming in a future update!]",
+        "5-faq": "5 FAQ",
+        "6-known-issues": "6 Known Issues",
+        "7-summary": "7 Summary",
+        "7-1-prefix-summary": "7.1 Prefix Summary",
+        "7-2-command-summary": "7.2 Command Summary"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "index.md",
+      "title": "Home",
+      "headings": {},
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/amosting.md",
+      "title": "Amos' Project Portfolio Page",
+      "headings": {
+        "project-tafinder": "Project: TAfinder"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/lheng1.md",
+      "title": "Heng Yi's Project Portfolio Page",
+      "headings": {
+        "project-tafinder": "Project: TAfinder",
+        "summary-of-contributions": "Summary of Contributions"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/nabonitasen.md",
+      "title": "Nabonita's Project Portfolio Page",
+      "headings": {
+        "project-tafinder": "Project: TAfinder"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/ravern.md",
+      "title": "Ravern's Project Portfolio Page",
+      "headings": {
+        "project-tafinder": "Project: TAfinder"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/ylyma.md",
+      "title": "John Doe's Project Portfolio Page",
+      "headings": {
+        "project-tafinder": "Project: TAfinder"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "tutorials/AddRemark.md",
+      "title": "Tutorial: Adding a command",
+      "headings": {
+        "create-a-new-remark-command": "Create a new remark command",
+        "hook-remarkcommand-into-the-application": "Hook RemarkCommand into the application",
+        "run-the-application": "Run the application",
+        "change-remarkcommand-to-throw-an-exception": "Change RemarkCommand to throw an exception",
+        "enhancing-remarkcommand": "Enhancing RemarkCommand",
+        "make-the-command-accept-parameters": "Make the command accept parameters",
+        "parse-user-input": "Parse user input",
+        "add-remark-to-the-model": "Add Remark to the model",
+        "add-a-new-remark-class": "Add a new Remark class",
+        "make-use-of-remark": "Make use of Remark",
+        "add-a-placeholder-element-for-remark-to-the-ui": "Add a placeholder element for remark to the UI",
+        "modify-person-to-support-a-remark-field": "Modify Person to support a Remark field",
+        "modify-person": "Modify Person",
+        "update-other-usages-of-person": "Update other usages of Person",
+        "updating-storage": "Updating Storage",
+        "finalizing-the-ui": "Finalizing the UI",
+        "putting-everything-together": "Putting everything together",
+        "update-remarkcommand-and-remarkcommandparser": "Update RemarkCommand and RemarkCommandParser",
+        "writing-tests": "Writing tests",
+        "automatically-generating-tests": "Automatically generating tests",
+        "conclusion": "Conclusion"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "tutorials/RemovingFields.md",
+      "title": "Tutorial: Removing Fields",
+      "headings": {
+        "tutorial-removing-fields": "Tutorial: Removing Fields",
+        "safely-deleting-address": "Safely deleting Address",
+        "assisted-refactoring": "Assisted refactoring",
+        "manual-refactoring": "Manual refactoring",
+        "tidying-up": "Tidying up"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "tutorials/TracingCode.md",
+      "title": "Tutorial: Tracing code",
+      "headings": {
+        "tutorial-tracing-code": "Tutorial: Tracing code",
+        "before-we-start": "Before we start",
+        "setting-a-breakpoint": "Setting a breakpoint",
+        "tracing-the-execution-path": "Tracing the execution path",
+        "conclusion": "Conclusion"
+      },
+      "headingKeywords": {}
+    }
+  ]
+}
