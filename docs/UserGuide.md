@@ -515,7 +515,7 @@ Shows a list of all applicants.
 
 **Format:**
 
-**`list`** / **`list-hidden`** / **`list-bookmarked`**
+**`list`** / **`list hidden`** / **`list bookmarked`**
 
 <box no-icon type="info" light>
 
@@ -526,14 +526,14 @@ Shows a list of all applicants.
 
 <box no-icon type="info" light>
 
-**`list-hidden`**
+**`list hidden`**
 - Shows a list of all hidden applicants.
 
 </box>
 
 <box no-icon type="info" light>
 
-**`list-bookmarked`**
+**`list bookmarked`**
 - Shows a list of all bookmarked applicants.
 
 </box>
@@ -689,8 +689,8 @@ Hides/unhides an applicant from the list of applicants.
 
 <box type="default" light>
 
-**`unhide 2`**
-- Unhides the applicant at index 2
+**`list hidden` then `unhide 2`**
+- Lists all hidden applicants, then unhides the applicant at index 2
 
 </box>
 
@@ -744,7 +744,7 @@ Index out of range:<br>
 
 ### **2.2 Applicant evaluation & comparison**
 
-#### 2.2.1 Sorting applicants by GPA: `sort-gpa`
+#### 2.2.1 Sorting applicants by GPA: `sort gpa`
 
 ![sort function UI](images/sortUI.png)
 
@@ -758,7 +758,7 @@ Sorts applicants by grades in descending order
 
 **Format:**
 
-**`sort-gpa`**
+**`sort gpa`**
 
 </box>
 
@@ -789,11 +789,11 @@ Empty list:<br>
 
 ---
 
-#### 2.2.2 Sorting by module grade: `sort-grade`
+#### 2.2.2 Sorting by module grade: `sort grade`
 
 ---
 
-#### 2.2.3 Sorting by interview score: `sort-interview`
+#### 2.2.3 Sorting by interview score: `sort interview`
 
 ---
 
