@@ -1,7 +1,5 @@
 ---
-layout: default.md
 title: TAfinder User Guide
-pageNav: 3
 ---
 # TAfinder User Guide
 ## Overview
@@ -49,10 +47,9 @@ You can click on any of the links below to navigate to the respective sections f
       - [2.2.4 Comparing 2 applicants: `compare`](#224-comparing-2-applicants-compare)
       - [2.2.5 Bookmarking/Unbookmarking applicants: `bookmark/unbookmark`](#225-bookmarkingunbookmarking-applicants-bookmarkunbookmark)
       - [2.2.6 Commenting on TA applicant: `comment`](#226-commenting-on-ta-applicant-comment)
-    - [2.3 Data management & export](#23-data-management--export)
-      - [2.3.1 Exporting applicants into spreadsheet: `export`](#231-exporting-applicants-into-spreadsheet-export)
+    - [2.3 Files and data management](#23-files-and-data-management)
+      - [2.3.1 Importing applicants from spreadsheet: `import`](#231-importing-applicants-from-spreadsheet-import)
       - [2.3.2 Attaching file to applicant profiles: `attach`](#232-attaching-file-to-applicant-profiles-attach)
-      - [2.3.3 Attaching file to applicant profiles: `import`](#233-importing-from-spreadsheet-import)
 - [3 Data management](#3-data-management)
     - [3.1 Saving the data](#31-saving-the-data)
     - [3.2 Editing the data file](#32-editing-the-data-file)
@@ -162,7 +159,7 @@ Some example commands you can try:
 
 You can find all about the usable commands [here](#2-features),<br>
 look at a summary of all the usable commands [here](#72-command-summary),<br>
-OR return to the [Table of Contents](#table-of-contents) to find your desired command. 
+OR return to the [Table of Contents](#table-of-contents) to find your desired command.
 
 </box>
 
@@ -516,27 +513,27 @@ Shows a list of all applicants.
 
 <box type="info">
 
-**Format:** 
+**Format:**
 
 **`list`** / **`list-hidden`** / **`list-bookmarked`**
 
 <box no-icon type="info" light>
 
-**`list`** 
+**`list`**
 - Shows a list of all applicants.
 
 </box>
 
 <box no-icon type="info" light>
 
-**`list-hidden`** 
+**`list-hidden`**
 - Shows a list of all hidden applicants.
 
 </box>
 
 <box no-icon type="info" light>
 
-**`list-bookmarked`** 
+**`list-bookmarked`**
 - Shows a list of all bookmarked applicants.
 
 </box>
@@ -632,7 +629,7 @@ Missing index: <br>
 
 <box type="wrong" light>
 
-Index out of range:<br> 
+Index out of range:<br>
 **`"Error: Invalid index. Please enter an index within range."`**
 
 </box>
@@ -713,7 +710,7 @@ Hides/unhides an applicant from the list of applicants.
 <box type="success" light>
 
 Successfully hiding/unhiding applicant(s).<br>
-Confirmation message:<br> 
+Confirmation message:<br>
 **`APPLICANT_NAME hidden successfully.`**
 
 </box>
@@ -726,7 +723,7 @@ Confirmation message:<br>
 
 <box type="wrong" light>
 
-Missing index:<br> 
+Missing index:<br>
 **`"Invalid command format!`<br>
   `hide: Hides an applicant, identified by the index number used in the last list, from all future lists of applicants.`<br>
   `Parameter: INDEX (must be a positive integer)`<br>
@@ -736,7 +733,7 @@ Missing index:<br>
 
 <box type="wrong" light>
 
-Index out of range:<br> 
+Index out of range:<br>
 **`“Error: Invalid index. Please enter an index within range.”`**
 
 </box>
@@ -759,7 +756,7 @@ Sorts applicants by grades in descending order
 
 <box type="info">
 
-**Format:** 
+**Format:**
 
 **`sort-gpa`**
 
@@ -812,7 +809,7 @@ Compares two applicants side by side to make informed decisions.
 
 <box type="info">
 
-**Format:** 
+**Format:**
 
 **`compare INDEX1 INDEX2`**
 
@@ -850,7 +847,7 @@ Both indices must be a positive integer (e.g., 1, 2, 3…), and should not be th
 
 <box type="success" light>
 
-- A side-by-side comparison of the two applicants is displayed in a user-friendly format. 
+- A side-by-side comparison of the two applicants is displayed in a user-friendly format.
 - This comparison window will include:
   - Student number
   - Name
@@ -871,7 +868,7 @@ Both indices must be a positive integer (e.g., 1, 2, 3…), and should not be th
 
 <box type="wrong" light>
 
-Applicant not found:<br> 
+Applicant not found:<br>
 **`"Error: One or both of the specified applicants were not found in the list."`**
 
 </box>
@@ -899,7 +896,7 @@ Bookmarks/Unbookmarks a specific applicant.
 
 <box type="info">
 
-**Format:** 
+**Format:**
 
 **`bookmark INDEX` / `unbookmark INDEX`**
 
@@ -951,7 +948,7 @@ Bookmarks/Unbookmarks a specific applicant.
 
 <box type="wrong" light>
 
-Missing index:<br> 
+Missing index:<br>
 **`"Invalid command format!`<br>
   `bookmark: Bookmarks an applicant, identified by the index number used in the last list, from all future lists of applicants.`<br>
   `Parameter: INDEX (must be a positive integer)`<br>
@@ -961,7 +958,7 @@ Missing index:<br>
 
 <box type="wrong" light>
 
-Index out of range:<br> 
+Index out of range:<br>
 **`"Error: Invalid index. Please enter an index within range."`**
 
 </box>
@@ -982,7 +979,7 @@ Add comments on a specific applicant
 
 <box type="info">
 
-**Format:** 
+**Format:**
 
 **`comment INDEX COMMENT`**
 
@@ -1019,7 +1016,7 @@ Add comments on a specific applicant
 
 <box type="success" light>
 
-- Successfully commenting on the applicant at the corresponding index. 
+- Successfully commenting on the applicant at the corresponding index.
 - Confirmation message:<br>
 **`"Applicant at index INDEX has been successfully commented on."`**
 
@@ -1049,27 +1046,25 @@ Index out of range:<br>
 
 ---
 
-### 2.3 Data management & export
+### 2.3 Files and data management
 
-#### 2.3.1 Exporting applicants into spreadsheet: `export`
-
-![export function UI](images/exportUI.png)
+#### 2.3.1 Importing applicants from spreadsheet: `import`
 
 <box type="definition">
 
-Exports the entire list of applicants along with their details into a spreadsheet
+Imports an entire list of applicants along with their details from a CSV file.
 
 </box>
 
 <box type="info">
 
-**Format:** 
+**Format:**
 
-**`export FILENAME`**
+**`import FILENAME`**
 
 <box no-icon type="info" light>
 
-**`FILENAME`**: The desired filename of the spreadsheet (including the file extension)
+**`FILENAME`**: The desired filename of the CSV file to import from (including the file extension)
 
 </box>
 
@@ -1081,8 +1076,8 @@ Exports the entire list of applicants along with their details into a spreadshee
 
 <box type="default" light>
 
-**`export ta-applicants.csv`**
-- Exports the entire list of applicants in the CSV format to a file called `ta-applicants.csv` in the same directory as the JAR file
+**`import ta-applicants.csv`**
+- Imports a entire list of applicants, from a file in the CSV format called `ta-applicants.csv` in the same directory as the JAR file, into TAfinder
 
 </box>
 
@@ -1094,8 +1089,9 @@ Exports the entire list of applicants along with their details into a spreadshee
 
 <box type="success" light>
 
-- A toast indicating whether the export is successful.
-- If the export is unsuccessful, the reason it is unsuccessful will be included in the toast.
+- Successfully attaching a file to the applicant at the corresponding index.
+- Sample confirmation message:<br>
+**`"Imported 10 applicants successfully!"`**
 
 </box>
 
@@ -1107,22 +1103,8 @@ Exports the entire list of applicants along with their details into a spreadshee
 
 <box type="wrong" light>
 
-Missing file permissions:<br> 
-**`"Error: No permission to write to file FILENAME."`**
-
-</box>
-
-<box type="wrong" light>
-
-Corrupted data:<br>
-**`"Error: Data is corrupted, failed to write to file FILENAME."`**
-
-</box>
-
-<box type="wrong" light>
-
-Any other unexpected error:<br> 
-**`"Error: Unknown error. Please contact the app developer at contact@email.com"`**
+Missing file permissions or invalid file path:<br>
+**`"Failed to open and load applicant file."`**
 
 </box>
 
@@ -1142,9 +1124,9 @@ Attaches local files to the profiles of applicants to provide even more richness
 
 <box type="info">
 
-**Format:** 
+**Format:**
 
-**`attach INDEX FILEPATH`**
+**`attach INDEX f/FILEPATH`**
 
 <box no-icon type="info" light>
 
@@ -1166,14 +1148,14 @@ Attaches local files to the profiles of applicants to provide even more richness
 
 <box type="default" light>
 
-**`attach 2 john-resume.pdf`**
+**`attach 2 f/john-resume.pdf`**
 - Attaches the file called `john-resume.pdf` in the same directory as the `tafinder.jar` file to the second applicant in the applicant list
 
 </box>
 
 <box type="default" light>
 
-**`attach 78 /home/jennifer/resumes/benson-resume.pdf`**
+**`attach 78 f//home/jennifer/resumes/benson-resume.pdf`**
 - Attaches the file called `benson-resume.pdf` in the directory `/home/jennifer/resumes` to the 78th applicant in the applicant list
 
 </box>
@@ -1186,8 +1168,9 @@ Attaches local files to the profiles of applicants to provide even more richness
 
 <box type="success" light>
 
-A toast indicating whether the export is successful.<br>
-If the export is unsuccessful, the reason it is unsuccessful will be included in the toast.
+- Successfully attaching a file to the applicant at the corresponding index.
+- Sample confirmation message:<br>
+**`"Attached 1 attachments to Alex Yeoh!"`**
 
 </box>
 
@@ -1199,15 +1182,8 @@ If the export is unsuccessful, the reason it is unsuccessful will be included in
 
 <box type="wrong" light>
 
-Missing file permissions:<br>
-**`"Error: No permission to read from file FILEPATH."`**
-
-</box>
-
-<box type="wrong" light>
-
-Corrupted data:<br>
-**`"Error: Data is corrupted, failed to attach file FILEPATH."`**
+Invalid file path or corrupted data:<br>
+**`"Failed to copy attachment."`**
 
 </box>
 
@@ -1219,10 +1195,6 @@ Any other unexpected error:<br>
 </box>
 
 </box>
-
----
-
-#### 2.3.3 Importing from spreadsheet: `import`
 
 ---
 ## 3 Data Management

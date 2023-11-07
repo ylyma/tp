@@ -1,5 +1,4 @@
 ---
-layout: page
 title: Ravern's Project Portfolio Page
 ---
 

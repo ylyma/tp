@@ -1,5 +1,4 @@
 ---
-layout: page
 title: Nabonita's Project Portfolio Page
 ---
 

@@ -1,5 +1,4 @@
 ---
-layout: page
 title: Heng Yi's Project Portfolio Page
 ---
 
