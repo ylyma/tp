@@ -220,21 +220,14 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 #### 2.1.1. Adding an applicant: `add`
 
-![add.jpg](images/add.jpg)
-
-<box type="definition">
-
-Adds a new applicant to the list of applicants.
-
-</box>
-
-<box type="info">
+Hooray! You have just finished setting up TAfinder and you are ready to add your first applicant. 
+Let's find out how you can add him/her to the list of applicants.
 
 **Format:**
 
 **`add [s/STUDENT_NUMBER] [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [c/comment] [t/TAG]…`**
 
-<box no-icon type="info" light>
+<box no-icon type="info" seamless>
 
 - **`s/STUDENT_NUMBER`**: Student number of the applicant
 - **`n/NAME`**: Name of the applicant.
@@ -246,40 +239,49 @@ Adds a new applicant to the list of applicants.
 
 </box>
 
+<box type="tip">
+
+The `TAG` field is optional. So don't worry if you don't have any to add!
+
 </box>
 
-<box type="info" theme="dark">
+Here are some examples you can try with the `add` command.
 
 **Examples:**
 
-<box type="default" light>
-
-**`add s/A0269357C n/john doe p/91234567 e/johndoe@example.com g/5.0 c/ t/pastTA t/deanslist`**
-- Adds a person with the following information:
-  - **Student number**: A0269357C
-  - **Name**: John Doe
-  - **Phone number**: 91234567
-  - **Email address**: johndoe@example.com
-  - **GPA**: 5.0
-  - **Comment**: -
-  - **Tags**: pastTA, deanslist
-
-</box>
-
-<box type="default" light>
+<box type="default" seamless>
 
 **`add s/A0251647W n/amanda p/89064678 e/amanda@example.com g/4.3 c/Hardworking`**
 - Adds a person with the following information:
-  - **Student number**: A0251647W
-  - **Name**: Amanda
-  - **Phone number**: 89064678
-  - **Email address**: amanda@example.com
-  - **GPA**: 4.3
-  - **Comment**: Hardworking
+    - **Student number**: A0251647W
+    - **Name**: Amanda
+    - **Phone number**: 89064678
+    - **Email address**: amanda@example.com
+    - **GPA**: 4.3
+    - **Comment**: Hardworking
 
 </box>
 
+<box type="default" seamless>
+
+**`add s/A0269357C n/john doe p/91234567 e/johndoe@example.com g/5.0 c/ t/pastTA t/deanslist`**
+- Adds a person with the following information:
+    - **Student number**: A0269357C
+    - **Name**: John Doe
+    - **Phone number**: 91234567
+    - **Email address**: johndoe@example.com
+    - **GPA**: 5.0
+    - **Comment**: -
+    - **Tags**: pastTA, deanslist
+
 </box>
+
+Following the example above, if you entered everything correctly, you should see the following:
+
+![add.jpg](images/add.jpg)
+
+Good job! You have successfully added your first applicant to the list. As you add more applicants to the list,
+watch out for the expected and erroneous messages below that could be displayed in the command result screen!
 
 <box type="success">
 
@@ -287,8 +289,7 @@ Adds a new applicant to the list of applicants.
 
 <box type="success" light>
 
-Successfully adding applicant and applicant's information.<br>
-Confirmation message:<br>
+Successfully added applicant and his/her information:<br>
 **`"New applicant added: Student number: <student number>; Name: <name>; Phone: <phone>; Email: <email>; GPA: <gpa>; Comment: <comment>; Tags: <tags>"`**
 
 </box>
@@ -297,7 +298,7 @@ Confirmation message:<br>
 
 <box type="wrong">
 
-**Errors:**
+**Erroneous Outputs:**
 
 <box type="wrong" light>
 
