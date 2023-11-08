@@ -294,7 +294,9 @@ watch out for the expected and erroneous messages below that could be displayed 
 <box type="success" light>
 
 Successfully added applicant and his/her information:<br>
-**`"New applicant added: Student number: <student number>; Name: <name>; Phone: <phone>; Email: <email>; GPA: <gpa>; Comment: <comment>; Tags: <tags>"`**
+**`"New applicant added: Student number: <student number>; Name: <name>; Phone: <phone>; 
+Email: <email>; GPA: <gpa>; [Previous grade: <previous grade>]; [Interview score: <interview score>];
+[Comment: <comment>]; [Tags: <tags>]."`**
 
 </box>
 
@@ -308,8 +310,9 @@ Successfully added applicant and his/her information:<br>
 
 Invalid command format:<br>
 **`"Invalid command format!"`<br>
-`"add: Adds an applicant to the list. Parameters: s/STUDENT NUMBER n/NAME p/PHONE e/EMAIL g/GPA c/comment [t/TAG]..."`<br>
-`"Example: add s/A0343434C n/John Doe p/98765432 e/johnd@example.com g/4.9 c/Hardworking and diligent t/pastTA"`**
+`"add: Adds an applicant to the list. Parameters: s/STUDENT NUMBER n/NAME p/PHONE e/EMAIL g/GPA pg/PREV GRADE 
+[is/INTERVIEW SCORE [c/COMMENT][is/INTERVIEW SCORE][t/TAG]..."`<br>
+`"Example: add s/A0343434C n/John Doe p/98765432 e/johnd@example.com g/4.9 pg/A is/9.1 c/Hardworking and diligent t/pastTA "`**
 
 </box>
 
