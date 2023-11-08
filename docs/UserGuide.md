@@ -225,7 +225,7 @@ Let's find out how you can add him/her to the list of applicants.
 
 **Format:**
 
-**`add [s/STUDENT_NUMBER] [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [c/comment] [t/TAG]…`**
+**`add s/STUDENT_NUMBER n/NAME p/PHONE e/EMAIL g/GPA [pg/PREVIOUS_GRADE] [is/INTERVIEW_SCORE] [c/COMMENT] [t/TAG]…`**
 
 <box no-icon type="info" seamless>
 
@@ -234,14 +234,16 @@ Let's find out how you can add him/her to the list of applicants.
 - **`p/PHONE`**: Phone number of the applicant.
 - **`e/EMAIL`**: Email address of the applicant.
 - **`g/GPA`**: GPA of the applicant.
-- **`c/COMMENT`**: Comments for the applicant.
-- **`t/TAG`**: Tags of the applicant. Note that editing tags will replace existing tags; it is not cumulative.
+- **`[pg/PREVIOUS_GRADE]`**: Previous grade of the applicant.
+- **`[is/INTERVIEW_SCORE]`**: Interview score of the applicant.
+- **`[c/COMMENT]`**: Comments for the applicant.
+- **`[t/TAG]`**: Tags of the applicant.
 
 </box>
 
 <box type="tip">
 
-The `TAG` field is optional. So don't worry if you don't have any to add!
+You can add more than 1 tag to an applicant by adding more `t/TAG` parameters.
 
 </box>
 
@@ -251,27 +253,29 @@ Here are some examples you can try with the `add` command.
 
 <box type="default" seamless>
 
-**`add s/A0251647W n/amanda p/89064678 e/amanda@example.com g/4.3 c/Hardworking`**
+**`add s/A0251647W n/amanda p/89064678 e/amanda@example.com g/4.3 pg/A`**
 - Adds a person with the following information:
     - **Student number**: A0251647W
     - **Name**: Amanda
     - **Phone number**: 89064678
     - **Email address**: amanda@example.com
     - **GPA**: 4.3
-    - **Comment**: Hardworking
+    - **Previous grade**: A
 
 </box>
 
 <box type="default" seamless>
 
-**`add s/A0269357C n/john doe p/91234567 e/johndoe@example.com g/5.0 c/ t/pastTA t/deanslist`**
+**`add s/A0269357C n/john doe p/91234567 e/johndoe@example.com g/5.0 pg/A- is/8.9 c/Hardworking t/pastTA t/deanslist`**
 - Adds a person with the following information:
     - **Student number**: A0269357C
     - **Name**: John Doe
     - **Phone number**: 91234567
     - **Email address**: johndoe@example.com
     - **GPA**: 5.0
-    - **Comment**: -
+    - **Previous grade**: A-
+    - **Interview score**: 8.9
+    - **Comment**: Hardworking
     - **Tags**: pastTA, deanslist
 
 </box>
