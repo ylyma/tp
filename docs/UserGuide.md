@@ -282,7 +282,7 @@ Here are some examples you can try with the `add` command.
 
 Following the example above, if you entered everything correctly, you should see the following:
 
-![add.jpg](images/add.jpg)
+![add.jpg](images/add_command_image_UG.png)
 
 You have now successfully added your first applicant to the list. As you add more applicants to the list,
 watch out for the expected and erroneous messages below that could be displayed in the command result screen!
