@@ -323,14 +323,6 @@ Repeated applicant:<br>
 
 </box>
 
-<box type="wrong" light>
-
-Missing fields:<br>
-**`"Error: Missing fields. Please follow the format: add s/STUDENT NUMBER n/NAME p/PHONE e/EMAIL g/GPA pg/PREV GRADE
-[is/INTERVIEW SCORE] [c/COMMENT] [t/TAG]..."`**
-
-</box>
-
 </box>
 
 ---
