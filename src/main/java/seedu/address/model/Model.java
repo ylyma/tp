@@ -103,6 +103,11 @@ public interface Model {
      */
     void showPersonAtIndex(Index index);
 
+    /**
+     * CLears details of person displayed in detail view of UI.
+     */
+    void clearPersonDetails();
+
     /** Returns an unmodifiable view of the filtered person list */
     ObservableList<Person> getFilteredPersonList();
 
