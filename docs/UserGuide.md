@@ -220,8 +220,8 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 #### 2.1.1. Adding an applicant: `add`
 
-Hooray! You have just finished setting up TAfinder and you are ready to add your first applicant. 
-Let's find out how you can add him/her to the list of applicants.
+You have just finished setting up TAfinder and you are ready to add your first applicant. 
+Let's find out how you can add the applicant to the list.
 
 **Format:**
 
@@ -234,7 +234,7 @@ Let's find out how you can add him/her to the list of applicants.
 - **`p/PHONE`**: Phone number of the applicant.
 - **`e/EMAIL`**: Email address of the applicant.
 - **`g/GPA`**: GPA of the applicant.
-- **`[pg/PREVIOUS_GRADE]`**: Previous grade of the applicant.
+- **`pg/PREVIOUS_GRADE`**: Previous grade of the applicant.
 - **`[is/INTERVIEW_SCORE]`**: Interview score of the applicant.
 - **`[c/COMMENT]`**: Comments for the applicant.
 - **`[t/TAG]`**: Tags of the applicant.
@@ -254,7 +254,7 @@ Here are some examples you can try with the `add` command.
 <box type="default" seamless>
 
 **`add s/A0251647W n/amanda p/89064678 e/amanda@example.com g/4.3 pg/A`**
-- Adds a person with the following information:
+- Adds an applicant with the following information:
     - **Student number**: A0251647W
     - **Name**: Amanda
     - **Phone number**: 89064678
@@ -267,7 +267,7 @@ Here are some examples you can try with the `add` command.
 <box type="default" seamless>
 
 **`add s/A0269357C n/john doe p/91234567 e/johndoe@example.com g/5.0 pg/A- is/8.9 c/Hardworking t/pastTA t/deanslist`**
-- Adds a person with the following information:
+- Adds an applicant with the following information:
     - **Student number**: A0269357C
     - **Name**: John Doe
     - **Phone number**: 91234567
@@ -284,10 +284,10 @@ Following the example above, if you entered everything correctly, you should see
 
 ![add.jpg](images/add.jpg)
 
-Good job! You have successfully added your first applicant to the list. As you add more applicants to the list,
+You have now successfully added your first applicant to the list. As you add more applicants to the list,
 watch out for the expected and erroneous messages below that could be displayed in the command result screen!
 
-<box type="success">
+<box no-icon type="success">
 
 **Expected Outputs:**
 
@@ -295,14 +295,14 @@ watch out for the expected and erroneous messages below that could be displayed 
 
 Successfully added applicant and his/her information:<br>
 **`"New applicant added: Student number: <student number>; Name: <name>; Phone: <phone>; 
-Email: <email>; GPA: <gpa>; [Previous grade: <previous grade>]; [Interview score: <interview score>];
+Email: <email>; GPA: <gpa>; Previous grade: <previous grade>; [Interview score: <interview score>];
 [Comment: <comment>]; [Tags: <tags>]."`**
 
 </box>
 
 </box>
 
-<box type="wrong">
+<box no-icon type="wrong">
 
 **Erroneous Outputs:**
 
@@ -311,7 +311,7 @@ Email: <email>; GPA: <gpa>; [Previous grade: <previous grade>]; [Interview score
 Invalid command format:<br>
 **`"Invalid command format!"`<br>
 `"add: Adds an applicant to the list. Parameters: s/STUDENT NUMBER n/NAME p/PHONE e/EMAIL g/GPA pg/PREV GRADE 
-[is/INTERVIEW SCORE [c/COMMENT][is/INTERVIEW SCORE][t/TAG]..."`<br>
+[is/INTERVIEW SCORE] [c/COMMENT] [t/TAG]..."`<br>
 `"Example: add s/A0343434C n/John Doe p/98765432 e/johnd@example.com g/4.9 pg/A is/9.1 c/Hardworking and diligent t/pastTA "`**
 
 </box>
@@ -326,7 +326,8 @@ Repeated applicant:<br>
 <box type="wrong" light>
 
 Missing fields:<br>
-**`"Error: Missing fields. Please follow the format: add [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…"`**
+**`"Error: Missing fields. Please follow the format: add s/STUDENT NUMBER n/NAME p/PHONE e/EMAIL g/GPA pg/PREV GRADE
+[is/INTERVIEW SCORE] [c/COMMENT] [t/TAG]..."`**
 
 </box>
 
