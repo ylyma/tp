@@ -33,9 +33,9 @@ public class AddCommand extends Command {
             + PREFIX_EMAIL + "EMAIL "
             + PREFIX_GPA + "GPA "
             + PREFIX_PREVIOUS_GRADE + "PREV GRADE "
-            + "[" + PREFIX_INTERVIEW_SCORE + "INTERVIEW SCORE]" // optional
-            + "[" + PREFIX_COMMENT + "COMMENT]" // optional
-            + "[" + PREFIX_INTERVIEW_SCORE + "INTERVIEW SCORE]" // optional
+            + "[" + PREFIX_INTERVIEW_SCORE + "INTERVIEW SCORE] " // optional
+            + "[" + PREFIX_COMMENT + "COMMENT] " // optional
+            + "[" + PREFIX_INTERVIEW_SCORE + "INTERVIEW SCORE] " // optional
             + "[" + PREFIX_TAG + "TAG]...\n" // optional
             // Example
             + "Example: " + COMMAND_WORD + " "
