@@ -36,7 +36,7 @@ public class ListCommand extends Command {
         requireNonNull(model);
 
         if (fieldName.isEmpty()) {
-            model.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_PERSONS);
+            model.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_UNHIDDEN_PERSONS);
         } else {
             Predicate<Person> predicate = new ListPredicate(fieldName, true);
             model.updateFilteredPersonList(predicate);

@@ -133,7 +133,7 @@ An example of the final command is displayed below.
 
 </box>
 
-The GUI similar to the below should appear in a few seconds. ![Ui](images/Ui.png)
+The GUI similar to the below should appear in a few seconds. ![Ui](images/navigationUI.png)
 
 ### 1.3. Utilisation
 
@@ -164,17 +164,17 @@ OR return to the [Table of Contents](#table-of-contents) to find your desired co
 </box>
 
 ### 1.4. Navigating the User Interface
-![UI with shaded areas](images/tafinder-UI.png)
+![UI with shaded areas](images/navigation_coloredUI.png)
 
 The UI has the following areas:
-- <span style="background-color:rgba(126, 217, 87, 1)">Navigation bar</span>
+- <span style="background-color:#70AD47">Navigation bar</span>
   - This is where you can navigate to the `File` and `Help` menus.
-- <span style="background-color:rgba(255, 222, 89, 1)">Command Input Box</span>
+- <span style="background-color:#FFC000">Command Input Box</span>
   - This where commands are typed
   - press `Enter` to execute it.
-- <span style="background-color:rgba(255, 112, 112, 1)">Command Result Screen</span>
+- <span style="background-color:#FF0000">Command Result Screen</span>
   - This is where the result of the command is displayed. Applicants are displayed in a list format.
-- <span style="background-color:rgba(170, 210, 232, 1)">Applicant list</span>
+- <span style="background-color:#2A035D">Applicant list</span>
   - This is where the list of applicants is displayed.
 
 --------------------------------------------------------------------------------------------------------------------
@@ -282,7 +282,7 @@ Here are some examples you can try with the `add` command.
 
 Following the example above, if you entered everything correctly, you should see the following:
 
-![add.jpg](images/add_command_image_UG.png)
+![add.jpg](images/add_afterUI.png)
 
 You have now successfully added your first applicant to the list. As you add more applicants to the list,
 watch out for the expected and erroneous messages below that could be displayed in the command result screen!
@@ -329,13 +329,13 @@ Repeated applicant:<br>
 
 #### 2.1.2. Editing an applicant: `edit`
 
-![edit function UI](images/editUI.png)
-
 <box type="definition">
 
 Edits an existing applicant in the list of applicants.
 
 </box>
+
+![edit function UI](images/edit_afterUI.png)
 
 <box type="info">
 
@@ -428,13 +428,13 @@ Index out of range:<br>
 ---
 
 #### 2.1.3. Deleting an applicant: `delete`
-![delete function UI](images/delete-UI.png)
-
 <box type="definition">
 
 Delete an existing applicant in the list of applicants.
 
 </box>
+
+![delete function UI](images/delete_afterUI.png)
 
 <box type="info">
 
@@ -510,8 +510,6 @@ Shows a list of applicants.
 
 </box>
 
-![listUI-1](images/listUI-1.png)
-![listUI-2](images/listUI-2.png)
 
 <box type="info">
 
@@ -526,12 +524,16 @@ Shows a list of applicants.
 
 </box>
 
+![listUI](images/listUI.png)
+
 <box no-icon type="info" light>
 
 **`list hidden`**
 - Shows a list of all hidden applicants.
 
 </box>
+
+![listhiddenUI](images/listhiddenUI.png)
 
 <box no-icon type="info" light>
 
@@ -540,19 +542,21 @@ Shows a list of applicants.
 
 </box>
 
+![listbookmarkedUI](images/listbookmarkedUI.png)
+
 </box>
 
 ---
 
 #### 2.1.5. Viewing the details of a single applicant: `view`
 
-![edit function UI](images/viewUI.png)
-
 <box type="definition">
 
 Displays a single applicant.
 
 </box>
+
+![edit function UI](images/viewUI.png)
 
 <box type="info">
 
@@ -614,7 +618,6 @@ Confirmation message:<br>
 
 </box>
 
-
 <box type="wrong">
 
 **Errors:**
@@ -648,9 +651,6 @@ Hides/unhides an applicant from the list of applicants.
 
 </box>
 
-![hide function UI](images/hideUI.png)
-
-
 <box type="info">
 
 **Format:** 
@@ -660,16 +660,22 @@ Hides/unhides an applicant from the list of applicants.
 <box no-icon type="info" light>
 
 `hide INDEX`
-- Hides the applicant at the specified INDEX from all future lists. The index refers to the number shown in the displayed person list.
+- Hides the applicant at the specified INDEX from all future lists. The index refers to the number shown in the displayed person list.</br>
+  Index must be a positive integer (e.g. 1, 2, 3...).
 
 </box>
+
+![hideUI](images/hide_afterUI.png)
 
 <box no-icon type="info" light>
 
 `unhide INDEX`
-- Unhides the applicant at the specified INDEX from all future lists. The index refers to the number shown in the displayed person list.
+- Unhides the applicant at the specified INDEX from all future lists. The index refers to the number shown in the displayed person list. </br>
+Index must be a positive integer (e.g. 1, 2, 3...).
 
 </box>
+
+![unhideUI](images/unhide_afterUI.png)
 
 <box no-icon type="info" light>
 
@@ -677,6 +683,8 @@ Hides/unhides an applicant from the list of applicants.
 - Unhides all applicants that were previously hidden.
 
 </box>
+
+![unhideallUI](images/unhideall_afterUI.png)
 
 </box>
 
@@ -694,7 +702,7 @@ Hides/unhides an applicant from the list of applicants.
 <box type="default" light>
 
 **`list hidden` then `unhide 2`**
-- Lists all hidden applicants, then unhides the applicant at index 2 of the list of hidden applicants.
+- Lists all hidden applicants, then unhides the applicant at index 2 in the list of hidden applicants.
 
 </box>
 
@@ -756,7 +764,10 @@ Sorts applicants by a field
 
 </box>
 
-![sort function UI](images/sortUI.png)
+|              Before                |               After                |
+|:----------------------------------:|:----------------------------------:|
+| ![sortUI](images/sort_afterUI.png) | ![sortUI](images/sort_afterUI.png) |
+
 
 <box type="info">
 
@@ -890,13 +901,17 @@ Comparing the same applicant:<br>
 
 #### 2.2.5. Bookmarking/Unbookmarking applicants: `bookmark/unbookmark`
 
-![bookmark function UI](images/bookmarkUI.png)
+
 
 <box type="definition">
 
 Bookmarks/Unbookmarks a specific applicant.
 
 </box>
+
+|                        Before                         |               After                |
+|:-----------------------------------------------------:|:----------------------------------:|
+| ![bookmark function UI](images/bookmark_beforeUI.png) | ![bookmark function UI](images/bookmark_afterUI.png) |
 
 <box type="info">
 
@@ -973,7 +988,6 @@ Index out of range:<br>
 
 #### 2.2.6. Commenting on TA applicant: **`comment`**
 
-![comments.jpg](images/comment.jpg)
 
 <box type="definition">
 
@@ -981,11 +995,13 @@ Add comments on a specific applicant
 
 </box>
 
+![commentUI.jpg](images/comment_afterUI.png)
+
 <box type="info">
 
 **Format:**
 
-**`comment INDEX COMMENT`**
+**`comment INDEX c/COMMENT`**
 
 <box no-icon type="info" light>
 
@@ -1003,11 +1019,11 @@ Add comments on a specific applicant
 
 <box type="info" theme="dark">
 
-**Examples:**
+**Example:**
 
 <box type="default" light>
 
-**`comment 3 Hardworking and studious`**
+**`comment 3 c/Hardworking and studious`**
 - Comments on the third applicant with the comment: "Hardworking and studious"
 
 </box>
@@ -1059,6 +1075,10 @@ Index out of range:<br>
 Imports an entire list of applicants along with their details from a CSV file.
 
 </box>
+
+|            Sample .csv             |                After import                |
+|:----------------------------------:|:------------------------------------------:|
+| ![sampleCSV](images/samplecsv.png) |   ![importUI](images/import_afterUI.png)   |
 
 <box type="info">
 
@@ -1118,13 +1138,13 @@ Missing file permissions or invalid file path:<br>
 
 #### 2.3.2. Attaching file to applicant profiles: `attach`
 
-![attach function UI](images/attachUI.png)
-
 <box type="definition">
 
 Attaches local files to the profiles of applicants to provide even more richness and insight into their applications
 
 </box>
+
+![attach function UI](images/attach_afterUI.png)
 
 <box type="info">
 
