@@ -29,7 +29,7 @@ public class CommentCommand extends Command {
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_COMMENT + "Hardworking student";
 
-    public static final String MESSAGE_ADD_COMMENT_SUCCESS = "Added comment to Person: %1$s";
+    public static final String MESSAGE_ADD_COMMENT_SUCCESS = "Applicant has been successfully commented on.";
     public static final String MESSAGE_DELETE_COMMENT_SUCCESS = "Removed comment from Person: %1$s.";
 
     private final Index index;
