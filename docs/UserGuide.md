@@ -293,7 +293,7 @@ watch out for the expected and erroneous messages below that could be displayed 
 
 <box type="success" light>
 
-Successfully added applicant and his/her information:<br>
+Successfully added applicant and the applicant's information:<br>
 **`"New applicant added: Student number: <student number>; Name: <name>; Phone: <phone>; 
 Email: <email>; GPA: <gpa>; Previous grade: <previous grade>; [Interview score: <interview score>];
 [Comment: <comment>]; [Tags: <tags>]."`**
@@ -973,69 +973,66 @@ Index out of range:<br>
 
 #### 2.2.6. Commenting on TA applicant: **`comment`**
 
-![comments.jpg](images/comment.jpg)
-
-<box type="definition">
-
-Add comments on a specific applicant
-
-</box>
-
-<box type="info">
+One of yours TAs is unable to make it for the interview. 
+You want to make a comment on the applicant to remind yourself to follow up with him/her. 
+Lets find out how to do use the comment feature to do so.
 
 **Format:**
 
 **`comment INDEX COMMENT`**
 
-<box no-icon type="info" light>
+<box no-icon type="info" seamless>
 
 **`INDEX`**: The index corresponding to the applicant to be commented. The index must be a positive integer (e.g., 1, 2, 3…).
 
 </box>
 
-<box no-icon type="info" light>
+<box type="tip">
 
-**`COMMENT`:** The comment to be made about the applicant.
-
-</box>
+The index of the applicant is the number beside the applicant's name in the list of applicants.
 
 </box>
-
-<box type="info" theme="dark">
 
 **Examples:**
 
-<box type="default" light>
+<box type="default" seamless>
 
-**`comment 3 Hardworking and studious`**
-- Comments on the third applicant with the comment: "Hardworking and studious"
-
-</box>
+**`comment 3 c/Unable to make it for interview`**
+- Comments on the third applicant with the comment: "Unable to make it for interview"
 
 </box>
 
-<box type="success">
+Following the example above, if you entered everything correctly, you should see the following:
 
-**Expected outputs:**
+![comments.jpg](images/comment.jpg)
+
+You have now successfully commented on the applicant. As you comment on more applicants in the list,
+watch out for the expected and erroneous messages below that could be displayed in the command result screen!
+
+<box no-icon type="success">
+
+**Expected Outputs:**
 
 <box type="success" light>
 
-- Successfully commenting on the applicant at the corresponding index.
-- Confirmation message:<br>
+Successfully commenting on the applicant at the corresponding index.<br>
 **`"Applicant at index INDEX has been successfully commented on."`**
 
 </box>
 
 </box>
 
-<box type="wrong">
+<box no-icon type="wrong">
 
-**Errors:**
+**Erroneous Outputs:**
 
 <box type="wrong" light>
 
-Missing index:<br>
-**`“Error: Missing index. Please follow the format: 'view INDEX'.”`**
+Invalid command format:<br>
+**`“Invalid command format!"`<br>
+`"comment: Edits the comment of the person identified by the index number used in the last person listing. Existing comment will be overwritten by the input."`<br>
+`"Parameters: INDEX (must be a positive integer) c/ [COMMENT]"`<br>
+`"Example: comment 1 c/ Hardworking student”`**
 
 </box>
 
