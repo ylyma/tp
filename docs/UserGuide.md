@@ -984,11 +984,17 @@ Lets find out how to do use the comment feature to do so.
 
 </box>
 
+<box type="tip">
+
+The index of the applicant is the number beside the applicant's name in the list of applicants.
+
+</box>
+
 **Examples:**
 
 <box type="default" seamless>
 
-**`comment 3 Unable to make it for interview`**
+**`comment 3 c/Unable to make it for interview`**
 - Comments on the third applicant with the comment: "Unable to make it for interview"
 
 </box>
@@ -1006,7 +1012,7 @@ watch out for the expected and erroneous messages below that could be displayed 
 
 <box type="success" light>
 
-- Successfully commenting on the applicant at the corresponding index.<br>
+Successfully commenting on the applicant at the corresponding index.<br>
 **`"Applicant at index INDEX has been successfully commented on."`**
 
 </box>
