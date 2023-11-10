@@ -1269,7 +1269,7 @@ If your changes to the data file makes its format invalid, TAfinder will discard
 
 
 #### 7.2.3. Data management and import commands
-| Action     | Format, Examples                                                |
-|------------|-----------------------------------------------------------------|
-| **Import** | - `import FILENAME`<br/> - e.g., `import ta-applicants.csv`     |
-| **Attach** | - `attach INDEX FILEPATH`<br> - e.g.,`attach 2 john-resume.pdf` |
+| Action                  | Format, Examples                                                |
+|-------------------------|-----------------------------------------------------------------|
+| **Import**              | - `import FILENAME`<br/> - e.g., `import ta-applicants.csv`     |
+| **Attach**              | - `attach INDEX FILEPATH`<br> - e.g.,`attach 2 john-resume.pdf` |
