@@ -502,21 +502,22 @@ Index out of range:<br>
 
 ---
 
-#### 2.1.4. Listing all applicant: `list`
-![listUI-1](images/listUI-1.png)
-![listUI-2](images/listUI-2.png)
+#### 2.1.4 Listing all applicant: `list`
 
 <box type="definition">
 
-Shows a list of all applicants.
+Shows a list of applicants.
 
 </box>
+
+![listUI-1](images/listUI-1.png)
+![listUI-2](images/listUI-2.png)
 
 <box type="info">
 
 **Format:**
 
-**`list`** / **`list-hidden`** / **`list-bookmarked`**
+**`list`** / **`list hidden`** / **`list bookmarked`**
 
 <box no-icon type="info" light>
 
@@ -527,14 +528,14 @@ Shows a list of all applicants.
 
 <box no-icon type="info" light>
 
-**`list-hidden`**
+**`list hidden`**
 - Shows a list of all hidden applicants.
 
 </box>
 
 <box no-icon type="info" light>
 
-**`list-bookmarked`**
+**`list bookmarked`**
 - Shows a list of all bookmarked applicants.
 
 </box>
@@ -638,15 +639,17 @@ Index out of range:<br>
 </box>
 
 ---
-#### 2.1.6. Hiding an applicant from list: `hide`/`unhide`
 
-![hide function UI](images/hideUI.png)
+#### 2.1.6 Hiding an applicant from list: `hide`/`unhide`
 
 <box type="definition">
 
 Hides/unhides an applicant from the list of applicants.
 
 </box>
+
+![hide function UI](images/hideUI.png)
+
 
 <box type="info">
 
@@ -684,21 +687,21 @@ Hides/unhides an applicant from the list of applicants.
 <box type="default" light>
 
 **`hide 2`**
-- Hides the applicant at index 2
+- Hides the applicant at index 2.
 
 </box>
 
 <box type="default" light>
 
-**`unhide 2`**
-- Unhides the applicant at index 2
+**`list hidden` then `unhide 2`**
+- Lists all hidden applicants, then unhides the applicant at index 2 of the list of hidden applicants.
 
 </box>
 
 <box type="default" light>
 
 **`unhide-all`**
-- Unhides all applicants
+- Unhides all applicants.
 
 </box>
 
@@ -745,23 +748,30 @@ Index out of range:<br>
 
 ### 2.2. Applicant evaluation & comparison
 
-#### 2.2.1. Sorting applicants by GPA: `sort-gpa`
-
-![sort function UI](images/sortUI.png)
+#### 2.2.1 Sorting applicants by GPA: `sort`
 
 <box type="definition">
 
-Sorts applicants by grades in descending order
+Sorts applicants by a field
 
 </box>
+
+![sort function UI](images/sortUI.png)
 
 <box type="info">
 
 **Format:**
 
-**`sort-gpa`**
+**`sort FIELD`**
 
 </box>
+<box no-icon type="info" light>
+
+**`FIELD`**: The name of the field that applicants are sorted by. <br>
+* Valid fields: `name`, `studentNo`, `gpa`, `previousGrade`, `interviewScore`, `comment`, `phone`, `email`, `tags` <br>
+
+</box>
+
 
 <box type="success">
 
@@ -769,7 +779,7 @@ Sorts applicants by grades in descending order
 
 <box type="success" light>
 
-- A list of applicants sorted by grades in descending order.
+- A sorted list of applicants.
 
 </box>
 
@@ -790,15 +800,8 @@ Empty list:<br>
 
 ---
 
-#### 2.2.2. Sorting by module grade: `sort-grade`
 
----
-
-#### 2.2.3. Sorting by interview score: `sort-interview`
-
----
-
-#### 2.2.4. Comparing 2 applicants: `compare`
+#### 2.2.4 Comparing 2 applicants: `compare`
 
 ![compare function UI](images/compareUI.png)
 
