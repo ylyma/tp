@@ -16,7 +16,7 @@ public class InterviewScore implements Comparable<InterviewScore> {
     /**
      * Constructs a {@code InterviewScore}.
      *
-     * @param gpa A possible gpa of a person.
+     * @param score A possible interview score of a person.
      */
     public InterviewScore(double score) {
         requireNonNull(score);
