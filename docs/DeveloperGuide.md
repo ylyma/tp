@@ -1,9 +1,6 @@
 ---
-layout: page
 title: Developer Guide
 ---
-* Table of Contents
-{:toc}
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -309,7 +306,7 @@ The following activity diagram summarizes what happens when a user executes a `c
 ### \[Proposed\] Comment feature
 
 #### Implementation
-The comment command allows users to insert a comment on TA applicants in TAfinder app. 
+The comment command allows users to insert a comment on TA applicants in TAfinder app.
 The comment mechanism is mainly facilitated by the `CommentCommand` and `CommentCommandParser` classes. It extends the abstract class `Command` with an `execute` functionality, to facilitate the execution of the command. Specifically, the comment feature is implemented through the following components and operations:
 
 - `CommentCommand` — Core component responsible for executing the adding of comments to a TA applicant in the list.
@@ -335,7 +332,7 @@ Step 6. A success message is displayed to the user to confirm that the comment h
 **Aspect: Comparison GUI:**
 
 * **Alternative 1 (current choice):** Compare two applicants in one pop-up window.
-    * Pros: 
+    * Pros:
       1. Easier to implement the pop-up window
       2. Able to avoid over-dependencies within the UI component.
     * Cons: Design may not be uniform with main window.

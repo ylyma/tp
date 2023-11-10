@@ -1,5 +1,4 @@
 ---
-layout: page
 title: "Tutorial: Adding a command"
 ---
 

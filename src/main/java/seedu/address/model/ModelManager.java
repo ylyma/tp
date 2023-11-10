@@ -112,6 +112,11 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public void clearPersonDetails() {
+        currentPerson.set(Optional.empty());
+    }
+
+    @Override
     public void deletePerson(Person target) {
         addressBook.removePerson(target);
     }

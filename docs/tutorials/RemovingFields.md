@@ -1,7 +1,8 @@
 ---
-layout: page
 title: "Tutorial: Removing Fields"
 ---
+
+# Tutorial: Removing Fields
 
 > Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away.
 >
@@ -17,10 +18,6 @@ This tutorial aims to give you some practice on such a code 'removal' activity b
 <br>
 However, if you have no such prior knowledge, removing a field can take a quite a bit of detective work. This tutorial takes you through that process. **At least have a read even if you don't actually do the steps yourself.**
 </div>
-
-
-* Table of Contents
-{:toc}
 
 ## Safely deleting `Address`
 

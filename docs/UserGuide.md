@@ -1,5 +1,4 @@
 ---
-layout: page
 title: TAfinder User Guide
 ---
 # TAfinder User Guide
@@ -26,60 +25,57 @@ You can click on any of the links below to navigate to the respective sections f
 
 ## Table of Contents
 <!-- TOC -->
-- [1 Quick Start](#1-quick-start)
-    - [1.1 Prerequisites](#11-prerequisites)
-        - [1.1.1 Java](#111-java)
-        - [1.1.2 Glossary](#112-glossary)
-    - [1.2 Installation](#12-installation)
-    - [1.3 Utilisation](#13-utilisation)
-    - [1.4 Navigating the User Interface](#14-navigating-the-user-interface)
-- [2 Features](#2-features)
-    - [2.1 Basic applicant management](#21-basic-applicant-management)
-      - [2.1.1 Adding an applicant: `add`](#211-adding-an-applicant-add)
-      - [2.1.2 Editing all applicants: `edit`](#212-editing-an-applicant-edit)
-      - [2.1.3 Deleting an applicant: `delete`](#213-deleting-an-applicant-delete)
-      - [2.1.4 Listing all applicants: `list`](#214-listing-all-applicant-list)
-      - [2.1.5 Viewing an applicant: `view`](#215-viewing-the-details-of-a-single-applicant-view)
-      - [2.1.6 Hiding/unhiding an applicant: `hide/unhide`](#216-hiding-an-applicant-from-list-hideunhide)
-    - [2.2 Applicant evaluation & comparison](#22-applicant-evaluation--comparison)
-      - [2.2.1 Sorting applicants by grades: `sort-gpa`](#221-sorting-applicants-by-gpa-sort-gpa)
-      - [2.2.2 Comparing 2 applicants: `compare`](#222-comparing-2-applicants-compare)
-      - [2.2.3 Bookmarking/Unbookmarking applicants: `bookmark/unbookmark`](#223-bookmarkingunbookmarking-applicants-bookmarkunbookmark)
-      - [2.2.4 Commenting on TA applicant: `comment`](#224-commenting-on-ta-applicant-comment)
-    - [2.3 Data management & export](#23-data-management--export)
-      - [2.3.1 Exporting applicants into spreadsheet: `export`](#231-exporting-applicants-into-spreadsheet)
-      - [2.3.2 Attaching file to applicant profiles: `attach`](#232-attaching-file-to-applicant-profiles)
-- [3 Data management](#3-data-management)
-    - [3.1 Saving the data](#31-saving-the-data)
-    - [3.2 Editing the data file](#32-editing-the-data-file)
-- [4 Upcoming Features](#4-upcoming-features-coming-in-v13)
-    - [4.1 Importing from spreadsheet: `import`](#41-importing-from-spreadsheet)
-    - [4.2 Sorting by module grade: `sort-grade`](#42-sorting-by-module-grade)
-    - [4.3 Sorting by interview score: `sort-interview`](#43-sorting-by-interview-score)
-- [5 FAQ](#5-faq)
-- [6 Known Issues](#6-known-issues)
-- [7 Summary](#7-summary)
-    - [7.1 Prefix Summary](#71-prefix-summary)
-    - [7.2 Command Summary](#72-command-summary)
-      - [7.2.1 Basic applicant management commands](#721-basic-applicant-management-commands)
-      - [7.2.2 Applicant comparison and evaluation commands](#722-applicant-comparison-and-evaluation-commands)
-      - [7.2.3 Data management and export commands](#723-data-management-and-export-commands)
+- [1. Quick Start](#1-quick-start)
+    - [1.1. Prerequisites](#1-1-prerequisites)
+        - [1.1.1. Java](#1-1-1-java)
+        - [1.1.2. Glossary](#1-1-2-glossary)
+    - [1.2. Installation](#1-2-installation)
+    - [1.3. Utilisation](#1-3-utilisation)
+    - [1.4. Navigating the User Interface](#1-4-navigating-the-user-interface)
+- [2. Features](#2-features)
+    - [2.1. Basic applicant management](#2-1-basic-applicant-management)
+      - [2.1.1. Adding an applicant: `add`](#2-1-1-adding-an-applicant-add)
+      - [2.1.2. Editing all applicants: `edit`](#2-1-2-editing-an-applicant-edit)
+      - [2.1.3. Deleting an applicant: `delete`](#2-1-3-deleting-an-applicant-delete)
+      - [2.1.4. Listing all applicants: `list`](#2-1-4-listing-all-applicant-list)
+      - [2.1.5. Viewing an applicant: `view`](#2-1-5-viewing-the-details-of-a-single-applicant-view)
+      - [2.1.6. Hiding/unhiding an applicant: `hide/unhide`](#2-1-6-hiding-an-applicant-from-list-hide-unhide)
+    - [2.2. Applicant evaluation & comparison](#2-2-applicant-evaluation-and-amp-comparison)
+      - [2.2.1. Sorting applicants by gpa: `sort-gpa`](#2-2-1-sorting-applicants-by-gpa-sort-gpa)
+      - [2.2.2. Sorting applicants by grades: `sort-grade`](#2-2-2-sorting-by-module-grade-sort-grade)
+      - [2.2.3. Sorting applicants by interview score: `sort-interview`](#2-2-3-sorting-by-interview-score-sort-interview)
+      - [2.2.4. Comparing 2 applicants: `compare`](#2-2-4-comparing-2-applicants-compare)
+      - [2.2.5. Bookmarking/Unbookmarking applicants: `bookmark/unbookmark`](#2-2-5-bookmarkingunbookmarking-applicants-bookmarkunbookmark)
+      - [2.2.6. Commenting on TA applicant: `comment`](#2-2-6-commenting-on-ta-applicant-comment)
+    - [2.3. Files and data management](#2-3-files-and-data-management)
+      - [2.3.1. Importing applicants from spreadsheet: `import`](#2-3-1-importing-applicants-from-spreadsheet-import)
+      - [2.3.2. Attaching file to applicant profiles: `attach`](#2-3-2-attaching-file-to-applicant-profiles-attach)
+- [3. Data management](#3-data-management)
+    - [3.1. Saving the data](#3-1-saving-the-data)
+    - [3.2. Editing the data file](#3-2-editing-the-data-file)
+- [4. Upcoming Features](#4-upcoming-features-coming-in-a-future-update)
+- [5. FAQ](#5-faq)
+- [6. Known Issues](#6-known-issues)
+- [7. Summary](#7-summary)
+    - [7.1. Prefix Summary](#7-1-prefix-summary)
+    - [7.2. Command Summary](#7-2-command-summary)
+      - [7.2.1. Basic applicant management commands](#7-2-1-basic-applicant-management-commands)
+      - [7.2.2. Applicant comparison and evaluation commands](#7-2-2-applicant-comparison-and-evaluation-commands)
+      - [7.2.3. Data management and export commands](#7-2-3-data-management-and-export-commands)
 
 --------------------------------------------------------------------------------------------------------------------
 
-## 1 Quick start
+## 1. Quick start
 
-### 1.1 Prerequisites
+### 1.1. Prerequisites
 
-#### 1.1.1 Java
+#### 1.1.1. Java
 Ensure you have [Java `11`](https://www.oracle.com/sg/java/technologies/javase/jdk11-archive-downloads.html)
 or above installed. Java is the language that your computer uses to understand TAfinder.
 
-<div markdown="block" class="alert alert-tip">
+<box type="tip">
 
-:bulb: **Tip**
-
-**How to check your current Java version:**
+**Not sure how to check your Java version?**
 
 **Step 1.** Open up **Command Prompt** (Windows) or **Terminal** (Mac and Linux).
 
@@ -94,11 +90,11 @@ An example is shown below.
   java version "xxx" <Other information>
   ```
 
-</div>
+</box>
 
 <div style="page-break-after: always;"></div>
 
-#### 1.1.2 Glossary
+#### 1.1.2. Glossary
 | Words/Abbreviations | Explanation                                                                                                                         |
 |---------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | **TA**              | Teaching Assistant                                                                                                                  |
@@ -106,18 +102,18 @@ An example is shown below.
 | **Mainstream OS**   | Windows, Linux or Mac                                                                                                               |
 | **CLI**             | Command-Line Interface                                                                                                              |
 | **GUI**             | Graphical User Interface                                                                                                            |
+| **Toast**           | A popup alert to inform users about certain information                                                                             |
 | **Tag**             | Tags are associated with applicants, users can tag applicants with any keyword they want,<br/>the number of tags are not restricted |
 
-### 1.2 Installation
+### 1.2. Installation
 
 **Step 1.** Download the latest `tafinder.jar` from [here]().
 
 **Step 2.** Copy the file to the folder you want to use as the _home folder_ for your TAfinder.
 
 **Step 3.** Double-click on the `tafinder.jar` file to start the app.
-<div markdown="block" class="alert alert-tip">
 
-:bulb: **Tip**
+<box type="tip">
 
 **TAfinder does not open?**
 
@@ -135,13 +131,13 @@ An example of the final command is displayed below.
   > java -jar xxxx/xxxx/tafinder.jar
   ```
 
-</div>
+</box>
 
 The GUI similar to the below should appear in a few seconds. ![Ui](images/Ui.png)
 
-### 1.3 Utilisation
+### 1.3. Utilisation
 
-**Step 1.** Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and
+**Step 1:** Type the command in the Command Input Box and press Enter to execute it. e.g. typing **`help`** and
 pressing Enter will open the help window.<br>
 Some example commands you can try:
 
@@ -155,18 +151,37 @@ Some example commands you can try:
 
 - `exit` : Exits the app.
 
-Refer to the [Features](#features) below for details of each command.
+**Step 2:** Observe the changes to the application.<br>
 
-Step 2. Observe the changes to the application.<br>
+<box type="tip">
 
-### 1.4 Navigating the User Interface
+**Not sure what the commands above does?**
 
+You can find all about the usable commands [here](#2-features),<br>
+look at a summary of all the usable commands [here](#72-command-summary),<br>
+OR return to the [Table of Contents](#table-of-contents) to find your desired command.
+
+</box>
+
+### 1.4. Navigating the User Interface
+![UI with shaded areas](images/tafinder-UI.png)
+
+The UI has the following areas:
+- <span style="background-color:rgba(126, 217, 87, 1)">Navigation bar</span>
+  - This is where you can navigate to the `File` and `Help` menus.
+- <span style="background-color:rgba(255, 222, 89, 1)">Command Input Box</span>
+  - This where commands are typed
+  - press `Enter` to execute it.
+- <span style="background-color:rgba(255, 112, 112, 1)">Command Result Screen</span>
+  - This is where the result of the command is displayed. Applicants are displayed in a list format.
+- <span style="background-color:rgba(170, 210, 232, 1)">Applicant list</span>
+  - This is where the list of applicants is displayed.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## 2 Features
+## 2. Features
 
-<div markdown="block" class="alert alert-info">
+<box type="info">
 
 **Notes about the command format:**<br>
 
@@ -196,422 +211,1032 @@ can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
 
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple
 lines as space characters surrounding line-breaks may be omitted when copied over to the application.
-</div>
+
+</box>
 
 ---
 
-### **2.1 Basic applicant management**
+### 2.1. Basic applicant management
 
-#### 2.1.1 Adding an applicant: `add`
+#### 2.1.1. Adding an applicant: `add`
 
-![add.jpg](images/add.jpg)
+You have just finished setting up TAfinder and you are ready to add your first applicant. 
+Let's find out how you can add the applicant to the list.
 
-<aside>
-⭐ Adds a new applicant to the list of applicants.
+**Format:**
 
-</aside>
+**`add s/STUDENT_NUMBER n/NAME p/PHONE e/EMAIL g/GPA [pg/PREVIOUS_GRADE] [is/INTERVIEW_SCORE] [c/COMMENT] [t/TAG]…`**
 
-**Format:** `add [s/STUDENT_NUMBER] [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…`
+<box no-icon type="info" seamless>
 
 - **`s/STUDENT_NUMBER`**: Student number of the applicant
 - **`n/NAME`**: Name of the applicant.
 - **`p/PHONE`**: Phone number of the applicant.
 - **`e/EMAIL`**: Email address of the applicant.
 - **`g/GPA`**: GPA of the applicant.
-- **`t/TAG`**: Tags of the applicant. Note that editing tags will replace existing tags; it is not cumulative.
+- **`pg/PREVIOUS_GRADE`**: Previous grade of the applicant.
+- **`[is/INTERVIEW_SCORE]`**: Interview score of the applicant.
+- **`[c/COMMENT]`**: Comments for the applicant.
+- **`[t/TAG]`**: Tags of the applicant.
+
+</box>
+
+<box type="tip">
+
+You can add more than 1 tag to an applicant by adding more `t/TAG` parameters.
+
+</box>
+
+Here are some examples you can try with the `add` command.
 
 **Examples:**
 
-- **`add s/A0269357C n/john doe p/91234567 e/johndoe@example.com g/5.0 t/pastTA t/deanslist`**
-    - Adds a person with the following information
-        - Student number: A0269357C
-        - Name: John Doe
-        - Phone number: 91234567
-        - Email address: johndoe@example.com
-        - GPA: 5.0
-        - Tags: past TA, dean’s list
-- **`add s/A0251647W n/amanda p/89064678 e/amanda@example.com g/4.3`**
-    - Adds a person with the following information
-        - Student number:
-        - Name: Amanda
-        - Phone number: 89064678
-        - Email address: amanda@example.com
-        - GPA: 4.3
+<box type="default" seamless>
+
+**`add s/A0251647W n/amanda p/89064678 e/amanda@example.com g/4.3 pg/A`**
+- Adds an applicant with the following information:
+    - **Student number**: A0251647W
+    - **Name**: Amanda
+    - **Phone number**: 89064678
+    - **Email address**: amanda@example.com
+    - **GPA**: 4.3
+    - **Previous grade**: A
+
+</box>
+
+<box type="default" seamless>
+
+**`add s/A0269357C n/john doe p/91234567 e/johndoe@example.com g/5.0 pg/A- is/8.9 c/Hardworking t/pastTA t/deanslist`**
+- Adds an applicant with the following information:
+    - **Student number**: A0269357C
+    - **Name**: John Doe
+    - **Phone number**: 91234567
+    - **Email address**: johndoe@example.com
+    - **GPA**: 5.0
+    - **Previous grade**: A-
+    - **Interview score**: 8.9
+    - **Comment**: Hardworking
+    - **Tags**: pastTA, deanslist
+
+</box>
+
+Following the example above, if you entered everything correctly, you should see the following:
+
+![add.jpg](images/add_command_image_UG.png)
+
+You have now successfully added your first applicant to the list. As you add more applicants to the list,
+watch out for the expected and erroneous messages below that could be displayed in the command result screen!
+
+<box no-icon type="success">
 
 **Expected Outputs:**
 
-- Confirmation Message for successfully adding applicant and applicant's information:<br>
-**`New applicant added: Student number: <student number>; Name: <name>; Phone: <phone>; Email: <email>; GPA: <gpa>; Comment: <comment>; Tags: <tags>`**
+<box type="success" light>
 
-**Errors:**
+Successfully added applicant and his/her information:<br>
+**`"New applicant added: Student number: <student number>; Name: <name>; Phone: <phone>; 
+Email: <email>; GPA: <gpa>; Previous grade: <previous grade>; [Interview score: <interview score>];
+[Comment: <comment>]; [Tags: <tags>]."`**
 
-- Invalid command format:<br>
-`Invalid command format!`<br>
-`add: Adds an applicant to the list. Parameters: s/STUDENT NUMBER n/NAME p/PHONE e/EMAIL g/GPA c/comment [t/TAG]...`<br>
-`Example: add s/A0343434C n/John Doe p/98765432 e/johnd@example.com g/4.9 c/Hardworking and diligent t/pastTA`
-- Repeated applicant:<br>
-**`This applicant already exists in the applicant list.`**
-=======
-- Missing fields: **`"Error: Missing fields. Please follow the format: add [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…"`**
-- Repeated applicant: **`"Error: Repeated applicant. Applicant has already been added to the list`**
+</box>
+
+</box>
+
+<box no-icon type="wrong">
+
+**Erroneous Outputs:**
+
+<box type="wrong" light>
+
+Invalid command format:<br>
+**`"Invalid command format!"`<br>
+`"add: Adds an applicant to the list. Parameters: s/STUDENT NUMBER n/NAME p/PHONE e/EMAIL g/GPA pg/PREV GRADE 
+[is/INTERVIEW SCORE] [c/COMMENT] [t/TAG]..."`<br>
+`"Example: add s/A0343434C n/John Doe p/98765432 e/johnd@example.com g/4.9 pg/A is/9.1 c/Hardworking and diligent t/pastTA "`**
+
+</box>
+
+<box type="wrong" light>
+
+Repeated applicant:<br>
+**`"This applicant already exists in the applicant list."`**
+
+</box>
+
+</box>
 
 ---
 
-#### 2.1.2 Editing an applicant: `edit`
+#### 2.1.2. Editing an applicant: `edit`
 
 ![edit function UI](images/editUI.png)
 
-<aside>
-⭐ Edits an existing applicant in the list of applicants.
+<box type="definition">
 
-</aside>
+Edits an existing applicant in the list of applicants.
 
-**Format:** `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…`
+</box>
 
-- `INDEX`: The index of the applicant to edit. The index must be a positive integer (e.g., 1, 2, 3…).
+<box type="info">
+
+**Format:**
+
+**`edit INDEX [s/STUDENT NUMBER] [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [c/comment] [t/TAG]…`**
+
+<box no-icon type="info" light>
+
+- **`INDEX`**: The index of the applicant to edit. The index must be a positive integer (e.g., 1, 2, 3…).
+
+</box>
+
+<box no-icon type="info" light>
+
 - `[optional fields]`: **At least one** of the following optional fields must be provided for editing:
+    - **`s/STUDENT NUMBER`**: Student number of the applicant.
     - **`n/NAME`**: Name of the applicant.
     - **`p/PHONE`**: Phone number of the applicant.
     - **`e/EMAIL`**: Email address of the applicant.
     - **`g/GPA`**: GPA of the applicant.
+    - **`c/comment`**: Comment of the applicant.
     - **`t/TAG`**: Tags of the applicant. Note that editing tags will replace existing tags; it is not cumulative.
     - To remove all existing tags, use **`t/`** without specifying any tags after it.
 
+</box>
+
+</box>
+
+<box type="info" theme="dark">
+
 **Examples:**
 
-- **`edit 1 p/91234567 e/johndoe@example.com`**
-    - Edits the phone number and email address of the 1st person to be **`91234567`** and **`johndoe@example.com`**, respectively.
-- **`edit 2 n/Betsy Crower t/`**
-    - Edits the name of the 2nd person to be **`Betsy Crower`** and clears all existing tags.
+<box type="default" light>
+
+**`edit 1 p/91234567 e/johndoe@example.com`**
+- Edits the following fields of the first person in the list:
+  - **Phone number**: **`91234567`**
+  - **Email address**: **`johndoe@example.com`**
+
+</box>
+
+<box type="default" light>
+
+**`edit 2 n/Betsy Crower t/`**
+- Edits the following fields of the second person in the list:
+  - **Name**: **`Betsy Crower`**
+  - Clears all existing tags
+
+</box>
+
+</box>
+
+<box type="success">
+
+**Expected Outputs:**
+
+<box type="success" light>
+
+Successfully editing applicant and applicant's information.<br>
+Confirmation message:<br>
+  **`"Edited applicant: Student number: <student number>; Name: <name>; Phone: <phone>; Email: <email>; GPA: <gpa>; Comment: <comment>; Tags: <tags>"`**
+
+</box>
+
+</box>
+
+<box type="wrong">
+
+**Errors:**
+
+<box type="wrong" light>
+
+Invalid command format:<br>
+  `"Invalid command format!`<br>
+  `edit: Edits the details of the applicant identified by the index number used in the displayed applicant list. Existing values will be overwritten by the input values.`<br>
+  `Parameters: INDEX (must be a positive integer) [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [c/COMMENT] [t/TAG]..."`
+
+</box>
+
+<box type="wrong" light>
+
+Index out of range:<br>
+**`"Error: Invalid index. Please enter an index within range."`**
+
+</box>
+
+</box>
 
 ---
 
-#### 2.1.3 Deleting an applicant: `delete`
+#### 2.1.3. Deleting an applicant: `delete`
+![delete function UI](images/delete-UI.png)
+
+<box type="definition">
+
+Delete an existing applicant in the list of applicants.
+
+</box>
+
+<box type="info">
+
+**Format:**
+
+**`delete INDEX`**
+
+<box no-icon type="info" light>
+
+**`INDEX`**: The index corresponding to the applicant to be deleted. The index must be a positive integer (e.g., 1, 2, 3…).
+
+</box>
+
+</box>
+
+<box type="info" theme="dark">
+
+**Examples:**
+
+<box type="default" light>
+
+**`delete 3`**
+- Deletes the third applicant in the list.
+
+</box>
+
+</box>
+
+<box type="success">
+
+**Expected Outputs:**
+
+<box type="success" light>
+
+Successfully delete applicant and applicant's information at the given index.<br>
+Confirmation message:<br>
+**`"Deleted applicant: Student number: <student number>; Name: <name>; Phone: <phone>; Email: <email>; GPA: <gpa>; Comment: <comment> ; Tags: <tags>"`**
+
+</box>
+
+</box>
+
+<box type="wrong">
+
+**Errors:**
+
+<box type="wrong" light>
+
+Missing index: <br>
+  **`"Invalid command format!`<br>
+  `delete: Displays the applicant identified by the index number used in the displayed applicant list.`<br>
+  `Parameters: INDEX (must be a positive integer)`<br>
+  `Example: delete 1"`**
+
+</box>
+
+<box type="wrong" light>
+
+Index out of range:<br>
+  **`"Error: Invalid index. Please enter an index within range."`**
+
+</box>
+
+</box>
 
 ---
 
 #### 2.1.4 Listing all applicant: `list`
+
+<box type="definition">
+
+Shows a list of applicants.
+
+</box>
+
 ![listUI-1](images/listUI-1.png)
 ![listUI-2](images/listUI-2.png)
-<aside>
-⭐ Shows a list of all applicants.
 
-</aside>
+<box type="info">
 
-**Format:** `list`
+**Format:**
 
-- `list-hidden` Shows a list of all hidden applicants.
-- `list-bookmarked` Shows a list of all bookmarked applicants.
+**`list`** / **`list hidden`** / **`list bookmarked`**
+
+<box no-icon type="info" light>
+
+**`list`**
+- Shows a list of all applicants.
+
+</box>
+
+<box no-icon type="info" light>
+
+**`list hidden`**
+- Shows a list of all hidden applicants.
+
+</box>
+
+<box no-icon type="info" light>
+
+**`list bookmarked`**
+- Shows a list of all bookmarked applicants.
+
+</box>
+
+</box>
 
 ---
 
-#### 2.1.5 Viewing the details of a single applicant: `view`
+#### 2.1.5. Viewing the details of a single applicant: `view`
 
 ![edit function UI](images/viewUI.png)
 
-<aside>
-⭐ Displays a single applicant.
+<box type="definition">
 
-</aside>
+Displays a single applicant.
 
-**Format:** `view INDEX`
+</box>
 
-- `INDEX`: The index corresponding to the applicant to be displayed. The index must be a positive integer (e.g., 1, 2, 3…).
+<box type="info">
+
+**Format:**
+
+**`view INDEX`**
+
+<box no-icon type="info" light>
+
+**`INDEX`**: The index corresponding to the applicant to be displayed. The index must be a positive integer (e.g., 1, 2, 3…).
+
+</box>
+
+</box>
+
+<box type="default" theme="dark">
 
 **Examples:**
 
-- **`view 3`**
-    - Displays the following details about the third applicant.
-      - Name
-      - Student number
-      - Phone number
-      - Email Address
-      - GPA
-      - Comments
-      - Tags
+<box type="default" light>
+
+**`view 3`**
+- Displays the following details about the third applicant.
+  - Name
+  - Student number
+  - Phone number
+  - Email Address
+  - GPA
+  - Comments
+  - Tags
+
+</box>
+
+</box>
+
+<box type="success">
 
 **Expected Outputs:**
 
-- All details of an applicant in the following format:\
-    `Name: John Doe`\
-    `Student number: A0358289S`\
-    `Phone Number: 91234567`\
-    `Email Address: johndoe@example.come`\
-    `GPA: 5.0`\
-    `Comments: Good fit, has teaching experience`\
-    `Tags: pastTA, deansList`
-- Confirmation message: `"Displaying: APPLICANT_NAME"`
+<box type="success" light>
+
+Successfully displaying all details of an applicant in the following format:\
+- **`Name: John Doe`**
+- **`Student number: A0358289S`**
+- **`Phone Number: 91234567`**
+- **`Email Address: johndoe@example.come`**
+- **`GPA: 5.0`**
+- **`Comments: Good fit, has teaching experience`**
+- **`Tags: pastTA, deansList`**
+
+</box>
+
+<box type="success" light>
+
+Confirmation message:<br>
+**`"Displaying: APPLICANT_NAME"`**
+
+</box>
+
+</box>
+
+
+<box type="wrong">
 
 **Errors:**
 
-- Missing index: **`"Invalid command format!
-  view: Displays the applicant identified by the index number used in the displayed applicant list.
-  Parameters: INDEX (must be a positive integer)
-  Example: view 1"`**
-- Index out of range: **`"Error: Invalid index. Please enter an index within range."`**
+<box type="wrong" light>
+
+Missing index: <br>
+**`"Invalid command format!`<br>
+  `view: Displays the applicant identified by the index number used in the displayed applicant list.`<br>
+  `Parameters: INDEX (must be a positive integer)`<br>
+  `Example: view 1"`**
+
+</box>
+
+<box type="wrong" light>
+
+Index out of range:<br>
+**`"Error: Invalid index. Please enter an index within range."`**
+
+</box>
+
+</box>
 
 ---
+
 #### 2.1.6 Hiding an applicant from list: `hide`/`unhide`
 
+<box type="definition">
+
+Hides/unhides an applicant from the list of applicants.
+
+</box>
+
 ![hide function UI](images/hideUI.png)
-<aside>
-⭐ Hides/unhides an applicant from the list of applicants.
 
-</aside>
 
-**Format:** `hide INDEX` / `unhide INDEX`
+<box type="info">
 
-- Hides/unhides the applicant at the specified INDEX from all future lists. The index refers to the number shown in the displayed person list.
-    - The index must be a positive integer 1, 2, 3...
-- `unhide-all` unhides all applicants that were previously hidden.
+**Format:** 
+
+`hide INDEX` / `unhide INDEX` / `unhide-all`
+
+<box no-icon type="info" light>
+
+`hide INDEX`
+- Hides the applicant at the specified INDEX from all future lists. The index refers to the number shown in the displayed person list.
+
+</box>
+
+<box no-icon type="info" light>
+
+`unhide INDEX`
+- Unhides the applicant at the specified INDEX from all future lists. The index refers to the number shown in the displayed person list.
+
+</box>
+
+<box no-icon type="info" light>
+
+`unhide-all`
+- Unhides all applicants that were previously hidden.
+
+</box>
+
+</box>
+
+<box type="info" theme="dark">
 
 **Examples:**
 
-- **`hide 2`**
-    - Hides the applicant at index 2
-- **`unhide 2`**
-    - Unhides the applicant at index 2
-- **`unhide-all`**
-    - Unhides all applicants
+<box type="default" light>
+
+**`hide 2`**
+- Hides the applicant at index 2.
+
+</box>
+
+<box type="default" light>
+
+**`list hidden` then `unhide 2`**
+- Lists all hidden applicants, then unhides the applicant at index 2 of the list of hidden applicants.
+
+</box>
+
+<box type="default" light>
+
+**`unhide-all`**
+- Unhides all applicants.
+
+</box>
+
+</box>
+
+<box type="success">
 
 **Expected Outputs:**
 
-- Confirmation message: `APPLICANT_NAME hidden successfully.`
+<box type="success" light>
+
+Successfully hiding/unhiding applicant(s).<br>
+Confirmation message:<br>
+**`APPLICANT_NAME hidden successfully.`**
+
+</box>
+
+</box>
+
+<box type="wrong">
 
 **Errors:**
 
-- Missing index: **`"Invalid command format!
-  hide: Hides an applicant, identified by the index number used in the last list, from all future lists of applicants.
-  Parameter: INDEX (must be a positive integer)
-  Example: hide 1 "`**
-- Index out of range: **`“Error: Invalid index. Please enter an index within range.”`**
+<box type="wrong" light>
+
+Missing index:<br>
+**`"Invalid command format!`<br>
+  `hide: Hides an applicant, identified by the index number used in the last list, from all future lists of applicants.`<br>
+  `Parameter: INDEX (must be a positive integer)`<br>
+  `Example: hide 1"`**
+
+</box>
+
+<box type="wrong" light>
+
+Index out of range:<br>
+**`“Error: Invalid index. Please enter an index within range.”`**
+
+</box>
+
+</box>
 
 ---
 
-### **2.2 Applicant evaluation & comparison**
+### 2.2. Applicant evaluation & comparison
 
-#### 2.2.1 Sorting applicants by GPA: `sort-gpa`
+#### 2.2.1 Sorting applicants by GPA: `sort`
+
+<box type="definition">
+
+Sorts applicants by a field
+
+</box>
 
 ![sort function UI](images/sortUI.png)
 
-<aside>
-⭐  Sorts applicants by grades in descending order
+<box type="info">
 
-</aside>
+**Format:**
 
-**Format:** **`sort-gpa`**
+**`sort FIELD`**
+
+</box>
+<box no-icon type="info" light>
+
+**`FIELD`**: The name of the field that applicants are sorted by. <br>
+* Valid fields: `name`, `studentNo`, `gpa`, `previousGrade`, `interviewScore`, `comment`, `phone`, `email`, `tags` <br>
+
+</box>
+
+
+<box type="success">
 
 **Expected Output:**
 
-- A list of applicants sorted by grades in descending order.
+<box type="success" light>
+
+- A sorted list of applicants.
+
+</box>
+
+</box>
+
+<box type="wrong">
 
 **Errors:**
 
-- Empty list: `"No applicants to sort."`
+<box type="wrong" light>
+
+Empty list:<br>
+**`"No applicants to sort."`**
+
+</box>
+
+</box>
 
 ---
 
-#### 2.2.2 Comparing 2 applicants: `compare`
+
+#### 2.2.4 Comparing 2 applicants: `compare`
 
 ![compare function UI](images/compareUI.png)
 
-<aside>
-⭐  Compares two applicants side by side to make informed decisions.
+<box type="definition">
 
-</aside>
+Compares two applicants side by side to make informed decisions.
 
-**Format:** **`compare INDEX1 INDEX2`**
+</box>
 
-- **`INDEX1`**: The index of the first applicant to compare.
-- **`INDEX2`**: The index of the second applicant to compare.
-- Both indices must be a positive integer (e.g., 1, 2, 3…), and should not be the same.
+<box type="info">
+
+**Format:**
+
+**`compare INDEX1 INDEX2`**
+
+<box no-icon type="info" light>
+
+**`INDEX1`**: The index of the first applicant to compare.
+
+</box>
+
+<box no-icon type="info" light>
+
+**`INDEX2`**: The index of the second applicant to compare.<br>
+Both indices must be a positive integer (e.g., 1, 2, 3…), and should not be the same.
+
+</box>
+
+</box>
+
+<box type="info" theme="dark">
 
 **Examples:**
 
-- **`compare 1 2`**
-    - Compares the first and second applicants.
+<box type="default" light>
+
+**`compare 1 2`**
+- Compares the first and second applicants.
+
+</box>
+
+</box>
+
+<box type="success">
 
 **Expected Output:**
 
-- A side-by-side comparison of the two applicants is displayed in a user-friendly format. This comparison window will include student number, name, and various TA selection criteria such as GPA, CCA count, Interview Performance Rating (IPR), tags, etc.
+<box type="success" light>
+
+- A side-by-side comparison of the two applicants is displayed in a user-friendly format.
+- This comparison window will include:
+  - Student number
+  - Name
+  - Various TA selection criteria such as:
+    - GPA
+    - CCA count
+    - Interview Performance Rating (IPR)
+    - tags
 - The system highlights the differences between the two applicants, making it easy to see variations in their profiles.
+
+</box>
+
+</box>
+
+<box type="wrong">
 
 **Errors:**
 
-- Applicant not found: **`"Error: One or both of the specified applicants were not found in the list."`**
-- Comparing the same applicant: **`"Error: Please provide distinct indices. You cannot compare the same applicant."`**
+<box type="wrong" light>
+
+Applicant not found:<br>
+**`"Error: One or both of the specified applicants were not found in the list."`**
+
+</box>
+
+<box type="wrong" light>
+
+Comparing the same applicant:<br>
+**`"Error: Please provide distinct indices. You cannot compare the same applicant."`**
+
+</box>
+
+</box>
 
 ---
 
-#### 2.2.3 Bookmarking/Unbookmarking applicants: `bookmark/unbookmark`
+#### 2.2.5. Bookmarking/Unbookmarking applicants: `bookmark/unbookmark`
 
 ![bookmark function UI](images/bookmarkUI.png)
 
-<aside>
-⭐  Bookmarks/Unbookmarks a specific applicant.
+<box type="definition">
 
-</aside>
+Bookmarks/Unbookmarks a specific applicant.
 
-**Format:** **`bookmark INDEX` / `unbookmark INDEX`**
+</box>
 
-- **`INDEX`**: The index corresponding to the applicant to be bookmarked/unbookmarked. The index must be a positive integer (e.g., 1, 2, 3…).
+<box type="info">
+
+**Format:**
+
+**`bookmark INDEX` / `unbookmark INDEX`**
+
+<box no-icon type="info" light>
+
+**`INDEX`**: The index corresponding to the applicant to be bookmarked/unbookmarked. The index must be a positive integer (e.g., 1, 2, 3…).
+
+</box>
+
+</box>
+
+<box type="info" theme="dark">
 
 **Examples:**
 
-- **`bookmark 3`**
-    - Bookmarks the third applicant.
-- **`unbookmark 3`**
-    - Unbookmarks the third applicant.
+<box type="default" light>
+
+**`bookmark 3`**
+- Bookmarks the third applicant.
+
+</box>
+
+<box type="default" light>
+
+**`unbookmark 3`**
+- Unbookmarks the third applicant.
+
+</box>
+
+</box>
+
+<box type="success">
 
 **Expected Output:**
 
-- Applicant corresponding to the given index is bookmarked/unbookmarked.
-- Confirmation message: `"Applicant at index INDEX has been successfully bookmarked/unbookmarked."`
+<box type="success" light>
+
+- Successfully bookmark/unbookmark applicant at the given index.
+- Confirmation message:<br>
+**`"Applicant at index INDEX has been successfully bookmarked/unbookmarked."`**
+
+</box>
+
+</box>
+
+<box type="wrong">
 
 **Errors:**
 
-- Missing index: **`"Invalid command format!
-  bookmark: Bookmarks an applicant, identified by the index number used in the last list,
-  from all future lists of applicants.
-  Parameter: INDEX (must be a positive integer)
-  Example: bookmark 1"`**
-- Index out of range: **`"Error: Invalid index. Please enter an index within range."`**
+<box type="wrong" light>
+
+Missing index:<br>
+**`"Invalid command format!`<br>
+  `bookmark: Bookmarks an applicant, identified by the index number used in the last list, from all future lists of applicants.`<br>
+  `Parameter: INDEX (must be a positive integer)`<br>
+  `Example: bookmark 1"`**
+
+</box>
+
+<box type="wrong" light>
+
+Index out of range:<br>
+**`"Error: Invalid index. Please enter an index within range."`**
+
+</box>
+
+</box>
 
 ---
 
-#### 2.2.4 Commenting on TA applicant: **`comment`**
+#### 2.2.6. Commenting on TA applicant: **`comment`**
 
 ![comments.jpg](images/comment.jpg)
-<aside>
-⭐ Add comments on a specific applicant
 
-</aside>
+<box type="definition">
 
-**Format: `comment INDEX COMMENT`**
+Add comments on a specific applicant
 
-- `INDEX`: The index corresponding to the applicant to be commented. The index must be a positive integer (e.g., 1, 2, 3…).
-- **`COMMENT`:** The comment to be made about the applicant.
+</box>
+
+<box type="info">
+
+**Format:**
+
+**`comment INDEX COMMENT`**
+
+<box no-icon type="info" light>
+
+**`INDEX`**: The index corresponding to the applicant to be commented. The index must be a positive integer (e.g., 1, 2, 3…).
+
+</box>
+
+<box no-icon type="info" light>
+
+**`COMMENT`:** The comment to be made about the applicant.
+
+</box>
+
+</box>
+
+<box type="info" theme="dark">
 
 **Examples:**
 
-- `comment 3 Hardworking and studious`
-    - Comments on the third applicant with the comment: "Hardworking and studious"
+<box type="default" light>
+
+**`comment 3 Hardworking and studious`**
+- Comments on the third applicant with the comment: "Hardworking and studious"
+
+</box>
+
+</box>
+
+<box type="success">
 
 **Expected outputs:**
 
-- Successfully commenting on the applicant at the corresponding index:<br>
-`"Applicant at index INDEX has been successfully commented on."`
+<box type="success" light>
+
+- Successfully commenting on the applicant at the corresponding index.
+- Confirmation message:<br>
+**`"Applicant at index INDEX has been successfully commented on."`**
+
+</box>
+
+</box>
+
+<box type="wrong">
 
 **Errors:**
 
-- Missing index:<br>
-`“Error: Missing index. Please follow the format: 'view INDEX'.”`
-- Index out of range:<br>
-`“Error: Invalid index. Please enter an index within range.”`
+<box type="wrong" light>
+
+Missing index:<br>
+**`“Error: Missing index. Please follow the format: 'view INDEX'.”`**
+
+</box>
+
+<box type="wrong" light>
+
+Index out of range:<br>
+**`“Error: Invalid index. Please enter an index within range.”`**
+
+</box>
+
+</box>
 
 ---
 
-### 2.3 Data management & export
+### 2.3. Files and data management
 
-#### 2.3.1 Exporting applicants into spreadsheet
+#### 2.3.1. Importing applicants from spreadsheet: `import`
 
-![export function UI](images/exportUI.png)
+<box type="definition">
 
-<aside>
-⭐  Exports the entire list of applicants along with their details into a spreadsheet
-</aside>
+Imports an entire list of applicants along with their details from a CSV file.
 
-**Format:** **`export FILENAME`**
+</box>
 
-- `FILENAME`: The desired filename of the spreadsheet (including the file extension)
+<box type="info">
+
+**Format:**
+
+**`import FILENAME`**
+
+<box no-icon type="info" light>
+
+**`FILENAME`**: The desired filename of the CSV file to import from (including the file extension)
+
+</box>
+
+</box>
+
+<box type="info" theme="dark">
 
 **Examples:**
 
-- `export ta-applicants.csv`
-    - Exports the entire list of applicants in the CSV format to a file called `ta-applicants.csv` in the same directory as the JAR file
+<box type="default" light>
+
+**`import ta-applicants.csv`**
+- Imports a entire list of applicants, from a file in the CSV format called `ta-applicants.csv` in the same directory as the JAR file, into TAfinder
+
+</box>
+
+</box>
+
+<box type="success">
 
 **Expected Output:**
 
-- A toast indicating whether the export was successful.
-- If the export wasn’t successful, the reason why it wasn’t successful should be included in the toast.
+<box type="success" light>
+
+- Successfully attaching a file to the applicant at the corresponding index.
+- Sample confirmation message:<br>
+**`"Imported 10 applicants successfully!"`**
+
+</box>
+
+</box>
+
+<box type="wrong">
 
 **Errors:**
 
-- Missing file permissions: **`"Error: No permission to write to file FILENAME."`**
-- Corrupted data: **`"Error: Data is corrupted, failed to write to file FILENAME."`**
-- Any other unexpected error: **`"Error: Unknown error. Please contact the app developer at contact@email.com"`**
+<box type="wrong" light>
+
+Missing file permissions or invalid file path:<br>
+**`"Failed to open and load applicant file."`**
+
+</box>
+
+</box>
 
 ---
 
-#### 2.3.2 Attaching file to applicant profiles
+#### 2.3.2. Attaching file to applicant profiles: `attach`
 
 ![attach function UI](images/attachUI.png)
 
-<aside>
-⭐  Attaches local files to the profiles of applicants to provide even more richness and insight into their applications
-</aside>
+<box type="definition">
 
-**Format:** **`attach INDEX FILEPATH`**
+Attaches local files to the profiles of applicants to provide even more richness and insight into their applications
 
-- `INDEX`: The index of the applicant to edit. The index must be a positive integer (e.g., 1, 2, 3…).
-- `FILEPATH`: The desired path of the file to attach to the applicant’s profile. This is relative to the path of the JAR file unless either `/` or `C:\` is at the start of the path, then the path will be treated as an absolute path.
+</box>
+
+<box type="info">
+
+**Format:**
+
+**`attach INDEX f/FILEPATH`**
+
+<box no-icon type="info" light>
+
+**`INDEX`**: The index of the applicant to edit. The index must be a positive integer (e.g., 1, 2, 3…).
+
+</box>
+
+<box no-icon type="info" light>
+
+**`FILEPATH`**: The desired path of the file to attach to the applicant’s profile. This is relative to the path of the JAR file unless either `/` or `C:\` is at the start of the path, then the path will be treated as an absolute path.
+
+</box>
+
+</box>
+
+<box type="info" theme="dark">
 
 **Examples:**
 
-- `attach 2 john-resume.pdf`
-    - Attaches the file called `john-resume.pdf` in the same directory as the JAR file to the second applicant in the applicant list
-- `attach 78 /home/jennifer/resumes/benson-resume.pdf`
-    - Attaches the file called `benson-resume.pdf` in the directory `/home/jennifer/resumes` to the 78th applicant in the applicant list
+<box type="default" light>
+
+**`attach 2 f/john-resume.pdf`**
+- Attaches the file called `john-resume.pdf` in the same directory as the `tafinder.jar` file to the second applicant in the applicant list
+
+</box>
+
+<box type="default" light>
+
+**`attach 78 f//home/jennifer/resumes/benson-resume.pdf`**
+- Attaches the file called `benson-resume.pdf` in the directory `/home/jennifer/resumes` to the 78th applicant in the applicant list
+
+</box>
+
+</box>
+
+<box type="success">
 
 **Expected Output:**
 
-- A toast indicating whether the export was successful.
-- If the export wasn’t successful, the reason why it wasn’t successful should be included in the toast.
+<box type="success" light>
+
+- Successfully attaching a file to the applicant at the corresponding index.
+- Sample confirmation message:<br>
+**`"Attached 1 attachments to Alex Yeoh!"`**
+
+</box>
+
+</box>
+
+<box type="wrong">
 
 **Errors:**
 
-- Missing file permissions: **`"Error: No permission to read from file FILEPATH."`**
-- Corrupted data: **`"Error: Data is corrupted, failed to attach file FILEPATH."`**
-- Any other unexpected error: **`"Error: Unknown error. Please contact the app developer at contact@email.com"`**
+<box type="wrong" light>
+
+Invalid file path or corrupted data:<br>
+**`"Failed to copy attachment."`**
+
+</box>
+
+<box type="wrong" light>
+
+Any other unexpected error:<br>
+**`"Error: Unknown error. Please contact the app developer at contact@email.com"`**
+
+</box>
+
+</box>
 
 ---
-## 3 Data Management
-### 3.1 Saving the data
+## 3. Data Management
+### 3.1. Saving the data
 
 TAfinder data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
-### 3.2 Editing the data file
+### 3.2. Editing the data file
 
 TAfinder data are saved automatically as a JSON file `[JAR file location]/data/tafinder.json`. Advanced users are welcome to update data directly by editing that data file.
 
-<div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
+<box type="warning">
+
+**Warning:**
+
 If your changes to the data file makes its format invalid, TAfinder will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.
-</div>
+
+</box>
 
 --------------------------------------------------------------------------------------------------------------------
-## 4 Upcoming Features [coming in v1.3]
-### 4.1 Importing from spreadsheet
-
-### 4.2 Sorting by module grade
-
-### 4.3 Sorting by interview score
+## 4. Upcoming Features [coming in a future update!]
 
 --------------------------------------------------------------------------------------------------------------------
 
-## 5 FAQ
+## 5. FAQ
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous AddressBook home folder.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## 6 Known Issues
+## 6. Known Issues
 
 1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
 
 --------------------------------------------------------------------------------------------------------------------
-## 7 Summary
-### 7.1 Prefix Summary
+## 7. Summary
+### 7.1. Prefix Summary
 | Parameter      | Prefix | Rules                                                                                                                                                                                                              |
 |----------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Student number | s/     | - Should be in the format `AdddddddL`, <br/>where `d` represents digit and `L` represents capital letters.                                                                                                         |
@@ -623,8 +1248,8 @@ If your changes to the data file makes its format invalid, TAfinder will discard
 | Tag            | t/     | - Should only contain alphanumeric characters.<br/>- Should not contain spaces.                                                                                                                                    |
 
 
-### 7.2 Command Summary
-#### 7.2.1 Basic applicant management commands
+### 7.2. Command Summary
+#### 7.2.1. Basic applicant management commands
 | Action          | Format, Examples                                                                                                                                                               |
 |-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Add**         | - `add [s/STUDENT_NUMBER] [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…` <br> - e.g., `add s/A0269357C n/john doe p/91234567 e/johndoe@example.com g/5.0 t/pastTA t/deanslist` |
@@ -634,7 +1259,7 @@ If your changes to the data file makes its format invalid, TAfinder will discard
 | **View**        | - `view INDEX`<br> - e.g., `view 3`                                                                                                                                            |
 | **Hide/Unhide** | - `hide INDEX` / `unhide INDEX`<br/> - e.g., `hide 3` / `unhide 3`                                                                                                             |
                                                                                                                                                        |
-#### 7.2.2 Applicant comparison and evaluation commands
+#### 7.2.2. Applicant comparison and evaluation commands
 | Action                  | Format, Examples                                                                  |
 |-------------------------|-----------------------------------------------------------------------------------|
 | **Sort GPA**            | - `sort-gpa`                                                                      |
@@ -643,7 +1268,7 @@ If your changes to the data file makes its format invalid, TAfinder will discard
 | **Comment**             | - `comment INDEX COMMENT`<br/> - e.g., `comment 3 Hardworking`                    |
 
 
-#### 7.2.3 Data management and export commands
+#### 7.2.3. Data management and export commands
 | Action                  | Format, Examples                                                |
 |-------------------------|-----------------------------------------------------------------|
 | **Export**              | - `export FILENAME`<br/> - e.g., `export ta-applicants.csv`     |

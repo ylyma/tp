@@ -1,12 +1,8 @@
 ---
-layout: page
 title: DevOps guide
 ---
 
-* Table of Contents
-{:toc}
-
---------------------------------------------------------------------------------------------------------------------
+# DevOps guide
 
 ## Build automation
 
