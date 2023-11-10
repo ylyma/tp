@@ -11,13 +11,11 @@ Given below are my contributions to the project.
 * **New Feature**: Added the ability to bookmark/unbookmark users.
     * What it does: allows the user to bookmark/unbookmark specific applicants of their choice, and list all bookmarked applicants.
     * Justification: This feature improves the product significantly because a user may want to take special note of certain applicants or may require a way to sigal which applicants have already been chosen to be a TA.
-    * Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.
     * Credits: List function later refactored by Amy.
 
 * **New Feature**: Added an initial view command to display a singular applicant.
-    * What it does: allows the user to bookmark/unbookmark specific applicants of their choice, and list all bookmarked applicants (list function later refactored by Amy).
-    * Justification: This feature improves the product significantly because a user may want to take special note of certain applicants or may require a way to sigal which applicants have already been chosen to be a TA.
-    * Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.
+    * What it does: allows the user to view a singular applicant.
+    * Justification: This feature improves the product significantly because a user may want to view and evaluate just one applicant's details instead of the whole list.
     * Credits: Later updated by Ravern to display applicant on a separate panel.
 
 * **Code contributed**: [RepoSense link](https://nus-cs2103-ay2324s1.github.io/tp-dashboard/?search=nabonitasen&breakdown=true)
