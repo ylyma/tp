@@ -9,7 +9,7 @@ Introducing **TAfinder - the one-stop solution for all your TA selection needs**
 With TAfinder, you can easily:
 1. **Manage** troves of TA applicants.
 2. Make more **informed decisions** with the help of our **compare** and **sort** functions.
-3. **Import** and **export** data to and from the TAfinder application.
+3. **Import** data to the TAfinder application.
 
 TAfinder utilises a Command Line Interface (CLI), while still enjoying the benefits of a Graphical User Interface (GUI),
 for a more efficient user experience.
@@ -61,7 +61,7 @@ You can click on any of the links below to navigate to the respective sections f
     - [7.2. Command Summary](#7-2-command-summary)
       - [7.2.1. Basic applicant management commands](#7-2-1-basic-applicant-management-commands)
       - [7.2.2. Applicant comparison and evaluation commands](#7-2-2-applicant-comparison-and-evaluation-commands)
-      - [7.2.3. Data management and export commands](#7-2-3-data-management-and-export-commands)
+      - [7.2.3. Data management and import commands](#7-2-3-data-management-and-import-commands)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -432,7 +432,7 @@ Index out of range:<br>
 
 <box type="definition">
 
-Delete an existing applicant in the list of applicants.
+Delete a singular existing applicant in the list of applicants.
 
 </box>
 
@@ -594,7 +594,7 @@ Displays a single applicant.
 
 <box type="success" light>
 
-Successfully displaying all details of an applicant in the following format:\
+Successfully displaying all details of an applicant in the following format:
 - **`Name: John Doe`**
 - **`Student number: A0358289S`**
 - **`Phone Number: 91234567`**
@@ -1268,8 +1268,8 @@ If your changes to the data file makes its format invalid, TAfinder will discard
 | **Comment**             | - `comment INDEX COMMENT`<br/> - e.g., `comment 3 Hardworking`                    |
 
 
-#### 7.2.3. Data management and export commands
-| Action                  | Format, Examples                                                |
-|-------------------------|-----------------------------------------------------------------|
-| **Export**              | - `export FILENAME`<br/> - e.g., `export ta-applicants.csv`     |
-| **Attach**              | - `attach INDEX FILEPATH`<br> - e.g.,`attach 2 john-resume.pdf` |
+#### 7.2.3. Data management and import commands
+| Action     | Format, Examples                                                |
+|------------|-----------------------------------------------------------------|
+| **Import** | - `import FILENAME`<br/> - e.g., `import ta-applicants.csv`     |
+| **Attach** | - `attach INDEX FILEPATH`<br> - e.g.,`attach 2 john-resume.pdf` |
