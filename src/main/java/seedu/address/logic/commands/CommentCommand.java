@@ -2,6 +2,7 @@ package seedu.address.logic.commands;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_COMMENT;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,7 +27,7 @@ public class CommentCommand extends Command {
             + "Parameters: INDEX (must be a positive integer) "
             + "c/ [COMMENT]\n"
             + "Example: " + COMMAND_WORD + " 1 "
-            + "c/ Hardworking student";
+            + PREFIX_COMMENT + "Hardworking student";
 
     public static final String MESSAGE_ADD_COMMENT_SUCCESS = "Added comment to Person: %1$s";
     public static final String MESSAGE_DELETE_COMMENT_SUCCESS = "Removed comment from Person: %1$s.";
