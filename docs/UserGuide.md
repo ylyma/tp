@@ -10,7 +10,7 @@ Introducing **TAfinder - the one-stop solution for all your TA selection needs**
 With TAfinder, you can easily:
 1. **Manage** troves of TA applicants.
 2. Make more **informed decisions** with the help of our **compare** and **sort** functions.
-3. **Import** and **export** data to and from the TAfinder application.
+3. **Import** data to the TAfinder application.
 
 TAfinder utilises a Command Line Interface (CLI), while still enjoying the benefits of a Graphical User Interface (GUI),
 for a more efficient user experience.
@@ -95,7 +95,7 @@ An example of the final command is displayed below.
 
 </div>
 
-The GUI similar to the below should appear in a few seconds. ![Ui](images/Ui.png)
+The GUI similar to the below should appear in a few seconds. ![Ui](images/navigationUI.png)
 
 ### Utilisation
 
@@ -126,17 +126,18 @@ OR return to the [Table of Contents](#table-of-contents) to find your desired co
 </div>
 
 ### Navigating the User Interface
+  
 ![UI with shaded areas](images/tafinder-UI.png)
 
 The UI has the following areas:
-- <span style="background-color:rgba(126, 217, 87, 1)">Navigation bar</span>
+- <span style="background-color:#70AD47">Navigation bar</span>
   - This is where you can navigate to the `File` and `Help` menus.
-- <span style="background-color:rgba(255, 222, 89, 1)">Command Input Box</span>
+- <span style="background-color:#FFC000">Command Input Box</span>
   - This where commands are typed
   - press `Enter` to execute it.
-- <span style="background-color:rgba(255, 112, 112, 1)">Command Result Screen</span>
+- <span style="background-color:#FF0000">Command Result Screen</span>
   - This is where the result of the command is displayed. Applicants are displayed in a list format.
-- <span style="background-color:rgba(170, 210, 232, 1)">Applicant list</span>
+- <span style="background-color:#2A035D">Applicant list</span>
   - This is where the list of applicants is displayed.
 
 --------------------------------------------------------------------------------------------------------------------
@@ -182,7 +183,7 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 #### Adding an applicant: `add`
 
-You have just finished setting up TAfinder and you are ready to add your first applicant. 
+You have just finished setting up TAfinder and you are ready to add your first applicant.
 Let's find out how you can add the applicant to the list.
 
 **Format:**
@@ -244,7 +245,7 @@ Here are some examples you can try with the `add` command.
 
 Following the example above, if you entered everything correctly, you should see the following:
 
-![add.jpg](images/add_command_image_UG.png)
+![add.jpg](images/add_afterUI.png)
 
 You have now successfully added your first applicant to the list. As you add more applicants to the list,
 watch out for the expected and erroneous messages below that could be displayed in the command result screen!
@@ -256,7 +257,7 @@ watch out for the expected and erroneous messages below that could be displayed 
 <box type="success" light>
 
 Successfully added applicant and the applicant's information:<br>
-**`"New applicant added: Student number: <student number>; Name: <name>; Phone: <phone>; 
+**`"New applicant added: Student number: <student number>; Name: <name>; Phone: <phone>;
 Email: <email>; GPA: <gpa>; Previous grade: <previous grade>; [Interview score: <interview score>];
 [Comment: <comment>]; [Tags: <tags>]."`**
 
@@ -272,7 +273,7 @@ Email: <email>; GPA: <gpa>; Previous grade: <previous grade>; [Interview score: 
 
 Invalid command format:<br>
 **`"Invalid command format!"`<br>
-`"add: Adds an applicant to the list. Parameters: s/STUDENT NUMBER n/NAME p/PHONE e/EMAIL g/GPA pg/PREV GRADE 
+`"add: Adds an applicant to the list. Parameters: s/STUDENT NUMBER n/NAME p/PHONE e/EMAIL g/GPA pg/PREV GRADE
 [is/INTERVIEW SCORE] [c/COMMENT] [t/TAG]..."`<br>
 `"Example: add s/A0343434C n/John Doe p/98765432 e/johnd@example.com g/4.9 pg/A is/9.1 c/Hardworking and diligent t/pastTA "`**
 
@@ -291,13 +292,13 @@ Repeated applicant:<br>
 
 #### Editing an applicant: `edit`
 
-![edit function UI](images/editUI.png)
-
 <box type="definition">
 
 Edits an existing applicant in the list of applicants.
 
 </box>
+
+![edit function UI](images/edit_afterUI.png)
 
 <box type="info">
 
@@ -390,13 +391,16 @@ Index out of range:<br>
 ---
 
 #### Deleting an applicant: `delete`
+  
 ![delete function UI](images/delete-UI.png)
 
 <box type="definition">
 
-Delete an existing applicant in the list of applicants.
+Delete a singular existing applicant in the list of applicants.
 
 </box>
+
+![delete function UI](images/delete_afterUI.png)
 
 <box type="info">
 
@@ -472,8 +476,6 @@ Shows a list of applicants.
 
 </box>
 
-![listUI-1](images/listUI-1.png)
-![listUI-2](images/listUI-2.png)
 
 <box type="info">
 
@@ -488,12 +490,16 @@ Shows a list of applicants.
 
 </box>
 
+![listUI](images/listUI.png)
+
 <box no-icon type="info" light>
 
 **`list hidden`**
 - Shows a list of all hidden applicants.
 
 </box>
+
+![listhiddenUI](images/listhiddenUI.png)
 
 <box no-icon type="info" light>
 
@@ -502,19 +508,21 @@ Shows a list of applicants.
 
 </box>
 
+![listbookmarkedUI](images/listbookmarkedUI.png)
+
 </box>
 
 ---
 
 #### Viewing the details of a single applicant: `view`
 
-![edit function UI](images/viewUI.png)
-
 <box type="definition">
 
 Displays a single applicant.
 
 </box>
+
+![edit function UI](images/viewUI.png)
 
 <box type="info">
 
@@ -556,7 +564,7 @@ Displays a single applicant.
 
 <box type="success" light>
 
-Successfully displaying all details of an applicant in the following format:\
+Successfully displaying all details of an applicant in the following format:
 - **`Name: John Doe`**
 - **`Student number: A0358289S`**
 - **`Phone Number: 91234567`**
@@ -575,7 +583,6 @@ Confirmation message:<br>
 </box>
 
 </box>
-
 
 <box type="wrong">
 
@@ -610,9 +617,6 @@ Hides/unhides an applicant from the list of applicants.
 
 </box>
 
-![hide function UI](images/hideUI.png)
-
-
 <box type="info">
 
 **Format:** 
@@ -622,16 +626,22 @@ Hides/unhides an applicant from the list of applicants.
 <box no-icon type="info" light>
 
 `hide INDEX`
-- Hides the applicant at the specified INDEX from all future lists. The index refers to the number shown in the displayed person list.
+- Hides the applicant at the specified INDEX from all future lists. The index refers to the number shown in the displayed person list.</br>
+  Index must be a positive integer (e.g. 1, 2, 3...).
 
 </box>
+
+![hideUI](images/hide_afterUI.png)
 
 <box no-icon type="info" light>
 
 `unhide INDEX`
-- Unhides the applicant at the specified INDEX from all future lists. The index refers to the number shown in the displayed person list.
+- Unhides the applicant at the specified INDEX from all future lists. The index refers to the number shown in the displayed person list. </br>
+Index must be a positive integer (e.g. 1, 2, 3...).
 
 </box>
+
+![unhideUI](images/unhide_afterUI.png)
 
 <box no-icon type="info" light>
 
@@ -639,6 +649,8 @@ Hides/unhides an applicant from the list of applicants.
 - Unhides all applicants that were previously hidden.
 
 </box>
+
+![unhideallUI](images/unhideall_afterUI.png)
 
 </box>
 
@@ -656,7 +668,7 @@ Hides/unhides an applicant from the list of applicants.
 <box type="default" light>
 
 **`list hidden` then `unhide 2`**
-- Lists all hidden applicants, then unhides the applicant at index 2 of the list of hidden applicants.
+- Lists all hidden applicants, then unhides the applicant at index 2 in the list of hidden applicants.
 
 </box>
 
@@ -718,7 +730,10 @@ Sorts applicants by a field
 
 </box>
 
-![sort function UI](images/sortUI.png)
+|              Before                |               After                |
+|:----------------------------------:|:----------------------------------:|
+| ![sortUI](images/sort_afterUI.png) | ![sortUI](images/sort_afterUI.png) |
+
 
 <box type="info">
 
@@ -852,13 +867,17 @@ Comparing the same applicant:<br>
 
 #### Bookmarking/Unbookmarking applicants: `bookmark/unbookmark`
 
-![bookmark function UI](images/bookmarkUI.png)
+
 
 <box type="definition">
 
 Bookmarks/Unbookmarks a specific applicant.
 
 </box>
+
+|                        Before                         |               After                |
+|:-----------------------------------------------------:|:----------------------------------:|
+| ![bookmark function UI](images/bookmark_beforeUI.png) | ![bookmark function UI](images/bookmark_afterUI.png) |
 
 <box type="info">
 
@@ -935,13 +954,13 @@ Index out of range:<br>
 
 #### Commenting on TA applicant: **`comment`**
 
-One of yours TAs is unable to make it for the interview. 
-You want to make a comment on the applicant to remind yourself to follow up with him/her. 
+One of yours TAs is unable to make it for the interview.
+You want to make a comment on the applicant to remind yourself to follow up with him/her.
 Lets find out how to do use the comment feature to do so.
 
 **Format:**
 
-**`comment INDEX COMMENT`**
+**`comment INDEX c/COMMENT`**
 
 <box no-icon type="info" seamless>
 
@@ -966,7 +985,7 @@ The index of the applicant is the number beside the applicant's name in the list
 
 Following the example above, if you entered everything correctly, you should see the following:
 
-![comments.jpg](images/comment.jpg)
+![commentUI.jpg](images/comment_afterUI.png)
 
 You have now successfully commented on the applicant. As you comment on more applicants in the list,
 watch out for the expected and erroneous messages below that could be displayed in the command result screen!
@@ -1018,6 +1037,10 @@ Index out of range:<br>
 Imports an entire list of applicants along with their details from a CSV file.
 
 </box>
+
+|            Sample .csv             |                After import                |
+|:----------------------------------:|:------------------------------------------:|
+| ![sampleCSV](images/samplecsv.png) |   ![importUI](images/import_afterUI.png)   |
 
 <box type="info">
 
@@ -1077,13 +1100,13 @@ Missing file permissions or invalid file path:<br>
 
 #### Attaching file to applicant profiles: `attach`
 
-![attach function UI](images/attachUI.png)
-
 <box type="definition">
 
 Attaches local files to the profiles of applicants to provide even more richness and insight into their applications
 
 </box>
+
+![attach function UI](images/attach_afterUI.png)
 
 <box type="info">
 
@@ -1226,9 +1249,8 @@ If your changes to the data file makes its format invalid, TAfinder will discard
 | **Bookmark/Unbookmark** | - `bookmark INDEX` / `unbookmark INDEX`<br> - e.g., `bookmark 3` / `unbookmark 3` |
 | **Comment**             | - `comment INDEX COMMENT`<br/> - e.g., `comment 3 Hardworking`                    |
 
-
-#### Data management and export commands
+#### Data import and management
 | Action                  | Format, Examples                                                |
 |-------------------------|-----------------------------------------------------------------|
-| **Export**              | - `export FILENAME`<br/> - e.g., `export ta-applicants.csv`     |
+| **Import**              | - `import FILENAME`<br/> - e.g., `import ta-applicants.csv`     |
 | **Attach**              | - `attach INDEX FILEPATH`<br> - e.g.,`attach 2 john-resume.pdf` |

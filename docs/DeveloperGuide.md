@@ -303,7 +303,7 @@ The following activity diagram summarizes what happens when a user executes a `c
 
 ![CompareActivityDiagram](images/CompareActivityDiagram.png)
 
-### \[Proposed\] Comment feature
+### Comment feature
 
 #### Implementation
 The comment command allows users to insert a comment on TA applicants in TAfinder app.
