@@ -41,9 +41,9 @@ public class ViewCommand extends Command {
             throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
 
-        Person personToDelete = lastShownList.get(targetIndex.getZeroBased());
+        Person personToView = lastShownList.get(targetIndex.getZeroBased());
         model.showPersonAtIndex(targetIndex);
-        return new CommandResult(String.format(MESSAGE_VIEW_PERSON_SUCCESS, personToDelete.getName()));
+        return new CommandResult(String.format(MESSAGE_VIEW_PERSON_SUCCESS, personToView.getName()));
     }
 
     @Override
