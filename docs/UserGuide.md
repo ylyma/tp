@@ -7,7 +7,7 @@ title: TAfinder User Guide
 
 Introducing **TAfinder - the one-stop solution for all your TA selection needs**.
 
-With TAfinder, you can easily:
+As an NUS School Of Computing professor, with TAfinder, you can easily:
 1. **Manage** troves of TA applicants.
 2. Make more **informed decisions** with the help of our **compare** and **sort** functions.
 3. **Import** data to the TAfinder application.
@@ -518,11 +518,9 @@ Shows a list of applicants.
 
 <box type="definition">
 
-Displays a single applicant.
+Displays the details of a specified applicant in the details panel.
 
 </box>
-
-![edit function UI](images/viewUI.png)
 
 <box type="info">
 
@@ -532,7 +530,7 @@ Displays a single applicant.
 
 <box no-icon type="info" light>
 
-**`INDEX`**: The index corresponding to the applicant to be displayed. The index must be a positive integer (e.g., 1, 2, 3…).
+**`INDEX`**: The index corresponding to the applicant you want to be displayed. The index must be a positive integer (e.g., 1, 2, 3…).
 
 </box>
 
@@ -547,16 +545,22 @@ Displays a single applicant.
 **`view 3`**
 - Displays the following details about the third applicant.
   - Name
-  - Student number
+  - Tags
   - Phone number
   - Email Address
   - GPA
+  - Previous Grade
+  - Interview Score
   - Comments
-  - Tags
+  - Attachments
 
 </box>
 
 </box>
+
+Following the example above, if you entered everything correctly, you should see the following:
+
+![edit function UI](images/viewUI.png)
 
 <box type="success">
 
@@ -566,12 +570,14 @@ Displays a single applicant.
 
 Successfully displaying all details of an applicant in the following format:
 - **`Name: John Doe`**
-- **`Student number: A0358289S`**
+- **`Tags: pastTA, deansList`**
 - **`Phone Number: 91234567`**
 - **`Email Address: johndoe@example.come`**
 - **`GPA: 5.0`**
-- **`Comments: Good fit, has teaching experience`**
-- **`Tags: pastTA, deansList`**
+- **`Previous Grade: A`**
+- **`Interview Scorw (optional): 8`**
+- **`Comment (optional): Good fit, has teaching experience`**
+- **`Attachments: Resume.pdf`**
 
 </box>
 
@@ -713,6 +719,69 @@ Missing index:<br>
 
 Index out of range:<br>
 **`“Error: Invalid index. Please enter an index within range.”`**
+
+</box>
+
+</box>
+
+---
+
+#### Clearing all applicants: **`clear`**
+
+<box type="definition">
+
+Clears your entire list of applicants.
+
+ </box>
+
+**Format:**
+
+**`clear`**
+
+Following the example above, if you entered everything correctly, you should see the following:
+
+
+|                     Before                      |                     After                      |
+|:-----------------------------------------------:|:----------------------------------------------:|
+| ![clear function UI](images/clear_beforeUI.png) | ![clear function UI](images/clear_afterUI.png) |
+
+
+
+<box no-icon type="success">
+
+**Expected Outputs:**
+
+<box type="success" light>
+
+Successfully clearing all applicants.<br>
+**`"Applicant list has been cleared!"`**
+
+</box>
+
+</box>
+
+
+---
+
+#### Exiting the application **`exit`**
+
+<box type="definition">
+
+Exits the application, while ensuring all your changes are saved.
+
+ </box>
+
+**Format:**
+
+**`exit`**
+
+<box no-icon type="success">
+
+**Expected Outputs:**
+
+<box type="success" light>
+
+- Application closes.
 
 </box>
 
@@ -875,10 +944,6 @@ Bookmarks/Unbookmarks a specific applicant.
 
 </box>
 
-|                        Before                         |               After                |
-|:-----------------------------------------------------:|:----------------------------------:|
-| ![bookmark function UI](images/bookmark_beforeUI.png) | ![bookmark function UI](images/bookmark_afterUI.png) |
-
 <box type="info">
 
 **Format:**
@@ -887,7 +952,7 @@ Bookmarks/Unbookmarks a specific applicant.
 
 <box no-icon type="info" light>
 
-**`INDEX`**: The index corresponding to the applicant to be bookmarked/unbookmarked. The index must be a positive integer (e.g., 1, 2, 3…).
+**`INDEX`**: The index corresponding to the applicant you want to bookmark/unbookmark. The index must be a positive integer (e.g., 1, 2, 3…).
 
 </box>
 
@@ -899,18 +964,33 @@ Bookmarks/Unbookmarks a specific applicant.
 
 <box type="default" light>
 
-**`bookmark 3`**
-- Bookmarks the third applicant.
+**`bookmark 2`**
+- Bookmarks the second applicant.
 
 </box>
+
+Following the example above, if you entered everything correctly, you should see the following:
+
+
+|                        Before                         |               After                |
+|:-----------------------------------------------------:|:----------------------------------:|
+| ![bookmark function UI](images/bookmark_beforeUI.png) | ![bookmark function UI](images/bookmark_afterUI.png) |
+
+
+
 
 <box type="default" light>
 
-**`unbookmark 3`**
-- Unbookmarks the third applicant.
+**`unbookmark 2`**
+- Unbookmarks the second applicant.
 
 </box>
+Following the example above, if you entered everything correctly, you should see the following:
 
+
+|                          Before                           |                          After                           |
+|:---------------------------------------------------------:|:--------------------------------------------------------:|
+| ![unbookmark function UI](images/unbookmark_beforeUI.png) | ![unbookmark function UI](images/unbookmark_afterUI.png) |
 </box>
 
 <box type="success">
@@ -1025,6 +1105,7 @@ Index out of range:<br>
 </box>
 
 </box>
+
 
 ---
 
