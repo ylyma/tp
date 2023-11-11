@@ -1,6 +1,7 @@
 ---
 layout: page
 title: TAfinder User Guide
+show-sticky-toc: true
 ---
 
 ## Overview
