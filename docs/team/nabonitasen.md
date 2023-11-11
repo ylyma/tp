@@ -22,7 +22,7 @@ Given below are my contributions to the project.
 * **Code contributed**: [RepoSense link](https://nus-cs2103-ay2324s1.github.io/tp-dashboard/?search=nabonitasen&breakdown=true)
 
 * **Enhancements to existing features**:
-    * Updated the GUI design and entire colour scheme.
+    * Updated the GUI design of applicant list and colour scheme.
     * Initial refactoring of address field to GPA field.
 
 * **Documentation**:
