@@ -25,6 +25,7 @@ public class ImportCommandTest {
     private static final Path INVALID_CSV_FILE = TEST_DATA_FOLDER.resolve("invalid.csv");
     private static final Path MISSING_FIELDS_CSV_FILE = TEST_DATA_FOLDER.resolve("missing_fields.csv");
     private static final Path INVALID_FORMAT_CSV_FILE = TEST_DATA_FOLDER.resolve("invalid_format.csv");
+    private static final Path INVALID_PATH_FILE = Paths.get("invalid", "directory", "file.csv");
 
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
 
@@ -75,6 +76,16 @@ public class ImportCommandTest {
         ImportCommand importCommand = new ImportCommand(missingFieldsCsv);
 
         String expectedMessage = String.format(ImportCommand.MESSAGE_MISSING_FIELDS, "gpa");
+
+        assertCommandFailure(importCommand, model, expectedMessage);
+    }
+
+    @Test
+    public void execute_invalidPath_importFailure() throws CommandException {
+        Attachment invalidPathFile = new Attachment(INVALID_PATH_FILE.toString());
+        ImportCommand importCommand = new ImportCommand(invalidPathFile);
+
+        String expectedMessage = ImportCommand.MESSAGE_FAILED_TO_OPEN;
 
         assertCommandFailure(importCommand, model, expectedMessage);
     }
