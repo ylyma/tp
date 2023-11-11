@@ -61,7 +61,7 @@ You can click on any of the links below to navigate to the respective sections f
     - [7.2. Command Summary](#7-2-command-summary)
       - [7.2.1. Basic applicant management commands](#7-2-1-basic-applicant-management-commands)
       - [7.2.2. Applicant comparison and evaluation commands](#7-2-2-applicant-comparison-and-evaluation-commands)
-      - [7.2.3. Data management and import commands](#7-2-3-data-management-and-import-commands)
+      - [7.2.3. Data management commands](#7-2-3-data-management-commands)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -1268,7 +1268,7 @@ If your changes to the data file makes its format invalid, TAfinder will discard
 | **Comment**             | - `comment INDEX COMMENT`<br/> - e.g., `comment 3 Hardworking`                    |
 
 
-#### 7.2.3. Data management and import commands
+#### 7.2.3. Data management commands
 | Action                  | Format, Examples                                                |
 |-------------------------|-----------------------------------------------------------------|
 | **Import**              | - `import FILENAME`<br/> - e.g., `import ta-applicants.csv`     |
