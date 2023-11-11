@@ -1,7 +1,8 @@
 ---
+layout: page
 title: TAfinder User Guide
 ---
-# TAfinder User Guide
+
 ## Overview
 
 Introducing **TAfinder - the one-stop solution for all your TA selection needs**.
@@ -18,64 +19,24 @@ So say goodbye to the days of manually sifting through hundreds of TA applicatio
 the power of TAfinder today!
 
 ## About This Guide
+
 This guide shows you the relevant information for setting up and using TAfinder to manage your TA applications.
 
 You can click on any of the links below to navigate to the respective sections for more information.
 
+{% include toc.md header=true show-in-toc=true ordered=true %}
 
-## Table of Contents
-<!-- TOC -->
-- [1. Quick Start](#1-quick-start)
-    - [1.1. Prerequisites](#1-1-prerequisites)
-        - [1.1.1. Java](#1-1-1-java)
-        - [1.1.2. Glossary](#1-1-2-glossary)
-    - [1.2. Installation](#1-2-installation)
-    - [1.3. Utilisation](#1-3-utilisation)
-    - [1.4. Navigating the User Interface](#1-4-navigating-the-user-interface)
-- [2. Features](#2-features)
-    - [2.1. Basic applicant management](#2-1-basic-applicant-management)
-      - [2.1.1. Adding an applicant: `add`](#2-1-1-adding-an-applicant-add)
-      - [2.1.2. Editing all applicants: `edit`](#2-1-2-editing-an-applicant-edit)
-      - [2.1.3. Deleting an applicant: `delete`](#2-1-3-deleting-an-applicant-delete)
-      - [2.1.4. Listing all applicants: `list`](#2-1-4-listing-all-applicant-list)
-      - [2.1.5. Viewing an applicant: `view`](#2-1-5-viewing-the-details-of-a-single-applicant-view)
-      - [2.1.6. Hiding/unhiding an applicant: `hide/unhide`](#2-1-6-hiding-an-applicant-from-list-hide-unhide)
-    - [2.2. Applicant evaluation & comparison](#2-2-applicant-evaluation-and-amp-comparison)
-      - [2.2.1. Sorting applicants by gpa: `sort-gpa`](#2-2-1-sorting-applicants-by-gpa-sort-gpa)
-      - [2.2.2. Sorting applicants by grades: `sort-grade`](#2-2-2-sorting-by-module-grade-sort-grade)
-      - [2.2.3. Sorting applicants by interview score: `sort-interview`](#2-2-3-sorting-by-interview-score-sort-interview)
-      - [2.2.4. Comparing 2 applicants: `compare`](#2-2-4-comparing-2-applicants-compare)
-      - [2.2.5. Bookmarking/Unbookmarking applicants: `bookmark/unbookmark`](#2-2-5-bookmarkingunbookmarking-applicants-bookmarkunbookmark)
-      - [2.2.6. Commenting on TA applicant: `comment`](#2-2-6-commenting-on-ta-applicant-comment)
-    - [2.3. Files and data management](#2-3-files-and-data-management)
-      - [2.3.1. Importing applicants from spreadsheet: `import`](#2-3-1-importing-applicants-from-spreadsheet-import)
-      - [2.3.2. Attaching file to applicant profiles: `attach`](#2-3-2-attaching-file-to-applicant-profiles-attach)
-- [3. Data management](#3-data-management)
-    - [3.1. Saving the data](#3-1-saving-the-data)
-    - [3.2. Editing the data file](#3-2-editing-the-data-file)
-- [4. Upcoming Features](#4-upcoming-features-coming-in-a-future-update)
-- [5. FAQ](#5-faq)
-- [6. Known Issues](#6-known-issues)
-- [7. Summary](#7-summary)
-    - [7.1. Prefix Summary](#7-1-prefix-summary)
-    - [7.2. Command Summary](#7-2-command-summary)
-      - [7.2.1. Basic applicant management commands](#7-2-1-basic-applicant-management-commands)
-      - [7.2.2. Applicant comparison and evaluation commands](#7-2-2-applicant-comparison-and-evaluation-commands)
-      - [7.2.3. Data management commands](#7-2-3-data-management-commands)
+## Quick start
 
---------------------------------------------------------------------------------------------------------------------
+### Prerequisites
 
-## 1. Quick start
-
-### 1.1. Prerequisites
-
-#### 1.1.1. Java
+#### Java
 Ensure you have [Java `11`](https://www.oracle.com/sg/java/technologies/javase/jdk11-archive-downloads.html)
 or above installed. Java is the language that your computer uses to understand TAfinder.
 
-<box type="tip">
+<div markdown="block" class="alert alert-info">
 
-**Not sure how to check your Java version?**
+**:bulb: Not sure how to check your Java version?**
 
 **Step 1.** Open up **Command Prompt** (Windows) or **Terminal** (Mac and Linux).
 
@@ -90,11 +51,12 @@ An example is shown below.
   java version "xxx" <Other information>
   ```
 
-</box>
+</div>
 
 <div style="page-break-after: always;"></div>
 
-#### 1.1.2. Glossary
+#### Glossary
+
 | Words/Abbreviations | Explanation                                                                                                                         |
 |---------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | **TA**              | Teaching Assistant                                                                                                                  |
@@ -105,7 +67,7 @@ An example is shown below.
 | **Toast**           | A popup alert to inform users about certain information                                                                             |
 | **Tag**             | Tags are associated with applicants, users can tag applicants with any keyword they want,<br/>the number of tags are not restricted |
 
-### 1.2. Installation
+### Installation
 
 **Step 1.** Download the latest `tafinder.jar` from [here]().
 
@@ -113,9 +75,9 @@ An example is shown below.
 
 **Step 3.** Double-click on the `tafinder.jar` file to start the app.
 
-<box type="tip">
+<div markdown="block" class="alert alert-info">
 
-**TAfinder does not open?**
+**:bulb: TAfinder does not open?**
 
 **Step 1.** Open a command terminal.
 
@@ -131,11 +93,11 @@ An example of the final command is displayed below.
   > java -jar xxxx/xxxx/tafinder.jar
   ```
 
-</box>
+</div>
 
 The GUI similar to the below should appear in a few seconds. ![Ui](images/navigationUI.png)
 
-### 1.3. Utilisation
+### Utilisation
 
 **Step 1:** Type the command in the Command Input Box and press Enter to execute it. e.g. typing **`help`** and
 pressing Enter will open the help window.<br>
@@ -153,18 +115,19 @@ Some example commands you can try:
 
 **Step 2:** Observe the changes to the application.<br>
 
-<box type="tip">
+<div markdown="block" class="alert alert-info">
 
-**Not sure what the commands above does?**
+**:bulb: Not sure what the commands above does?**
 
 You can find all about the usable commands [here](#2-features),<br>
 look at a summary of all the usable commands [here](#72-command-summary),<br>
 OR return to the [Table of Contents](#table-of-contents) to find your desired command.
 
-</box>
+</div>
 
-### 1.4. Navigating the User Interface
-![UI with shaded areas](images/navigation_coloredUI.png)
+### Navigating the User Interface
+  
+![UI with shaded areas](images/tafinder-UI.png)
 
 The UI has the following areas:
 - <span style="background-color:#70AD47">Navigation bar</span>
@@ -179,11 +142,11 @@ The UI has the following areas:
 
 --------------------------------------------------------------------------------------------------------------------
 
-## 2. Features
+## Features
 
-<box type="info">
+<div markdown="block" class="alert alert-info">
 
-**Notes about the command format:**<br>
+**:information_source: Notes about the command format:**<br>
 
 * Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
   e.g. in `add n/NAME`,<br>
@@ -212,13 +175,13 @@ can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple
 lines as space characters surrounding line-breaks may be omitted when copied over to the application.
 
-</box>
+</div>
 
 ---
 
-### 2.1. Basic applicant management
+### Basic applicant management
 
-#### 2.1.1. Adding an applicant: `add`
+#### Adding an applicant: `add`
 
 You have just finished setting up TAfinder and you are ready to add your first applicant.
 Let's find out how you can add the applicant to the list.
@@ -227,7 +190,7 @@ Let's find out how you can add the applicant to the list.
 
 **`add s/STUDENT_NUMBER n/NAME p/PHONE e/EMAIL g/GPA [pg/PREVIOUS_GRADE] [is/INTERVIEW_SCORE] [c/COMMENT] [t/TAG]…`**
 
-<box no-icon type="info" seamless>
+<div markdown="block" class="alert alert-info">
 
 - **`s/STUDENT_NUMBER`**: Student number of the applicant
 - **`n/NAME`**: Name of the applicant.
@@ -239,7 +202,7 @@ Let's find out how you can add the applicant to the list.
 - **`[c/COMMENT]`**: Comments for the applicant.
 - **`[t/TAG]`**: Tags of the applicant.
 
-</box>
+</div>
 
 <box type="tip">
 
@@ -327,7 +290,7 @@ Repeated applicant:<br>
 
 ---
 
-#### 2.1.2. Editing an applicant: `edit`
+#### Editing an applicant: `edit`
 
 <box type="definition">
 
@@ -427,7 +390,10 @@ Index out of range:<br>
 
 ---
 
-#### 2.1.3. Deleting an applicant: `delete`
+#### Deleting an applicant: `delete`
+  
+![delete function UI](images/delete-UI.png)
+
 <box type="definition">
 
 Delete a singular existing applicant in the list of applicants.
@@ -502,7 +468,7 @@ Index out of range:<br>
 
 ---
 
-#### 2.1.4 Listing all applicant: `list`
+#### Listing all applicant: `list`
 
 <box type="definition">
 
@@ -548,7 +514,7 @@ Shows a list of applicants.
 
 ---
 
-#### 2.1.5. Viewing the details of a single applicant: `view`
+#### Viewing the details of a single applicant: `view`
 
 <box type="definition">
 
@@ -643,7 +609,7 @@ Index out of range:<br>
 
 ---
 
-#### 2.1.6 Hiding an applicant from list: `hide`/`unhide`
+#### Hiding an applicant from list: `hide`/`unhide`
 
 <box type="definition">
 
@@ -754,9 +720,9 @@ Index out of range:<br>
 
 ---
 
-### 2.2. Applicant evaluation & comparison
+### Applicant evaluation & comparison
 
-#### 2.2.1 Sorting applicants by GPA: `sort`
+#### Sorting applicants by GPA: `sort`
 
 <box type="definition">
 
@@ -812,7 +778,7 @@ Empty list:<br>
 ---
 
 
-#### 2.2.4 Comparing 2 applicants: `compare`
+#### Comparing 2 applicants: `compare`
 
 ![compare function UI](images/compareUI.png)
 
@@ -899,7 +865,7 @@ Comparing the same applicant:<br>
 
 ---
 
-#### 2.2.5. Bookmarking/Unbookmarking applicants: `bookmark/unbookmark`
+#### Bookmarking/Unbookmarking applicants: `bookmark/unbookmark`
 
 
 
@@ -986,7 +952,7 @@ Index out of range:<br>
 
 ---
 
-#### 2.2.6. Commenting on TA applicant: **`comment`**
+#### Commenting on TA applicant: **`comment`**
 
 One of yours TAs is unable to make it for the interview.
 You want to make a comment on the applicant to remind yourself to follow up with him/her.
@@ -1062,9 +1028,9 @@ Index out of range:<br>
 
 ---
 
-### 2.3. Files and data management
+### Files and data management
 
-#### 2.3.1. Importing applicants from spreadsheet: `import`
+#### Importing applicants from spreadsheet: `import`
 
 <box type="definition">
 
@@ -1132,7 +1098,7 @@ Missing file permissions or invalid file path:<br>
 
 ---
 
-#### 2.3.2. Attaching file to applicant profiles: `attach`
+#### Attaching file to applicant profiles: `attach`
 
 <box type="definition">
 
@@ -1217,12 +1183,12 @@ Any other unexpected error:<br>
 </box>
 
 ---
-## 3. Data Management
-### 3.1. Saving the data
+## Data Management
+### Saving the data
 
 TAfinder data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
-### 3.2. Editing the data file
+### Editing the data file
 
 TAfinder data are saved automatically as a JSON file `[JAR file location]/data/tafinder.json`. Advanced users are welcome to update data directly by editing that data file.
 
@@ -1235,24 +1201,24 @@ If your changes to the data file makes its format invalid, TAfinder will discard
 </box>
 
 --------------------------------------------------------------------------------------------------------------------
-## 4. Upcoming Features [coming in a future update!]
+## Upcoming Features [coming in a future update!]
 
 --------------------------------------------------------------------------------------------------------------------
 
-## 5. FAQ
+## FAQ
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous AddressBook home folder.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## 6. Known Issues
+## Known Issues
 
 1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
 
 --------------------------------------------------------------------------------------------------------------------
-## 7. Summary
-### 7.1. Prefix Summary
+## Summary
+### Prefix Summary
 | Parameter      | Prefix | Rules                                                                                                                                                                                                              |
 |----------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Student number | s/     | - Should be in the format `AdddddddL`, <br/>where `d` represents digit and `L` represents capital letters.                                                                                                         |
@@ -1264,8 +1230,8 @@ If your changes to the data file makes its format invalid, TAfinder will discard
 | Tag            | t/     | - Should only contain alphanumeric characters.<br/>- Should not contain spaces.                                                                                                                                    |
 
 
-### 7.2. Command Summary
-#### 7.2.1. Basic applicant management commands
+### Command Summary
+#### Basic applicant management commands
 | Action          | Format, Examples                                                                                                                                                               |
 |-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Add**         | - `add [s/STUDENT_NUMBER] [n/NAME] [p/PHONE] [e/EMAIL] [g/GPA] [t/TAG]…` <br> - e.g., `add s/A0269357C n/john doe p/91234567 e/johndoe@example.com g/5.0 t/pastTA t/deanslist` |
@@ -1275,7 +1241,7 @@ If your changes to the data file makes its format invalid, TAfinder will discard
 | **View**        | - `view INDEX`<br> - e.g., `view 3`                                                                                                                                            |
 | **Hide/Unhide** | - `hide INDEX` / `unhide INDEX`<br/> - e.g., `hide 3` / `unhide 3`                                                                                                             |
                                                                                                                                                        |
-#### 7.2.2. Applicant comparison and evaluation commands
+#### Applicant comparison and evaluation commands
 | Action                  | Format, Examples                                                                  |
 |-------------------------|-----------------------------------------------------------------------------------|
 | **Sort GPA**            | - `sort-gpa`                                                                      |
@@ -1283,8 +1249,7 @@ If your changes to the data file makes its format invalid, TAfinder will discard
 | **Bookmark/Unbookmark** | - `bookmark INDEX` / `unbookmark INDEX`<br> - e.g., `bookmark 3` / `unbookmark 3` |
 | **Comment**             | - `comment INDEX COMMENT`<br/> - e.g., `comment 3 Hardworking`                    |
 
-
-#### 7.2.3. Data management commands
+#### Data import and management
 | Action                  | Format, Examples                                                |
 |-------------------------|-----------------------------------------------------------------|
 | **Import**              | - `import FILENAME`<br/> - e.g., `import ta-applicants.csv`     |
