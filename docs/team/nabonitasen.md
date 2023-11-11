@@ -30,7 +30,7 @@ Given below are my contributions to the project.
         * Added documentation for the features `bookmark/unbookmark` and `view`.
         * Did tweaks to existing documentation of features `clear` and `exit`.
     * Developer Guide:
-        * Added implementation details of the `bookmark/unbookmark` and `view` feature. 
+        * Added implementation details of the `bookmark/unbookmark` and `view` feature.
     * About Us Page:
         * Updated the About Us page with the information of the team.
 
