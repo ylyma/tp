@@ -220,7 +220,7 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 #### 2.1.1. Adding an applicant: `add`
 
-You have just finished setting up TAfinder and you are ready to add your first applicant. 
+You have just finished setting up TAfinder and you are ready to add your first applicant.
 Let's find out how you can add the applicant to the list.
 
 **Format:**
@@ -294,7 +294,7 @@ watch out for the expected and erroneous messages below that could be displayed 
 <box type="success" light>
 
 Successfully added applicant and the applicant's information:<br>
-**`"New applicant added: Student number: <student number>; Name: <name>; Phone: <phone>; 
+**`"New applicant added: Student number: <student number>; Name: <name>; Phone: <phone>;
 Email: <email>; GPA: <gpa>; Previous grade: <previous grade>; [Interview score: <interview score>];
 [Comment: <comment>]; [Tags: <tags>]."`**
 
@@ -310,7 +310,7 @@ Email: <email>; GPA: <gpa>; Previous grade: <previous grade>; [Interview score: 
 
 Invalid command format:<br>
 **`"Invalid command format!"`<br>
-`"add: Adds an applicant to the list. Parameters: s/STUDENT NUMBER n/NAME p/PHONE e/EMAIL g/GPA pg/PREV GRADE 
+`"add: Adds an applicant to the list. Parameters: s/STUDENT NUMBER n/NAME p/PHONE e/EMAIL g/GPA pg/PREV GRADE
 [is/INTERVIEW SCORE] [c/COMMENT] [t/TAG]..."`<br>
 `"Example: add s/A0343434C n/John Doe p/98765432 e/johnd@example.com g/4.9 pg/A is/9.1 c/Hardworking and diligent t/pastTA "`**
 
@@ -973,8 +973,8 @@ Index out of range:<br>
 
 #### 2.2.6. Commenting on TA applicant: **`comment`**
 
-One of yours TAs is unable to make it for the interview. 
-You want to make a comment on the applicant to remind yourself to follow up with him/her. 
+One of yours TAs is unable to make it for the interview.
+You want to make a comment on the applicant to remind yourself to follow up with him/her.
 Lets find out how to do use the comment feature to do so.
 
 **Format:**
