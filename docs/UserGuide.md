@@ -9,7 +9,7 @@ Introducing **TAfinder - the one-stop solution for all your TA selection needs**
 With TAfinder, you can easily:
 1. **Manage** troves of TA applicants.
 2. Make more **informed decisions** with the help of our **compare** and **sort** functions.
-3. **Import** and **export** data to and from the TAfinder application.
+3. **Import** data to the TAfinder application.
 
 TAfinder utilises a Command Line Interface (CLI), while still enjoying the benefits of a Graphical User Interface (GUI),
 for a more efficient user experience.
@@ -61,7 +61,7 @@ You can click on any of the links below to navigate to the respective sections f
     - [7.2. Command Summary](#7-2-command-summary)
       - [7.2.1. Basic applicant management commands](#7-2-1-basic-applicant-management-commands)
       - [7.2.2. Applicant comparison and evaluation commands](#7-2-2-applicant-comparison-and-evaluation-commands)
-      - [7.2.3. Data management and export commands](#7-2-3-data-management-and-export-commands)
+      - [7.2.3. Data management commands](#7-2-3-data-management-commands)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -220,7 +220,7 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 #### 2.1.1. Adding an applicant: `add`
 
-You have just finished setting up TAfinder and you are ready to add your first applicant. 
+You have just finished setting up TAfinder and you are ready to add your first applicant.
 Let's find out how you can add the applicant to the list.
 
 **Format:**
@@ -293,8 +293,8 @@ watch out for the expected and erroneous messages below that could be displayed 
 
 <box type="success" light>
 
-Successfully added applicant and his/her information:<br>
-**`"New applicant added: Student number: <student number>; Name: <name>; Phone: <phone>; 
+Successfully added applicant and the applicant's information:<br>
+**`"New applicant added: Student number: <student number>; Name: <name>; Phone: <phone>;
 Email: <email>; GPA: <gpa>; Previous grade: <previous grade>; [Interview score: <interview score>];
 [Comment: <comment>]; [Tags: <tags>]."`**
 
@@ -310,7 +310,7 @@ Email: <email>; GPA: <gpa>; Previous grade: <previous grade>; [Interview score: 
 
 Invalid command format:<br>
 **`"Invalid command format!"`<br>
-`"add: Adds an applicant to the list. Parameters: s/STUDENT NUMBER n/NAME p/PHONE e/EMAIL g/GPA pg/PREV GRADE 
+`"add: Adds an applicant to the list. Parameters: s/STUDENT NUMBER n/NAME p/PHONE e/EMAIL g/GPA pg/PREV GRADE
 [is/INTERVIEW SCORE] [c/COMMENT] [t/TAG]..."`<br>
 `"Example: add s/A0343434C n/John Doe p/98765432 e/johnd@example.com g/4.9 pg/A is/9.1 c/Hardworking and diligent t/pastTA "`**
 
@@ -430,7 +430,7 @@ Index out of range:<br>
 #### 2.1.3. Deleting an applicant: `delete`
 <box type="definition">
 
-Delete an existing applicant in the list of applicants.
+Delete a singular existing applicant in the list of applicants.
 
 </box>
 
@@ -598,7 +598,7 @@ Displays a single applicant.
 
 <box type="success" light>
 
-Successfully displaying all details of an applicant in the following format:\
+Successfully displaying all details of an applicant in the following format:
 - **`Name: John Doe`**
 - **`Student number: A0358289S`**
 - **`Phone Number: 91234567`**
@@ -988,70 +988,66 @@ Index out of range:<br>
 
 #### 2.2.6. Commenting on TA applicant: **`comment`**
 
-
-<box type="definition">
-
-Add comments on a specific applicant
-
-</box>
-
-![commentUI.jpg](images/comment_afterUI.png)
-
-<box type="info">
+One of yours TAs is unable to make it for the interview.
+You want to make a comment on the applicant to remind yourself to follow up with him/her.
+Lets find out how to do use the comment feature to do so.
 
 **Format:**
 
 **`comment INDEX c/COMMENT`**
 
-<box no-icon type="info" light>
+<box no-icon type="info" seamless>
 
 **`INDEX`**: The index corresponding to the applicant to be commented. The index must be a positive integer (e.g., 1, 2, 3…).
 
 </box>
 
-<box no-icon type="info" light>
+<box type="tip">
 
-**`COMMENT`:** The comment to be made about the applicant.
-
-</box>
+The index of the applicant is the number beside the applicant's name in the list of applicants.
 
 </box>
 
-<box type="info" theme="dark">
+**Examples:**
 
-**Example:**
+<box type="default" seamless>
 
-<box type="default" light>
-
-**`comment 3 c/Hardworking and studious`**
-- Comments on the third applicant with the comment: "Hardworking and studious"
+**`comment 3 c/Unable to make it for interview`**
+- Comments on the third applicant with the comment: "Unable to make it for interview"
 
 </box>
 
-</box>
+Following the example above, if you entered everything correctly, you should see the following:
 
-<box type="success">
+![commentUI.jpg](images/comment_afterUI.png)
 
-**Expected outputs:**
+You have now successfully commented on the applicant. As you comment on more applicants in the list,
+watch out for the expected and erroneous messages below that could be displayed in the command result screen!
+
+<box no-icon type="success">
+
+**Expected Outputs:**
 
 <box type="success" light>
 
-- Successfully commenting on the applicant at the corresponding index.
-- Confirmation message:<br>
+Successfully commenting on the applicant at the corresponding index.<br>
 **`"Applicant at index INDEX has been successfully commented on."`**
 
 </box>
 
 </box>
 
-<box type="wrong">
+<box no-icon type="wrong">
 
-**Errors:**
+**Erroneous Outputs:**
 
 <box type="wrong" light>
 
-Missing index:<br>
-**`“Error: Missing index. Please follow the format: 'view INDEX'.”`**
+Invalid command format:<br>
+**`“Invalid command format!"`<br>
+`"comment: Edits the comment of the person identified by the index number used in the last person listing. Existing comment will be overwritten by the input."`<br>
+`"Parameters: INDEX (must be a positive integer) c/ [COMMENT]"`<br>
+`"Example: comment 1 c/ Hardworking student”`**
 
 </box>
 
@@ -1288,8 +1284,8 @@ If your changes to the data file makes its format invalid, TAfinder will discard
 | **Comment**             | - `comment INDEX COMMENT`<br/> - e.g., `comment 3 Hardworking`                    |
 
 
-#### 7.2.3. Data management and export commands
+#### 7.2.3. Data management commands
 | Action                  | Format, Examples                                                |
 |-------------------------|-----------------------------------------------------------------|
-| **Export**              | - `export FILENAME`<br/> - e.g., `export ta-applicants.csv`     |
+| **Import**              | - `import FILENAME`<br/> - e.g., `import ta-applicants.csv`     |
 | **Attach**              | - `attach INDEX FILEPATH`<br> - e.g.,`attach 2 john-resume.pdf` |

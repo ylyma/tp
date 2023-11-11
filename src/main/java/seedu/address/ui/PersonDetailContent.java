@@ -4,7 +4,6 @@ import java.util.Comparator;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
@@ -16,11 +15,6 @@ import seedu.address.model.person.Person;
 public class PersonDetailContent extends UiPart<Region> {
 
     private static final String FXML = "PersonDetailContent.fxml";
-
-    private static final Image BOOKMARKED = new Image(
-            PersonDetailContent.class.getResourceAsStream("/images/bookmarked.png"));
-    private static final Image NOT_BOOKMARKED = new Image(
-            PersonDetailContent.class.getResourceAsStream("/images/unbookmarked.png"));
 
     /**
      * Note: Certain keywords such as "location" and "resources" are reserved
