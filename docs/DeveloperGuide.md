@@ -251,20 +251,73 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 #### Implementation
 
-The bookmark/unbookmark mechanism gives users the ability to bookmark or unbookmark certain applicants they want to take note of, as well as list these bookmarked applicants. This allows users to better differentiate between a long list of applicants, improving the ease of usage of this application and user experience. This feature implements the following operations:
-* `BookmarkCommand#execute()` — Bookmarks a specified applicant.
-* `UnbookmarkCommand#execute()` — Unbookmarks a specified applicant.
-* `ListBookmarkedCommand#execute()` — Displays a list of all bookmarked applicants.
+The bookmark/unbookmark mechanism gives users the ability to bookmark or unbookmark certain applicants they want to take note of, as well as list these bookmarked applicants. This allows users to better differentiate between a long list of applicants, improving the ease of usage of this application and user experience. 
+The bookmark/unbookmark mechanism is mainly facilitated by the `BookmarkCommand/UnbookmarkCommand`, `BookmarkCommandParser/UnbookmarkCommandParser`, and `isBookmarked` classes. It extends the abstract class `Command` with an `execute` functionality, to facilitate the execution of the command. Specifically, the bookmark/unbookmark feature is implemented through the following components and operations:
+- `BookmarkCommand/UnbookmarkCommand` — Core component responsible for executing the bookmarking/unbookmarking of a specific applicant.
+- `BookmarkCommandParser/UnbookmarkCommandParser` — Contains the functionalities for user input parsing. It ensures that user input is valid as a bookmark/unbookmark command by meeting specific requirements.
+- `Person` — Represents the TA applicants with their respective fields, such as `isBookmarked`.
+- `isBookmarked` — Represents whether an applicant is bookmarked or not through the use of a Boolean value.
 
 Given below is an example usage scenario and how the bookmark/unbookmark mechanism behaves at each step.
 
-Step 1. The user launches the application for the first time. TAfinder will be initialized with imported data, wherein all applicants will begin as unbookmarked.
+Step 0. Assume that there is an existing list of applicants in the application after launch.
 
-Step 2. The user executes `bookmark 5` command to bookmark the 5th applicant in TAfinder. The `bookmark` command calls `Model#setPerson()`, resulting in a copy of the original applicant, now modified to be bookmarked, being stored in the list of applicants after the `bookmark 5` command executes. Additionally, the UI is updated to indicate that the applicant is now bookmarked via the bookmark flag.
+Step 1. The user launches the application. Applicant list is displayed.
 
-Step 3. After bookmarking a number of applicants, the user now decides that bookmarking the 2nd applicant was a mistake, and decides to unbookmark them by executing the `unbookmark 2` command. The unbookmark command will call `Model#setPerson()`, resulting in a copy of the original applicant, now modified to be unbookmarked, being stored in the list of applicants after the `unbookmark 2` command executes. Once again, the UI is updated to indicate that the applicant is now unbookmarked via the bookmark flag.
+Step 2. The user executes `bookmark 5` command to bookmark the 5th applicant in TAfinder. The `BookmarkCommmandParser` is invoked to parse the user's input.
 
-Step 4. The user then decides to view all bookmarked applicants by executing the `list-bookmarked` command. The `list-bookmarked` command calls `Model#updateFilteredPersonList()`, which updates the list of applicants presented in the UI to only include bookmarked applicants.
+Step 3. `BookmarkCommandParser` will then invoke ParserUtil for parsing of the index and check for index errors. If the index is invalid, the system will generate an error message. The error message will be displayed to the user, providing clear feedback about the issue and the specific constraints that are not met.
+
+Step 4. If the index is valid, `BookmarkCommand#execute()` fetches the intended applicant from the currently visible list and bookmarks the applicant with the corresponding index.
+
+Step 5. Then, `BookmarkCommand#execute()` updates `Model#setModel` with the updated Person. Displaying the updated applicant list with a bookmark indicator.
+
+Step 6. A success message is displayed to the user to confirm that the applicant has been bookmarked successfully.
+
+Step 7. The user then decides to view all bookmarked applicants by executing the `list-bookmarked` command. The `list-bookmarked` command calls `Model#updateFilteredPersonList()`, which updates the list of applicants presented in the UI to only include bookmarked applicants.
+
+The following sequence diagram shows how the bookmark operation works:
+
+![HideSequenceDiagram](images/HideSequenceDiagram.png)
+
+The following activity diagram summarizes what happens when a user executes a `bookmark` command:
+
+![BookmarkActivityDiagram](images/BookmarkActivityDiagram.png)
+
+
+### View feature
+
+#### Implementation
+
+The view mechanism gives users the ability to view a specific applicant's details. This allows users to better focus on and evaluate a singular applicant when they need to, improving the ease of usage of this application and user experience.
+The view mechanism is mainly facilitated by the `ViewCommand` and `ViewCommandParser` classes. It extends the abstract class `Command` with an `execute` functionality, to facilitate the execution of the command. Specifically, the view feature is implemented through the following components and operations:
+- `ViewCommand` — Core component responsible for executing the the viewing of a singular applicant's details from the list.
+- `ViewCommandParser` — Contains the functionalities for user input parsing. It ensures that user input is valid as a view command by meeting specific requirements.
+- `Person` — Represents the TA applicants with their respective fields.
+
+Given below is an example usage scenario and how the view mechanism behaves at each step.
+
+Step 0. Assume that there is an existing list of applicants in the application after launch.
+
+Step 1. The user launches the application. Applicant list is displayed.
+
+Step 2. The user executes `view 5` command to view the details of the 5th applicant in TAfinder. The `ViewCommmandParser` is invoked to parse the user's input.
+
+Step 3. `ViewCommandParser` will then invoke ParserUtil for parsing of the index and check for index errors. If the index is invalid, the system will generate an error message. The error message will be displayed to the user, providing clear feedback about the issue and the specific constraints that are not met.
+
+Step 4. If the index is valid, `ViewCommand#execute()` fetches the intended applicant.
+
+Step 5. Then, `CommentCommand#execute()` calls `Model#showPersonAtIndex` to set `Model#currentPerson` with the intended applicant (in the form of a `Person`). `PersonDetailPanel` displays details of the intended applicant corresponding to the given index.
+
+Step 6. A success message is displayed to the user to confirm that specified applicant's details has been displayed successfully.
+
+The following sequence diagram shows how the `view` operation works:
+
+![HideSequenceDiagram](images/HideSequenceDiagram.png)
+
+The following activity diagram summarizes what happens when a user executes a `view` command:
+
+![ViewActivityDiagram](images/ViewActivityDiagram.png)
 
 
 ### Compare feature
