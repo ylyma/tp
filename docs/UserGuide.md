@@ -1,7 +1,8 @@
 ---
+layout: page
 title: TAfinder User Guide
 ---
-# TAfinder User Guide
+
 ## Overview
 
 Introducing **TAfinder - the one-stop solution for all your TA selection needs**.
@@ -18,52 +19,12 @@ So say goodbye to the days of manually sifting through hundreds of TA applicatio
 the power of TAfinder today!
 
 ## About This Guide
+
 This guide shows you the relevant information for setting up and using TAfinder to manage your TA applications.
 
 You can click on any of the links below to navigate to the respective sections for more information.
 
-
-## Table of Contents
-<!-- TOC -->
-- [1. Quick Start](#1-quick-start)
-    - [1.1. Prerequisites](#1-1-prerequisites)
-        - [1.1.1. Java](#1-1-1-java)
-        - [1.1.2. Glossary](#1-1-2-glossary)
-    - [1.2. Installation](#1-2-installation)
-    - [1.3. Utilisation](#1-3-utilisation)
-    - [1.4. Navigating the User Interface](#1-4-navigating-the-user-interface)
-- [2. Features](#2-features)
-    - [2.1. Basic applicant management](#2-1-basic-applicant-management)
-      - [2.1.1. Adding an applicant: `add`](#2-1-1-adding-an-applicant-add)
-      - [2.1.2. Editing all applicants: `edit`](#2-1-2-editing-an-applicant-edit)
-      - [2.1.3. Deleting an applicant: `delete`](#2-1-3-deleting-an-applicant-delete)
-      - [2.1.4. Listing all applicants: `list`](#2-1-4-listing-all-applicant-list)
-      - [2.1.5. Viewing an applicant: `view`](#2-1-5-viewing-the-details-of-a-single-applicant-view)
-      - [2.1.6. Hiding/unhiding an applicant: `hide/unhide`](#2-1-6-hiding-an-applicant-from-list-hide-unhide)
-    - [2.2. Applicant evaluation & comparison](#2-2-applicant-evaluation-and-amp-comparison)
-      - [2.2.1. Sorting applicants by gpa: `sort-gpa`](#2-2-1-sorting-applicants-by-gpa-sort-gpa)
-      - [2.2.2. Sorting applicants by grades: `sort-grade`](#2-2-2-sorting-by-module-grade-sort-grade)
-      - [2.2.3. Sorting applicants by interview score: `sort-interview`](#2-2-3-sorting-by-interview-score-sort-interview)
-      - [2.2.4. Comparing 2 applicants: `compare`](#2-2-4-comparing-2-applicants-compare)
-      - [2.2.5. Bookmarking/Unbookmarking applicants: `bookmark/unbookmark`](#2-2-5-bookmarkingunbookmarking-applicants-bookmarkunbookmark)
-      - [2.2.6. Commenting on TA applicant: `comment`](#2-2-6-commenting-on-ta-applicant-comment)
-    - [2.3. Files and data management](#2-3-files-and-data-management)
-      - [2.3.1. Importing applicants from spreadsheet: `import`](#2-3-1-importing-applicants-from-spreadsheet-import)
-      - [2.3.2. Attaching file to applicant profiles: `attach`](#2-3-2-attaching-file-to-applicant-profiles-attach)
-- [3. Data management](#3-data-management)
-    - [3.1. Saving the data](#3-1-saving-the-data)
-    - [3.2. Editing the data file](#3-2-editing-the-data-file)
-- [4. Upcoming Features](#4-upcoming-features-coming-in-a-future-update)
-- [5. FAQ](#5-faq)
-- [6. Known Issues](#6-known-issues)
-- [7. Summary](#7-summary)
-    - [7.1. Prefix Summary](#7-1-prefix-summary)
-    - [7.2. Command Summary](#7-2-command-summary)
-      - [7.2.1. Basic applicant management commands](#7-2-1-basic-applicant-management-commands)
-      - [7.2.2. Applicant comparison and evaluation commands](#7-2-2-applicant-comparison-and-evaluation-commands)
-      - [7.2.3. Data management and export commands](#7-2-3-data-management-and-export-commands)
-
---------------------------------------------------------------------------------------------------------------------
+{% include toc.md header=true show-in-toc=true ordered=true %}
 
 ## 1. Quick start
 
@@ -72,8 +33,6 @@ You can click on any of the links below to navigate to the respective sections f
 #### 1.1.1. Java
 Ensure you have [Java `11`](https://www.oracle.com/sg/java/technologies/javase/jdk11-archive-downloads.html)
 or above installed. Java is the language that your computer uses to understand TAfinder.
-
-<box type="tip">
 
 **Not sure how to check your Java version?**
 
@@ -89,8 +48,6 @@ An example is shown below.
   > java -version
   java version "xxx" <Other information>
   ```
-
-</box>
 
 <div style="page-break-after: always;"></div>
 
