@@ -41,16 +41,19 @@
     }
   
     h2:not(.no_toc)::before {
+      color: inherit !important;
       counter-increment: section;
       content: counter(section) ". ";
     }
   
     h3:not(.no_toc)::before {
+      color: inherit !important;
       counter-increment: subsection;
       content: counter(section) "." counter(subsection) ". ";
     }
   
     h4:not(.no_toc)::before {
+      color: inherit !important;
       counter-increment: subsubsection;
       content: counter(section) "." counter(subsection) "." counter(subsubsection) ". ";
     }
