@@ -2,7 +2,7 @@
 title: Heng Yi's Project Portfolio Page
 ---
 
-### Project: TAfinder
+## Project: TAfinder
 
 TAfinder is a desktop resource management application used by NUS SOC professors to choose TAs from a large pool of applicants. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.
 
