@@ -9,9 +9,10 @@ TAfinder is a desktop address book application used by SOC professors to choose 
 Given below are my contributions to the project.
 
 * **New Feature**: Added the ability to bookmark/unbookmark users.
-    * What it does: allows the user to bookmark/unbookmark specific applicants of their choice, and list all bookmarked applicants.
+    * What it does: allows the user to bookmark/unbookmark specific applicants of their choice, and list all bookmarked applicants. (List function later enhanced by Amy)
     * Justification: This feature improves the product significantly because a user may want to take special note of certain applicants or may require a way to sigal which applicants have already been chosen to be a TA.
-    * Credits: List function later refactored by Amy.
+    * Highlights: This feature's development involved creating new data structures for bookmarking, extending the user interface, and ensuring seamless integration with existing application features.
+
 
 * **New Feature**: Added an initial view command to display a singular applicant.
     * What it does: allows the user to view a singular applicant.
@@ -21,7 +22,7 @@ Given below are my contributions to the project.
 * **Code contributed**: [RepoSense link](https://nus-cs2103-ay2324s1.github.io/tp-dashboard/?search=nabonitasen&breakdown=true)
 
 * **Enhancements to existing features**:
-    * Updated the GUI design and colour scheme.
+    * Updated the GUI design and entire colour scheme.
     * Initial refactoring of address field to GPA field.
 
 * **Documentation**:
@@ -34,6 +35,6 @@ Given below are my contributions to the project.
         * Updated the About Us page with the information of the team.
 
 * **Community**:
-    * Reviewed PRs.
+    * Reviewed PRs for team members.
     * Reported bugs and suggestions for other teams in the class during PE-D.
 

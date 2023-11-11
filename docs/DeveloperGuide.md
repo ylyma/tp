@@ -278,7 +278,7 @@ Step 7. The user then decides to view all bookmarked applicants by executing the
 
 The following sequence diagram shows how the bookmark operation works:
 
-![HideSequenceDiagram](images/HideSequenceDiagram.png)
+![BookmarkSequenceDiagram](images/BookmarkSequenceDiagram.png)
 
 The following activity diagram summarizes what happens when a user executes a `bookmark` command:
 
@@ -313,7 +313,7 @@ Step 6. A success message is displayed to the user to confirm that specified app
 
 The following sequence diagram shows how the `view` operation works:
 
-![HideSequenceDiagram](images/HideSequenceDiagram.png)
+![ViewSequenceDiagram](images/ViewSequenceDiagram.png)
 
 The following activity diagram summarizes what happens when a user executes a `view` command:
 

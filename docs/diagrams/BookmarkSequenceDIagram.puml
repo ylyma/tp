@@ -5,37 +5,69 @@ skinparam ArrowFontStyle plain
 
 actor User
 
-box Ui MODEL_COLOR_T1
-participant ":UI" as UI RED_COLOR
+box Ui UI_COLOR_T1
+participant ":UI" as UI UI_COLOR
 
 box Logic LOGIC_COLOR_T1
-participant ":CompareCommand" as CompareCommand BLUE_COLOR
-participant ":CompareCommandParser" as CompareCommandParser GREEN_COLOR
-participant ":ParserUtil" as ParserUtil GREEN_COLOR
+participant ":LogicManager" as LogicManager BLUE_COLOR
+participant ":AddressBookParser" as AddressBookParser BLUE_COLOR
+participant ":BookmarkCommandParser" as BookmarkCommandParser BLUE_COLOR
+participant ":ParserUtil" as ParserUtil BLUE_COLOR
+participant "b:BookmarkCommand" as BookmarkCommand BLUE_COLOR
 
+box Model MODEL_COLOR_T1
+participant ":Model" as Model MODEL_COLOR
 
-User -> UI: "compare 1 2"
+User -> UI: "Bookmark 1 2"
 activate UI
 
-UI -> CompareCommand: Execute command
-activate CompareCommand
+UI -> LogicManager : execute(bookmark)
+activate LogicManager
 
-CompareCommand -> CompareCommandParser: Parse command
-activate CompareCommandParser
+LogicManager -> AddressBookParser : parseCommand(bookmark)
+activate AddressBookParser
 
-CompareCommandParser -> ParserUtil: Parse index
+create BookmarkCommandParser
+AddressBookParser -> BookmarkCommandParser : parseCommand(bookmark)
+activate BookmarkCommandParser
+
+BookmarkCommandParser -> ParserUtil: Input
 activate ParserUtil
-ParserUtil -> ParserUtil: Validate indices
-activate ParserUtil
+
+ParserUtil --> BookmarkCommandParser: Valid index
 deactivate ParserUtil
 
-ParserUtil --> CompareCommandParser: Valid indices
-deactivate ParserUtil
-CompareCommandParser --> CompareCommand: Valid indices
-deactivate CompareCommandParser
-CompareCommand --> UI: Valid applicants
-deactivate CompareCommand
-UI --> User: CompareWindow
+create BookmarkCommand
+BookmarkCommandParser -> BookmarkCommand: Valid index
+activate BookmarkCommand
+
+BookmarkCommand --> BookmarkCommandParser: b
+deactivate BookmarkCommand
+
+BookmarkCommandParser --> AddressBookParser: b
+deactivate BookmarkCommandParser
+
+AddressBookParser --> LogicManager: b
+destroy BookmarkCommandParser
+deactivate AddressBookParser
+
+LogicManager -> BookmarkCommand: execute()
+activate BookmarkCommand
+
+BookmarkCommand -> Model: setPerson()
+activate Model
+
+Model --> BookmarkCommand
+deactivate Model
+
+BookmarkCommand --> LogicManager: result
+deactivate BookmarkCommand
+
+LogicManager --> UI: Success Message
+destroy BookmarkCommand
+deactivate LogicManager
+
+UI --> User: Success Message
 deactivate
 
 @enduml
