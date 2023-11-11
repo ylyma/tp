@@ -127,7 +127,7 @@ OR return to the [Table of Contents](#table-of-contents) to find your desired co
 </div>
 
 ### Navigating the User Interface
-  
+
 ![UI with shaded areas](images/tafinder-UI.png)
 
 The UI has the following areas:
