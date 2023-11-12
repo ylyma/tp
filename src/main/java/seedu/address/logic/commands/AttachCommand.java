@@ -70,6 +70,9 @@ public class AttachCommand extends Command {
         List<Attachment> updatedAttachments = new ArrayList<>(personToAttachTo.getAttachments());
         try {
             for (Attachment attachment : attachments) {
+                if (attachment.file.isDirectory()) {
+                    throw new CommandException(MESSAGE_FAILED_TO_COPY);
+                }
                 checkAttachmentUnique(attachment, updatedAttachments);
                 Attachment copiedAttachment = copyAttachment(
                         model.getUserPrefs().getAttachmentsBasePath(), attachment, personToAttachTo);
