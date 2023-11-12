@@ -1,6 +1,8 @@
 package seedu.address.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.showPersonAtIndex;
 import static seedu.address.logic.parser.CliSyntax.FIELD_BOOKMARKED;
@@ -59,5 +61,29 @@ public class ListCommandTest {
         String expectedMessage = ListCommand.MESSAGE_SUCCESS;
         assertEquals(expectedMessage, commandResult.getFeedbackToUser());
         assertEquals(model.getFilteredPersonList().get(0), bookmarkedPerson);
+    }
+
+    @Test
+    public void equals() {
+        ListCommand listFirstCommand = new ListCommand();
+        ListCommand listSecondCommand = new ListCommand(FIELD_HIDDEN);
+
+        assertTrue(listFirstCommand.equals(listFirstCommand));
+
+        ListCommand listFirstCommandCopy = new ListCommand();
+        assertTrue(listFirstCommand.equals(listFirstCommandCopy));
+
+        assertFalse(listFirstCommand.equals(1));
+
+        assertFalse(listFirstCommand.equals(null));
+
+        assertFalse(listFirstCommand.equals(listSecondCommand));
+    }
+
+    @Test
+    public void toStringMethod() {
+        ListCommand listCommand = new ListCommand();
+        String expected = ListCommand.class.getCanonicalName() + "{field=" + null + "}";
+        assertEquals(expected, listCommand.toString());
     }
 }
