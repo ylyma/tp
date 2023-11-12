@@ -83,7 +83,7 @@ public class ListCommandTest {
     @Test
     public void toStringMethod() {
         ListCommand listCommand = new ListCommand();
-        String expected = ListCommand.class.getCanonicalName() + "{field=" + null + "}";
+        String expected = ListCommand.class.getCanonicalName() + "{fieldName=" + "}";
         assertEquals(expected, listCommand.toString());
     }
 }
