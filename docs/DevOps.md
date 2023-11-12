@@ -2,8 +2,6 @@
 title: DevOps guide
 ---
 
-# DevOps guide
-
 ## Build automation
 
 This project uses Gradle for **build automation and dependency management**. **You are recommended to read [this Gradle Tutorial from the se-edu/guides](https://se-education.org/guides/tutorials/gradle.html)**.
