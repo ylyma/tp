@@ -16,6 +16,7 @@ import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.HelpCommand;
+import seedu.address.logic.commands.HideCommand;
 import seedu.address.logic.commands.ListCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Person;
@@ -83,5 +84,75 @@ public class AddressBookParserTest {
     @Test
     public void parseCommand_unknownCommand_throwsParseException() {
         assertThrows(ParseException.class, MESSAGE_UNKNOWN_COMMAND, () -> parser.parseCommand("unknownCommand"));
+    }
+
+    @Test
+    public void parseCommand_hide() throws Exception {
+        HideCommand command = (HideCommand) parser.parseCommand(
+                HideCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased());
+        assertEquals(new HideCommand(INDEX_FIRST_PERSON), command);
+    }
+
+    @Test
+    public void parseCommand_unhide() throws Exception {
+        HideCommand command = (HideCommand) parser.parseCommand(
+                HideCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased());
+        assertEquals(new HideCommand(INDEX_FIRST_PERSON), command);
+    }
+
+    @Test
+    public void parseCommand_bookmark() throws Exception {
+        HideCommand command = (HideCommand) parser.parseCommand(
+                HideCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased());
+        assertEquals(new HideCommand(INDEX_FIRST_PERSON), command);
+    }
+
+    @Test
+    public void parseCommand_unbookmark() throws Exception {
+        HideCommand command = (HideCommand) parser.parseCommand(
+                HideCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased());
+        assertEquals(new HideCommand(INDEX_FIRST_PERSON), command);
+    }
+
+    @Test
+    public void parseCommand_sort() throws Exception {
+        HideCommand command = (HideCommand) parser.parseCommand(
+                HideCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased());
+        assertEquals(new HideCommand(INDEX_FIRST_PERSON), command);
+    }
+
+    @Test
+    public void parseCommand_unhideAll() throws Exception {
+        HideCommand command = (HideCommand) parser.parseCommand(
+                HideCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased());
+        assertEquals(new HideCommand(INDEX_FIRST_PERSON), command);
+    }
+
+    @Test
+    public void parseCommand_comment() throws Exception {
+        HideCommand command = (HideCommand) parser.parseCommand(
+                HideCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased());
+        assertEquals(new HideCommand(INDEX_FIRST_PERSON), command);
+    }
+
+    @Test
+    public void parseCommand_view() throws Exception {
+        HideCommand command = (HideCommand) parser.parseCommand(
+                HideCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased());
+        assertEquals(new HideCommand(INDEX_FIRST_PERSON), command);
+    }
+
+    @Test
+    public void parseCommand_import() throws Exception {
+        HideCommand command = (HideCommand) parser.parseCommand(
+                HideCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased());
+        assertEquals(new HideCommand(INDEX_FIRST_PERSON), command);
+    }
+
+    @Test
+    public void parseCommand_attach() throws Exception {
+        HideCommand command = (HideCommand) parser.parseCommand(
+                HideCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased());
+        assertEquals(new HideCommand(INDEX_FIRST_PERSON), command);
     }
 }
