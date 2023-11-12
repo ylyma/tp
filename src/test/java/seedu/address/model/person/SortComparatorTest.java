@@ -71,7 +71,27 @@ public class SortComparatorTest {
         Person person2 = new PersonBuilder().withPhone("87654321").build();
         assertEquals(-7, comparator.compare(person1, person2));
     }
-
+    @Test
+    public void compare_commentsAreEmpty_returnsZero() {
+        SortComparator comparator = new SortComparator("comment");
+        Person person1 = new PersonBuilder().build();
+        Person person2 = new PersonBuilder().build();
+        assertEquals(0, comparator.compare(person1, person2));
+    }
+    @Test
+    public void compare_firstCommentIsEmpty_returnsNonZero() {
+        SortComparator comparator = new SortComparator("comment");
+        Person person1 = new PersonBuilder().build();
+        Person person2 = new PersonBuilder().withComment("hello").build();
+        assertEquals(1, comparator.compare(person1, person2));
+    }
+    @Test
+    public void compare_secondCommentIsEmpty_returnsNonZero() {
+        SortComparator comparator = new SortComparator("comment");
+        Person person1 = new PersonBuilder().withComment("hello").build();
+        Person person2 = new PersonBuilder().build();
+        assertEquals(-1, comparator.compare(person1, person2));
+    }
     @Test
     public void compare_commentIsSame_returnsZero() {
         SortComparator comparator = new SortComparator("comment");
@@ -94,6 +114,68 @@ public class SortComparatorTest {
         Person person1 = new PersonBuilder().withTags("friends", "owesMoney").build();
         Person person2 = new PersonBuilder().withTags("friends").build();
         assertEquals(-1, comparator.compare(person1, person2));
+    }
+
+    @Test
+    public void compare_interviewScoresAreEmpty_returnsZero() {
+        SortComparator comparator = new SortComparator("interviewScore");
+        Person person1 = new PersonBuilder().build();
+        Person person2 = new PersonBuilder().build();
+        assertEquals(0, comparator.compare(person1, person2));
+    }
+
+    @Test
+    public void compare_firstInterviewScoreIsEmpty_returnsNonZero() {
+        SortComparator comparator = new SortComparator("interviewScore");
+        Person person1 = new PersonBuilder().build();
+        Person person2 = new PersonBuilder().withInterviewScore(1).build();
+        assertEquals(1, comparator.compare(person1, person2));
+    }
+
+    @Test
+    public void compare_secondInterviewScoreIsEmpty_returnsNonZero() {
+        SortComparator comparator = new SortComparator("interviewScore");
+        Person person1 = new PersonBuilder().withInterviewScore(1).build();
+        Person person2 = new PersonBuilder().build();
+        assertEquals(-1, comparator.compare(person1, person2));
+    }
+    @Test
+    public void compare_interviewScoreIsSame_returnsZero() {
+        SortComparator comparator = new SortComparator("interviewScore");
+        Person person1 = new PersonBuilder().withInterviewScore(1).build();
+        Person person2 = new PersonBuilder().withInterviewScore(1).build();
+        assertEquals(0, comparator.compare(person1, person2));
+    }
+    @Test
+    public void compare_interviewScoreIsDifferent_returnsNonZero() {
+        SortComparator comparator = new SortComparator("interviewScore");
+        Person person1 = new PersonBuilder().withInterviewScore(1).build();
+        Person person2 = new PersonBuilder().withInterviewScore(2).build();
+        assertEquals(1, comparator.compare(person1, person2));
+    }
+
+    @Test
+    public void compare_previousGradeIsSame_returnsZero() {
+        SortComparator comparator = new SortComparator("previousGrade");
+        Person person1 = new PersonBuilder().withPreviousGrade("A").build();
+        Person person2 = new PersonBuilder().withPreviousGrade("A").build();
+        assertEquals(0, comparator.compare(person1, person2));
+    }
+
+    @Test
+    public void compare_previousGradeIsDifferent_returnsNonZero() {
+        SortComparator comparator = new SortComparator("previousGrade");
+        Person person1 = new PersonBuilder().withPreviousGrade("A").build();
+        Person person2 = new PersonBuilder().withPreviousGrade("B+").build();
+        assertEquals(-2, comparator.compare(person1, person2));
+    }
+
+    @Test
+    public void compare_undefinedField_returnsZero() {
+        SortComparator comparator = new SortComparator("undefined");
+        Person person1 = new PersonBuilder().build();
+        Person person2 = new PersonBuilder().build();
+        assertEquals(0, comparator.compare(person1, person2));
     }
 
 }
