@@ -59,4 +59,28 @@ public class PreviousGradeTest {
         // different values -> returns false
         assertFalse(previousGrade.equals(new PreviousGrade("B")));
     }
+
+    @Test
+    public void testToString() {
+        PreviousGrade score1 = new PreviousGrade("A");
+        PreviousGrade score2 = new PreviousGrade("B+");
+        PreviousGrade score3 = new PreviousGrade("B");
+        PreviousGrade score4 = new PreviousGrade("B-");
+        PreviousGrade score5 = new PreviousGrade("C+");
+        PreviousGrade score6 = new PreviousGrade("C");
+        PreviousGrade score7 = new PreviousGrade("D+");
+        PreviousGrade score8 = new PreviousGrade("D");
+        PreviousGrade score9 = new PreviousGrade("F");
+
+        assertEquals(score1.toString(), "A");
+        assertEquals(score2.toString(), "B+");
+        assertEquals(score3.toString(), "B");
+        assertEquals(score4.toString(), "B-");
+        assertEquals(score5.toString(), "C+");
+        assertEquals(score6.toString(), "C");
+        assertEquals(score7.toString(), "D+");
+        assertEquals(score8.toString(), "D");
+        assertEquals(score9.toString(), "F");
+
+    }
 }
