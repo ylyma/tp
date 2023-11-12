@@ -35,4 +35,9 @@ public class ListPredicateTest {
         assertFalse(listPredicate.test(new PersonBuilder().withBookmark(false).build()));
     }
 
+    @Test
+    public void test_filterUndefined_returnsFalse() {
+        ListPredicate listPredicate = new ListPredicate("undefined", true);
+        assertFalse(listPredicate.test(new PersonBuilder().withBookmark(false).build()));
+    }
 }
