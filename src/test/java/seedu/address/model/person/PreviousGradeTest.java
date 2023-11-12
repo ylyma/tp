@@ -11,7 +11,7 @@ public class PreviousGradeTest {
     @Test
     public void isValidPreviousGrade() {
         // invalid PreviousGrades
-        assertFalse(PreviousGrade.isValidGrade("5"));
+        assertFalse(PreviousGrade.isValidGrade("D-"));
         assertFalse(PreviousGrade.isValidGrade("lol"));
 
         // valid PreviousGrades
