@@ -627,17 +627,17 @@ Index out of range:<br>
 
 ---
 
-#### Clearing all applicants: **`clear`**
-
-<box type="definition">
+#### Clearing all applicants: `clear`
 
 Clears your entire list of applicants.
 
- </box>
-
 **Format:**
 
+<div markdown="block" class="alert alert-info">
+
 **`clear`**
+
+</div>
 
 Following the example above, if you entered everything correctly, you should see the following:
 
@@ -646,47 +646,37 @@ Following the example above, if you entered everything correctly, you should see
 |:-----------------------------------------------:|:----------------------------------------------:|
 | ![clear function UI](images/clear_beforeUI.png) | ![clear function UI](images/clear_afterUI.png) |
 
-
-
-<box no-icon type="success">
-
 **Expected Outputs:**
 
-<box type="success" light>
+<div markdown="block" class="alert alert-success">
 
 Successfully clearing all applicants.<br>
 **`"Applicant list has been cleared!"`**
 
-</box>
-
-</box>
+</div>
 
 
 ---
 
-#### Exiting the application **`exit`**
-
-<box type="definition">
+#### Exiting the application: `exit`
 
 Exits the application, while ensuring all your changes are saved.
 
- </box>
-
 **Format:**
+
+<div markdown="block" class="alert alert-info">
 
 **`exit`**
 
-<box no-icon type="success">
+</div>
 
 **Expected Outputs:**
 
-<box type="success" light>
+<div markdown="block" class="alert alert-success">
 
 - Application closes.
 
-</box>
-
-</box>
+</div>
 
 ---
 
@@ -793,7 +783,7 @@ Comparing the same applicant:<br>
 
 ---
 
-#### Bookmarking/Unbookmarking applicants: `bookmark/unbookmark`
+#### Bookmarking applicants: `bookmark`/`unbookmark`
 
 Bookmarks/Unbookmarks a specific applicant.
 
@@ -827,11 +817,14 @@ Following the example above, if you entered everything correctly, you should see
 **`unbookmark 2`**
 - Unbookmarks the second applicant.
 
+</div>
+
 Following the example above, if you entered everything correctly, you should see the following:
 
 |                          Before                           |                          After                           |
 |:---------------------------------------------------------:|:--------------------------------------------------------:|
 | ![unbookmark function UI](images/unbookmark_beforeUI.png) | ![unbookmark function UI](images/unbookmark_afterUI.png) |
+
 
 **Expected Outputs:**
 
@@ -864,7 +857,7 @@ Index out of range:<br>
 
 ---
 
-#### Commenting on TA applicant: **`comment`**
+#### Commenting on applicant: `comment`
 
 One of yours TAs is unable to make it for the interview.
 You want to make a comment on the applicant to remind yourself to follow up with him/her.
@@ -933,11 +926,7 @@ Index out of range:<br>
 
 #### Importing applicants from spreadsheet: `import`
 
-<box type="definition">
-
 Imports an entire list of applicants along with their details from a CSV file.
-
-</box>
 
 |            Sample .csv             |                After import                |
 |:----------------------------------:|:------------------------------------------:|
@@ -1053,13 +1042,13 @@ TAfinder data are saved in the hard disk automatically after any command that ch
 
 TAfinder data are saved automatically as a JSON file `[JAR file location]/data/tafinder.json`. Advanced users are welcome to update data directly by editing that data file.
 
-<box type="warning">
-
 **Warning:**
+
+<div markdown="block" type="alert alert-warning">
 
 If your changes to the data file makes its format invalid, TAfinder will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.
 
-</box>
+</div>
 
 --------------------------------------------------------------------------------------------------------------------
 ## Upcoming Features [coming in a future update!]
