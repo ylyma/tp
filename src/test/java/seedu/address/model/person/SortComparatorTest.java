@@ -86,6 +86,13 @@ public class SortComparatorTest {
         assertEquals(1, comparator.compare(person1, person2));
     }
     @Test
+    public void compare_secondCommentIsEmpty_returnsNonZero() {
+        SortComparator comparator = new SortComparator("comment");
+        Person person1 = new PersonBuilder().withComment("hello").build();
+        Person person2 = new PersonBuilder().build();
+        assertEquals(-1, comparator.compare(person1, person2));
+    }
+    @Test
     public void compare_commentIsSame_returnsZero() {
         SortComparator comparator = new SortComparator("comment");
         Person person1 = new PersonBuilder().withComment("hello").build();
@@ -124,6 +131,14 @@ public class SortComparatorTest {
         Person person2 = new PersonBuilder().withInterviewScore(1).build();
         assertEquals(1, comparator.compare(person1, person2));
     }
+
+    @Test
+    public void compare_secondInterviewScoreIsEmpty_returnsNonZero() {
+        SortComparator comparator = new SortComparator("interviewScore");
+        Person person1 = new PersonBuilder().withInterviewScore(1).build();
+        Person person2 = new PersonBuilder().build();
+        assertEquals(-1, comparator.compare(person1, person2));
+    }
     @Test
     public void compare_interviewScoreIsSame_returnsZero() {
         SortComparator comparator = new SortComparator("interviewScore");
@@ -153,6 +168,14 @@ public class SortComparatorTest {
         Person person1 = new PersonBuilder().withPreviousGrade("A").build();
         Person person2 = new PersonBuilder().withPreviousGrade("B+").build();
         assertEquals(-2, comparator.compare(person1, person2));
+    }
+
+    @Test
+    public void compare_undefinedField_returnsZero() {
+        SortComparator comparator = new SortComparator("undefined");
+        Person person1 = new PersonBuilder().build();
+        Person person2 = new PersonBuilder().build();
+        assertEquals(0, comparator.compare(person1, person2));
     }
 
 }
