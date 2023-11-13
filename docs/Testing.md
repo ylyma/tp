@@ -1,8 +1,6 @@
 ---
-title: Testing guide
+title: Testing
 ---
-
-# Testing
 
 ## Running tests
 

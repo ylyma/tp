@@ -858,11 +858,7 @@ Index out of range:<br>
 
 #### Importing applicants from spreadsheet: `import`
 
-<box type="definition">
-
 Imports an entire list of applicants along with their details from a CSV file.
-
-</box>
 
 |            Sample .csv             |                After import                |
 |:----------------------------------:|:------------------------------------------:|
@@ -875,6 +871,22 @@ Imports an entire list of applicants along with their details from a CSV file.
 **`import FILENAME`**
 
 **`FILENAME`**: The desired filename of the CSV file to import from (including the file extension)
+
+</div>
+
+<div markdown="block" class="alert alert-warning">
+
+The first line of the CSV file should contain the column names e.g. `studentNo`, `name` in any order. It must contain all the column names as specified in the example below. The following rows should contain the data for each applicant in the order specified by the header row.
+
+```csv
+studentNo,name,phone,email,gpa,previousGrade,tags
+A0123486A,Jasmine David,98472983,jasmine_david@u.nus.edu,4.3,B+,deansList;pastTA
+A0456123A,Sandeep Kopparthi,86753746,sandeep@u.nus.edu,5.0,B+,pastTA
+A0775848D,Lim Boon Kong,97777777,boonkong@u.nus.edu,3.5,C,deansList
+A0483910A,Mohammed Taufiq bin Rozaini,85535252,taufiq@u.nus.edu,4.2,A+,
+```
+
+*Note: The CSV format supported is only a **subset** of the [RFC 4180 CSV standard](https://www.loc.gov/preservation/digital/formats/fdd/fdd000323.shtml). Only text, commas and newlines are respected. No quoting or escaping is recognised by the parser.*
 
 </div>
 
