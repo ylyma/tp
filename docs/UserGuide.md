@@ -120,9 +120,9 @@ Some example commands you can try:
 
 **:bulb: Not sure what the commands above does?**
 
-You can find all about the usable commands [here](#2-features),<br>
-look at a summary of all the usable commands [here](#72-command-summary),<br>
-OR return to the [Table of Contents](#table-of-contents) to find your desired command.
+* Find all about the usable commands [here](#features)
+* Look at a summary of all the usable commands [here](#command-summary)
+* Return to the [Table of Contents](#toc-heading) to find your desired command
 
 </div>
 
