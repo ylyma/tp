@@ -359,6 +359,8 @@ Step 6. Finally, a message is displayed to the user indicating the number of app
 
 The attach feature allows users to attach files to TA applicants in the app. Attaching files *copies* these files into the `data` directory and adds a reference to those files to that `Person` model. This means that even if the original files are deleted, TAfinder would still have access to the copies of those files.
 
+#### Implementation
+
 The attachment mechanism is mainly facilitated by the `AttachCommand`, `AttachCommandParser`, and `Attachment` classes. It extends the abstract class `Command` with an `execute` functionality, to facilitate the execution of the command. Specifically, the attach feature is implemented through the following components and operations:
 
 - `AttachCommand` — Core component responsible for executing the attachment of a file to an applicant.
