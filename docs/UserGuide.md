@@ -70,7 +70,7 @@ An example is shown below.
 
 ### Installation
 
-**Step 1.** Download the latest `tafinder.jar` from [here]().
+**Step 1.** Download the latest `tafinder.jar` from [here](https://github.com/AY2324S1-CS2103T-W10-1/tp/releases/latest).
 
 **Step 2.** Copy the file to the folder you want to use as the _home folder_ for your TAfinder.
 
