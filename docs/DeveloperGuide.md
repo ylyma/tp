@@ -181,6 +181,7 @@ The following activity diagram summarizes what happens when a user executes a ne
 <img src="images/HideActivityDiagram.png" width="250" /
 
 ### Bookmark/Unbookmark feature
+
 The bookmark/unbookmark mechanism gives users the ability to bookmark or unbookmark certain applicants they want to take note of, as well as list these bookmarked applicants. This allows users to better differentiate between a long list of applicants, improving the ease of usage of this application and user experience.
 
 #### Implementation
@@ -217,12 +218,12 @@ The following activity diagram summarizes what happens when a user executes a `b
 
 ![BookmarkActivityDiagram](images/BookmarkActivityDiagram.png)
 
-
 ### View feature
+
+The view mechanism gives users the ability to view a specific applicant's details. This allows users to better focus on and evaluate a singular applicant when they need to, improving the ease of usage of this application and user experience.
 
 #### Implementation
 
-The view mechanism gives users the ability to view a specific applicant's details. This allows users to better focus on and evaluate a singular applicant when they need to, improving the ease of usage of this application and user experience.
 The view mechanism is mainly facilitated by the `ViewCommand` and `ViewCommandParser` classes. It extends the abstract class `Command` with an `execute` functionality, to facilitate the execution of the command. Specifically, the view feature is implemented through the following components and operations:
 - `ViewCommand` — Core component responsible for executing the the viewing of a singular applicant's details from the list.
 - `ViewCommandParser` — Contains the functionalities for user input parsing. It ensures that user input is valid as a view command by meeting specific requirements.
@@ -255,9 +256,11 @@ The following activity diagram summarizes what happens when a user executes a `v
 
 ### Compare feature
 
+The compare mechanism allows users to compare two distinct TA applicants in the TAfinder app.
+
 #### Implementation
 
-The compare mechanism allows users to compare two distinct TA applicants in the TAfinder app. The compare mechanism is mainly facilitated by the `CompareCommand`, `CompareCommandParser`, and `CompareWindow` classes. It extends the abstract class `Command` with an `execute` functionality, to facilitate the execution of the command. Specifically, the compare feature is implemented through the following components and operations:
+The compare mechanism is mainly facilitated by the `CompareCommand`, `CompareCommandParser`, and `CompareWindow` classes. It extends the abstract class `Command` with an `execute` functionality, to facilitate the execution of the command. Specifically, the compare feature is implemented through the following components and operations:
 
 - `CompareCommand` — Core component responsible for executing the comparison of two TA applicants in the list.
 - `Person` — Represents the TA applicants with their respective fields, such as `Gpa`, to be used for comparison.
@@ -291,8 +294,10 @@ The following activity diagram summarizes what happens when a user executes a `c
 
 ### Comment feature
 
-#### Implementation
 The comment command allows users to insert a comment on TA applicants in TAfinder app.
+
+#### Implementation
+
 The comment mechanism is mainly facilitated by the `CommentCommand` and `CommentCommandParser` classes. It extends the abstract class `Command` with an `execute` functionality, to facilitate the execution of the command. Specifically, the comment feature is implemented through the following components and operations:
 
 - `CommentCommand` — Core component responsible for executing the adding of comments to a TA applicant in the list.
