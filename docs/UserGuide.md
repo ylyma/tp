@@ -858,11 +858,7 @@ Index out of range:<br>
 
 #### Importing applicants from spreadsheet: `import`
 
-<box type="definition">
-
 Imports an entire list of applicants along with their details from a CSV file.
-
-</box>
 
 |            Sample .csv             |                After import                |
 |:----------------------------------:|:------------------------------------------:|
