@@ -77,10 +77,11 @@ public class CompareWindow extends Stage {
         //person1 stuff
         Gpa gpa1 = person1.getGpa();
         PreviousGrade mGrade1 = person1.getPreviousGrade();
-        InterviewScore interviewScore1 = person1.getInterviewScore().get();
+        InterviewScore interviewScore1 = null;
         String interviewScoreString1;
 
         if (person1.getInterviewScore().isPresent()) {
+            interviewScore1 = person1.getInterviewScore().get();
             interviewScoreString1 = interviewScore1.toString();
         } else {
             interviewScoreString1 = "-";
@@ -98,10 +99,11 @@ public class CompareWindow extends Stage {
         //person2 stuff
         Gpa gpa2 = person2.getGpa();
         PreviousGrade mGrade2 = person2.getPreviousGrade();
-        InterviewScore interviewScore2 = person2.getInterviewScore().get();
+        InterviewScore interviewScore2 = null;
         String interviewScoreString2;
 
-        if (person1.getInterviewScore().isPresent()) {
+        if (person2.getInterviewScore().isPresent()) {
+            interviewScore2 = person2.getInterviewScore().get();
             interviewScoreString2 = interviewScore2.toString();
         } else {
             interviewScoreString2 = "-";
@@ -136,10 +138,12 @@ public class CompareWindow extends Stage {
             gpa2Highlight.setOpacity(0.33);
         }
 
-        if (interviewScore1.compareTo(interviewScore2) > 0) {
-            iScore1Highlight.setOpacity(0.33);
-        } else if (interviewScore1.compareTo(interviewScore2) < 0) {
-            iScore2Highlight.setOpacity(0.33);
+        if (interviewScoreString1 != "-" && interviewScoreString2 != "-") {
+            if (interviewScore1.compareTo(interviewScore2) > 0) {
+                iScore1Highlight.setOpacity(0.33);
+            } else if (interviewScore1.compareTo(interviewScore2) < 0) {
+                iScore2Highlight.setOpacity(0.33);
+            }
         }
 
         if (mGrade1.compareTo(mGrade2) < 0) {

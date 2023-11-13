@@ -18,12 +18,18 @@ public class CompareCommandParser implements Parser<CompareCommand> {
     public CompareCommand parse(String args) throws ParseException {
         try {
             String[] splitArgs = args.trim().split("\\s+");
+            if (splitArgs.length != 2) {
+                throw new ParseException("Invalid command format!\n"
+                        + "Please follow the format: compare INDEX1 INDEX2.\n"
+                        + "Parameters: INDEX (must be positive integers)");
+            }
             Index index1 = ParserUtil.parseIndex(splitArgs[0]);
             Index index2 = ParserUtil.parseIndex(splitArgs[1]);
             return new CompareCommand(index1, index2);
         } catch (ParseException pe) {
-            throw new ParseException("Error: Please provide valid indices for both applicants."
-                    + "Follow the format: compare INDEX1 INDEX2.", pe);
+            throw new ParseException("Invalid command format!\n"
+                    + "Please follow the format: compare INDEX1 INDEX2.\n"
+                    + "Parameters: INDEX (must be positive integers)");
         }
     }
 }
