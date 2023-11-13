@@ -70,7 +70,7 @@ An example is shown below.
 
 ### Installation
 
-**Step 1.** Download the latest `tafinder.jar` from [here]().
+**Step 1.** Download the latest `tafinder.jar` from [here](https://github.com/AY2324S1-CS2103T-W10-1/tp/releases/latest).
 
 **Step 2.** Copy the file to the folder you want to use as the _home folder_ for your TAfinder.
 
@@ -118,11 +118,11 @@ Some example commands you can try:
 
 <div markdown="block" class="alert alert-secondary">
 
-**:bulb: Not sure what the commands above does?**
+**:bulb: Not sure what the commands above do?**
 
-You can find all about the usable commands [here](#2-features),<br>
-look at a summary of all the usable commands [here](#72-command-summary),<br>
-OR return to the [Table of Contents](#table-of-contents) to find your desired command.
+* Find all about the usable commands [here](#features)
+* Look at a summary of all the usable commands [here](#command-summary)
+* Return to the [Table of Contents](#toc-heading) to find your desired command
 
 </div>
 
