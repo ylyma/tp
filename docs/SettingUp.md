@@ -2,8 +2,6 @@
 title: Setting up and getting started
 ---
 
-# Setting up and getting started
-
 ## Setting up the project in your computer
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution:**

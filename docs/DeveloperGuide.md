@@ -3,11 +3,9 @@ title: Developer Guide
 show-sticky-toc: true
 ---
 
---------------------------------------------------------------------------------------------------------------------
-
 ## Acknowledgements
 
-* {list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well}
+* Reused code from [ToothTracker](https://github.com/AY2324S1-CS2103T-W10-3/tp) for table of contents, sticky navigation and auto-numbering of headers for website
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -18,11 +16,6 @@ Refer to the guide [_Setting up and getting started_](SettingUp.md).
 --------------------------------------------------------------------------------------------------------------------
 
 ## Design
-
-<div markdown="span" class="alert alert-primary">
-
-:bulb: **Tip:** The `.puml` files used to create diagrams in this document `docs/diagrams` folder. Refer to the [_PlantUML Tutorial_ at se-edu/guides](https://se-education.org/guides/tutorials/plantUml.html) to learn how to create and edit diagrams.
-</div>
 
 ### Architecture
 
@@ -45,7 +38,7 @@ The bulk of the app's work is done by the following four components:
 * [**`Model`**](#model-component): Holds the data of the App in memory.
 * [**`Storage`**](#storage-component): Reads data from, and writes data to, the hard disk.
 
-[**`Commons`**](#common-classes) represents a collection of classes used by multiple other components.
+[**`commons`**](#common-classes) represents a collection of classes used by multiple other components.
 
 **How the architecture components interact with each other**
 
@@ -93,7 +86,8 @@ The sequence diagram below illustrates the interactions within the `Logic` compo
 
 ![Interactions Inside the Logic Component for the `delete 1` Command](images/DeleteSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+<div markdown="span" class="alert alert-info">
+:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
 How the `Logic` component works:
@@ -130,7 +124,6 @@ The `Model` component,
 
 </div>
 
-
 ### Storage component
 
 **API** : [`Storage.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/storage/Storage.java)
@@ -142,86 +135,26 @@ The `Storage` component,
 * inherits from both `AddressBookStorage` and `UserPrefStorage`, which means it can be treated as either one (if only the functionality of only one is needed).
 * depends on some classes in the `Model` component (because the `Storage` component's job is to save/retrieve objects that belong to the `Model`)
 
+--------------------------------------------------------------------------------------------------------------------
+
 ### Common classes
 
 Classes used by multiple components are in the `seedu.addressbook.commons` package.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Implementation**
+## Implementation
 
 This section describes some noteworthy details on how certain features are implemented.
 
-### \[Proposed\] Undo/redo feature
+### Hide/unhide feature
 
-#### Proposed Implementation
+The hide/unhide mechanism introduces the capability to selectively hide certain applicants from view, improving user experience and providing greater control over the displayed information. This also includes a way to view all hidden applicants in a list. 
 
-The proposed undo/redo mechanism is facilitated by `VersionedAddressBook`. It extends `AddressBook` with an undo/redo history, stored internally as an `addressBookStateList` and `currentStatePointer`. Additionally, it implements the following operations:
+#### Implementation
 
-* `VersionedAddressBook#commit()` — Saves the current address book state in its history.
-* `VersionedAddressBook#undo()` — Restores the previous address book state from its history.
-* `VersionedAddressBook#redo()` — Restores a previously undone address book state from its history.
+This feature implements the following operations:
 
-These operations are exposed in the `Model` interface as `Model#commitAddressBook()`, `Model#undoAddressBook()` and `Model#redoAddressBook()` respectively.
-
-Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.
-
-Step 1. The user launches the application for the first time. The `VersionedAddressBook` will be initialized with the initial address book state, and the `currentStatePointer` pointing to that single address book state.
-
-![UndoRedoState0](images/UndoRedoState0.png)
-
-Step 2. The user executes `delete 5` command to delete the 5th person in the address book. The `delete` command calls `Model#commitAddressBook()`, causing the modified state of the address book after the `delete 5` command executes to be saved in the `addressBookStateList`, and the `currentStatePointer` is shifted to the newly inserted address book state.
-
-![UndoRedoState1](images/UndoRedoState1.png)
-
-Step 3. The user executes `add n/David …​` to add a new person. The `add` command also calls `Model#commitAddressBook()`, causing another modified address book state to be saved into the `addressBookStateList`.
-
-![UndoRedoState2](images/UndoRedoState2.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If a command fails its execution, it will not call `Model#commitAddressBook()`, so the address book state will not be saved into the `addressBookStateList`.
-
-</div>
-
-Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will call `Model#undoAddressBook()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous address book state, and restores the address book to that state.
-
-![UndoRedoState3](images/UndoRedoState3.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index 0, pointing to the initial AddressBook state, then there are no previous AddressBook states to restore. The `undo` command uses `Model#canUndoAddressBook()` to check if this is the case. If so, it will return an error to the user rather
-than attempting to perform the undo.
-
-</div>
-
-The following sequence diagram shows how the undo operation works:
-
-![UndoSequenceDiagram](images/UndoSequenceDiagram.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `UndoCommand` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-
-</div>
-
-The `redo` command does the opposite — it calls `Model#redoAddressBook()`, which shifts the `currentStatePointer` once to the right, pointing to the previously undone state, and restores the address book to that state.
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index `addressBookStateList.size() - 1`, pointing to the latest address book state, then there are no undone AddressBook states to restore. The `redo` command uses `Model#canRedoAddressBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-
-</div>
-
-Step 5. The user then decides to execute the command `list`. Commands that do not modify the address book, such as `list`, will usually not call `Model#commitAddressBook()`, `Model#undoAddressBook()` or `Model#redoAddressBook()`. Thus, the `addressBookStateList` remains unchanged.
-
-![UndoRedoState4](images/UndoRedoState4.png)
-
-Step 6. The user executes `clear`, which calls `Model#commitAddressBook()`. Since the `currentStatePointer` is not pointing at the end of the `addressBookStateList`, all address book states after the `currentStatePointer` will be purged. Reason: It no longer makes sense to redo the `add n/David …​` command. This is the behavior that most modern desktop applications follow.
-
-![UndoRedoState5](images/UndoRedoState5.png)
-
-The following activity diagram summarizes what happens when a user executes a new command:
-
-<img src="images/CommitActivityDiagram.png" width="250" />
-
-### \[Proposed\] Hide/unhide feature
-
-#### Proposed Implementation
-
-The proposed undo/redo mechanism introduces the capability to selectively hide certain applicants from view, improving user experience and providing greater control over the displayed information. This also includes a way to view all hidden applicants in a list. This feature implements the following operations:
 * `HideCommand#execute()` — Hides the specified applicant from the list.
 * `UnhideCommand#execute()` — Unhides the specified applicant from the list.
 * `UnhideAllCommand#execute()` — Unhides all hidden applicants.
@@ -243,16 +176,16 @@ The following sequence diagram shows how the undo operation works:
 
 ![HideSequenceDiagram](images/HideSequenceDiagram.png)
 
-
 The following activity diagram summarizes what happens when a user executes a new command:
 
-<img src="images/HideActivityDiagram.png" width="250" />
+<img src="images/HideActivityDiagram.png" width="250" /
 
 ### Bookmark/Unbookmark feature
 
+The bookmark/unbookmark mechanism gives users the ability to bookmark or unbookmark certain applicants they want to take note of, as well as list these bookmarked applicants. This allows users to better differentiate between a long list of applicants, improving the ease of usage of this application and user experience.
+
 #### Implementation
 
-The bookmark/unbookmark mechanism gives users the ability to bookmark or unbookmark certain applicants they want to take note of, as well as list these bookmarked applicants. This allows users to better differentiate between a long list of applicants, improving the ease of usage of this application and user experience. 
 The bookmark/unbookmark mechanism is mainly facilitated by the `BookmarkCommand/UnbookmarkCommand`, `BookmarkCommandParser/UnbookmarkCommandParser`, and `isBookmarked` classes. It extends the abstract class `Command` with an `execute` functionality, to facilitate the execution of the command. Specifically, the bookmark/unbookmark feature is implemented through the following components and operations:
 - `BookmarkCommand/UnbookmarkCommand` — Core component responsible for executing the bookmarking/unbookmarking of a specific applicant.
 - `BookmarkCommandParser/UnbookmarkCommandParser` — Contains the functionalities for user input parsing. It ensures that user input is valid as a bookmark/unbookmark command by meeting specific requirements.
@@ -285,12 +218,12 @@ The following activity diagram summarizes what happens when a user executes a `b
 
 ![BookmarkActivityDiagram](images/BookmarkActivityDiagram.png)
 
-
 ### View feature
+
+The view mechanism gives users the ability to view a specific applicant's details. This allows users to better focus on and evaluate a singular applicant when they need to, improving the ease of usage of this application and user experience.
 
 #### Implementation
 
-The view mechanism gives users the ability to view a specific applicant's details. This allows users to better focus on and evaluate a singular applicant when they need to, improving the ease of usage of this application and user experience.
 The view mechanism is mainly facilitated by the `ViewCommand` and `ViewCommandParser` classes. It extends the abstract class `Command` with an `execute` functionality, to facilitate the execution of the command. Specifically, the view feature is implemented through the following components and operations:
 - `ViewCommand` — Core component responsible for executing the the viewing of a singular applicant's details from the list.
 - `ViewCommandParser` — Contains the functionalities for user input parsing. It ensures that user input is valid as a view command by meeting specific requirements.
@@ -323,9 +256,11 @@ The following activity diagram summarizes what happens when a user executes a `v
 
 ### Compare feature
 
+The compare mechanism allows users to compare two distinct TA applicants in the TAfinder app.
+
 #### Implementation
 
-The compare mechanism allows users to compare two distinct TA applicants in the TAfinder app. The compare mechanism is mainly facilitated by the `CompareCommand`, `CompareCommandParser`, and `CompareWindow` classes. It extends the abstract class `Command` with an `execute` functionality, to facilitate the execution of the command. Specifically, the compare feature is implemented through the following components and operations:
+The compare mechanism is mainly facilitated by the `CompareCommand`, `CompareCommandParser`, and `CompareWindow` classes. It extends the abstract class `Command` with an `execute` functionality, to facilitate the execution of the command. Specifically, the compare feature is implemented through the following components and operations:
 
 - `CompareCommand` — Core component responsible for executing the comparison of two TA applicants in the list.
 - `Person` — Represents the TA applicants with their respective fields, such as `Gpa`, to be used for comparison.
@@ -359,27 +294,42 @@ The following activity diagram summarizes what happens when a user executes a `c
 
 ### Comment feature
 
-#### Implementation
 The comment command allows users to insert a comment on TA applicants in TAfinder app.
+
+#### Implementation
+
 The comment mechanism is mainly facilitated by the `CommentCommand` and `CommentCommandParser` classes. It extends the abstract class `Command` with an `execute` functionality, to facilitate the execution of the command. Specifically, the comment feature is implemented through the following components and operations:
 
 - `CommentCommand` — Core component responsible for executing the adding of comments to a TA applicant in the list.
-- `CommentCommand#execute` — Adds the comment to the specific applicant in the list.
+- `Person` — Represents the TA applicants with their respective fields, which includes the `comment` field.
 - `CommentCommandParser` — Contains the functionalities for user input parsing. It ensures that user input is valid as a compare command by meeting specific requirements.
+- `MainWindow` — Main User Interface (UI) for after a comment command is successfully executed. It will display the content of the TA applicant with the comment added.'
 
 Given below is an example usage scenario and how the comment mechanism behaves at each step.
 
-Step 1. The user launches the application for the first time. The applicant list displays all applicants.
+Step 0. Assume that there is an existing list of applicants in the application after launch.
 
-Step 2. The user decides to comment on the 3rd applicant in the applicant list with `Hardworking` as the comment by executing `comment 3 Hardworking`. The `CommentCommmandParser` is invoked to parse the user's input.
+Step 1. The user enters the comment command `comment 3 c/Hardworking` to comment on the 3rd applicant in the applicant 
+list with `Hardworking` as the comment by executing. The `CommentCommmandParser` is invoked to parse the user's input.
 
-Step 3. `CommmentCommandParser` will then invoke ParserUtil for parsing of the index and check for index errors. If the index is invalid, the system will generate an error message. The error message will be displayed to the user, providing clear feedback about the issue and the specific constraints that are not met.
+Step 2. If the index is valid, `CommentCommand#execute()` fetches the intended applicant from the currently visible list 
+and adds the comment `Hardworking` to the applicant with the corresponding index. The adding of comment is destructive, 
+meaning if the specified applicant has an existing comment, it will be overwritten.
 
-Step 4. If the index is valid, `CommentCommand#execute()` fetches the intended applicant from the currently visible list and adds the comment `Hardworking` to the applicant with the corresponding index. The adding of comment is destructive, meaning if the specified applicant has an existing comment, it will be overwritten.
+Step 3. `CommmentCommandParser` will then invoke ParserUtil for parsing of the index and check for index errors. 
+If the index is invalid, the system will generate an error message. The error message will be displayed to the user, 
+providing clear feedback about the issue and the specific constraints that are not met.
 
-Step 5. Then, `CommentCommand#execute()` updates `Model#setModel` with the updated Person. Displaying the updated applicant list with the comment added.
+Step 4. Then, `CommentCommand#execute()` updates `Model#setModel` with the updated Person. 
+Displaying the updated applicant list in `MainWindow` with the comment added.
 
-Step 6. A success message is displayed to the user to confirm that the comment has been added to the applicant successfully.
+Step 5. A success message is displayed to the user to confirm that the comment has been added to the applicant successfully.
+
+![CommentSequenceDiagram](images/CommentSequenceDiagram.png)
+
+The following activity diagram summarizes what happens when a user executes a `comment` command:
+
+![CommentActivityDiagram](images/CommentActivityDiagram.png)
 
 #### Design considerations
 
@@ -403,17 +353,68 @@ Step 6. A success message is displayed to the user to confirm that the comment h
     * Cons: Harder to implement the UI.
 
 
+### Import feature
+
+The import feature allows users to mass-create applicants within the application, from a list of applicants in a CSV file. This file could be exported from mySoC or elsewhere, as long as it is in the correct format.
+
+#### Implementation
+
+The format of the CSV file is as follows:
+
+1. The file must only contain text separated by commas and newlines — a limited subset of the true CSV file format. No escaping or quoting is allowed.
+2. The first line must be the header row, containing column names. The columns can be in any order, but must contain the following (case-sensitive):
+   - studentNo
+   - name
+   - phone
+   - email
+   - gpa
+   - previousGrade
+   - tags
+3. The following lines contain one applicant per row. The data of the applicant should be in the order of which the header row specified the columns i.e. if column 1 is `studentNo`, the first cell of each row should contain the applicant's student number.
+
+Here is an example CSV:
+
+```csv
+studentNo,name,phone,email,gpa,previousGrade,tags
+A0123486A,Jasmine David,98472983,jasmine_david@u.nus.edu,4.3,B+,deansList;pastTA
+A0456123A,Sandeep Kopparthi,86753746,sandeep@u.nus.edu,5.0,B+,pastTA
+A0775848D,Lim Boon Kong,97777777,boonkong@u.nus.edu,3.5,C,deansList
+A0483910A,Mohammed Taufiq bin Rozaini,85535252,taufiq@u.nus.edu,4.2,A+,
+```
+
+The import mechanism is mainly facilitated by the `ImportCommand`, `ImportCommandParser`, and `Attachment` classes. It extends the abstract class `Command` with an `execute` functionality, to facilitate the execution of the command. Specifically, the import feature is implemented through the following components and operations:
+
+- `ImportCommand` — Core component responsible for executing the import of TA applicants from the CSV file.
+- `ImportCommandParser` — Contains the functionalities for user input parsing. It ensures that user input is valid as an import command by meeting specific requirements.
+- `Person` — Represents the TA applicants with their respective fields, such as `Attachment`, which are created and added to the main model.
+- `Attachment` — Represents a reference to a file. This is merely used as a representation and handle to a file rather than to attach to any `Person` in particular.
+
+Given below is an example usage scenario and how the attach mechanism behaves at each step.
+
+Step 0. Assume that there is a valid CSV file to import named `applicants.csv`, such as the one above, and that it is in the same directory as the `tafinder.jar` file that was executed.
+
+Step 1. The user enters the import command `import applicants.csv` to import applicants from the CSV file specified in the previous step.
+
+Step 2. `ImportCommandParser` will then invoke `ParserUtil` for parsing of the file path to check for any invalid path characters. If the file path contains invalid path characters, the system will generate an error message. The error message will be displayed to the user, providing clear feedback about the issue and the specific constraints that are not met.
+
+Step 3. If indices are valid, `ImportCommand#execute()` opens the file and creates a `Scanner` over the file handle.
+
+Step 4. Then, the header row of the CSV is read and the order of the headers is saved into a map for later reference.
+
+Step 5. Next, a loop is executed to read through the rows of the CSV one-by-one. Each row is split via the comma, then parsed in the order that was recorded in the previous step. Any validation errors found cause a new error line number to be reported as an error, but no exception is thrown as we want to parse as many applicants as possible. A `Person` instance is created with the relevant data for each successful line i.e. no validation error.
+
+Step 6. Finally, a message is displayed to the user indicating the number of applicants successfully imported, the number of applicants that failed to be imported, and the line numbers containing those failed applicants.
 
 
 ### Attach feature
 
-#### Implementation
-
 The attach feature allows users to attach files to TA applicants in the app. Attaching files *copies* these files into the `data` directory and adds a reference to those files to that `Person` model. This means that even if the original files are deleted, TAfinder would still have access to the copies of those files.
 
-The attachment mechanism is mainly facilitated by the `AttachCommand`, `AttachCommandParser`, and `Attachment` classes. It extends the abstract class `Command` with an `execute` functionality, to facilitate the execution of the command. Specifically, the compare feature is implemented through the following components and operations:
+#### Implementation
 
-- `AttachCommand` — Core component responsible for executing the comparison of two TA applicants in the list.
+The attachment mechanism is mainly facilitated by the `AttachCommand`, `AttachCommandParser`, and `Attachment` classes. It extends the abstract class `Command` with an `execute` functionality, to facilitate the execution of the command. Specifically, the attach feature is implemented through the following components and operations:
+
+- `AttachCommand` — Core component responsible for executing the attachment of a file to an applicant.
 - `AttachCommandParser` — Contains the functionalities for user input parsing. It ensures that user input is valid as an attach command by meeting specific requirements.
 - `Person` — Represents the TA applicants with their respective fields, such as `Attachment`, to attach files to.
 - `Attachment` — Represents a reference to a file. This can be a file that has been "attached" to a `Person`, or just a file within the file system of the computer.
@@ -422,7 +423,7 @@ Given below is an example usage scenario and how the attach mechanism behaves at
 
 Step 0. Assume that there is an existing list of applicants in the application after launch.
 
-Step 1. The user enters the compare command `attach 1 f/Downloads/resume.pdf f/Downloads/cv.txt` to attach the files `resume.pdf` and `cv.txt` in the `Downloads` directory to the first user in the visible list.
+Step 1. The user enters the attach command `attach 1 f/Downloads/resume.pdf f/Downloads/cv.txt` to attach the files `resume.pdf` and `cv.txt` in the `Downloads` directory to the first user in the visible list.
 
 Step 2. `AttachCommandParser` will then invoke `ParserUtil` for parsing of the index and check for index errors, and then parses the file paths to check for any invalid path characters. If index is invalid or the file path contains invalid path characters, the system will generate an error message. The error message will be displayed to the user, providing clear feedback about the issue and the specific constraints that are not met.
 
@@ -432,9 +433,19 @@ Step 4. Then, `AttachCommand#execute()` copies each attachment into the `data` d
 
 Step 5. Finally, a success message is displayed to the user indicating the number of attachments that have been copied.
 
+The following sequence diagram shows how the `attach` operation works:
+
+![AttachSequenceDiagram](images/AttachSequenceDiagram.png)
+
+The following activity diagram summarizes what happens when a user executes a `attach` command:
+
+![AttachActivityDiagram](images/AttachActivityDiagram.png)
+
 --------------------------------------------------------------------------------------------------------------------
 
-## **Documentation, logging, testing, configuration, dev-ops**
+## Documentation, logging, testing, configuration, dev-ops
+
+We've broken these out into separate guides, do check them out.
 
 * [Documentation guide](Documentation.md)
 * [Testing guide](Testing.md)
@@ -444,7 +455,7 @@ Step 5. Finally, a success message is displayed to the user indicating the numbe
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Appendix: Requirements**
+## Appendix: Requirements
 
 ### Product scope
 
@@ -518,9 +529,6 @@ Step 5. Finally, a success message is displayed to the user indicating the numbe
 | NUS SOC professor              | receive recommendations on TA applicants based on AI analysis | facilitate a smarter selection process.                       |
 | NUS SOC professor              | import a spreadsheet of TA applicants to my module       | save time by not adding them individually                    |
 | NUS SOC professor              | search for a TA applicant using an identifier             | contact the TA directly if needed                            |
-
-
-*{More to be added}*
 
 ### Use cases
 
