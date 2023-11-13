@@ -301,22 +301,35 @@ The comment command allows users to insert a comment on TA applicants in TAfinde
 The comment mechanism is mainly facilitated by the `CommentCommand` and `CommentCommandParser` classes. It extends the abstract class `Command` with an `execute` functionality, to facilitate the execution of the command. Specifically, the comment feature is implemented through the following components and operations:
 
 - `CommentCommand` — Core component responsible for executing the adding of comments to a TA applicant in the list.
-- `CommentCommand#execute` — Adds the comment to the specific applicant in the list.
+- `Person` — Represents the TA applicants with their respective fields, which includes the `comment` field.
 - `CommentCommandParser` — Contains the functionalities for user input parsing. It ensures that user input is valid as a compare command by meeting specific requirements.
+- `MainWindow` — Main User Interface (UI) for after a comment command is successfully executed. It will display the content of the TA applicant with the comment added.'
 
 Given below is an example usage scenario and how the comment mechanism behaves at each step.
 
-Step 1. The user launches the application for the first time. The applicant list displays all applicants.
+Step 0. Assume that there is an existing list of applicants in the application after launch.
 
-Step 2. The user decides to comment on the 3rd applicant in the applicant list with `Hardworking` as the comment by executing `comment 3 Hardworking`. The `CommentCommmandParser` is invoked to parse the user's input.
+Step 1. The user enters the comment command `comment 3 c/Hardworking` to comment on the 3rd applicant in the applicant 
+list with `Hardworking` as the comment by executing. The `CommentCommmandParser` is invoked to parse the user's input.
 
-Step 3. `CommmentCommandParser` will then invoke ParserUtil for parsing of the index and check for index errors. If the index is invalid, the system will generate an error message. The error message will be displayed to the user, providing clear feedback about the issue and the specific constraints that are not met.
+Step 2. If the index is valid, `CommentCommand#execute()` fetches the intended applicant from the currently visible list 
+and adds the comment `Hardworking` to the applicant with the corresponding index. The adding of comment is destructive, 
+meaning if the specified applicant has an existing comment, it will be overwritten.
 
-Step 4. If the index is valid, `CommentCommand#execute()` fetches the intended applicant from the currently visible list and adds the comment `Hardworking` to the applicant with the corresponding index. The adding of comment is destructive, meaning if the specified applicant has an existing comment, it will be overwritten.
+Step 3. `CommmentCommandParser` will then invoke ParserUtil for parsing of the index and check for index errors. 
+If the index is invalid, the system will generate an error message. The error message will be displayed to the user, 
+providing clear feedback about the issue and the specific constraints that are not met.
 
-Step 5. Then, `CommentCommand#execute()` updates `Model#setModel` with the updated Person. Displaying the updated applicant list with the comment added.
+Step 4. Then, `CommentCommand#execute()` updates `Model#setModel` with the updated Person. 
+Displaying the updated applicant list in `MainWindow` with the comment added.
 
-Step 6. A success message is displayed to the user to confirm that the comment has been added to the applicant successfully.
+Step 5. A success message is displayed to the user to confirm that the comment has been added to the applicant successfully.
+
+![CommentSequenceDiagram](images/CommentSequenceDiagram.png)
+
+The following activity diagram summarizes what happens when a user executes a `comment` command:
+
+![CommentActivityDiagram](images/CommentActivityDiagram.png)
 
 #### Design considerations
 
