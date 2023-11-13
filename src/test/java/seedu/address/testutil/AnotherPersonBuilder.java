@@ -1,5 +1,10 @@
 package seedu.address.testutil;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+
 import seedu.address.model.attachment.Attachment;
 import seedu.address.model.person.Comment;
 import seedu.address.model.person.Email;
@@ -15,11 +20,9 @@ import seedu.address.model.person.StudentNumber;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-
+/**
+ * A utility class to help with building another Person object besides the first Person.
+ */
 public class AnotherPersonBuilder {
 
     public static final String DEFAULT_STUDENT_NUMBER = "A0616616B";
