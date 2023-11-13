@@ -724,7 +724,11 @@ Empty list:<br>
 
 Compares two applicants side by side to make informed decisions.
 
-![compare function UI](images/compareUI.png)
+
+|          TAfinder window           |                  Popup window                  |
+|:----------------------------------:|:----------------------------------------------:|
+| ![compareUI](images/compareUI.png) | ![compare_popupUI](images/compare_popupUI.png) |
+
 
 **Format:**
 
