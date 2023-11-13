@@ -128,7 +128,7 @@ OR return to the [Table of Contents](#table-of-contents) to find your desired co
 
 ### Navigating the User Interface
 
-![UI with shaded areas](images/tafinder-UI.png)
+![UI with shaded areas](images/navigation_coloredUI.png)
 
 The UI has the following areas:
 - <span style="background-color:#70AD47">Navigation bar</span>
