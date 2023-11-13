@@ -118,7 +118,7 @@ Some example commands you can try:
 
 <div markdown="block" class="alert alert-secondary">
 
-**:bulb: Not sure what the commands above does?**
+**:bulb: Not sure what the commands above do?**
 
 * Find all about the usable commands [here](#features)
 * Look at a summary of all the usable commands [here](#command-summary)
