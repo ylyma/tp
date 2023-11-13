@@ -9,22 +9,22 @@ TAfinder is a desktop app for NUS professors to find and track Teaching Assistan
 ![Ui](docs/images/Ui.png)
 
 ## Features
-### Basic Applicant management
-- Listing all applicants: list
-- Hiding/unhiding an applicant from the list: hide/unhide
-- Editing an applicant's information: edit
-- Adding an applicant: add
-- Viewing an applicant's details: view
 
-## Future updates
-### Applicant evaluation & comparison
-- Sorting applicants by grades: sort-gpa
-- Comparing 2 applicants: compare
-- Bookmarking/Unbookmarking an applicant: bookmark/unbookmark
-- Adding comments for an applicant: add
-### Data management and export
-- Exporting applicants into a spreadsheet
-- Attaching file to an applicant's profile
+- **Basic Applicant management**
+    - Listing all applicants: `list`
+    - Hiding/unhiding an applicant from the list: `hide`/`unhide``
+    - Editing an applicant's information: `edit`
+    - Adding an applicant: `add`
+    - Viewing an applicant's details: `view`
+- **Applicant evaluation & comparison**
+  - Sorting applicants by grades: `sort`
+  - Comparing 2 applicants: `compare`
+  - Bookmarking/Unbookmarking an applicant: `bookmark`/`unbookmark``
+  - Adding comments for an applicant: `comment`
+- **Data management and export**
+  - Import applicants from a spreadsheet: `import`
+  - Attaching file to an applicant's profile: `attach`
 
 ## Issues and Bugs
+
 Spot a bug? Let us know by launching a Bug Report at the [Issues tab](https://github.com/AY2324S1-CS2103T-W10-1/tp/issues)!
